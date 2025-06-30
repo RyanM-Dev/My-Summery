@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/HTTP/4.Path-Param.md",
-                "mode": "source",
+                "file": "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4.Path-Param"
+              "title": "3.Preventing-Goroutine-Leaks"
             }
           }
         ]
@@ -165,8 +165,11 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
-    "Go/HTTP/3.Payload-Body.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
+    "Go/HTTP/Swagger.md",
     "Go/HTTP/4.Path-Param.md",
+    "Go/HTTP/3.Payload-Body.md",
     "Go/Learning-Go/http-net.md",
     "Go/Learning-Go/Embeded-File.md",
     "Go/HTTP/1.HTTP-NET.md",
@@ -187,15 +190,12 @@
     "Linux/File & Directory/File & Directory Commands.md",
     "Linux/File & Directory/Upload File To Server.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
     "Go/Concurrency-in-Go/03-Chapter-Three/3.Channel.md",
     "Image/ChatGPT Image May 8, 2025, 09_03_50 AM.png",
     "Image",
     "Linux/Package-Manager.md",
     "MongoDB/4.Aggregation.md",
-    "Go/Concurrency-in-Go/03-Chapter-Three/1.Goroutine.md",
     "MongoDB",
-    "Go/Concurrency-in-Go/02-Chapter-Two/Parallelism & Concurrency.md",
     "Go/Concurrency-in-Go/04-Chapter-Four",
     "Go/Concurrency-in-Go/03-Chapter-Three",
     "Postgresql",

@@ -1,0 +1,27 @@
+/* اعمال بیشترین عرض ممکن به پنجره‌ها */
+.markdown-preview-view,
+.markdown-source-view {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* اعمال به کل محتوا */
+.markdown-preview-view .markdown-preview-sizer {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* جلوگیری از محدودیت در حالت پیش‌نمایش */
+.markdown-reading-view .markdown-preview-section {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* اگر از Minimal Theme استفاده می‌کنی: */
+.theme-minimal .mod-root .workspace-leaf-content {
+  max-width: 100% !important;
+  padding: 20px;
+}
+
