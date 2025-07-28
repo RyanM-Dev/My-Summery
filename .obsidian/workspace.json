@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/OAuth-2.0-Google.md",
-                "mode": "source",
+                "file": "Meilisearch/2.Relevancy.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OAuth-2.0-Google"
+              "title": "2.Relevancy"
             }
           }
         ]
@@ -165,43 +165,46 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
-    "Go/Testing/Docker-Test.md",
+    "Meilisearch/photo/new_road.png",
+    "Meilisearch/2.Relevancy.md",
+    "Meilisearch/photo/belgium.png",
+    "2025-07-28.md",
+    "Meilisearch/photo/vogli3.png",
+    "Untitled.canvas",
+    "Meilisearch/photo",
+    "Meilisearch/1.Interview.md",
+    "Go/Concurrency-in-Go/03-Chapter-Three/3.Channel.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
+    "Linux/Alias.md",
+    "MongoDB/3.Filters.md",
+    "Meilisearch",
+    "MongoDB/2.Mongosh.md",
     "Go/OAuth-2.0-Google.md",
+    "Go/Testing/Docker-Test.md",
     "Go/Testing/Testify.md",
     "Go/Testing",
     "Go/Learning-Go/15-Writing-Tests/3.Using go-cmp.md",
     "Go/Learning-Go/15-Writing-Tests/4.Fuzz-Testing.md",
     "Go/Learning-Go/15-Writing-Tests/1.Basics.md",
-    "Go/Concurrency-in-Go/03-Chapter-Three/3.Channel.md",
     "Go/Learning-Go/15-Writing-Tests/2.Test-With-Env.md",
     "Go/Learning-Go/Embeded-File.md",
     "Go/Learning-Go/15-Writing-Tests",
-    "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
     "Go/HTTP/Swagger.md",
     "Git.md",
     "Mysql.md",
     "Go/Rand.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
     "Go/HTTP/4.Path-Param.md",
     "Go/HTTP/3.Payload-Body.md",
     "Go/Learning-Go/http-net.md",
-    "Go/HTTP/1.HTTP-NET.md",
-    "Go/HTTP/2.Query-Param.md",
-    "Linux/Tmux.md",
     "Linux/tmux-cheat.webp",
-    "Linux/SSH.md",
-    "Linux/File & Directory/Head-Tail.md",
-    "Linux/Editors.md",
     "Go/HTTP",
-    "Linux/Alias.md",
-    "MongoDB/5.Go-Driver.md",
     "Image/ChatGPT Image May 8, 2025, 09_03_50 AM.png",
     "Image",
     "MongoDB",
     "Go/Concurrency-in-Go/04-Chapter-Four",
     "Go/Concurrency-in-Go/03-Chapter-Three",
-    "Postgresql",
-    "Go/Concurrency-in-Go/02-Chapter-Two",
-    "Go/Concurrency-in-Go/01-Chapter-One"
+    "Postgresql"
   ]
 }
