@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240.5
+    "width": 260.5
   },
   "right": {
     "id": "84fc2847d2834f40",
@@ -180,6 +180,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -195,9 +196,10 @@
     "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/Monad-And-HigherOrderFunction.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
     "Go/Concurrency-in-Go/03-Chapter-Three/3.Channel.md",
     "Mysql/1.Basic-Join.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
     "Linux/Abedini/CH-02/2.Debian-Based.md",
     "Linux/Abedini/CH-02/1.Package.md",
     "Linux/Abedini/CH-02",
@@ -219,7 +221,6 @@
     "Linux/Abedini/CH-01/3.History.md",
     "Linux/File & Directory/Search.md",
     "Linux/File & Directory/File & Directory Commands.md",
-    "Go/HTTP/4.Path-Param.md",
     "Linux/Abedini",
     "Mysql",
     "Git",
