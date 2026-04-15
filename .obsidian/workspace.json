@@ -11,10 +11,14 @@
             "id": "9c1fb341ea902032",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1.Confinement"
             }
           }
         ]
@@ -174,6 +178,12 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
+    "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
+    "Postgresql/Art-of-PostgreSQL/CH-8-Indexing Strategy.md",
+    "Mysql/1.Basic-Join.md",
+    "Postgresql/Art-of-PostgreSQL",
+    "Untitled.base",
     "Git/1.Basics.md",
     "Git/2.Stash.md",
     "2025-07-28.md",
@@ -191,19 +201,15 @@
     "Linux/Abedini/CH-01/11.Grep.md",
     "Linux/Abedini/CH-01/8.Wc.md",
     "Linux/Abedini/CH-01/6.Sort.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/Monad-And-HigherOrderFunction.md",
     "Go/Concurrency-in-Go/03-Chapter-Three/3.Channel.md",
-    "Mysql/1.Basic-Join.md",
     "Linux/Abedini/CH-02/1.Package.md",
     "Linux/Abedini/CH-02",
     "Linux/Abedini/CH-01/1.Echo.md",
     "Linux/Abedini/CH-01/2.Man.md",
     "Linux/Abedini/CH-01",
     "Go/Concurrency-in-Go/03-Chapter-Three/1.Goroutine.md",
-    "Mysql/2.Advance-Join.md",
     "Linux/Abedini",
     "Mysql",
     "Git",
@@ -212,8 +218,6 @@
     "Meilisearch/photo/vogli3.png",
     "Untitled.canvas",
     "Meilisearch/photo",
-    "Meilisearch",
-    "Go/Testing",
     "Linux/tmux-cheat.webp",
     "Image/ChatGPT Image May 8, 2025, 09_03_50 AM.png"
   ]
