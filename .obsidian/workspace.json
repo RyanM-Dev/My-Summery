@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
-                "mode": "source",
+                "file": "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.Confinement"
+              "title": "1- How the Command Line Works"
             }
           }
         ]
@@ -140,14 +140,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mysql.md"
+                "file": "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Mysql"
+              "title": "Outline of 1- How the Command Line Works"
             }
           },
           {
-            "id": "3ac4443700ffa954",
+            "id": "601e3bc8c5d16c01",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -178,46 +181,46 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
+    "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
+    "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
+    "Linux/The Software Developer’s Guide to Linux",
+    "Go/gRPC Microservices in Go/1- Introduction to Go gRPC microservices.md",
+    "Go/gRPC/1.Generate command.md",
+    "Go/gRPC Microservices in Go",
+    "Linux/Abedini/CH-02/2.Debian-Based.md",
+    "Linux/Abedini/CH-01/9.Cut.md",
+    "Linux/Abedini/CH-01/10.Hash.md",
+    "Git/1.Basics.md",
+    "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/2.For-Select-Loop.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/3.Preventing-Goroutine-Leaks.md",
     "Postgresql/Art-of-PostgreSQL/CH-8-Indexing Strategy.md",
     "Mysql/1.Basic-Join.md",
     "Postgresql/Art-of-PostgreSQL",
     "Untitled.base",
-    "Git/1.Basics.md",
     "Git/2.Stash.md",
     "2025-07-28.md",
     "Linux/File & Directory/Upload File To Server.md",
     "Linux/SSH.md",
-    "Go/gRPC/1.Generate command.md",
     "UNI/2.Grade_Payam.md",
     "UNI/1.Grades_Azad.md",
     "UNI",
     "Linux/Alias.md",
     "Go/gRPC",
-    "Linux/Abedini/CH-02/2.Debian-Based.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/5.Fan-Out,Fan-In.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
     "Linux/Abedini/CH-01/11.Grep.md",
     "Linux/Abedini/CH-01/8.Wc.md",
     "Linux/Abedini/CH-01/6.Sort.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/1.Confinement.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/Monad-And-HigherOrderFunction.md",
-    "Go/Concurrency-in-Go/03-Chapter-Three/3.Channel.md",
-    "Linux/Abedini/CH-02/1.Package.md",
     "Linux/Abedini/CH-02",
-    "Linux/Abedini/CH-01/1.Echo.md",
-    "Linux/Abedini/CH-01/2.Man.md",
     "Linux/Abedini/CH-01",
-    "Go/Concurrency-in-Go/03-Chapter-Three/1.Goroutine.md",
     "Linux/Abedini",
     "Mysql",
-    "Git",
     "Meilisearch/photo/new_road.png",
     "Meilisearch/photo/belgium.png",
     "Meilisearch/photo/vogli3.png",
     "Untitled.canvas",
-    "Meilisearch/photo",
     "Linux/tmux-cheat.webp",
     "Image/ChatGPT Image May 8, 2025, 09_03_50 AM.png"
   ]
