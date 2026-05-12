@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
-                "mode": "preview",
+                "file": "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1- How the Command Line Works"
+              "title": "3- Getting up and running with gRPC and Golang"
             }
           }
         ]
@@ -181,8 +181,9 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
-    "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
     "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
+    "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
+    "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
     "Linux/The Software Developer’s Guide to Linux",
     "Go/gRPC Microservices in Go/1- Introduction to Go gRPC microservices.md",
     "Go/gRPC/1.Generate command.md",
@@ -212,7 +213,6 @@
     "Linux/Abedini/CH-01/11.Grep.md",
     "Linux/Abedini/CH-01/8.Wc.md",
     "Linux/Abedini/CH-01/6.Sort.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/Monad-And-HigherOrderFunction.md",
     "Linux/Abedini/CH-02",
     "Linux/Abedini/CH-01",
     "Linux/Abedini",
