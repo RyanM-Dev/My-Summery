@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mysql/3.Indexes.md",
+                "file": "Linux/The Software Developer’s Guide to Linux/2. Working with Processes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3.Indexes"
+              "title": "2. Working with Processes"
             }
           }
         ]
@@ -181,9 +181,10 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
-    "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
-    "Mysql/3.Indexes.md",
     "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
+    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes.md",
+    "Mysql/3.Indexes.md",
+    "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
     "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
     "Linux/The Software Developer’s Guide to Linux",
     "Go/gRPC Microservices in Go/1- Introduction to Go gRPC microservices.md",
@@ -212,7 +213,6 @@
     "Go/Concurrency-in-Go/04-Chapter-Four/5.Fan-Out,Fan-In.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
     "Linux/Abedini/CH-01/11.Grep.md",
-    "Linux/Abedini/CH-01/8.Wc.md",
     "Linux/Abedini/CH-02",
     "Linux/Abedini/CH-01",
     "Linux/Abedini",
