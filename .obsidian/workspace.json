@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/The Software Developer’s Guide to Linux/2. Working with Processes.md",
+                "file": "Go/gRPC Microservices in Go/4- Microservice project setup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. Working with Processes"
+              "title": "4- Microservice project setup"
             }
           }
         ]
@@ -181,10 +181,11 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
-    "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
-    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes.md",
-    "Mysql/3.Indexes.md",
     "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
+    "Go/gRPC Microservices in Go/4- Microservice project setup.md",
+    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes.md",
+    "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
+    "Mysql/3.Indexes.md",
     "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
     "Linux/The Software Developer’s Guide to Linux",
     "Go/gRPC Microservices in Go/1- Introduction to Go gRPC microservices.md",
@@ -212,7 +213,6 @@
     "Go/gRPC",
     "Go/Concurrency-in-Go/04-Chapter-Four/5.Fan-Out,Fan-In.md",
     "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
-    "Linux/Abedini/CH-01/11.Grep.md",
     "Linux/Abedini/CH-02",
     "Linux/Abedini/CH-01",
     "Linux/Abedini",
