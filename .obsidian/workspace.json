@@ -11,14 +11,14 @@
             "id": "9c1fb341ea902032",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Go/gRPC Microservices in Go/4- Microservice project setup.md",
-                "mode": "source",
-                "source": false
+                "aFile": "Go/gRPC/1.محتوا نویسی.md",
+                "bFile": "Go/gRPC/1.محتوا نویسی.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "4- Microservice project setup"
+              "icon": "diff",
+              "title": "Diff: 1.محتوا نویسی  (Working Tree)"
             }
           }
         ]
@@ -181,15 +181,23 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
-    "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
+    "Go/gRPC/1.Generate command.md",
+    "2025-07-28.md",
+    "Untitled.base",
+    "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Untitled 2.canvas",
+    "Untitled 3.canvas",
+    "Go/gRPC/1.محتوا نویسی.md",
+    "LinkedIn",
+    "Go/gRPC Microservices in Go/1- Introduction to Go gRPC microservices.md",
     "Go/gRPC Microservices in Go/4- Microservice project setup.md",
+    "Go/gRPC Microservices in Go/3- Getting up and running with gRPC and Golang.md",
     "Linux/The Software Developer’s Guide to Linux/2. Working with Processes.md",
     "Linux/The Software Developer’s Guide to Linux/1- How the Command Line Works.md",
     "Mysql/3.Indexes.md",
     "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
     "Linux/The Software Developer’s Guide to Linux",
-    "Go/gRPC Microservices in Go/1- Introduction to Go gRPC microservices.md",
-    "Go/gRPC/1.Generate command.md",
     "Go/gRPC Microservices in Go",
     "Linux/Abedini/CH-02/2.Debian-Based.md",
     "Linux/Abedini/CH-01/9.Cut.md",
@@ -201,9 +209,7 @@
     "Postgresql/Art-of-PostgreSQL/CH-8-Indexing Strategy.md",
     "Mysql/1.Basic-Join.md",
     "Postgresql/Art-of-PostgreSQL",
-    "Untitled.base",
     "Git/2.Stash.md",
-    "2025-07-28.md",
     "Linux/File & Directory/Upload File To Server.md",
     "Linux/SSH.md",
     "UNI/2.Grade_Payam.md",
@@ -211,16 +217,12 @@
     "UNI",
     "Linux/Alias.md",
     "Go/gRPC",
-    "Go/Concurrency-in-Go/04-Chapter-Four/5.Fan-Out,Fan-In.md",
-    "Go/Concurrency-in-Go/04-Chapter-Four/4.Pipelines.md",
     "Linux/Abedini/CH-02",
     "Linux/Abedini/CH-01",
     "Linux/Abedini",
-    "Mysql",
     "Meilisearch/photo/new_road.png",
     "Meilisearch/photo/belgium.png",
     "Meilisearch/photo/vogli3.png",
-    "Untitled.canvas",
     "Linux/tmux-cheat.webp",
     "Image/ChatGPT Image May 8, 2025, 09_03_50 AM.png"
   ]
