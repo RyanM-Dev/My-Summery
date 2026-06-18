@@ -11,14 +11,14 @@
             "id": "9c1fb341ea902032",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "Go/gRPC/1.محتوا نویسی.md",
-                "bFile": "Go/gRPC/1.محتوا نویسی.md",
-                "aRef": ""
+                "file": "LinkedIn/1.محتوا نویسی.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: 1.محتوا نویسی  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "1.محتوا نویسی"
             }
           }
         ]
@@ -181,6 +181,8 @@
   },
   "active": "9c1fb341ea902032",
   "lastOpenFiles": [
+    "LinkedIn/1.test.md",
+    "LinkedIn/1.محتوا نویسی.md",
     "Go/gRPC/1.Generate command.md",
     "2025-07-28.md",
     "Untitled.base",
@@ -215,7 +217,6 @@
     "UNI/2.Grade_Payam.md",
     "UNI/1.Grades_Azad.md",
     "UNI",
-    "Linux/Alias.md",
     "Go/gRPC",
     "Linux/Abedini/CH-02",
     "Linux/Abedini/CH-01",
