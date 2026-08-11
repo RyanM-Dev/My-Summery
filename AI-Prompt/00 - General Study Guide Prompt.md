@@ -17,6 +17,7 @@
 **Example stacks:**
 - **gRPC Babal:** General → [[01 - Go - Specific Prompt]] → [[Go/gRPC Microservices in Go/AI-Prompt - grpc-babal]]
 - **Linux SDGL:** General → [[Linux/The Software Developer's Guide to Linux/AI-Prompt - linux-beginner]]
+- **Learning Go + 100 Mistakes:** General → [[01 - Go - Specific Prompt]] → [[Go/Learning-Go/AI-Prompt - learning-go]]
 
 ---
 
@@ -26,6 +27,7 @@
 |---------|-------------|---------------|
 | **gRPC Microservices in Go (Babal)** | [[Go/gRPC Microservices in Go/AI-Prompt - grpc-babal]] | `Go/gRPC Microservices in Go/` |
 | **Linux SDGL beginner track** | [[Linux/The Software Developer's Guide to Linux/AI-Prompt - linux-beginner]] | `Linux/The Software Developer's Guide to Linux/` |
+| **Learning Go (Bodner) + 100 Mistakes (Harsanyi)** | [[Go/Learning-Go/AI-Prompt - learning-go]] | `Go/Learning-Go/` |
 
 ---
 
@@ -33,7 +35,7 @@
 
 | Topic | File |
 |-------|------|
-| Go (gRPC, HTTP, testing, microservices) | [[01 - Go - Specific Prompt]] |
+| Go (fundamentals, idioms, gRPC, HTTP, testing, microservices, mistakes) | [[01 - Go - Specific Prompt]] |
 | Linux — generic | [[02 - Linux - Specific Prompt]] |
 | Docker (containers, Compose, images) | [[03 - Docker - Specific Prompt]] |
 | MySQL (SQL, joins, indexes) | [[04 - MySQL - Specific Prompt]] |
@@ -48,7 +50,7 @@
 1. Fill the **Inputs** table below for your chapter.
 2. **If a study guide file already exists** at the target path, rename it first using the vault OLD naming pattern (see below). Keep the old file for later reference — never overwrite in place.
 3. Copy the **Full general prompt** (this file) into your AI assistant — **fundamental layer**.
-4. Append the **language/topic prompt** if the project requires it (e.g. Go for grpc-babal).
+4. Append the **language/topic prompt** if the project requires it (e.g. Go for grpc-babal or learning-go).
 5. Append the **project-specific prompt** from the source folder (`AI-Prompt - *.md` next to your notes).
 6. Save output as a **new** file in the project's output folder (see project prompt for directory).
 
@@ -131,6 +133,8 @@ If **yes**: Act as a {{CURRENT_YEAR}} senior practitioner in {{TOPIC_DOMAIN}}. S
 - Flag what books got outdated (e.g. deprecated APIs replaced in newer releases)
 - Enrich Part 8 (recommendations) with verifiable modern standards
 - Add authoritative links in Further Reading (official docs, RFCs, blog posts from reputable sources)
+- **Real-world interview questions**: Search the internet (LeetCode, Glassdoor, Reddit r/golang, Stack Overflow, CoderPad, company engineering blogs, Go interview prep sites, YouTube transcripts, etc.) for authentic, commonly asked real-world interview questions on the chapter's topics. Curate 3–6 high-quality ones per relevant part (more in Part 8 Master Q&A). Include the question as it is typically phrased in interviews, then provide a concise, accurate answer that combines insights from the references + {{CURRENT_YEAR}} best practices. Prioritize questions involving practical code, edge cases, "what is the output?", "how would you fix", "difference between X and Y", and senior-level design tradeoffs. Cite general sources in Further Reading when relevant.
+- **Real-world interview questions**: Search the internet (LeetCode, Glassdoor, Reddit r/golang, Stack Overflow, CoderPad, company engineering blogs, Go interview prep sites, YouTube transcripts, etc.) for authentic, commonly asked real-world interview questions on the chapter's topics. Curate 3–6 high-quality ones per relevant part (more in Part 8 Master Q&A). Include the question as it is typically phrased in interviews, then provide a concise, accurate answer that combines insights from the references + {{CURRENT_YEAR}} best practices. Prioritize questions involving practical code, edge cases, "what is the output?", "how would you fix", "difference between X and Y", and senior-level design tradeoffs. Cite general sources in Further Reading when relevant.
 
 If **no**: Rely only on provided references; still apply {{CURRENT_YEAR}} knowledge for obvious deprecations but do not fabricate citations.
 
@@ -154,7 +158,7 @@ Each part MUST include:
 | Concepts | `### 📌 Concepts Explained` | Bullet list of key ideas |
 | Deep dive | `### 🔧` | Explanations, comparisons between sources |
 | Visual | `### 📊` or `### 💻` | At least one: ASCII diagram, mermaid, table, or directory tree |
-| Interview | `### 🧪 Interview Q&A` | See Q&A rules below |
+| Interview | `### 🧪 Interview Q&A` | See Q&A rules below. Mix conceptual questions from sources with **real-world interview questions** sourced via internet search (LeetCode, Glassdoor, r/golang, Stack Overflow, etc. — "what is the output?", "fix this", differences, edge cases, "why does this panic?"). Minimum 5 per part (more in Master Q&A); label real-world ones clearly. |
 
 **Suggested part arc (adapt to chapter):**
 | Part | Focus |
@@ -166,7 +170,7 @@ Each part MUST include:
 | 5 | Errors, edge cases, operational concerns |
 | 6 | Best practices from sources + {{CURRENT_YEAR}} |
 | 7 | Reference implementation snapshot (ahead vs gaps) |
-| 8 | Senior recommendations + end-to-end diagram + Master Q&A |
+| 8 | Senior recommendations + end-to-end diagram + **Master Q&A with real-world interview questions** |
 
 ### Closing (required)
 - `### 💡 Pro Tips & Best Practices (Combined)` — numbered, 7+ items
@@ -194,7 +198,8 @@ Under each `### 🧪 Interview Q&A`:
 - The `-` after `[!success]` is REQUIRED (collapsed by default in Obsidian)
 - Every line inside the callout starts with `>`
 - Use `>` alone between answers as separator
-- Minimum {{QUESTIONS_PER_PART}} questions per part; Part 8 includes Master Q&A
+- Minimum {{QUESTIONS_PER_PART}} questions per part; Part 8 includes a **Master Q&A** (6–10 questions)
+- **Real-world interview questions (mandatory when internet research enabled)**: For each part, include several authentic questions that are commonly asked in real Go interviews (sourced by searching LeetCode, Glassdoor, r/golang, StackOverflow, CoderPad, interview prep resources, etc.). Phrase them exactly as they appear in practice ("What is the output of this code?", "How do you fix...?", "Difference between X and Y?", "What happens if...?"). Answers must be accurate, reference book concepts + 2026 practice, and be interview-ready (concise but complete for senior oral exams). Do NOT fabricate questions.
 - Do NOT use HTML `<details>` tags
 
 ---
@@ -239,7 +244,7 @@ sequenceDiagram
 
 - Write like a precise technical blog post — structured, interview-ready, no filler
 - Distinguish clearly: what each reference teaches | where they agree | where they differ | what {{CURRENT_YEAR}} practice recommends
-- Interview answers: complete but concise — suitable for senior-level oral exams
+- Interview answers: complete but concise — suitable for senior-level oral exams. For real-world interview questions (sourced from internet), provide polished answers that candidates would actually give in interviews.
 - Every claim about a codebase must match actual files under `{{REFERENCE_3_PATH}}`
 - No local filesystem paths; no blind `@latest` without version-pin warnings
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/The Software Developer’s Guide to Linux/1. How the Command Line Works - Study Guide.md",
+                "file": "Linux/Extract-Compressed-Formats.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1. How the Command Line Works - Study Guide"
+              "title": "Extract-Compressed-Formats"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -179,35 +181,36 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9c1fb341ea902032",
+  "active": "5ae70b2711f667de",
   "lastOpenFiles": [
-    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
-    "Linux/The Software Developer’s Guide to Linux/1. How the Command Line Works - Study Guide.md",
-    "Linux/The Software Developer’s Guide to Linux/AI-Prompt - linux-beginner.md",
-    "AI-Prompt/00 - General Study Guide Prompt.md",
-    "Linux/The Software Developer’s Guide to Linux/2.OLD-Working with Processes.md",
-    "AI-Prompt/06 - Kafka - Specific Prompt.md",
-    "AI-Prompt/grpc-babal - Specific Prompt.md",
-    "AI-Prompt/linux-beginner - Specific Prompt.md",
-    "Go/gRPC Microservices in Go/AI-Prompt - grpc-babal.md",
+    "Linux/Package-Manager.md",
+    "Linux/Extract-Compressed-Formats.md",
+    "Linux/Editors.md",
+    "Linux/tmux-cheat.webp",
+    "Linux/SSH.md",
+    "Go/Learning-Go/6. Pointers - Study Guide.md",
+    "Go/Learning-Go/8. Generics - Study Guide.md",
+    "Go/Learning-Go/9. Errors - Study Guide.md",
+    "Go/Learning-Go/7. Types, Methods, and Interfaces - Study Guide.md",
+    "Go/Learning-Go/2. Predeclared Types and Declarations - Study Guide.md",
+    "Go/Learning-Go/4. Blocks, Shadows, and Control Structures - Study Guide.md",
+    "Go/Learning-Go/5. Functions - Study Guide.md",
+    "Go/Learning-Go/1. Setting Up Your Go Environment - Study Guide.md",
+    "Go/Learning-Go/3.OLD-guide - Composite Types - Study Guide.md",
+    "Go/Learning-Go/2.OLD-guide - Predeclared Types and Declarations - Study Guide.md",
+    "Go/Learning-Go/1.OLD-guide - Setting Up Your Go Environment - Study Guide.md",
+    "Go/Learning-Go/AI-Prompt - learning-go.md",
+    "Go/gRPC Microservices in Go/6. Resilient communication - Study Guide.md",
+    "Go/gRPC Microservices in Go/9. Observability - Study Guide.md",
+    "Go/gRPC Microservices in Go/8. Deployment - Study Guide.md",
+    "Go/gRPC Microservices in Go/7. Testing microservices - Study Guide.md",
     "Go/gRPC Microservices in Go/5. Interservice communication.md",
-    "Go/gRPC Microservices in Go/5.OLD- Interservice communication.md",
-    "Go/gRPC Microservices in Go/4.OLD-setup - Microservice project setup.md",
-    "Go/gRPC Microservices in Go/3.OLD - Getting up and running with gRPC and Golang.md",
-    "Go/gRPC Microservices in Go/1.OLD-intro - Introduction to Go gRPC microservices.md",
-    "Go/gRPC Microservices in Go/4. Microservice project setup - Study Guide.md",
-    "Go/gRPC Microservices in Go/3. Getting up and running with gRPC and Golang - Study Guide.md",
-    "Go/gRPC Microservices in Go/OLD-4- Microservice project setup.md",
-    "Go/gRPC Microservices in Go/OLD-3- Getting up and running with gRPC and Golang.md",
-    "Go/gRPC Microservices in Go/1. Introduction to Go gRPC microservices - Study Guide.md",
-    "AI-Prompt/01 - Go - Specific Prompt.md",
-    "AI-Prompt/02 - Linux - Specific Prompt.md",
-    "Linux/The Software Developer's Guide to Linux/1. How the Command Line Works - Study Guide.md",
+    "Go/gRPC Microservices in Go/2. gRPC meets microservices - Study Guide.md",
+    "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
+    "Go/gRPC Microservices in Go/2.OLD-notes - gRPC meets microservices.md",
+    "Go/gRPC Microservices in Go/AI-Prompt - grpc-babal.md",
+    "AI-Prompt/00 - General Study Guide Prompt.md",
     "Linux/The Software Developer's Guide to Linux",
-    "Linux/The Software Developer’s Guide to Linux/1.OLD-How the Command Line Works.md",
-    "AI-Prompt/07 - Git - Specific Prompt.md",
-    "AI-Prompt/05 - PostgreSQL - Specific Prompt.md",
-    "AI-Prompt/03 - Docker - Specific Prompt.md",
     "AI-Prompt",
     "Untitled.base",
     "Untitled.canvas",
@@ -224,7 +227,6 @@
     "Meilisearch/photo/new_road.png",
     "Meilisearch/photo/belgium.png",
     "Meilisearch/photo/vogli3.png",
-    "Linux/tmux-cheat.webp",
     "Image/ChatGPT Image May 8, 2025, 09_03_50 AM.png"
   ]
 }

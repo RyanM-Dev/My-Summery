@@ -1,14 +1,15 @@
 # Go — Specific Prompt
 
-> **Purpose:** Language layer for Go study guides (gRPC, HTTP, testing, microservices, concurrency). Append AFTER [[AI-Prompt/00 - General Study Guide Prompt]] — the fundamental prompt.
+> **Purpose:** Language layer for Go study guides (fundamentals, idioms, gRPC, HTTP, testing, microservices, concurrency, mistakes). Append AFTER [[AI-Prompt/00 - General Study Guide Prompt]] — the fundamental prompt.
 >
 > **Babal gRPC track?** Also append [[Go/gRPC Microservices in Go/AI-Prompt - grpc-babal]] (project prompt in source folder).
+> **Learning Go + Mistakes track?** Also append [[Go/Learning-Go/AI-Prompt - learning-go]] (project prompt).
 
 ---
 
 ## When to use
 
-- Go language fundamentals, idioms, project structure
+- Go language fundamentals, idioms, project structure — pair with [[Go/Learning-Go/AI-Prompt - learning-go]] for the Learning Go (Bodner) + 100 Mistakes track
 - gRPC / microservices — pair with [[Go/gRPC Microservices in Go/AI-Prompt - grpc-babal]] for the Babal book track
 - HTTP APIs (`net/http`, Gin, Echo)
 - Testing (testify, testcontainers, dockertest)
