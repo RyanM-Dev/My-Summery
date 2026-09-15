@@ -464,4 +464,4 @@ This script creates a session with two windows and opens `vim` and `htop` in the
 
 This is a **complete tmux tutorial** with essential commands, shortcuts, and advanced tips! Let me know if you need further assistance or more details on any topic!
 
-![My Image](./tmux-cheat.webp)
+![My Image](tmux-cheat.webp)

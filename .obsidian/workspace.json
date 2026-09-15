@@ -13,15 +13,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Extract-Compressed-Formats.md",
+                "file": "Linux/Scatterd-Learning/Alias.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Extract-Compressed-Formats"
+              "title": "Alias"
+            }
+          },
+          {
+            "id": "a59af15fbf22b9f0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/Scatterd-Learning/Account-Groups-Users-Permissions.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Account-Groups-Users-Permissions"
+            }
+          },
+          {
+            "id": "fb70058956d06a03",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/Scatterd-Learning/Networking.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Networking"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -181,13 +210,26 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5ae70b2711f667de",
+  "active": "fb70058956d06a03",
   "lastOpenFiles": [
-    "Linux/Package-Manager.md",
-    "Linux/Extract-Compressed-Formats.md",
-    "Linux/Editors.md",
-    "Linux/tmux-cheat.webp",
-    "Linux/SSH.md",
+    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
+    "Linux/Scatterd-Learning/Networking.md",
+    "Linux/Scatterd-Learning/Ownership-Permission.md",
+    "Linux/Scatterd-Learning/ENV.md",
+    "Linux/Scatterd-Learning/Vim.md",
+    "Linux/Scatterd-Learning/Account-Groups-Users-Permissions.md",
+    "Linux/Scatterd-Learning/Pipe-Redirect.md",
+    "Linux/Scatterd-Learning/Package-Manager.md",
+    "Linux/Scatterd-Learning/Gitea.md",
+    "Gitea",
+    "Linux/Scatterd-Learning/Editors.md",
+    "Linux/Scatterd-Learning/Alias.md",
+    "Linux/The Software Developer’s Guide to Linux/1.OLD-How the Command Line Works.md",
+    "Linux/Scatterd-Learning",
+    "Linux/Scatterd-Learning/Extract-Compressed-Formats.md",
+    "Linux/Scatterd-Learning/SSH.md",
+    "Go/Learning-Go/1. Setting Up Your Go Environment - Study Guide.md",
+    "Linux/Scatterd-Learning/tmux-cheat.webp",
     "Go/Learning-Go/6. Pointers - Study Guide.md",
     "Go/Learning-Go/8. Generics - Study Guide.md",
     "Go/Learning-Go/9. Errors - Study Guide.md",
@@ -195,21 +237,10 @@
     "Go/Learning-Go/2. Predeclared Types and Declarations - Study Guide.md",
     "Go/Learning-Go/4. Blocks, Shadows, and Control Structures - Study Guide.md",
     "Go/Learning-Go/5. Functions - Study Guide.md",
-    "Go/Learning-Go/1. Setting Up Your Go Environment - Study Guide.md",
     "Go/Learning-Go/3.OLD-guide - Composite Types - Study Guide.md",
     "Go/Learning-Go/2.OLD-guide - Predeclared Types and Declarations - Study Guide.md",
     "Go/Learning-Go/1.OLD-guide - Setting Up Your Go Environment - Study Guide.md",
     "Go/Learning-Go/AI-Prompt - learning-go.md",
-    "Go/gRPC Microservices in Go/6. Resilient communication - Study Guide.md",
-    "Go/gRPC Microservices in Go/9. Observability - Study Guide.md",
-    "Go/gRPC Microservices in Go/8. Deployment - Study Guide.md",
-    "Go/gRPC Microservices in Go/7. Testing microservices - Study Guide.md",
-    "Go/gRPC Microservices in Go/5. Interservice communication.md",
-    "Go/gRPC Microservices in Go/2. gRPC meets microservices - Study Guide.md",
-    "Go/gRPC Microservices in Go/2- gRPC meets microservices.md",
-    "Go/gRPC Microservices in Go/2.OLD-notes - gRPC meets microservices.md",
-    "Go/gRPC Microservices in Go/AI-Prompt - grpc-babal.md",
-    "AI-Prompt/00 - General Study Guide Prompt.md",
     "Linux/The Software Developer's Guide to Linux",
     "AI-Prompt",
     "Untitled.base",
@@ -222,8 +253,6 @@
     "Go/gRPC Microservices in Go",
     "Postgresql/Art-of-PostgreSQL",
     "UNI",
-    "Go/gRPC",
-    "Linux/Abedini/CH-02",
     "Meilisearch/photo/new_road.png",
     "Meilisearch/photo/belgium.png",
     "Meilisearch/photo/vogli3.png",
