@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "Networking"
             }
+          },
+          {
+            "id": "46f9c4f483f79435",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/Scatterd-Learning/Git Branching, Merge, Rebase, and Team Workflow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Git Branching, Merge, Rebase, and Team Workflow"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -210,14 +224,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fb70058956d06a03",
+  "active": "46f9c4f483f79435",
   "lastOpenFiles": [
-    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
+    "Linux/Scatterd-Learning/Account-Groups-Users-Permissions.md",
+    "Linux/Scatterd-Learning/Git Branching, Merge, Rebase, and Team Workflow.md",
+    "Linux/Scatterd-Learning/vim-cheatsheet.md",
+    "Linux/Scatterd-Learning/SSH.md",
+    "Linux/Scatterd-Learning/SSH 1.md",
+    "Linux/Scatterd-Learning/SSH-NANA.md",
+    "Go/gRPC/1.Generate command.md",
+    "Linux/Scatterd-Learning/Vim.md",
+    "Linux/Scatterd-Learning/shop.md",
     "Linux/Scatterd-Learning/Networking.md",
+    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
     "Linux/Scatterd-Learning/Ownership-Permission.md",
     "Linux/Scatterd-Learning/ENV.md",
-    "Linux/Scatterd-Learning/Vim.md",
-    "Linux/Scatterd-Learning/Account-Groups-Users-Permissions.md",
     "Linux/Scatterd-Learning/Pipe-Redirect.md",
     "Linux/Scatterd-Learning/Package-Manager.md",
     "Linux/Scatterd-Learning/Gitea.md",
@@ -227,7 +248,6 @@
     "Linux/The Software Developer’s Guide to Linux/1.OLD-How the Command Line Works.md",
     "Linux/Scatterd-Learning",
     "Linux/Scatterd-Learning/Extract-Compressed-Formats.md",
-    "Linux/Scatterd-Learning/SSH.md",
     "Go/Learning-Go/1. Setting Up Your Go Environment - Study Guide.md",
     "Linux/Scatterd-Learning/tmux-cheat.webp",
     "Go/Learning-Go/6. Pointers - Study Guide.md",
@@ -235,12 +255,6 @@
     "Go/Learning-Go/9. Errors - Study Guide.md",
     "Go/Learning-Go/7. Types, Methods, and Interfaces - Study Guide.md",
     "Go/Learning-Go/2. Predeclared Types and Declarations - Study Guide.md",
-    "Go/Learning-Go/4. Blocks, Shadows, and Control Structures - Study Guide.md",
-    "Go/Learning-Go/5. Functions - Study Guide.md",
-    "Go/Learning-Go/3.OLD-guide - Composite Types - Study Guide.md",
-    "Go/Learning-Go/2.OLD-guide - Predeclared Types and Declarations - Study Guide.md",
-    "Go/Learning-Go/1.OLD-guide - Setting Up Your Go Environment - Study Guide.md",
-    "Go/Learning-Go/AI-Prompt - learning-go.md",
     "Linux/The Software Developer's Guide to Linux",
     "AI-Prompt",
     "Untitled.base",
