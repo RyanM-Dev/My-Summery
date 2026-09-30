@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow.md",
+                "file": "Go/MQTT/HiveMQ/1. MQTT Fundamentals  Introduction.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3. MQTT Client–Broker Setup and Connection Flow"
+              "title": "1. MQTT Fundamentals  Introduction"
             }
           }
         ],
@@ -252,11 +252,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "384e2562d4446e01",
+  "active": "5ae70b2711f667de",
   "lastOpenFiles": [
+    "Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow.md",
     "Go/MQTT/HiveMQ/1. MQTT Fundamentals  Introduction.md",
     "Go/MQTT/HiveMQ/2. PUB-SUB.md",
-    "Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow.md",
     "Go/MQTT/basics.md",
     "Go/MQTT/HiveMQ",
     "DevOps/NaNa/Artifact and Artifact Repo.md",
