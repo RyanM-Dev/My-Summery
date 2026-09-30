@@ -1,0 +1,1586 @@
+# 📦 Artifacts, Artifact Repositories, and Nexus Repository
+
+When software is developed, the source code is only the beginning.
+
+At some point, the source code is **built into something that can actually be installed, deployed, or distributed**. That output is called an **artifact**.
+
+A typical software delivery flow looks like this:
+
+```
+Source Code
+    │
+    ▼
+Git Repository
+    │
+    ▼
+Build / CI Pipeline
+    │
+    ▼
+Artifact
+    │
+    ▼
+Artifact Repository
+    │
+    ▼
+Development / Testing / Production
+```
+
+For example:
+
+```
+Git
+ │
+ ▼
+CI/CD Pipeline
+ │
+ ├── Build Go application
+ │       └── vending-backend
+ │
+ ├── Build Docker image
+ │       └── vending-backend:1.4.2
+ │
+ └── Build frontend
+         └── frontend-1.4.2.tar.gz
+ │
+ ▼
+Nexus Repository
+ │
+ ▼
+Deployment Server
+```
+
+---
+
+# 🌐 Artifact
+
+An **artifact** is a file or package produced by the software development/build process that can later be stored, distributed, installed, or deployed.
+
+The important distinction is:
+
+```
+Source Code → Build → Artifact
+```
+
+For example, this:
+
+```
+main.go
+```
+
+is source code.
+
+After compiling:
+
+```
+go build -o vending-backend
+```
+
+the resulting:
+
+```
+vending-backend
+```
+
+binary is an artifact.
+
+Artifacts can take many forms:
+
+|Technology|Example Artifact|
+|---|---|
+|C/C++|executable binary, `.so`, `.a`|
+|Go|compiled executable|
+|Java|`.jar`, `.war`|
+|Python|`.whl`, package|
+|Node.js|npm package|
+|Linux|`.deb`, `.rpm`|
+|Docker|container image|
+|Firmware|`.bin`, `.hex`|
+|Frontend|`.zip`, `.tar.gz`, compiled static files|
+
+> 💡 **Real-World Example**
+> 
+> Imagine your vending backend has version:
+> 
+> ```
+> v1.5.0
+> ```
+> 
+> Git contains the source code:
+> 
+> ```
+> projects/vending-backend/
+> ```
+> 
+> CI builds it:
+> 
+> ```
+> go build -o vending-backend
+> ```
+> 
+> The result:
+> 
+> ```
+> vending-backend-1.5.0
+> ```
+> 
+> is the artifact that can be deployed to servers.
+
+An artifact does **not necessarily need to be one single file**.
+
+For example, a Docker image consists internally of layers and metadata, but from the deployment perspective it behaves as a versioned deployable artifact:
+
+```
+robotmarket/vending-backend:1.5.0
+```
+
+---
+
+# 🌐 Why We Need an Artifact Repository
+
+You could technically build an application and manually copy it somewhere:
+
+```
+Developer PC
+     │
+     └── app-v1.2.0.zip
+              │
+              ▼
+      random shared folder
+```
+
+This quickly becomes difficult to manage.
+
+Questions appear:
+
+```
+Which version is production using?
+
+Where is version 1.3.2?
+
+Who uploaded this file?
+
+Can developers overwrite releases?
+
+Which Docker image belongs to this Git commit?
+
+Can we automatically delete builds older than 90 days?
+
+Can CI download dependencies without accessing the Internet directly?
+```
+
+An **artifact repository** solves these problems.
+
+It provides centralized storage and management for artifacts such as:
+
+```
+Application binaries
+Docker images
+npm packages
+Maven packages
+Python packages
+Linux packages
+Firmware images
+Libraries
+Build outputs
+```
+
+Instead of:
+
+```
+Developer → random folder
+Developer → Docker Hub
+Developer → another server
+CI        → another folder
+```
+
+you can have:
+
+```
+                 ┌─────────────────┐
+Developers ─────►│                 │
+CI/CD ──────────►│      Nexus      │
+Servers ────────►│   Repository    │
+Docker ─────────►│                 │
+                 └─────────────────┘
+```
+
+Nexus Repository supports multiple repository formats and the core repository types **hosted, proxy, and group**. [Sonatype Help](https://help.sonatype.com/en/formats.html?utm_source=chatgpt.com)
+
+---
+
+# 🌐 Nexus Repository
+
+**Sonatype Nexus Repository** is an artifact repository manager.
+
+It can store your company's artifacts and also act as an intermediary between developers and external repositories.
+
+For example:
+
+```
+                    Nexus
+                      │
+       ┌──────────────┼──────────────┐
+       │              │              │
+       ▼              ▼              ▼
+     Maven           npm           Docker
+       │              │              │
+       ▼              ▼              ▼
+ Maven Central   npm Registry    Docker Registry
+```
+
+Nexus provides useful repository-management features such as:
+
+- authentication
+- users and roles
+- repository-level permissions
+- hosted repositories
+- proxy repositories
+- repository groups
+- multiple package formats
+- artifact retention and cleanup
+- centralized dependency storage
+
+Permissions can be restricted to particular repositories and operations such as read, browse, add, edit, or delete. [Sonatype Help](https://help.sonatype.com/en/privileges.html?utm_source=chatgpt.com)
+
+---
+
+# 🌐 The Three Important Nexus Repository Types
+
+The most important Nexus concept to understand is:
+
+```
+Hosted
+Proxy
+Group
+```
+
+They solve three different problems.
+
+---
+
+## 🏠 Hosted Repository
+
+A **hosted repository** stores artifacts that **you or your company publish**.
+
+Think:
+
+```
+"This belongs to us."
+```
+
+For example:
+
+```
+vending-backend:1.0.0
+vending-backend:1.1.0
+device-firmware:2.3.1
+robotmarket-ui:4.2.0
+```
+
+Architecture:
+
+```
+Developer / CI
+      │
+      │ upload
+      ▼
+┌──────────────────────┐
+│ Nexus Hosted Repo    │
+│                      │
+│ vending-backend      │
+│ firmware             │
+│ frontend packages    │
+└──────────────────────┘
+```
+
+> 💡 **Real-World Example**
+> 
+> Your CI pipeline builds:
+> 
+> ```
+> vending-backend-1.7.0.tar.gz
+> ```
+> 
+> Instead of copying it manually to a production server, CI uploads it to:
+> 
+> ```
+> Nexus
+> └── vending-releases
+>     └── vending-backend
+>         └── 1.7.0
+> ```
+> 
+> The production deployment process can then download exactly version `1.7.0`.
+
+Sonatype calls this repository type **Hosted**, not "Host". [Sonatype Help](https://help.sonatype.com/en/configurable-repository-fields.html?utm_source=chatgpt.com)
+
+---
+
+## 🌐 Proxy Repository
+
+A **proxy repository** represents an external repository through Nexus.
+
+For example:
+
+```
+npmjs.org
+Maven Central
+PyPI
+Docker Registry
+```
+
+Instead of developers accessing them directly:
+
+```
+Developer
+   │
+   ▼
+Internet Repository
+```
+
+they use:
+
+```
+Developer
+   │
+   ▼
+Nexus Proxy Repository
+   │
+   ▼
+Remote Repository
+```
+
+The useful part is caching.
+
+Suppose a developer requests:
+
+```
+package-X version 2.4
+```
+
+The first request might look like:
+
+```
+Developer
+   │
+   │ request package-X:2.4
+   ▼
+Nexus
+   │
+   │ not available locally
+   ▼
+Remote Repository
+   │
+   │ package-X:2.4
+   ▼
+Nexus Cache
+   │
+   ▼
+Developer
+```
+
+Later another developer requests the same package:
+
+```
+Developer
+   │
+   ▼
+Nexus
+   │
+   └── cached package already available
+        │
+        ▼
+     Developer
+```
+
+Nexus therefore reduces repeated downloads and gives the company a central point through which external dependencies can be accessed.
+
+### Example
+
+Instead of configuring Maven to use:
+
+```
+https://repo.maven.apache.org/
+```
+
+developers might use something similar to:
+
+```
+https://nexus.example.com/repository/maven-central/
+```
+
+Nexus knows that this proxy repository points toward Maven Central.
+
+---
+
+# 🌐 Why Proxy Repositories Are Useful
+
+Caching is only one advantage.
+
+A proxy repository also creates an organizational boundary:
+
+```
+Developers
+    │
+    ▼
+Nexus
+    │
+    ▼
+Internet
+```
+
+rather than:
+
+```
+Developer 1 ───► Internet
+Developer 2 ───► Internet
+CI Server   ───► Internet
+Build Server ──► Internet
+```
+
+This can make dependency access more centralized and controllable.
+
+> 💡 **Real-World Example**
+> 
+> Imagine 20 CI jobs repeatedly downloading a 500 MB dependency.
+> 
+> Without a proxy:
+> 
+> ```
+> CI #1 ──500 MB──► Internet
+> CI #2 ──500 MB──► Internet
+> CI #3 ──500 MB──► Internet
+> ...
+> ```
+> 
+> With Nexus:
+> 
+> ```
+> First request:
+> 
+> CI ──► Nexus ──► Internet
+>              downloads 500 MB
+> 
+> Later requests:
+> 
+> CI ──► Nexus cache
+> ```
+> 
+> The dependency usually does not need to be downloaded from the upstream repository every time.
+
+---
+
+# 🌐 Hosted vs Proxy Repository
+
+These two are easy to confuse.
+
+|Hosted|Proxy|
+|---|---|
+|Stores your artifacts|Represents an external repository|
+|Your CI uploads to it|Nexus downloads/cache artifacts from upstream|
+|Used for internal packages/releases|Used for third-party dependencies|
+|Example: company Docker images|Example: Docker Hub proxy|
+|Example: company Maven library|Example: Maven Central proxy|
+
+A simple rule:
+
+```
+Hosted = OUR artifacts
+
+Proxy  = THEIR artifacts
+```
+
+---
+
+# 🌐 Group Repository
+
+A **group repository** combines several compatible Nexus repositories behind **one URL**.
+
+Instead of developers configuring:
+
+```
+company-releases
+company-snapshots
+maven-central-proxy
+third-party
+```
+
+separately, Nexus can expose:
+
+```
+maven-public
+```
+
+which represents several repositories.
+
+```
+Developer
+    │
+    ▼
+maven-public
+    │
+    ├── company-releases
+    ├── company-snapshots
+    ├── maven-central-proxy
+    └── third-party
+```
+
+The developer only needs:
+
+```
+https://nexus.example.com/repository/maven-public/
+```
+
+rather than four repository URLs.
+
+Nexus searches the repositories in the group according to their configured order, so group ordering can matter. [Sonatype Help](https://help.sonatype.com/en/repository-types.html?utm_source=chatgpt.com)
+
+> 💡 **Real-World Example**
+> 
+> Suppose your Java project needs both:
+> 
+> ```
+> robotmarket-device-sdk
+> ```
+> 
+> which your company created, and:
+> 
+> ```
+> spring-framework
+> ```
+> 
+> from Maven Central.
+> 
+> You could configure:
+> 
+> ```
+> maven-public
+>     │
+>     ├── maven-releases
+>     ├── maven-snapshots
+>     └── maven-central-proxy
+> ```
+> 
+> Maven only needs to know about `maven-public`.
+
+---
+
+# 🔗 How Hosted, Proxy, and Group Fit Together
+
+```
+                           ┌────────────────────┐
+                           │      Developer     │
+                           └─────────┬──────────┘
+                                     │
+                                     ▼
+                           ┌────────────────────┐
+                           │  GROUP Repository  │
+                           │    maven-public    │
+                           └─────────┬──────────┘
+                                     │
+                     ┌───────────────┼───────────────┐
+                     │               │               │
+                     ▼               ▼               ▼
+              Hosted Repo      Hosted Repo       Proxy Repo
+               releases         snapshots      maven-central
+                     │               │               │
+                     │               │               ▼
+                     │               │         Maven Central
+                     │               │
+                     ▼               ▼
+               Our Releases    Our Dev Builds
+```
+
+Think of the three types as:
+
+```
+Hosted → Store
+Proxy  → Cache / represent external repository
+Group  → Combine repositories behind one endpoint
+```
+
+---
+
+## 🧪 Interview Q&A
+
+**Q1:** What is the main difference between source code and an artifact?
+
+**Q2:** Why would a company use Nexus instead of storing build files in shared folders?
+
+**Q3:** What is the difference between a hosted and proxy repository?
+
+**Q4:** Why would developers use a group repository?
+
+**Q5:** If an npm dependency is not cached by Nexus, what can a proxy repository do?
+
+> [!answer]- 📋 Answers
+> 
+> **A1:** Source code is the code developers write. An artifact is an output created from the development/build process that can be distributed, installed, or deployed.
+> 
+> **A2:** Nexus provides centralized artifact storage, versioning workflows, access control, repository organization, cleanup policies, and support for package managers.
+> 
+> **A3:** A hosted repository contains artifacts published by your organization, while a proxy repository represents an external repository and caches artifacts retrieved from it.
+> 
+> **A4:** A group repository allows developers to access several repositories through one URL.
+> 
+> **A5:** Nexus can retrieve the requested dependency from its configured upstream repository, cache it, and return it to the client.
+
+---
+
+# 🌐 Organizing Company Artifacts
+
+It is normally better not to throw every internal artifact into one giant repository.
+
+Artifacts usually have different lifecycles.
+
+For example:
+
+```
+Nexus
+│
+├── docker-development
+├── docker-releases
+│
+├── maven-snapshots
+├── maven-releases
+│
+├── npm-internal
+│
+└── firmware-releases
+```
+
+The exact structure depends on the package format and your workflow.
+
+---
+
+# 🌐 Snapshot / Development Builds
+
+Development artifacts change frequently.
+
+For example:
+
+```
+backend:1.8.0-dev
+backend:1.8.0-feature-login
+backend:1.8.0-SNAPSHOT
+```
+
+They usually have a shorter lifetime.
+
+A CI system might generate many of them:
+
+```
+Build #100
+Build #101
+Build #102
+Build #103
+...
+Build #850
+```
+
+Keeping all of these forever wastes storage.
+
+So cleanup rules might eventually remove old development artifacts.
+
+---
+
+# 🌐 Release Artifacts
+
+Release artifacts represent versions that have been intentionally released.
+
+For example:
+
+```
+1.0.0
+1.1.0
+1.2.0
+2.0.0
+```
+
+A useful engineering principle is:
+
+> ⚠️ A published release should generally be treated as **immutable**.
+
+If:
+
+```
+backend:1.3.0
+```
+
+has already been released, do not silently replace its contents with another build.
+
+Instead publish:
+
+```
+backend:1.3.1
+```
+
+This makes deployments reproducible.
+
+You want:
+
+```
+Version 1.3.0 today
+=
+Version 1.3.0 six months later
+```
+
+rather than having the same version point to changing software.
+
+---
+
+# 🌐 Development vs Snapshot vs Release
+
+The exact naming depends on the ecosystem, but conceptually:
+
+|Repository|Purpose|
+|---|---|
+|Development|Temporary/internal development builds|
+|Snapshot|Continuously changing pre-release builds|
+|Release|Stable versioned artifacts|
+
+For example:
+
+```
+Git Feature Branch
+       │
+       ▼
+CI Build
+       │
+       ▼
+Development Artifact
+
+develop branch
+       │
+       ▼
+CI Build
+       │
+       ▼
+Snapshot / Pre-release Artifact
+
+tag v1.4.0
+       │
+       ▼
+Release Pipeline
+       │
+       ▼
+Release Artifact
+```
+
+---
+
+# 🌐 Cleanup Policies
+
+Artifact repositories can become very large.
+
+Imagine a CI pipeline creates:
+
+```
+100 MB per build
+```
+
+and runs:
+
+```
+20 builds/day
+```
+
+Storage consumption:
+
+```
+100 MB × 20
+= 2,000 MB/day
+≈ 2 GB/day
+```
+
+After 30 days:
+
+```
+2 GB × 30
+= 60 GB
+```
+
+And that is just one project.
+
+Therefore artifact repositories usually need retention or cleanup rules.
+
+For example:
+
+```
+Development builds
+    → delete after 30 days
+
+Snapshots
+    → retain recent versions
+
+Releases
+    → retain according to release policy
+```
+
+Nexus supports cleanup policies that can be associated with proxy and hosted repositories. [Sonatype Help](https://help.sonatype.com/en/cleanup-policies.html?utm_source=chatgpt.com)
+
+> ⚠️ Be significantly more careful with cleanup rules on release repositories than with temporary CI artifacts.
+
+---
+
+# 🌐 Nexus Users, Roles, and Permissions
+
+Nexus should not be treated as:
+
+```
+everyone = admin
+```
+
+Instead:
+
+```
+User
+  │
+  ▼
+Role
+  │
+  ▼
+Privileges
+  │
+  ▼
+Repositories / Nexus operations
+```
+
+For example:
+
+```
+developer
+    │
+    └── read artifacts
+
+ci-publisher
+    │
+    ├── read artifacts
+    └── upload artifacts
+
+nexus-admin
+    │
+    └── administrative access
+```
+
+The principle is:
+
+```
+Give each account only the permissions it needs.
+```
+
+This is the **principle of least privilege**.
+
+---
+
+# 🌐 Two Different Nexus Users
+
+There are two kinds of "users" that are easy to confuse.
+
+## 1. Linux Nexus Service User
+
+This is the operating-system account that runs Nexus itself.
+
+For example:
+
+```
+nexus
+```
+
+Instead of:
+
+```
+root
+  │
+  ▼
+Nexus
+```
+
+use:
+
+```
+nexus
+  │
+  ▼
+Nexus
+```
+
+This limits what the Nexus process can access on the operating system if something goes wrong.
+
+---
+
+## 2. Nexus Application Users
+
+These are accounts inside Nexus.
+
+For example:
+
+```
+admin
+developer
+ci-publisher
+deployment-server
+```
+
+They authenticate to the Nexus application and receive Nexus roles/privileges.
+
+So:
+
+```
+Linux user "nexus"
+        ≠
+Nexus application user "developer"
+```
+
+They solve completely different problems.
+
+---
+
+# 🌐 Running Nexus Without Root
+
+When manually installing Nexus on Linux, it is good practice to create a dedicated service account rather than running the application as `root`.
+
+Conceptually:
+
+```
+Linux
+│
+├── root
+│
+├── jonas
+│
+└── nexus
+      │
+      └── runs Nexus Repository
+```
+
+The Nexus installation and data directories that need to be accessed by Nexus must have appropriate ownership and permissions.
+
+Common layouts can include an application directory and a separate Nexus data directory such as:
+
+```
+/opt/nexus/
+
+/opt/sonatype-work/
+```
+
+The exact directories depend on the installation method and Nexus version.
+
+---
+
+### 💻 `useradd`
+
+**What it does:**
+
+Creates a Linux user.
+
+A service account could be created with something similar to:
+
+```
+sudo useradd --system --create-home nexus
+```
+
+The exact options depend on your desired Linux configuration.
+
+---
+
+### 💻 `chown`
+
+**What it does:**
+
+Changes ownership of files/directories.
+
+**Structure:**
+
+```
+chown [options] user:group path
+```
+
+For example:
+
+```
+sudo chown -R nexus:nexus /opt/nexus
+sudo chown -R nexus:nexus /opt/sonatype-work
+```
+
+This gives the `nexus` service account ownership of those directories.
+
+> ⚠️ Do not blindly run recursive `chown` commands on production systems. First verify which directories actually belong to the Nexus installation.
+
+---
+
+# 🌐 Do Not Store Nexus Credentials in Source Code
+
+A CI/CD system may need a Nexus account such as:
+
+```
+ci-publisher
+```
+
+with permission to upload artifacts.
+
+Its credentials should not be written directly inside:
+
+```
+Dockerfile
+application code
+Git repository
+shell script committed to Git
+```
+
+Avoid:
+
+```
+NEXUS_PASSWORD=mySuperSecretPassword
+```
+
+inside a committed file.
+
+Instead use your CI/CD secret mechanism or a secret manager.
+
+Conceptually:
+
+```
+Secret Manager / CI Secret
+          │
+          ▼
+      CI Pipeline
+          │
+          ▼
+        Nexus
+```
+
+The username itself may not always be secret, but passwords, API tokens, and other credentials should be protected.
+
+---
+
+# 🌐 Nexus with CI/CD
+
+This is where an artifact repository becomes especially useful.
+
+Consider this pipeline:
+
+```
+Developer
+    │
+    ▼
+Git Push
+    │
+    ▼
+Gitea
+    │
+    ▼
+CI Pipeline
+    │
+    ├── Test
+    │
+    ├── Build
+    │
+    └── Package
+            │
+            ▼
+          Nexus
+            │
+            ▼
+       Deployment
+            │
+            ▼
+        Production
+```
+
+For example:
+
+```
+commit:
+a83f92e
+
+      │
+      ▼
+
+CI builds:
+
+vending-backend-1.4.2
+
+      │
+      ▼
+
+Nexus:
+
+vending-releases/vending-backend/1.4.2
+
+      │
+      ▼
+
+Production downloads:
+
+vending-backend:1.4.2
+```
+
+This gives you a traceable path:
+
+```
+Git Commit
+    ↕
+Version
+    ↕
+Artifact
+    ↕
+Deployment
+```
+
+That is much safer than rebuilding source code manually during deployment.
+
+---
+
+# 🌐 Nexus and Docker
+
+Nexus can also be used as a Docker registry.
+
+For your own images:
+
+```
+Docker Build
+    │
+    ▼
+Nexus Hosted Docker Repository
+    │
+    ▼
+Deployment Server
+```
+
+For example:
+
+```
+vending-backend:1.0.0
+vending-backend:1.1.0
+vending-backend:1.2.0
+```
+
+You can also configure proxy repositories for remote container registries supported by your Nexus configuration.
+
+Conceptually:
+
+```
+Docker Client
+     │
+     ▼
+Nexus
+     │
+     ├── Hosted → company's Docker images
+     │
+     └── Proxy ──► external registry
+```
+
+And a group can provide one endpoint over compatible Docker repositories.
+
+---
+
+# 🌐 Nexus and Different Languages
+
+Nexus does not only store generic `.zip` files.
+
+Repositories have a **format**.
+
+Examples include:
+
+```
+Maven
+npm
+Docker
+PyPI
+NuGet
+APT
+Go
+Raw
+```
+
+The available repository types can vary depending on the format. Nexus's current documentation lists supported formats and whether each supports proxy, hosted, and group repositories. [Sonatype Help](https://help.sonatype.com/en/formats.html?utm_source=chatgpt.com)
+
+A company might therefore have:
+
+```
+Nexus
+│
+├── Docker
+│   ├── docker-hosted
+│   ├── docker-proxy
+│   └── docker-group
+│
+├── npm
+│   ├── npm-hosted
+│   ├── npm-proxy
+│   └── npm-group
+│
+├── Maven
+│   ├── maven-releases
+│   ├── maven-snapshots
+│   ├── maven-central
+│   └── maven-public
+│
+└── Raw
+    └── firmware-releases
+```
+
+A **Raw repository** can be useful for arbitrary files that do not belong to a specialized package format.
+
+For example:
+
+```
+firmware/
+└── vending-controller/
+    ├── 1.0.0/
+    │   └── firmware.bin
+    └── 1.1.0/
+        └── firmware.bin
+```
+
+---
+
+# 🔗 Complete Example Architecture
+
+A practical company setup might look like:
+
+```
+                           Developers
+                               │
+                               ▼
+                            Gitea
+                               │
+                               ▼
+                         CI/CD Runner
+                               │
+                   ┌───────────┴────────────┐
+                   │                        │
+                   ▼                        ▼
+               Run Tests               Build App
+                                            │
+                                            ▼
+                                      Create Artifact
+                                            │
+                                            ▼
+                                     ┌─────────────┐
+                                     │    Nexus    │
+                                     └──────┬──────┘
+                                            │
+                 ┌──────────────────────────┼─────────────────────┐
+                 │                          │                     │
+                 ▼                          ▼                     ▼
+           Hosted Repos                Proxy Repos           Group Repos
+                 │                          │                     │
+        ┌────────┴────────┐                 ▼                     ▼
+        │                 │              Internet          Single endpoint
+        ▼                 ▼             repositories       for developers
+     releases          snapshots
+```
+
+For Docker:
+
+```
+CI
+ │
+ │ docker push
+ ▼
+docker-hosted
+ │
+ ▼
+Nexus
+ │
+ ▼
+Production Server
+ │
+ │ docker pull
+ ▼
+Application
+```
+
+For dependencies:
+
+```
+Developer
+ │
+ │ npm install
+ ▼
+npm-group
+ │
+ ├── npm-hosted
+ │
+ └── npm-proxy
+          │
+          ▼
+      npm registry
+```
+
+---
+
+## 🧪 Interview Q&A
+
+**Q1:** Why should Nexus usually run under its own Linux account rather than `root`?
+
+**Q2:** Is a Linux `nexus` user the same thing as a Nexus application account?
+
+**Q3:** Why should release artifacts generally not be overwritten?
+
+**Q4:** Why would temporary CI artifacts need cleanup policies?
+
+**Q5:** Where should Nexus passwords or publishing tokens used by CI be stored?
+
+> [!answer]- 📋 Answers
+> 
+> **A1:** Running Nexus under a dedicated account limits the operating-system permissions available to the Nexus process and follows the principle of least privilege.
+> 
+> **A2:** No. The Linux account controls the Nexus process at the OS level. Nexus application users control authentication and authorization inside Nexus Repository.
+> 
+> **A3:** An immutable release makes deployments reproducible. If `1.2.0` changes after publication, two deployments of "the same version" could contain different software.
+> 
+> **A4:** CI can produce hundreds or thousands of temporary builds, which can consume large amounts of storage if nothing removes them.
+> 
+> **A5:** In the CI/CD platform's secret storage or a dedicated secret-management system rather than inside source code.
+
+---
+
+# 🔨 Hands-On Practice
+
+## Exercise 1 — Identify Artifacts
+
+Suppose your project contains:
+
+```
+main.go
+Dockerfile
+README.md
+backend
+backend.tar.gz
+robotmarket/backend:1.2.0
+```
+
+Try to identify which entries are source files and which can represent build/deployment artifacts.
+
+> [!answer]- 📋 Answer
+> 
+> `main.go`, `Dockerfile`, and `README.md` belong to the source/project configuration.
+> 
+> `backend`, `backend.tar.gz`, and the Docker image `robotmarket/backend:1.2.0` can represent artifacts.
+
+---
+
+## Exercise 2 — Design Repositories
+
+Imagine your company needs:
+
+```
+Internal Docker images
+Docker Hub images
+Internal Maven libraries
+Maven Central dependencies
+Firmware .bin files
+```
+
+A possible design is:
+
+```
+docker-hosted
+docker-proxy
+docker-group
+
+maven-releases
+maven-snapshots
+maven-central-proxy
+maven-public
+
+firmware-releases
+```
+
+Then ask yourself:
+
+```
+Which should CI upload to?
+
+Which should developers download from?
+
+Which repositories need aggressive cleanup?
+
+Which repositories should contain immutable releases?
+```
+
+---
+
+## Exercise 3 — Check Nexus Directory Ownership
+
+On Linux:
+
+```
+ls -ld /opt/nexus
+```
+
+and, if your installation uses it:
+
+```
+ls -ld /opt/sonatype-work
+```
+
+Look at:
+
+```
+owner
+group
+permissions
+```
+
+You might see something similar to:
+
+```
+drwxr-xr-x nexus nexus ...
+```
+
+The important idea is that Nexus should be able to access the files it requires without needing unrestricted root privileges.
+
+---
+
+# 📋 Quick Reference
+
+|Concept|Meaning|
+|---|---|
+|Artifact|Build/package output that can be distributed or deployed|
+|Artifact Repository|Central system for storing/managing artifacts|
+|Nexus Repository|Artifact repository manager from Sonatype|
+|Hosted Repository|Stores artifacts published by your organization|
+|Proxy Repository|Represents/caches an external repository|
+|Group Repository|Combines several repositories behind one endpoint|
+|Snapshot|Frequently changing pre-release artifact|
+|Release|Stable versioned artifact|
+|Cleanup Policy|Rules for removing artifacts that should no longer be retained|
+|Linux Nexus User|OS account used to run Nexus|
+|Nexus User|Account inside Nexus used for authentication/authorization|
+|Role|Collection of privileges|
+|Privilege|Permission to perform a Nexus operation|
+|Raw Repository|Repository for files without a specialized package format|
+
+The three repository types are easiest to remember as:
+
+```
+HOSTED
+"Our stuff lives here."
+
+PROXY
+"External stuff comes through here."
+
+GROUP
+"Several repositories appear through one URL."
+```
+
+---
+
+# 🧠 Things to Remember
+
+An artifact is the **output of a build/package process**, not simply the source code.
+
+```
+Source → Build → Artifact
+```
+
+Nexus sits between development, CI/CD, dependencies, and deployment:
+
+```
+Git → CI/CD → Nexus → Deployment
+```
+
+The core Nexus repository types are:
+
+```
+Hosted = company artifacts
+
+Proxy  = external repositories
+
+Group  = one endpoint for several repositories
+```
+
+Keep stable releases separate from disposable development builds where appropriate.
+
+Treat released versions as immutable whenever possible:
+
+```
+1.0.0 ≠ overwrite later
+1.0.0 → bug → publish 1.0.1
+```
+
+Run Nexus using an appropriately restricted service account rather than unnecessarily running the application as `root`.
+
+Use Nexus roles and privileges so developers, CI systems, and administrators receive only the access they need.
+
+Never commit Nexus passwords or publishing credentials into Git.
+
+---
+
+# 💡 Pro Tips
+
+Use meaningful artifact versions:
+
+```
+1.0.0
+1.1.0
+1.1.1
+2.0.0
+```
+
+instead of relying only on names such as:
+
+```
+latest
+final
+final2
+final-real
+new-build
+```
+
+Whenever possible, keep enough metadata to trace:
+
+```
+Artifact Version
+      │
+      ▼
+Git Commit
+      │
+      ▼
+CI Build
+      │
+      ▼
+Deployment
+```
+
+Separate artifacts according to lifecycle. Temporary builds can have aggressive retention policies, while production releases usually deserve much stricter retention.
+
+Expose **group repositories** to developers when appropriate so repository topology can change without every developer having to edit their package-manager configuration.
+
+For CI/CD, create a dedicated account such as:
+
+```
+ci-publisher
+```
+
+rather than giving the pipeline an administrator account.
+
+---
+
+# 🔗 Related Topics
+
+[[CI-CD]]
+
+[[Git]]
+
+[[Docker]]
+
+[[Docker Registry]]
+
+[[Semantic Versioning]]
+
+[[Build Systems]]
+
+[[Package Managers]]
+
+[[Linux Permissions]]
+
+[[Principle of Least Privilege]]
+
+[[Secrets Management]]
+
+[[HashiCorp Vault]]

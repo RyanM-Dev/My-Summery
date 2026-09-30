@@ -55,16 +55,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Scatterd-Learning/NaNa/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
+                "file": "DevOps/NaNa/Server-Configuration.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Server-Configuration"
+            }
+          },
+          {
+            "id": "ed241bd3a0de46d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevOps/NaNa/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "🔀 Linux Pipes, `grep`, `less`, and Output Redirection"
             }
+          },
+          {
+            "id": "384e2562d4446e01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevOps/NaNa/Artifact and Artifact Repo.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Artifact and Artifact Repo"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -224,39 +252,41 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5ae70b2711f667de",
+  "active": "384e2562d4446e01",
   "lastOpenFiles": [
+    "Go/MQTT/basics.md",
+    "DevOps/NaNa/Artifact and Artifact Repo.md",
+    "Go/MQTT",
+    "DevOps/NaNa/Account-Groups-Users-Permissions.md",
+    "DevOps/NaNa/ENV.md",
+    "DevOps/NaNa/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
+    "DevOps/NaNa/Server-Configuration.md",
+    "DevOps",
+    "DevOps/NaNa/vim-cheatsheet.md",
     "Linux/Scatterd-Learning/Alias.md",
     "Linux/Scatterd-Learning/Editors.md",
     "Linux/Scatterd-Learning/Extract-Compressed-Formats.md",
-    "Linux/Scatterd-Learning/NaNa/ENV.md",
-    "Linux/Scatterd-Learning/NaNa/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "Linux/Scatterd-Learning/Package-Manager.md",
+    "Linux/Scatterd-Learning/shop.md",
     "Linux/Scatterd-Learning/SSH.md",
+    "DevOps/NaNa/Networking.md",
+    "DevOps/NaNa/Ownership-Permission.md",
+    "DevOps/NaNa/SSH-NANA.md",
     "Linux/Scatterd-Learning/Tmux.md",
     "Linux/Scatterd-Learning/Vim.md",
     "Linux/Scatterd-Learning/tmux-cheat.webp",
-    "Linux/Scatterd-Learning/NaNa/Git-NANA/🔄 Git Editing, Removing, and Reverting Commits.md",
-    "Linux/Scatterd-Learning/NaNa",
-    "Linux/Scatterd-Learning/NaNa/Git-NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
-    "Linux/Scatterd-Learning/NaNa/Git-NANA/🌿 Git Tracking, Stash, History, and Reset.md",
-    "Linux/Scatterd-Learning/NaNa/Git-NANA",
-    "Linux/Scatterd-Learning/NaNa/Account-Groups-Users-Permissions.md",
-    "Linux/Scatterd-Learning/NaNa/vim-cheatsheet.md",
+    "DevOps/NaNa/Git-NANA/🔄 Git Editing, Removing, and Reverting Commits.md",
+    "DevOps/NaNa",
+    "DevOps/NaNa/Git-NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
+    "DevOps/NaNa/Git-NANA/🌿 Git Tracking, Stash, History, and Reset.md",
+    "DevOps/NaNa/Git-NANA",
     "Linux/Scatterd-Learning/SSH 1.md",
-    "Linux/Scatterd-Learning/NaNa/SSH-NANA.md",
     "Go/gRPC/1.Generate command.md",
-    "Linux/Scatterd-Learning/shop.md",
-    "Linux/Scatterd-Learning/NaNa/Networking.md",
     "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
-    "Linux/Scatterd-Learning/NaNa/Ownership-Permission.md",
     "Linux/Scatterd-Learning/Gitea.md",
     "Gitea",
     "Linux/The Software Developer’s Guide to Linux/1.OLD-How the Command Line Works.md",
     "Linux/Scatterd-Learning",
-    "Go/Learning-Go/1. Setting Up Your Go Environment - Study Guide.md",
-    "Go/Learning-Go/6. Pointers - Study Guide.md",
-    "Go/Learning-Go/8. Generics - Study Guide.md",
     "Linux/The Software Developer's Guide to Linux",
     "AI-Prompt",
     "Untitled.base",
@@ -265,8 +295,6 @@
     "Untitled 2.canvas",
     "Untitled 3.canvas",
     "LinkedIn",
-    "Linux/The Software Developer’s Guide to Linux",
-    "Go/gRPC Microservices in Go",
     "Meilisearch/photo/new_road.png",
     "Meilisearch/photo/belgium.png",
     "Meilisearch/photo/vogli3.png",
