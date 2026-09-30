@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/MQTT/HiveMQ/MQTT Fundamentals  Introduction.md",
+                "file": "Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MQTT Fundamentals  Introduction"
+              "title": "3. MQTT Client–Broker Setup and Connection Flow"
             }
           }
         ],
@@ -254,8 +254,10 @@
   },
   "active": "384e2562d4446e01",
   "lastOpenFiles": [
+    "Go/MQTT/HiveMQ/1. MQTT Fundamentals  Introduction.md",
+    "Go/MQTT/HiveMQ/2. PUB-SUB.md",
+    "Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow.md",
     "Go/MQTT/basics.md",
-    "Go/MQTT/HiveMQ/MQTT Fundamentals  Introduction.md",
     "Go/MQTT/HiveMQ",
     "DevOps/NaNa/Artifact and Artifact Repo.md",
     "Go/MQTT",
@@ -284,8 +286,6 @@
     "DevOps/NaNa/Git-NANA",
     "Linux/Scatterd-Learning/SSH 1.md",
     "Go/gRPC/1.Generate command.md",
-    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
-    "Linux/Scatterd-Learning/Gitea.md",
     "Gitea",
     "Linux/Scatterd-Learning",
     "Linux/The Software Developer's Guide to Linux",
