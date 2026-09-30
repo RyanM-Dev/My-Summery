@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Artifact and Artifact Repo.md",
+                "file": "Go/MQTT/HiveMQ/MQTT Fundamentals  Introduction.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Artifact and Artifact Repo"
+              "title": "MQTT Fundamentals  Introduction"
             }
           }
         ],
@@ -255,6 +255,8 @@
   "active": "384e2562d4446e01",
   "lastOpenFiles": [
     "Go/MQTT/basics.md",
+    "Go/MQTT/HiveMQ/MQTT Fundamentals  Introduction.md",
+    "Go/MQTT/HiveMQ",
     "DevOps/NaNa/Artifact and Artifact Repo.md",
     "Go/MQTT",
     "DevOps/NaNa/Account-Groups-Users-Permissions.md",
@@ -285,7 +287,6 @@
     "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
     "Linux/Scatterd-Learning/Gitea.md",
     "Gitea",
-    "Linux/The Software Developer’s Guide to Linux/1.OLD-How the Command Line Works.md",
     "Linux/Scatterd-Learning",
     "Linux/The Software Developer's Guide to Linux",
     "AI-Prompt",
@@ -294,7 +295,6 @@
     "Untitled 1.canvas",
     "Untitled 2.canvas",
     "Untitled 3.canvas",
-    "LinkedIn",
     "Meilisearch/photo/new_road.png",
     "Meilisearch/photo/belgium.png",
     "Meilisearch/photo/vogli3.png",

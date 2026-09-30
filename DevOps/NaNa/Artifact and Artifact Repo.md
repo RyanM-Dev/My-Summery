@@ -1584,3 +1584,24 @@ rather than giving the pipeline an administrator account.
 [[Secrets Management]]
 
 [[HashiCorp Vault]]
+
+nexus raw repo= we can use for different types of files like go binray(go repo only accept zipped files)
+nexus user & role=we can create role with needed access and give it to a user so the user would have different repo based access
+nexus rest API= it has different features including api for uploading or downloading in/into a repo
+listing repos and...
+components of a repo:
+curl -u 'admin:saeed831374' \
+                                                             -X GET \
+                                                             "http://localhost:8081/service/rest/v1/components?repository=go-binary"
+
+upload into a repo:
+curl -u 'ryan:saeed831374' \
+                                                             -X PUT \
+                                                             "http://localhost:8081/repository/go-binary/payment-iran/0.1.0/payment-iran" \
+                                                             --upload-file build/payment-iran
+
+list op repos:
+ curl -u 'admin:saeed831374' \
+                                                             -X GET \
+                                                             "http://localhost:8081/service/rest/v1/repositories"
+
