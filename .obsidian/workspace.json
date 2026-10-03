@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Docker/2. Docker-Architecture-And-its-Components.md",
+                "file": "Go/MQTT/HiveMQ-3.1.1/4. PUB-SUB-UNSUB.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. Docker-Architecture-And-its-Components"
+              "title": "4. PUB-SUB-UNSUB"
             }
           }
         ],
@@ -282,18 +282,20 @@
   },
   "active": "367cf8a854abb841",
   "lastOpenFiles": [
-    "DevOps/NaNa/Docker/1. Container.md",
+    "Go/MQTT/HiveMQ-3.1.1/4.OLD-notes - PUB-SUB-UNSUB.md",
+    "Go/MQTT/HiveMQ-3.1.1/4. PUB-SUB-UNSUB.md",
+    "Go/MQTT/HiveMQ-3.1.1/4.OLD-guide - PUB-SUB-UNSUB.md",
+    "Go/MQTT/HiveMQ-3.1.1/5..md",
     "DevOps/NaNa/Docker/2. Docker-Architecture-And-its-Components.md",
+    "DevOps/NaNa/Docker/1. Container.md",
     "DevOps/NaNa/Docker/2.OLD-notes - Docker-Architecture-And-its-Components.md",
     "DevOps/NaNa/Docker/1.OLD-notes - Container.md",
-    "Go/MQTT/HiveMQ/4. PUB-SUB-UNSUB.md",
-    "Go/MQTT/HiveMQ/4.OLD-notes - PUB-SUB-UNSUB.md",
-    "Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow.md",
+    "Go/MQTT/HiveMQ-3.1.1/3. MQTT Client–Broker Setup and Connection Flow.md",
     "Go/MQTT/AI-Prompt - mqtt.md",
     "Go/MQTT/basics.md",
     "AI-Prompt/MQTT - Specific Prompt.md",
-    "Go/MQTT/HiveMQ/2. PUB-SUB.md",
-    "Go/MQTT/HiveMQ/1. MQTT Fundamentals  Introduction.md",
+    "Go/MQTT/HiveMQ-3.1.1/2. PUB-SUB.md",
+    "Go/MQTT/HiveMQ-3.1.1/1. MQTT Fundamentals  Introduction.md",
     "DevOps/NaNa/Linux/Networking.md",
     "DevOps/NaNa/Docker",
     "DevOps/NaNa/Linux/SSH.md",
@@ -308,10 +310,8 @@
     "DevOps/NaNa/Artifact-Management/2. Nexus Repository Manager — Raw Repositories, Users-Roles, and REST API.md",
     "DevOps/NaNa/Artifact-Management/3.OLD-guide - Blob.md",
     "DevOps/NaNa/Artifact-Management/3.OLD-notes - Blob.md",
-    "AI-Prompt/NANA DevOps - Specific Prompt.md",
-    "AGENTS.md",
     "DevOps/NaNa/Artifact-Management",
-    "Go/MQTT/HiveMQ",
+    "Go/MQTT/HiveMQ-3.1.1",
     "Go/MQTT",
     "DevOps",
     "Linux/Scatterd-Learning/tmux-cheat.webp",

@@ -13,9 +13,9 @@ Read the relevant local references before writing. Use their actual content, pre
 | Reference | Use |
 |---|---|
 | [[Go/MQTT/basics]] | Topics and filters, QoS, retained messages, sessions, and wills; older protocol context |
-| [[Go/MQTT/HiveMQ/1. MQTT Fundamentals  Introduction]] | IoT examples, payloads, transport layers, Keep Alive, and TLS |
-| [[Go/MQTT/HiveMQ/2. PUB-SUB]] | Broker roles, decoupling, asynchronous delivery, and scaling |
-| [[Go/MQTT/HiveMQ/3. MQTT Client–Broker Setup and Connection Flow]] | Libraries, client identity, connection setup, CONNECT, and CONNACK |
+| [[1. MQTT Fundamentals  Introduction]] | IoT examples, payloads, transport layers, Keep Alive, and TLS |
+| [[2. PUB-SUB]] | Broker roles, decoupling, asynchronous delivery, and scaling |
+| [[3. MQTT Client–Broker Setup and Connection Flow]] | Libraries, client identity, connection setup, CONNECT, and CONNACK |
 
 These are the existing references, not a complete syllabus. Read additional supplied files or new relevant notes when available. Do not invent course statements, source passages, timestamps, or implementation features.
 
