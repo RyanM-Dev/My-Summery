@@ -6,6 +6,20 @@ you can append custom dir to $PATH in .bashrc or .zshrc and have scripts in thos
 
 # 🌱 Environment Variables & Shell Configuration
 
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#1️⃣ export — Setting an Environment Variable|1️⃣ `export` — Setting an Environment Variable]]
+> - [[#2️⃣ printenv — Viewing Environment Variables|2️⃣ `printenv` — Viewing Environment Variables]]
+> - [[#3️⃣ .bashrc / .zshrc — Persisting Environment Variables|3️⃣ `.bashrc` / `.zshrc` — Persisting Environment Variables]]
+> - [[#4️⃣ source — Reloading Shell Configuration|4️⃣ `source` — Reloading Shell Configuration]]
+> - [[#5️⃣ $PATH — Making Scripts Globally Runnable|5️⃣ `$PATH` — Making Scripts Globally Runnable]]
+> - [[#📊 Quick Reference Table|📊 Quick Reference Table]]
+> - [[#🎯 Pro Tips|🎯 Pro Tips]]
+> - [[#🔐 Best Practices — Environment Management|🔐 Best Practices — Environment Management]]
+
+
 Tags: #shell #bash #zsh #linux #environment-variables
 
 ---

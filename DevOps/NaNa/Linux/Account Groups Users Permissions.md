@@ -2,6 +2,28 @@ Here's a comprehensive Obsidian-friendly markdown documentation for your Linux u
 
 # 👥 Linux User & Group Management Commands
 
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#📝 Command Documentation & Reference Guide|📝 Command Documentation & Reference Guide]]
+> - [[#1️⃣ Creating Users: adduser vs useradd|1️⃣ Creating Users: `adduser` vs `useradd`]]
+> - [[#2️⃣ Viewing User Information: cat /etc/passwd|2️⃣ Viewing User Information: `cat /etc/passwd`]]
+> - [[#3️⃣ Changing Passwords: passwd|3️⃣ Changing Passwords: `passwd`]]
+> - [[#4️⃣ Switching Users: su|4️⃣ Switching Users: `su`]]
+> - [[#5️⃣ Creating Groups: groupadd vs addgroup|5️⃣ Creating Groups: `groupadd` vs `addgroup`]]
+> - [[#6️⃣ Deleting Users: deluser vs userdel|6️⃣ Deleting Users: `deluser` vs `userdel`]]
+> - [[#7️⃣ Deleting Groups: delgroup vs groupdel|7️⃣ Deleting Groups: `delgroup` vs `groupdel`]]
+> - [[#8️⃣ Modifying Users: usermod|8️⃣ Modifying Users: `usermod`]]
+> - [[#9️⃣ Adding Users to Multiple Groups: usermod -G|9️⃣ Adding Users to Multiple Groups: `usermod -G`]]
+> - [[#🔟 Displaying Groups: groups|🔟 Displaying Groups: `groups`]]
+> - [[#1️⃣1️⃣ Adding User to Group During Creation: useradd -G|1️⃣1️⃣ Adding User to Group During Creation: `useradd -G`]]
+> - [[#1️⃣2️⃣ Removing User from Group: gpasswd -d|1️⃣2️⃣ Removing User from Group: `gpasswd -d`]]
+> - [[#📊 Quick Reference Table|📊 Quick Reference Table]]
+> - [[#🎯 Pro Tips|🎯 Pro Tips]]
+> - [[#🔐 Security Best Practices|🔐 Security Best Practices]]
+
+
 ## 📝 Command Documentation & Reference Guide
 
 ---

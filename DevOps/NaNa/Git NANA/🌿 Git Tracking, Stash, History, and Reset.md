@@ -1,3 +1,30 @@
+# 🌿 Git Tracking, Stash, History, and Reset
+
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#🗑️ git rm — Remove Files from Git|🗑️ `git rm` — Remove Files from Git]]
+> - [[#🧠 git rm --cached — Stop Tracking Without Deleting|🧠 `git rm --cached` — Stop Tracking Without Deleting]]
+> - [[#📦 git stash — Temporarily Store Changes|📦 `git stash` — Temporarily Store Changes]]
+> - [[#🔍 Using Stash to Debug Your Own Changes|🔍 Using Stash to Debug Your Own Changes]]
+> - [[#💻 Important Stash Commands|💻 Important Stash Commands]]
+> - [[#📜 git log — View Commit History|📜 `git log` — View Commit History]]
+> - [[#🌳 A Better Commit History View|🌳 A Better Commit History View]]
+> - [[#⏪ Checking an Old Commit|⏪ Checking an Old Commit]]
+> - [[#🌿 Create a Branch from an Old Commit|🌿 Create a Branch from an Old Commit]]
+> - [[#🎯 Understanding HEAD|🎯 Understanding `HEAD`]]
+> - [[#💥 git reset --hard|💥 `git reset --hard`]]
+> - [[#What Does --hard Mean?|What Does `--hard` Mean?]]
+> - [[#checkout vs reset --hard|`checkout` vs `reset --hard`]]
+> - [[#⚠️ Resetting Already-Pushed Commits|⚠️ Resetting Already-Pushed Commits]]
+> - [[#🔄 How These Commands Work Together|🔄 How These Commands Work Together]]
+> - [[#🧪 Interview Q&A|🧪 Interview Q&A]]
+> - [[#🔨 Hands-On Practice|🔨 Hands-On Practice]]
+> - [[#📋 Quick Reference|📋 Quick Reference]]
+> - [[#🧠 Things to Remember|🧠 Things to Remember]]
+> - [[#💡 Pro Tips|💡 Pro Tips]]
+> - [[#🔗 Related Topics|🔗 Related Topics]]
 
 
 These commands are useful when you need to control **what Git tracks**, temporarily save unfinished work, inspect old commits, or move your branch back to an earlier state.

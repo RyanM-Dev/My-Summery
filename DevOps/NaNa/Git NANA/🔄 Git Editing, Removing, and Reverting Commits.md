@@ -1,3 +1,33 @@
+# 🔄 Git Editing, Removing, and Reverting Commits
+
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#🧠 Understanding HEAD|🧠 Understanding `HEAD`]]
+> - [[#🌐 git commit --amend — Edit the Last Commit|🌐 `git commit --amend` — Edit the Last Commit]]
+> - [[#💻 git commit --amend|💻 `git commit --amend`]]
+> - [[#🌐 git reset --soft — Remove Commits but Keep Their Changes Staged|🌐 `git reset --soft` — Remove Commits but Keep Their Changes Staged]]
+> - [[#💻 git reset --soft|💻 `git reset --soft`]]
+> - [[#💡 Real-World Example|💡 Real-World Example]]
+> - [[#⚠️ --soft Is Not the Default|⚠️ `--soft` Is Not the Default]]
+> - [[#🌐 git reset --mixed — Keep Changes but Unstage Them|🌐 `git reset --mixed` — Keep Changes but Unstage Them]]
+> - [[#🌐 git reset --hard — Remove Commits and Their Changes|🌐 `git reset --hard` — Remove Commits and Their Changes]]
+> - [[#💻 git reset --hard|💻 `git reset --hard`]]
+> - [[#🌐 Removing an Already-Pushed Commit|🌐 Removing an Already-Pushed Commit]]
+> - [[#⚠️ Why Force Push Is Dangerous|⚠️ Why Force Push Is Dangerous]]
+> - [[#💡 Prefer --force-with-lease|💡 Prefer `--force-with-lease`]]
+> - [[#🌐 git revert — Safely Undo a Commit|🌐 `git revert` — Safely Undo a Commit]]
+> - [[#💻 git revert|💻 `git revert`]]
+> - [[#💡 Real-World Team Example|💡 Real-World Team Example]]
+> - [[#🔀 reset vs revert|🔀 `reset` vs `revert`]]
+> - [[#🔀 reset --soft vs commit --amend|🔀 `reset --soft` vs `commit --amend`]]
+> - [[#🧪 Interview Q&A|🧪 Interview Q&A]]
+> - [[#🔨 Hands-On Practice|🔨 Hands-On Practice]]
+> - [[#📋 Quick Reference|📋 Quick Reference]]
+> - [[#🧠 Things to Remember|🧠 Things to Remember]]
+> - [[#💡 Pro Tips|💡 Pro Tips]]
+> - [[#🔗 Related Topics|🔗 Related Topics]]
 
 
 Git gives you several ways to fix commit history, but they behave very differently.

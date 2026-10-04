@@ -1,3 +1,45 @@
+# 🔀 Linux Pipes, grep, less, and Output Redirection
+
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [🌐 Pipes `|`](#%F0%9F%8C%90%20Pipes%20%7C)
+> - [[#📖 less|📖 `less`]]
+> - [[#💻 less|💻 `less`]]
+> - [[#⌨️ Useful less Keys|⌨️ Useful `less` Keys]]
+> - [[#🔍 grep|🔍 `grep`]]
+> - [[#💻 grep|💻 `grep`]]
+> - [[#🔗 Using grep with Pipes|🔗 Using `grep` with Pipes]]
+> - [[#Searching for Multiple Words|Searching for Multiple Words]]
+> - [[#📄 Searching Inside Files|📄 Searching Inside Files]]
+> - [[#🧰 Useful grep Options|🧰 Useful `grep` Options]]
+> - [[#-i — Ignore Case|`-i` — Ignore Case]]
+> - [[#-n — Show Line Numbers|`-n` — Show Line Numbers]]
+> - [[#-v — Show Lines That Do NOT Match|`-v` — Show Lines That Do NOT Match]]
+> - [[#-r — Search Recursively|`-r` — Search Recursively]]
+> - [[#Combining Options|Combining Options]]
+> - [[#🧪 Pipe + grep Example|🧪 Pipe + `grep` Example]]
+> - [[#➡️ Output Redirection|➡️ Output Redirection]]
+> - [[#📄 > — Redirect and Overwrite|📄 `>` — Redirect and Overwrite]]
+> - [[#⚠️ Important: > Overwrites|⚠️ Important: `>` Overwrites]]
+> - [[#➕ >> — Redirect and Append|➕ `>>` — Redirect and Append]]
+> - [🔀 `|` vs `>` vs `>>`](#%F0%9F%94%80%20%7C%20vs%20%3E%20vs%20%3E%3E)
+> - [[#🌍 Real-World Scenario: Searching Logs|🌍 Real-World Scenario: Searching Logs]]
+> - [[#🌍 Real-World Scenario: Finding Commands You Used Before|🌍 Real-World Scenario: Finding Commands You Used Before]]
+> - [[#🌍 Real-World Scenario: Inspecting Processes|🌍 Real-World Scenario: Inspecting Processes]]
+> - [[#🧠 Understanding Standard Input and Output|🧠 Understanding Standard Input and Output]]
+> - [[#🧪 Interview Q&A|🧪 Interview Q&A]]
+> - [[#🔨 Hands-On Practice|🔨 Hands-On Practice]]
+> - [[#Exercise 1 — Browse Command History|Exercise 1 — Browse Command History]]
+> - [[#Exercise 2 — Search History|Exercise 2 — Search History]]
+> - [[#Exercise 3 — Save Search Results|Exercise 3 — Save Search Results]]
+> - [[#Exercise 4 — Append More Results|Exercise 4 — Append More Results]]
+> - [[#Exercise 5 — Search a File Directly|Exercise 5 — Search a File Directly]]
+> - [[#📋 Quick Reference|📋 Quick Reference]]
+> - [[#🧠 Things to Remember|🧠 Things to Remember]]
+> - [[#💡 Pro Tips|💡 Pro Tips]]
+> - [[#🔗 Related Topics|🔗 Related Topics]]
 
 
 Linux commands become much more powerful when you combine them.

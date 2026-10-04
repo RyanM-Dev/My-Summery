@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
-                "mode": "source",
+                "file": "DevOps/NaNa/Git NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "8. MQTT Retained messages"
+              "title": "🌿 Git Branching, Merge, Rebase, and Team Workflow"
             }
           }
         ],
@@ -268,9 +268,12 @@
   },
   "active": "f1a6a895a59d2bf6",
   "lastOpenFiles": [
+    "DevOps/NaNa/Artifact Management/1. Artifact and Artifact Repo.md",
+    "DevOps/NaNa/Artifact Management/4.OLD-notes - Cleanup Policy.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
+    "DevOps/NaNa/0. Nana DevOps Table of Contents.md",
     "DevOps/NaNa/Artifact Management/4. Cleanup Policy.md",
     "DevOps/NaNa/Artifact Management/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API.md",
-    "DevOps/NaNa/Artifact Management/1. Artifact and Artifact Repo.md",
     "Go/Learning Go/1. Setting Up Your Go Environment - Study Guide.md",
     "Go/Learning Go/1.OLD-guide - Setting Up Your Go Environment - Study Guide.md",
     "Go/Learning Go/9. Errors - Study Guide.md",
@@ -289,11 +292,8 @@
     "Go/gRPC/1.Generate command.md",
     "Go/Concurrency in Go/03 - Chapter Three/2.Sync.md",
     "Go/Concurrency in Go/02 - Chapter Two/Parallelism & Concurrency.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
     "Brokers/MQTT/HiveMQ 3.1.1/4. PUB SUB UNSUB.md",
     "Brokers/MQTT/HiveMQ 3.1.1/3. MQTT Client–Broker Setup and Connection Flow.md",
-    "Brokers/MQTT/0. MQTT Table of Contents.md",
-    "Brokers/MQTT/basics.md",
     "Brokers/MQTT/HiveMQ 3.1.1",
     "Brokers/MQTT",
     "Brokers/Kafka",

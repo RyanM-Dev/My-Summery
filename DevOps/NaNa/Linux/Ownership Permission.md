@@ -2,6 +2,23 @@ Here's a comprehensive Obsidian-friendly markdown documentation for Linux file o
 
 # 📁 Linux File Ownership & Permissions
 
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#🔐 Understanding & Managing Access Control|🔐 Understanding & Managing Access Control]]
+> - [[#1️⃣ Viewing Ownership & Permissions: ls -l|1️⃣ Viewing Ownership & Permissions: `ls -l`]]
+> - [[#2️⃣ File Types & Permission Characters|2️⃣ File Types & Permission Characters]]
+> - [[#3️⃣ Changing Ownership: chown|3️⃣ Changing Ownership: `chown`]]
+> - [[#4️⃣ Changing Group Only: chgrp|4️⃣ Changing Group Only: `chgrp`]]
+> - [[#5️⃣ Understanding Permission Blocks|5️⃣ Understanding Permission Blocks]]
+> - [[#6️⃣ Changing Permissions: chmod (Symbolic Mode)|6️⃣ Changing Permissions: `chmod` (Symbolic Mode)]]
+> - [[#7️⃣ Changing Permissions: chmod (Numeric Mode)|7️⃣ Changing Permissions: `chmod` (Numeric Mode)]]
+> - [[#📊 Quick Reference Table|📊 Quick Reference Table]]
+> - [[#🎯 Pro Tips|🎯 Pro Tips]]
+> - [[#🔐 Security Best Practices|🔐 Security Best Practices]]
+
+
 ## 🔐 Understanding & Managing Access Control
 
 ---

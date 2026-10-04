@@ -1,4 +1,50 @@
-#  
+# 🌿 Git Branching, Merge, Rebase, and Team Workflow
+
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#🌿 One Branch per Feature or Bug Fix|🌿 One Branch per Feature or Bug Fix]]
+> - [[#🚀 Pushing a New Branch|🚀 Pushing a New Branch]]
+> - [[#🔄 Our Development Flow|🔄 Our Development Flow]]
+> - [[#🏷️ Release Branches and Versioning|🏷️ Release Branches and Versioning]]
+> - [[#🔎 Pull Request / Merge Request Review|🔎 Pull Request / Merge Request Review]]
+> - [[#⚔️ Git Merge Conflicts|⚔️ Git Merge Conflicts]]
+> - [[#1️⃣ feature/user Changes the Code|1️⃣ `feature/user` Changes the Code]]
+> - [[#2️⃣ feature/product Also Changed the Same Code|2️⃣ `feature/product` Also Changed the Same Code]]
+> - [[#3️⃣ feature/product Tries to Merge|3️⃣ `feature/product` Tries to Merge]]
+> - [[#🧠 Why Three Versions Matter|🧠 Why Three Versions Matter]]
+> - [[#✅ Changes That Usually Do Not Conflict|✅ Changes That Usually Do Not Conflict]]
+> - [[#🌐 Local and Remote Branches|🌐 Local and Remote Branches]]
+> - [[#🚫 Why git push Can Be Rejected|🚫 Why `git push` Can Be Rejected]]
+> - [[#🔀 Option 1: git pull with Merge|🔀 Option 1: `git pull` with Merge]]
+> - [[#🧹 Option 2: git pull --rebase|🧹 Option 2: `git pull --rebase`]]
+> - [[#💻 git pull -r|💻 `git pull -r`]]
+> - [[#🔀 Git Merge vs Rebase|🔀 Git Merge vs Rebase]]
+> - [[#🔀 Using Merge|🔀 Using Merge]]
+> - [[#🧹 Using Rebase|🧹 Using Rebase]]
+> - [[#🧠 Rebase Does Not Replace develop|🧠 Rebase Does Not Replace `develop`]]
+> - [[#⚔️ Rebase Conflicts|⚔️ Rebase Conflicts]]
+> - [[#🛑 Cancel a Rebase|🛑 Cancel a Rebase]]
+> - [[#⚠️ Rebase and Shared Branches|⚠️ Rebase and Shared Branches]]
+> - [[#🔄 git fetch vs git pull|🔄 `git fetch` vs `git pull`]]
+> - [[#🌍 Practical Feature Workflow|🌍 Practical Feature Workflow]]
+> - [[#🌿 Git Tracking, Stash, History, and Reset|🌿 Git Tracking, Stash, History, and Reset]]
+> - [[#🗑️ git rm — Remove Files from Git|🗑️ `git rm` — Remove Files from Git]]
+> - [[#🧠 git rm --cached — Stop Tracking Without Deleting|🧠 `git rm --cached` — Stop Tracking Without Deleting]]
+> - [[#📦 git stash — Temporarily Store Changes|📦 `git stash` — Temporarily Store Changes]]
+> - [[#🔍 Using Stash to Debug Your Own Changes|🔍 Using Stash to Debug Your Own Changes]]
+> - [[#💻 Important Stash Commands|💻 Important Stash Commands]]
+> - [[#📜 git log — View Commit History|📜 `git log` — View Commit History]]
+> - [[#🌳 A Better Commit History View|🌳 A Better Commit History View]]
+> - [[#⏪ Checking an Old Commit|⏪ Checking an Old Commit]]
+> - [[#🌿 Create a Branch from an Old Commit|🌿 Create a Branch from an Old Commit]]
+> - [[#🎯 Understanding HEAD|🎯 Understanding `HEAD`]]
+> - [[#💥 git reset --hard|💥 `git reset --hard`]]
+> - [[#What Does --hard Mean?|What Does `--hard` Mean?]]
+> - [[#checkout vs reset --hard|`checkout` vs `reset --hard`]]
+> - [[#⚠️ Resetting Already-Pushed Commits|⚠️ Resetting Already-Pushed Commits]]
+> - [[#🔄 How These Commands Work Together|🔄 How These Commands Work Together]]
 
 A good Git workflow keeps features and bug fixes isolated, makes code review easier, and keeps `develop` and `main` stable.
 

@@ -1,3 +1,14 @@
+# 🖥️ Server Configuration
+
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#📝 Notes|📝 Notes]]
+
+
+## 📝 Notes
+
 you don't work with root user, you should have user for each service and even for server administration we shouldn't use root user.
 
 the user who config and need sudo access add it to sudo group

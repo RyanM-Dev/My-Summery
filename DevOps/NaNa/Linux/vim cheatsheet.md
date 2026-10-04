@@ -1,5 +1,31 @@
 # 📝 Vim Cheat Sheet
 
+[[DevOps/NaNa/0. Nana DevOps Table of Contents|📚 Nana DevOps Table of Contents]]
+
+> [!toc]- 📑 Contents
+>
+> - [[#🚪 Open, Save & Quit|🚪 Open, Save & Quit]]
+> - [[#🎛️ Vim Modes|🎛️ Vim Modes]]
+> - [[#🧭 Movement|🧭 Movement]]
+> - [[#✂️ Copy, Cut & Paste|✂️ Copy, Cut & Paste]]
+> - [[#🗑️ Delete|🗑️ Delete]]
+> - [[#↩️ Undo & Redo|↩️ Undo & Redo]]
+> - [[#🔍 Search|🔍 Search]]
+> - [[#🔄 Find & Replace|🔄 Find & Replace]]
+> - [[#✏️ Editing|✏️ Editing]]
+> - [[#📋 Visual Selection|📋 Visual Selection]]
+> - [[#📐 Indentation|📐 Indentation]]
+> - [[#🔢 Repeat Commands|🔢 Repeat Commands]]
+> - [[#⚡ Extremely Useful Commands|⚡ Extremely Useful Commands]]
+> - [[#🪟 Multiple Files / Buffers|🪟 Multiple Files / Buffers]]
+> - [[#🖼️ Split Windows|🖼️ Split Windows]]
+> - [[#🐚 Run Shell Commands|🐚 Run Shell Commands]]
+> - [[#: — When Do You Use It?|`:` — When Do You Use It?]]
+> - [[#🧠 Commands Worth Memorizing|🧠 Commands Worth Memorizing]]
+> - [[#💡 Good ~/.vimrc Basics|💡 Good `~/.vimrc` Basics]]
+> - [[#🎯 Daily Vim Workflow|🎯 Daily Vim Workflow]]
+
+
 A practical Vim reference with the commands you’ll actually use.
 
 > ⚠️ **Important: `:` is only used for Vim command-line (Ex) commands.**
