@@ -1,5 +1,8 @@
 # Docker — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Topic layer for Docker / container study guides. Append AFTER [[00 - General Study Guide Prompt]].
 
 ---
@@ -32,7 +35,7 @@ You are a senior platform engineer specializing in containers. Apply these rules
 - Pin base image tags — warn against `latest` in production
 
 #### Diagrams (mandatory)
-- Container vs image layer stack (ASCII)
+- Container vs image layer stack (Mermaid)
 - Compose service network diagram (mermaid flowchart)
 - Volume mount vs bind mount comparison table
 

@@ -1,5 +1,8 @@
 # Git — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Topic layer for Git / version control study guides. Append AFTER [[00 - General Study Guide Prompt]].
 
 ---
@@ -31,7 +34,7 @@ You are a senior engineer and Git educator. Apply these rules ON TOP of the gene
 - Warn on destructive commands (`reset --hard`, `push --force`) with safer alternatives
 
 #### Diagrams (mandatory)
-- Commit DAG (ASCII) for merge vs rebase chapters
+- Commit DAG (Mermaid) for merge vs rebase chapters
 - Working tree / staging / repository three-tree model
 - Comparison table: merge vs rebase vs squash merge
 

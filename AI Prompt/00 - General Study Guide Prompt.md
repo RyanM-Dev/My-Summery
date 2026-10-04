@@ -1,5 +1,8 @@
 # General Study Guide Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** The **fundamental** reusable template for every study guide. Defines structure, Q&A, diagrams, reference handling, and {{CURRENT_YEAR}} senior-level research.
 >
 > **Requires a specific prompt:** This file alone is not enough. You **must** also append the applicable topic or project prompt. These live beside the notes they govern, with filenames starting with `AI Prompt`. Look in the target directory first, then its parents. For Go topics, use [[Go/AI Prompt - Go]] when relevant.
@@ -159,7 +162,7 @@ Each part MUST include:
 |-------|--------|---------|
 | Concepts | `### 📌 Concepts Explained` | Bullet list of key ideas |
 | Deep dive | `### 🔧` | Explanations, comparisons between sources |
-| Visual | `### 📊` or `### 💻` | At least one: ASCII diagram, mermaid, table, or directory tree |
+| Visual | `### 📊` or `### 💻` | At least one: Mermaid diagram or comparison table |
 | Interview | `### 🧪 Interview Q&A` | See Q&A rules below. Mix conceptual questions from sources with **real-world interview questions** sourced via internet search (LeetCode, Glassdoor, r/golang, Stack Overflow, etc. — "what is the output?", "fix this", differences, edge cases, "why does this panic?"). Minimum 5 per part (more in Master Q&A); label real-world ones clearly. |
 
 **Suggested part arc (adapt to chapter):**
@@ -210,7 +213,7 @@ Under each `### 🧪 Interview Q&A`:
 
 Include at minimum:
 1. **One mermaid diagram** — sequence, flowchart, or architecture (end-to-end chapter flow)
-2. **One ASCII diagram or directory tree** — especially when explaining structure or code layout
+2. **One additional Mermaid diagram** — especially when explaining structure or code layout
 3. **Comparison tables** — sources side-by-side where concepts differ
 
 Mermaid example:

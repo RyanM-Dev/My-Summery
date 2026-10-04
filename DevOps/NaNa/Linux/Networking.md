@@ -6,63 +6,56 @@ A network lets devices communicate with each other.
 
 At the simplest level, your computer may communicate with another device inside the same local network. At a larger scale, your local network connects through a router to other networks and eventually to the Internet.
 
-```text
-PC
-│
-▼
-Switch / Wi-Fi Access Point
-│
-▼
-LAN
-│
-▼
-Router / Default Gateway
-│
-├── Routing
-├── NAT
-├── Firewall
-└── Port Forwarding
-│
-▼
-WAN / ISP
-│
-▼
-Internet
-│
-▼
-Remote Server
+```mermaid
+flowchart TD
+    N0["PC"]
+    N1["Switch / Wi-Fi Access Point"]
+    N2["LAN"]
+    N3["Router / Default Gateway"]
+    N4["Routing"]
+    N5["NAT"]
+    N6["Firewall"]
+    N7["Port Forwarding"]
+    N8["WAN / ISP"]
+    N9["Internet"]
+    N10["Remote Server"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --- N4
+    N3 --- N5
+    N3 --- N6
+    N3 --- N7
+    N3 --> N8
+    N8 --> N9
+    N9 --> N10
 ```
 
 Understanding networking becomes much easier when you think about the journey of a packet:
 
-```text
-Who am I?
-    ↓
-IP Address
-
-Is the destination local?
-    ↓
-Subnet
-
-If not, where should I send it?
-    ↓
-Default Gateway
-
-How does my private IP reach the Internet?
-    ↓
-NAT
-
-Which application should receive the traffic?
-    ↓
-Port
-
-Is this traffic allowed?
-    ↓
-Firewall
-
-How do I turn google.com into an IP address?
-    ↓
-DNS
+```mermaid
+flowchart LR
+    N0["Who am I?"]
+    N1["IP Address"]
+    N2["Is the destination local?"]
+    N3["Subnet"]
+    N4["Where should remote traffic go?"]
+    N5["Default Gateway"]
+    N6["How does my private IP reach Internet?"]
+    N7["NAT"]
+    N8["Which application receives traffic?"]
+    N9["Port"]
+    N10["Is traffic allowed?"]
+    N11["Firewall"]
+    N12["How does google.com become an IP?"]
+    N13["DNS"]
+    N0 --> N1
+    N2 --> N3
+    N4 --> N5
+    N6 --> N7
+    N8 --> N9
+    N10 --> N11
+    N12 --> N13
 ```
 
 ---
@@ -123,10 +116,20 @@ They are normally displayed as four decimal numbers:
 
 Each number represents **8 bits**, called an **octet**.
 
-```text
-192      168       1        20
- ↓        ↓        ↓         ↓
-8 bits   8 bits   8 bits   8 bits
+```mermaid
+flowchart TD
+    N0["192"]
+    N1["168"]
+    N2["1"]
+    N3["20"]
+    N4["8 bits"]
+    N5["8 bits"]
+    N6["8 bits"]
+    N7["8 bits"]
+    N0 --- N4
+    N1 --- N5
+    N2 --- N6
+    N3 --- N7
 ```
 
 Therefore:
@@ -211,17 +214,13 @@ Public IP addresses are globally routable addresses used on the Internet.
 > 
 > Your network may look like:
 > 
-> ```text
-> PC
-> 192.168.1.20
->       │
->       ▼
-> Router
-> LAN: 192.168.1.1
-> WAN: Public IP
->       │
->       ▼
-> Internet
+> ```mermaid
+> flowchart TD
+>     N0["PC: 192.168.1.20"]
+>     N1["Router: LAN 192.168.1.1 / WAN Public IP"]
+>     N2["Internet"]
+>     N0 --> N1
+>     N1 --> N2
 > ```
 > 
 > The computer uses a private IP internally while the router communicates with the Internet using its WAN-side address.
@@ -260,13 +259,17 @@ Devices inside the same subnet can normally communicate directly at the local ne
 
 A switch connects devices inside an Ethernet LAN.
 
-```text
-             ┌── PC
-             │
-             ├── Server
-Switch ──────┼── Printer
-             │
-             └── Router
+```mermaid
+flowchart LR
+    N0["Switch"]
+    N1["PC"]
+    N2["Server"]
+    N3["Printer"]
+    N4["Router"]
+    N0 --- N1
+    N0 --- N2
+    N0 --- N3
+    N0 --- N4
 ```
 
 A typical Ethernet switch mainly forwards traffic using **MAC addresses**.
@@ -305,22 +308,17 @@ ISP / Internet
 
 Conceptually:
 
-```text
-192.168.1.20
-PC
- │
- ▼
-Switch
- │
- ▼
-192.168.1.1
-Router
- │
- ▼
-ISP
- │
- ▼
-Internet
+```mermaid
+flowchart TD
+    N0["PC: 192.168.1.20"]
+    N1["Switch"]
+    N2["Router: 192.168.1.1"]
+    N3["ISP"]
+    N4["Internet"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 Routers make forwarding decisions using destination IP addresses and routing tables.
@@ -352,20 +350,17 @@ A **WAN** connects networks over larger geographic areas.
 
 For a home or small office, the router's WAN side usually connects toward the ISP.
 
-```text
-LAN
-192.168.1.0/24
-      │
-      ▼
-   Router
-      │
-WAN Interface
-      │
-      ▼
-     ISP
-      │
-      ▼
- Internet
+```mermaid
+flowchart TD
+    N0["LAN: 192.168.1.0/24"]
+    N1["Router"]
+    N2["WAN Interface"]
+    N3["ISP"]
+    N4["Internet"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 The Internet itself can be viewed as a massive interconnected collection of networks.
@@ -429,8 +424,11 @@ Destination:
 
 Same subnet:
 
-```text
-PC ───────────────→ Server
+```mermaid
+flowchart LR
+    N0["PC ───────────────"]
+    N1["Server"]
+    N0 --> N1
 ```
 
 Destination:
@@ -441,18 +439,15 @@ Destination:
 
 Different network:
 
-```text
-PC
- │
- ▼
-Default Gateway
-192.168.1.1
- │
- ▼
-Internet
- │
- ▼
-8.8.8.8
+```mermaid
+flowchart TD
+    N0["PC"]
+    N1["Default Gateway: 192.168.1.1"]
+    N2["Internet"]
+    N3["8.8.8.8"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 This is one of the most important networking concepts to understand.
@@ -597,21 +592,17 @@ In home and office networks, the most familiar form lets many internal private a
 
 Example:
 
-```text
-PC        192.168.1.20
-Laptop    192.168.1.30
-Phone     192.168.1.40
-
-             │
-             ▼
-
-           Router
-     Public IP: 203.0.113.10
-
-             │
-             ▼
-
-          Internet
+```mermaid
+flowchart TD
+    N0["PC: 192.168.1.20"]
+    N1["Laptop: 192.168.1.30"]
+    N2["Phone: 192.168.1.40"]
+    N3["Router: Public IP 203.0.113.10"]
+    N4["Internet"]
+    N0 --> N3
+    N1 --> N3
+    N2 --> N3
+    N3 --> N4
 ```
 
 All three devices can communicate with the Internet while externally appearing to use the router's public IP.
@@ -636,10 +627,11 @@ to:
 
 The router may translate it to something conceptually like:
 
-```text
-192.168.1.20:51500
-        ↓ NAT
-203.0.113.10:62001
+```mermaid
+flowchart LR
+    N0["192.168.1.20:51500"]
+    N1["203.0.113.10:62001"]
+    N0 -->|NAT| N1
 ```
 
 The router remembers the mapping:
@@ -709,9 +701,13 @@ Same port
 
 For example, this generally conflicts:
 
-```text
-App A → 0.0.0.0:8080/TCP
-App B → 0.0.0.0:8080/TCP
+```mermaid
+flowchart LR
+    N0["App A"]
+    N1["App B"]
+    N2["0.0.0.0:8080/TCP"]
+    N0 --> N2
+    N1 --> N2
 ```
 
 But the same port number can exist in different contexts.
@@ -770,16 +766,15 @@ only from 192.168.1.0/24
 
 Conceptually:
 
-```text
-Incoming Packet
-      │
-      ▼
-   Firewall
-    /    \
-Allow    Deny
- │        │
- ▼        X
-Service
+```mermaid
+flowchart TD
+    N0["Incoming Packet"]
+    N1["Firewall"]
+    N2["Service"]
+    N3["Denied: packet dropped"]
+    N0 --> N1
+    N1 -->|Allow| N2
+    N1 -->|Deny| N3
 ```
 
 ---
@@ -825,12 +820,13 @@ is not directly reachable from the public Internet.
 
 You could configure:
 
-```text
-Public-IP:8080
-        ↓
-Router
-        ↓
-192.168.1.50:8080
+```mermaid
+flowchart TD
+    N0["Public-IP:8080"]
+    N1["Router"]
+    N2["192.168.1.50:8080"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 Now incoming traffic matching that forwarding rule can be translated and delivered to the internal server, assuming upstream routing, firewall rules, ISP behavior, and the service configuration also permit it.
@@ -839,33 +835,24 @@ Now incoming traffic matching that forwarding rule can be translated and deliver
 
 ## Port Forwarding Example
 
-```text
-Internet Client
-      │
-      │ TCP 203.0.113.10:8080
-      ▼
-┌──────────────────┐
-│      Router      │
-│                  │
-│ Forward rule:    │
-│ :8080            │
-│      ↓           │
-│ 192.168.1.50:80  │
-└────────┬─────────┘
-         │
-         ▼
-     Web Server
-    192.168.1.50
+```mermaid
+flowchart TD
+    N0["Internet Client"]
+    N1["Router: forward TCP :8080 to 192.168.1.50:80"]
+    N2["Web Server: 192.168.1.50"]
+    N0 -->|TCP 203.0.113.10:8080| N1
+    N1 --> N2
 ```
 
 The external and internal ports do not necessarily need to be the same.
 
 For example:
 
-```text
-Public-IP:8080
-     ↓
-192.168.1.50:80
+```mermaid
+flowchart TD
+    N0["Public-IP:8080"]
+    N1["192.168.1.50:80"]
+    N0 --> N1
 ```
 
 ---
@@ -910,14 +897,13 @@ git.my-rm.com
 
 Break it apart:
 
-```text
-git   .   my-rm   .   com
-│          │           │
-│          │           └── Top-Level Domain
-│          │
-│          └── Registered domain label
-│
-└── Subdomain / host label
+```mermaid
+flowchart LR
+    N0["git: subdomain / host label"]
+    N1["my-rm: registered domain label"]
+    N2["com: top-level domain"]
+    N0 --- N1
+    N1 --- N2
 ```
 
 ---
@@ -998,14 +984,14 @@ They could point to the same server or completely different infrastructure.
 
 For example:
 
-```text
-git.my-rm.com
-        ↓
-192.0.2.10
-
-api.my-rm.com
-        ↓
-192.0.2.20
+```mermaid
+flowchart LR
+    N0["git.my-rm.com"]
+    N1["192.0.2.10"]
+    N2["api.my-rm.com"]
+    N3["192.0.2.20"]
+    N0 --> N1
+    N2 --> N3
 ```
 
 DNS simply maps names to records. The services do not have to physically exist on the same machine.
@@ -1044,11 +1030,15 @@ git.my-rm.com
 
 but DNS internally works with the hierarchy:
 
-```text
-.
-└── com
-    └── my-rm
-        └── git
+```mermaid
+flowchart TD
+    N0["."]
+    N1["com"]
+    N2["my-rm"]
+    N3["git"]
+    N0 --- N1
+    N1 --- N2
+    N2 --- N3
 ```
 
 ---
@@ -1065,39 +1055,28 @@ into your browser.
 
 The complete process looks approximately like this:
 
-```text
-Browser
-  │
-  ▼
-OS DNS mechanisms / local caches
-  │
-  ▼
-Configured Recursive DNS Resolver
-  │
-  ├── Cache hit? ──→ Return answer
-  │
-  └── Cache miss
-        │
-        ▼
-      Root DNS
-        │
-        ▼
-      .com TLD
-        │
-        ▼
-Authoritative DNS Server
-        │
-        ▼
-      IP Address
-        │
-        ▼
-Recursive Resolver
-        │
-        ▼
-      Your PC
-        │
-        ▼
-      Browser
+```mermaid
+sequenceDiagram
+    participant B as Browser
+    participant O as OS DNS mechanisms / local caches
+    participant R as Recursive DNS Resolver
+    participant ROOT as Root DNS
+    participant T as com TLD
+    participant A as Authoritative DNS Server
+    B->>O: Resolve name
+    O->>R: Query if not cached locally
+    alt Resolver cache hit
+        R-->>O: Cached answer
+    else Cache miss
+        R->>ROOT: Query
+        ROOT-->>R: TLD referral
+        R->>T: Query
+        T-->>R: Authoritative referral
+        R->>A: Query
+        A-->>R: IP address
+        R-->>O: Answer
+    end
+    O-->>B: IP address
 ```
 
 The important distinction is that your computer normally does **not personally query all of the root, TLD, and authoritative servers**.
@@ -1234,35 +1213,24 @@ https://www.example.com
 
 Flow:
 
-```text
-Browser
-  │
-  │ "What is www.example.com?"
-  ▼
-Recursive Resolver
-  │
-  │ Cache miss
-  ▼
-Root DNS Server
-  │
-  │ "Ask .com"
-  ▼
-.com TLD Server
-  │
-  │ "Ask example.com's authoritative server"
-  ▼
-Authoritative DNS Server
-  │
-  │ "www.example.com = 192.0.2.50"
-  ▼
-Recursive Resolver
-  │
-  ▼
-PC
-  │
-  ▼
-Browser connects to
-192.0.2.50:443
+```mermaid
+sequenceDiagram
+    participant B as Browser / PC
+    participant R as Recursive Resolver
+    participant ROOT as Root DNS Server
+    participant T as com TLD Server
+    participant A as Authoritative DNS Server
+    participant W as Web Server
+    B->>R: What is www.example.com?
+    Note over R: Cache miss
+    R->>ROOT: Query www.example.com
+    ROOT-->>R: Ask com TLD
+    R->>T: Query www.example.com
+    T-->>R: Ask example.com authoritative server
+    R->>A: Query www.example.com
+    A-->>R: 192.0.2.50
+    R-->>B: 192.0.2.50
+    B->>W: Connect to 192.0.2.50:443
 ```
 
 DNS finds the address.
@@ -1401,16 +1369,13 @@ so the traffic stays local.
 
 Conceptually:
 
-```text
-PC
-192.168.1.20
-      │
-      ▼
-    Switch
-      │
-      ▼
-Server
-192.168.1.50:8080
+```mermaid
+flowchart TD
+    N0["PC: 192.168.1.20"]
+    N1["Switch"]
+    N2["Server: 192.168.1.50:8080"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 The default gateway is not used for routing that IP packet because the destination is local.
@@ -1439,26 +1404,23 @@ so the packet goes toward:
 
 Flow:
 
-```text
-PC
-192.168.1.20
-      │
-      ▼
-Router / Gateway
-192.168.1.1
-      │
-      ├── Routing
-      ├── NAT
-      └── Firewall
-      │
-      ▼
-ISP
-      │
-      ▼
-Internet
-      │
-      ▼
-8.8.8.8
+```mermaid
+flowchart TD
+    N0["PC: 192.168.1.20"]
+    N1["Router / Gateway: 192.168.1.1"]
+    N2["Routing"]
+    N3["NAT"]
+    N4["Firewall"]
+    N5["ISP"]
+    N6["Internet"]
+    N7["8.8.8.8"]
+    N0 --> N1
+    N1 --- N2
+    N1 --- N3
+    N1 --- N4
+    N1 --> N5
+    N5 --> N6
+    N6 --> N7
 ```
 
 ---
@@ -1473,29 +1435,26 @@ https://example.com
 
 First:
 
-```text
-example.com
-     │
-     ▼
-DNS
-     │
-     ▼
-IP address
+```mermaid
+flowchart TD
+    N0["example.com"]
+    N1["DNS"]
+    N2["IP address"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 Then:
 
-```text
-PC
- │
- ▼
-Gateway
- │
- ▼
-Internet
- │
- ▼
-Web Server:443
+```mermaid
+flowchart TD
+    N0["PC"]
+    N1["Gateway"]
+    N2["Internet"]
+    N3["Web Server:443"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 DNS resolution and network communication are related but separate processes.
@@ -1574,18 +1533,15 @@ The server may be running perfectly, yet clients still cannot connect.
 
 The flow becomes:
 
-```text
-Client
- │
- ▼
-Network
- │
- ▼
-Firewall
- │
- X
- │
-Server:8080
+```mermaid
+flowchart TD
+    N0["Client"]
+    N1["Network"]
+    N2["Firewall"]
+    N3["Server:8080"]
+    N0 --> N1
+    N1 --> N2
+    N2 -. Blocked .-> N3
 ```
 
 This distinction is useful when troubleshooting:
@@ -2219,14 +2175,13 @@ TTL
 
 The most important packet-routing decision on a host is:
 
-```text
-Is the destination local?
-
-YES
-→ communicate on the local network
-
-NO
-→ use a route, often the default gateway
+```mermaid
+flowchart TD
+    N0["Is the destination local?"]
+    N1["Communicate on local network"]
+    N2["Use a route, often the default gateway"]
+    N0 -->|Yes| N1
+    N0 -->|No| N2
 ```
 
 Keep these concepts separate:
@@ -2252,34 +2207,21 @@ Port Forwarding
 
 And remember this troubleshooting sequence:
 
-```text
-1. ip addr
-      ↓
-Do I have an IP?
-
-2. ip route
-      ↓
-Do I have the correct gateway/routes?
-
-3. ping gateway
-      ↓
-Can I reach my local router?
-
-4. ping external IP
-      ↓
-Can I reach the Internet?
-
-5. nslookup domain
-      ↓
-Does DNS work?
-
-6. ss -ltnp
-      ↓
-Is my service actually listening?
-
-7. Firewall / NAT / Port Forwarding
-      ↓
-Is traffic allowed and mapped correctly?
+```mermaid
+flowchart TD
+    N0["ip addr: do I have an IP?"]
+    N1["ip route: are gateway/routes correct?"]
+    N2["ping gateway: can I reach the router?"]
+    N3["ping external IP: can I reach Internet?"]
+    N4["nslookup domain: does DNS work?"]
+    N5["ss -ltnp: is the service listening?"]
+    N6["Firewall / NAT / forwarding: is traffic allowed and mapped?"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
 ```
 
 ---
@@ -2290,16 +2232,17 @@ When troubleshooting networking, test one layer at a time. Do not immediately bl
 
 For example:
 
-```text
-Can I reach the host?
-        ↓
-Can I reach the port?
-        ↓
-Is the application listening?
-        ↓
-Does DNS resolve?
-        ↓
-Is the firewall allowing traffic?
+```mermaid
+flowchart TD
+    N0["Can I reach the host?"]
+    N1["Can I reach the port?"]
+    N2["Is the application listening?"]
+    N3["Does DNS resolve?"]
+    N4["Is the firewall allowing traffic?"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 Use IP addresses during troubleshooting to separate **DNS problems** from **network-connectivity problems**.

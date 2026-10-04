@@ -1,5 +1,8 @@
 # MySQL — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Topic layer for MySQL / SQL study guides. Append AFTER [[00 - General Study Guide Prompt]].
 
 ---
@@ -31,7 +34,7 @@ You are a senior database engineer specializing in MySQL. Apply these rules ON T
 - Use MySQL 8.x syntax unless the source book is older (note differences)
 
 #### Diagrams (mandatory)
-- ER diagram or table relationship ASCII for join chapters
+- Mermaid ER diagram or table relationship diagram for join chapters
 - B-tree index diagram for index chapters
 - Join type visual (INNER, LEFT, RIGHT, FULL) comparison table
 

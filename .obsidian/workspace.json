@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Brokers/MQTT/HiveMQ 3.1.1/2. PUB SUB.md",
-                "mode": "preview",
+                "file": "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. PUB SUB"
+              "title": "8. MQTT Retained messages"
             }
           }
         ],
@@ -268,11 +268,18 @@
   },
   "active": "f1a6a895a59d2bf6",
   "lastOpenFiles": [
+    "DevOps/NaNa/Artifact Management/4. Cleanup Policy.md",
+    "DevOps/NaNa/Artifact Management/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API.md",
+    "DevOps/NaNa/Artifact Management/1. Artifact and Artifact Repo.md",
+    "Go/Learning Go/1. Setting Up Your Go Environment - Study Guide.md",
+    "Go/Learning Go/1.OLD-guide - Setting Up Your Go Environment - Study Guide.md",
+    "Go/Learning Go/9. Errors - Study Guide.md",
+    "Go/Learning Go/7. Types, Methods, and Interfaces - Study Guide.md",
+    "Go/gRPC Microservices in Go/1. Introduction to Go gRPC microservices - Study Guide.md",
+    "Go/gRPC Microservices in Go/1.OLD-intro - Introduction to Go gRPC microservices.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/2. PUB SUB.md",
     "Go/gRPC Microservices in Go/2.OLD-notes - gRPC meets microservices.md",
     "Go/gRPC Microservices in Go/2. gRPC meets microservices - Study Guide.md",
-    "Go/gRPC Microservices in Go/1.OLD-intro - Introduction to Go gRPC microservices.md",
-    "Go/gRPC Microservices in Go/1. Introduction to Go gRPC microservices - Study Guide.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/2. PUB SUB.md",
     "Brokers/MQTT/HiveMQ 3.1.1/1. MQTT Fundamentals  Introduction.md",
     "Go/gRPC Microservices in Go/3. Getting up and running with gRPC and Golang - Study Guide.md",
     "Go/Concurrency in Go/01 - Chapter One/Race Condition.md",
@@ -287,13 +294,6 @@
     "Brokers/MQTT/HiveMQ 3.1.1/3. MQTT Client–Broker Setup and Connection Flow.md",
     "Brokers/MQTT/0. MQTT Table of Contents.md",
     "Brokers/MQTT/basics.md",
-    "Brokers/MQTT/AI Prompt - mqtt.md",
-    "AGENTS.md",
-    "Brokers/Kafka/AI Prompt - Kafka.md",
-    "DevOps/NaNa/AI Prompt - NANA DevOps.md",
-    "Git/AI Prompt - Git.md",
-    "DevOps/NaNa/Docker/AI Prompt - Docker.md",
-    "Linux/AI Prompt - Linux.md",
     "Brokers/MQTT/HiveMQ 3.1.1",
     "Brokers/MQTT",
     "Brokers/Kafka",

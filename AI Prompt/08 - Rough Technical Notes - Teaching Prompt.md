@@ -1,3 +1,6 @@
+
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
 I will give you rough technical notes from videos/courses.
 
 Turn them into a **clear, human-friendly Obsidian Markdown reference**.
@@ -56,24 +59,15 @@ Do not teach concepts independently when they belong together.
 
 Example:
 
-```text id="3s7f0f"
-PC
- │
- ▼
-Switch
- │
- ▼
-LAN
- │
- ▼
-Router / Gateway
- │
- ├── NAT
- ├── Firewall
- └── Port Forwarding
- │
- ▼
-WAN / Internet
+```mermaid
+flowchart TD
+    P["PC"] --> S["Switch"]
+    S --> L["LAN"]
+    L --> R["Router / Gateway"]
+    R --- N["NAT"]
+    R --- F["Firewall"]
+    R --- PF["Port Forwarding"]
+    R --> W["WAN / Internet"]
 ```
 
 Then explain the flow in normal language.
@@ -306,7 +300,7 @@ Use:
 * Practical explanations
 * Real-world examples
 * Tables when useful
-* ASCII/Mermaid diagrams
+* Mermaid diagrams
 * Code blocks
 * `> 💡` examples/tips
 * `> ⚠️` warnings

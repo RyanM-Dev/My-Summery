@@ -1,5 +1,8 @@
 # AI Prompt — grpc-babal
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Fundamental prompt (required first):** [[AI Prompt/00 - General Study Guide Prompt]]  
 > The General prompt is the **foundation** for every study guide — structure, Q&A format, diagrams, source handling, and quality bar. It **cannot be used alone**. Always copy it first, then append this project prompt and [[Go/AI Prompt - Go]].
 
@@ -198,7 +201,7 @@ When Shuiskov disagrees with Babal (e.g. `grpc.Dial` examples, manual stub copy)
 - Proto module layout when Ch.3+
 
 #### Diagrams (mandatory)
-- **Ch.1:** Fig 1.1 architecture ASCII + REST vs gRPC table + checkout sequence mermaid
+- **Ch.1:** Fig 1.1 architecture Mermaid + REST vs gRPC table + checkout sequence mermaid
 - **Ch.2:** Scale cube, monolith vs microservices, saga flow
 - **Ch.3–4:** Proto → stub codegen pipeline; hexagonal ports/adapters
 - **Ch.5+:** Order → Payment stub call sequence; load-balancing (server-side K8s vs client-side)

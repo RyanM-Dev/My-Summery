@@ -1,5 +1,8 @@
 # AI Prompt — learning-go
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Fundamental prompt (required first):** [[AI Prompt/00 - General Study Guide Prompt]]  
 > The General prompt is the **foundation** for every study guide — structure, Q&A format, diagrams, source handling, and quality bar. It **cannot be used alone**. Always copy it first, then append this project prompt **and** [[Go/AI Prompt - Go]].
 
@@ -328,7 +331,7 @@ Typical areas to evaluate (verify against current reality):
 
 Include:
 - At least one mermaid diagram (sequence, state, or flowchart) for key flows in the chapter (e.g. request lifecycle, error paths, goroutine coordination).
-- ASCII or directory tree(s) for data structures or project layout.
+- Mermaid hierarchy diagrams for data structures or project layout.
 - Tables comparing correct vs mistaken approaches.
 
 Default for concurrency-heavy chapters: lifecycle or coordination mermaid.

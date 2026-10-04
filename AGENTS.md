@@ -16,6 +16,8 @@ For Nana DevOps course notes, follow `DevOps/NaNa/AI Prompt - NANA DevOps.md` as
 
 Use generous vertical spacing in Nana notes: blank lines between paragraphs, separate list items, and steps, and around headings and visual blocks. Use `>` separator lines inside callouts and preserve correct list indentation.
 
+Use Mermaid for charts and diagrams throughout the vault, including Nana DevOps and MQTT notes. Prefer flowcharts for architecture, hierarchies, and workflows; sequence diagrams for exchanges; and appropriate Mermaid diagram types for other charts. Use Obsidian-compatible syntax and preserve Markdown indentation inside lists and callouts. Keep commands, runnable code, literal output, data examples, and calculations in their original code formats.
+
 For MQTT notes, follow `Brokers/MQTT/AI Prompt - mqtt.md`. For Go implementation examples, also read the relevant guidance in `Go/AI Prompt - Go.md`. Apply the same concise explanations, helpful diagrams, meaningful emojis, indentation, and generous spacing preferred for Nana notes. Read the relevant MQTT vault references, distinguish protocol and library versions, and keep Go code proportional to the lesson. The MQTT project prompt overrides conflicting requirements in older general and topic prompts.
 
 ## Vault organization

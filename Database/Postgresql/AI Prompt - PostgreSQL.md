@@ -1,5 +1,8 @@
 # PostgreSQL — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Topic layer for PostgreSQL study guides. Append AFTER [[00 - General Study Guide Prompt]].
 
 ---
@@ -31,7 +34,7 @@ You are a senior PostgreSQL engineer. Apply these rules ON TOP of the general pr
 
 #### Diagrams (mandatory)
 - Index type comparison (B-tree, GIN, GiST, BRIN) — table + use-case column
-- Query planner flow (sequential scan vs index scan) — ASCII or mermaid
+- Query planner flow (sequential scan vs index scan) — Mermaid
 - MVCC / vacuum concept diagram for advanced chapters
 
 #### Compare across sources

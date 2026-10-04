@@ -1,5 +1,8 @@
 # NANA DevOps — Course Notes Teaching Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Turn rough Nana DevOps course notes into a clear, practical Obsidian reference. Teach the topic with straightforward explanations, concrete examples, and useful diagrams.
 >
 > **Based on:** [[08 - Rough Technical Notes - Teaching Prompt]]. For Nana notes, this course prompt takes precedence over conflicting structure or verbosity requirements in the general, rough-notes, and topic prompts.
@@ -9,7 +12,7 @@
 Use these existing notes as style references when available:
 
 - **Structure and voice:** [[DevOps/NaNa/Artifact Management/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API]]. Follow its direct explanations, practical examples, command breakdowns, and clear flows.
-- **Diagrams:** [[DevOps/NaNa/Artifact Management/3. Blob]]. Preserve its useful Mermaid and ASCII relationships, while making the surrounding prose shorter.
+- **Diagrams:** [[DevOps/NaNa/Artifact Management/3. Blob]]. Preserve its useful Mermaid relationships, while making the surrounding prose shorter.
 
 Borrow the teaching pattern, not their length or every formatting choice. Do not copy repeated commands, excessive small headings, or unrelated technical content.
 
@@ -29,7 +32,7 @@ For a typical section:
 
 1. **Explain directly:** Usually 1–3 short sentences saying what the concept is and why we use it.
 2. **Make it concrete:** Show one useful example, command, path, or configuration.
-3. **Show the relationship:** Add an ASCII or Mermaid diagram when it makes the concept easier to understand.
+3. **Show the relationship:** Add a Mermaid diagram when it makes the concept easier to understand.
 4. **Explain the result:** Briefly describe what happens or what to notice.
 
 This is a flexible pattern, not four mandatory subheadings. Use short paragraphs and natural transitions. Add a small list or table when it is easier to scan than prose.
@@ -101,8 +104,11 @@ A **blob store** is where Nexus stores uploaded file content. A repository provi
 > - 💾 **Blob store:** `releases-store`
 >     - Holds the uploaded file content.
 
-```text
-CI pipeline → go-binary repository → releases-store → disk
+```mermaid
+flowchart LR
+    CI["CI pipeline"] --> R["go-binary repository"]
+    R --> B["releases-store"]
+    B --> D["Disk"]
 ```
 
 Developers use the repository URL; Nexus handles the storage behind it.
@@ -127,7 +133,7 @@ Use practical examples throughout, close to the concepts they explain. Reuse a c
 
 Use `> 💡 **Real-World Example**` callouts for scenarios that benefit from emphasis. Do not force a callout into every section.
 
-Keep useful diagrams prominent. Use ASCII for paths, directory trees, and simple flows; Mermaid for relationships or interactions that benefit from it. Label arrows and components clearly. Explain the takeaway in one or two sentences instead of narrating every box.
+Keep useful diagrams prominent. Use Mermaid for paths, directory hierarchies, simple flows, relationships, and interactions. Label arrows and components clearly. Explain the takeaway in one or two sentences instead of narrating every box.
 
 For confusing concepts, use a small comparison table plus a brief plain-English explanation. Include only distinctions relevant to the lesson.
 

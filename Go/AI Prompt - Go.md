@@ -1,5 +1,8 @@
 # Go — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Language layer for Go study guides (fundamentals, idioms, gRPC, HTTP, testing, microservices, concurrency, mistakes). Append AFTER [[AI Prompt/00 - General Study Guide Prompt]] — the fundamental prompt.
 >
 > **Babal gRPC track?** Also append [[Go/gRPC Microservices in Go/AI Prompt - grpc babal]] (project prompt in source folder).
@@ -51,7 +54,7 @@ conn, err := grpc.NewClient(url,
 ```
 
 #### Directory trees (mandatory — minimum 2)
-Show ASCII trees for relevant packages when discussing project layout.
+Show Mermaid hierarchy diagrams for relevant packages when discussing project layout.
 
 #### Compare implementations across sources
 For every major pattern, use a comparison table across references + {{CURRENT_YEAR}}.

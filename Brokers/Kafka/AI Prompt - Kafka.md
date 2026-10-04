@@ -1,5 +1,8 @@
 # Kafka — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Topic layer for Apache Kafka / event streaming study guides. Append AFTER [[00 - General Study Guide Prompt]].
 
 ---
@@ -32,7 +35,7 @@ You are a senior data/streaming engineer. Apply these rules ON TOP of the genera
 
 #### Diagrams (mandatory)
 - Producer → broker → consumer group flow (mermaid sequence)
-- Topic/partition/offset ASCII layout
+- Topic/partition/offset Mermaid layout
 - Comparison table: sync RPC (gRPC) vs async (Kafka) — when chapter bridges microservices
 
 #### {{CURRENT_YEAR}} Kafka standards (Part 7–8)

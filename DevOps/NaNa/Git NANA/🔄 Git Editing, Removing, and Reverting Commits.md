@@ -629,13 +629,13 @@ These commands may both appear to "undo a commit", but their philosophy is very 
 
 Think about it like this:
 
-```text
-RESET:
-
-A --- B --- C
-          ↓
-
-A --- B
+```mermaid
+flowchart TD
+    N0["Before reset: A → B → C"]
+    N1["Reset"]
+    N2["After reset: A → B"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 versus:
@@ -801,52 +801,51 @@ The changes now remain but are unstaged.
 
 # 🧠 Things to Remember
 
-```text
-git commit --amend
-        ↓
-Fix the latest commit
+```mermaid
+flowchart TD
+    N0["git commit --amend"]
+    N1["Fix the latest commit"]
+    N0 --> N1
 ```
 
-```text
-git reset --soft
-        ↓
-Remove commit
-Keep changes
-Keep changes staged
+```mermaid
+flowchart TD
+    N0["git reset --soft"]
+    N1["Remove commit; keep changes staged"]
+    N0 --> N1
 ```
 
-```text
-git reset --mixed
-        ↓
-Remove commit
-Keep changes
-Unstage changes
+```mermaid
+flowchart TD
+    N0["git reset --mixed"]
+    N1["Remove commit; keep changes unstaged"]
+    N0 --> N1
 ```
 
-```text
-git reset --hard
-        ↓
-Remove commit
-Remove changes
+```mermaid
+flowchart TD
+    N0["git reset --hard"]
+    N1["Remove commit and changes"]
+    N0 --> N1
 ```
 
-```text
-git revert
-        ↓
-Keep old commit
-Create a new commit that reverses it
+```mermaid
+flowchart TD
+    N0["git revert"]
+    N1["Keep old commit; add a commit that reverses it"]
+    N0 --> N1
 ```
 
 The most important team rule is:
 
-```text
-Private/local history
-        ↓
-reset / amend can be useful
-
-Shared history
-        ↓
-prefer revert
+```mermaid
+flowchart LR
+    N0["Private/local history"]
+    N1["reset / amend can be useful"]
+    N2["Shared history"]
+    N3["Prefer revert"]
+    N0 --> N1
+    N2 --> N3
 ```
 
 ---

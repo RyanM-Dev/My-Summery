@@ -1,5 +1,8 @@
 # Linux — Specific Prompt
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Purpose:** Generic Linux / shell / sysadmin study guides. Append AFTER [[00 - General Study Guide Prompt]].
 >
 > **Studying *The Software Developer's Guide to Linux*?** Use [[Linux/The Software Developer’s Guide to Linux/AI Prompt - linux beginner]] instead — SDGL primary, Linux Bible + CompTIA for comparison. Pair with [[AI Prompt/00 - General Study Guide Prompt]] first.
@@ -34,7 +37,7 @@ You are a senior Linux engineer and technical educator. Apply these rules ON TOP
 - Label context: which distro if it matters (Debian vs RHEL)
 
 #### Diagrams (mandatory)
-- Process tree or signal flow (ASCII or mermaid)
+- Process tree or signal flow (Mermaid)
 - File permission / ownership diagram when relevant
 - Filesystem hierarchy tree for path-related chapters
 

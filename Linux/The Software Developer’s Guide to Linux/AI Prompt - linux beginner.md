@@ -1,5 +1,8 @@
 # AI Prompt — linux-beginner
 
+> **Charts and diagrams:** Use fenced `mermaid` blocks for charts, flows, architecture, hierarchies, and relationships. Prefer `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, or `erDiagram` as appropriate. Use clear labels and Obsidian-compatible syntax. Keep runnable code, commands, literal output, payloads, and calculations in their original code formats.
+
+
 > **Fundamental prompt (required first):** [[AI Prompt/00 - General Study Guide Prompt]]  
 > The General prompt is the **foundation** for every study guide — structure, Q&A format, diagrams, source handling, and quality bar. It **cannot be used alone**. Always copy it first, then append this project prompt.
 
@@ -138,7 +141,7 @@ Mirror SDGL's teaching style where applicable:
 | Command | Short Description | Main Options/Flags | Common Use Case |
 
 #### Diagrams (mandatory)
-- **Ch.1–4:** shell evaluation flow, process tree, or REPL loop (ASCII or mermaid)
+- **Ch.1–4:** shell evaluation flow, process tree, or REPL loop (Mermaid)
 - **Ch.5–8:** FHS tree, permission octal diagram, user/group model
 - **Ch.9–10:** apt vs dnf comparison table (Debian vs RHEL family)
 - **Ch.11–12:** stdin/stdout/stderr redirection diagram

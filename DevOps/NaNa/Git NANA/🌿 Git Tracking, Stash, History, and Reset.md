@@ -58,16 +58,18 @@ git rm --cached filename
 
 The important difference is:
 
-```text
-git rm filename
-        │
-        ├── Remove from Git
-        └── Delete from your disk
-
-git rm --cached filename
-        │
-        ├── Remove from Git
-        └── KEEP on your disk ✅
+```mermaid
+flowchart TD
+    N0["git rm filename"]
+    N1["Remove from Git"]
+    N2["Delete from your disk"]
+    N3["git rm --cached filename"]
+    N4["Remove from Git"]
+    N5["Keep on your disk"]
+    N0 --> N1
+    N0 --> N2
+    N3 --> N4
+    N3 --> N5
 ```
 
 ### 💡 Real-World Example
@@ -181,28 +183,17 @@ git stash
 
 Git temporarily stores your changes and returns your working directory close to the current `HEAD` state.
 
-```text
-Before:
-
-HEAD
- │
- ▼
-Last Commit
- │
- └── Working changes
-       ├── modified login.cpp
-       └── modified user.cpp
-
-
-git stash
-    │
-    ▼
-
-Last Commit
-     +
-   Stash
-     ├── login.cpp changes
-     └── user.cpp changes
+```mermaid
+flowchart TD
+    N0["HEAD / Last Commit"]
+    N1["Working changes: login.cpp + user.cpp"]
+    N2["git stash"]
+    N3["Last Commit: restored working state"]
+    N4["Stash: login.cpp + user.cpp changes"]
+    N0 --- N1
+    N1 --> N2
+    N2 --> N3
+    N2 --> N4
 ```
 
 Now you can safely switch branches:
@@ -231,10 +222,14 @@ git stash pop
 
 Suppose:
 
-```text
-Last Commit → application works
-
-You modify code → bug appears
+```mermaid
+flowchart LR
+    N0["Last Commit"]
+    N1["application works"]
+    N2["You modify code"]
+    N3["bug appears"]
+    N0 --> N1
+    N2 --> N3
 ```
 
 You can run:
@@ -306,19 +301,18 @@ git stash apply
 
 Difference:
 
-```text
-git stash pop
-    ↓
-Restore changes
-    +
-Remove stash
-
-
-git stash apply
-    ↓
-Restore changes
-    +
-Keep stash
+```mermaid
+flowchart TD
+    N0["git stash pop"]
+    N1["Restore changes"]
+    N2["Remove stash"]
+    N3["git stash apply"]
+    N4["Restore changes"]
+    N5["Keep stash"]
+    N0 --> N1
+    N1 --> N2
+    N3 --> N4
+    N4 --> N5
 ```
 
 ### Include untracked files
@@ -409,10 +403,17 @@ This makes branches and commits much easier to understand.
 
 Suppose your history is:
 
-```text
-A ── B ── C ── D
-               ↑
-              HEAD
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
 ```
 
 You want to inspect commit `B`.
@@ -437,10 +438,19 @@ git switch --detach 41bc983
 
 Now:
 
-```text
-A ── B ── C ── D
-     ↑         ↑
-    HEAD     develop
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N5["develop"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N1
+    N5 --> N3
 ```
 
 Your branch has **not moved**.
@@ -475,12 +485,19 @@ git switch -c old-version-fix 41bc983
 
 Now you have:
 
-```text
-A ── B ── C ── D
-     │         ↑
-     │       develop
-     │
-     └── old-version-fix
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["old-version-fix"]
+    N5["develop"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N1
+    N5 --> N3
 ```
 
 You can safely make new commits from that point.
@@ -493,12 +510,19 @@ You can safely make new commits from that point.
 
 Normally:
 
-```text
-A ── B ── C ── D
-               ↑
-            develop
-               ↑
-              HEAD
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["develop"]
+    N5["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
+    N5 --> N4
 ```
 
 So:
@@ -527,14 +551,23 @@ two commits before HEAD
 
 For example:
 
-```text
-A ── B ── C ── D
-               ↑
-              HEAD
-
-HEAD~1 = C
-HEAD~2 = B
-HEAD~3 = A
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N5["HEAD~1"]
+    N6["HEAD~2"]
+    N7["HEAD~3"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
+    N5 --> N2
+    N6 --> N1
+    N7 --> N0
 ```
 
 ---
@@ -545,10 +578,17 @@ HEAD~3 = A
 
 Suppose:
 
-```text
-A ── B ── C ── D
-               ↑
-              HEAD
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
 ```
 
 Run:
@@ -559,12 +599,16 @@ git reset --hard HEAD~1
 
 The branch moves back one commit:
 
-```text
-A ── B ── C
-          ↑
-         HEAD
-
-D is no longer part of the branch history.
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["HEAD"]
+    N4["D: removed from branch history"]
+    N0 --> N1
+    N1 --> N2
+    N3 --> N2
 ```
 
 Run:
@@ -581,14 +625,13 @@ and the branch moves three commits backward.
 
 Git conceptually has several areas:
 
-```text
-Commit / HEAD
-     │
-     ▼
-Git Index / Staging Area
-     │
-     ▼
-Working Directory
+```mermaid
+flowchart TD
+    N0["Commit / HEAD"]
+    N1["Git Index / Staging Area"]
+    N2["Working Directory"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 `git reset --hard` changes all of them to match the target commit.
@@ -633,10 +676,18 @@ These are easy to confuse.
 
 Assume:
 
-```text
-A ── B ── C ── D
-               ↑
-            develop
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["develop"]
+    N5["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
 ```
 
 If you run:
@@ -698,15 +749,15 @@ git revert <commit>
 
 Instead it creates a new commit that reverses its changes:
 
-```text
-A ── B ── C
-          │
-          C introduced bug
-          │
-          ▼
-A ── B ── C ── D
-               ↑
-        D reverses C
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C: introduced bug"]
+    N3["D: reverses C"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 This is safer for shared branches because the history remains intact.
@@ -717,37 +768,23 @@ This is safer for shared branches because the history remains intact.
 
 A realistic workflow might look like this:
 
-```text
-Working on feature/user
-        │
-        ├── unfinished changes
-        │
-        ▼
-    git stash
-        │
-        ▼
-git switch develop
-        │
-        ├── investigate problem
-        │
-        ▼
-     git log
-        │
-        ├── find older commit
-        │
-        ▼
-git switch --detach HASH
-        │
-        ├── test old version
-        │
-        ▼
-git switch develop
-        │
-        ▼
-git switch feature/user
-        │
-        ▼
-  git stash pop
+```mermaid
+flowchart TD
+    N0["Working on feature/user: unfinished changes"]
+    N1["git stash"]
+    N2["git switch develop: investigate problem"]
+    N3["git log: find older commit"]
+    N4["git switch --detach HASH: test old version"]
+    N5["git switch develop"]
+    N6["git switch feature/user"]
+    N7["git stash pop"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
 ```
 
 Notice that you can investigate old code without destroying your current branch history.

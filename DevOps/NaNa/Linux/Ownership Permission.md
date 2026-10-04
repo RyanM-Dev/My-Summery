@@ -150,11 +150,27 @@ sudo chgrp -v developers *.txt
 ## 5️⃣ Understanding Permission Blocks
 
 ### 📊 Visualization
-```
-Owner   Group   Others
- r w x   r w x   r w x
- ─────   ─────   ─────
- 7 4 1   4 2 1   4 2 1   (numeric values)
+```mermaid
+flowchart TD
+    N0["Permissions"]
+    N1["Owner"]
+    N2["Group"]
+    N3["Others"]
+    N4["Read: 4"]
+    N5["Write: 2"]
+    N6["Execute: 1"]
+    N0 --- N1
+    N0 --- N2
+    N0 --- N3
+    N1 --- N4
+    N1 --- N5
+    N1 --- N6
+    N2 --- N4
+    N2 --- N5
+    N2 --- N6
+    N3 --- N4
+    N3 --- N5
+    N3 --- N6
 ```
 
 ### 💡 Example Analysis

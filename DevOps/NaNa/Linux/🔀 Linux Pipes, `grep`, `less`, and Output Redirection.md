@@ -14,17 +14,17 @@ The most important tools for this are:
 
 A typical command flow looks like this:
 
-```text
-Command
-   │
-   ▼
- Output
-   │
-   ├── |  → another command
-   │
-   ├── >  → overwrite a file
-   │
-   └── >> → append to a file
+```mermaid
+flowchart TD
+    N0["Command"]
+    N1["Output"]
+    N2["Another command"]
+    N3["Overwrite file"]
+    N4["Append to file"]
+    N0 --> N1
+    N1 -->|Pipe| N2
+    N1 -->|Redirection| N3
+    N1 -->|Append redirection| N4
 ```
 
 ---
@@ -55,18 +55,13 @@ The second command receives that data and processes it.
 
 The flow is:
 
-```text
-history
-   │
-   │ output
-   ▼
-   |
-   │
-   ▼
-grep sudo
-   │
-   ▼
-Only lines containing "sudo"
+```mermaid
+flowchart TD
+    N0["history"]
+    N1["grep sudo"]
+    N2["Only lines containing sudo"]
+    N0 -->|Pipe output| N1
+    N1 --> N2
 ```
 
 You can chain several commands together:
@@ -77,14 +72,13 @@ history | grep sudo | less
 
 Here:
 
-```text
-history
-   │
-   ▼
-grep sudo
-   │
-   ▼
-less
+```mermaid
+flowchart TD
+    N0["history"]
+    N1["grep sudo"]
+    N2["less"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 1. `history` produces your command history.
@@ -249,14 +243,13 @@ history | grep sudo
 
 This means:
 
-```text
-Run history
-     │
-     ▼
-Take its output
-     │
-     ▼
-Keep lines containing "sudo"
+```mermaid
+flowchart TD
+    N0["Run history"]
+    N1["Take its output"]
+    N2["Keep lines containing &quot;sudo&quot;"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 ---
@@ -301,17 +294,15 @@ cat filename | grep port
 
 This works:
 
-```text
-cat filename
-     │
-     ▼
-file contents
-     │
-     ▼
-grep port
-     │
-     ▼
-matching lines
+```mermaid
+flowchart TD
+    N0["cat filename"]
+    N1["file contents"]
+    N2["grep port"]
+    N3["matching lines"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 But `grep` can read a file directly:
@@ -501,17 +492,13 @@ history | grep sudo > sudo-commands.txt
 
 The flow is:
 
-```text
-history
-   │
-   ▼
-grep sudo
-   │
-   ▼
->
-   │
-   ▼
-sudo-commands.txt
+```mermaid
+flowchart TD
+    N0["history"]
+    N1["grep sudo"]
+    N2["sudo-commands.txt"]
+    N0 -->|Pipe| N1
+    N1 -->|Overwrite file| N2
 ```
 
 The matching lines are written into:
@@ -614,28 +601,31 @@ history | grep sudo > sudo-commands.txt
 
 There are two different operations happening here:
 
-```text
-history
-   │
-   │ |
-   ▼
-grep sudo
-   │
-   │ >
-   ▼
-sudo-commands.txt
+```mermaid
+flowchart TD
+    N0["history"]
+    N1["grep sudo"]
+    N2["sudo-commands.txt"]
+    N0 -->|Pipe| N1
+    N1 -->|Overwrite file| N2
 ```
 
 `|` connects:
 
-```text
-history → grep
+```mermaid
+flowchart LR
+    N0["history"]
+    N1["grep"]
+    N0 --> N1
 ```
 
 while `>` connects:
 
-```text
-grep output → file
+```mermaid
+flowchart LR
+    N0["grep output"]
+    N1["file"]
+    N0 --> N1
 ```
 
 ---
@@ -718,17 +708,15 @@ ps aux | grep nginx
 
 Conceptually:
 
-```text
-ps aux
-  │
-  ▼
-all processes
-  │
-  ▼
-grep nginx
-  │
-  ▼
-only matching lines
+```mermaid
+flowchart TD
+    N0["ps aux"]
+    N1["all processes"]
+    N2["grep nginx"]
+    N3["only matching lines"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 This pipe-and-filter pattern is extremely common in shell usage.
@@ -749,43 +737,31 @@ stderr  → Standard Error
 
 A simple command normally looks like:
 
-```text
-Keyboard
-   │
- stdin
-   ▼
-Command
-   │
- stdout
-   ▼
-Terminal
+```mermaid
+flowchart TD
+    N0["Keyboard"]
+    N1["Command"]
+    N2["Terminal"]
+    N0 -->|stdin| N1
+    N1 -->|stdout| N2
 ```
 
 A pipe changes where `stdout` goes:
 
-```text
-Command 1
-   │
- stdout
-   ▼
-   |
-   │
- stdin
-   ▼
-Command 2
+```mermaid
+flowchart LR
+    N0["Command 1"]
+    N1["Command 2"]
+    N0 -->|Pipe stdout to stdin| N1
 ```
 
 A redirect changes it to a file:
 
-```text
-Command
-   │
- stdout
-   ▼
-   >
-   │
-   ▼
-File
+```mermaid
+flowchart LR
+    N0["Command"]
+    N1["File"]
+    N0 -->|Redirect stdout| N1
 ```
 
 This is why Unix commands can be combined so effectively: many programs read text from standard input and write text to standard output.

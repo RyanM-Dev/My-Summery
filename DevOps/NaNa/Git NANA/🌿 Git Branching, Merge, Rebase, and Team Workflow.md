@@ -4,33 +4,34 @@ A good Git workflow keeps features and bug fixes isolated, makes code review eas
 
 A practical flow looks like this:
 
-```text
-feature/* ─────┐
-bugfix/* ──────┤
-               ▼
-            develop
-               │
-               ▼
-        release/v1.x.x
-               │
-               ▼
-             main
+```mermaid
+flowchart TD
+    N0["feature/*"]
+    N1["bugfix/*"]
+    N2["develop"]
+    N3["release/v1.x.x"]
+    N4["main"]
+    N0 --> N2
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 The basic idea is:
 
-```text
-Feature / Bugfix
-      ↓
-Pull Request / Merge Request
-      ↓
-develop
-      ↓
-release branch
-      ↓
-main
-      ↓
-Version / Tag
+```mermaid
+flowchart TD
+    N0["Feature / Bugfix"]
+    N1["Pull Request / Merge Request"]
+    N2["develop"]
+    N3["release branch"]
+    N4["main"]
+    N5["Version / Tag"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
 ```
 
 ---
@@ -84,9 +85,14 @@ This makes the branch easier to:
 > 
 > Imagine two developers are working simultaneously:
 > 
-> ```text
-> Developer A → feature/user
-> Developer B → feature/product
+> ```mermaid
+> flowchart LR
+>     N0["Developer A"]
+>     N1["feature/user"]
+>     N2["Developer B"]
+>     N3["feature/product"]
+>     N0 --> N1
+>     N2 --> N3
 > ```
 > 
 > Their unfinished work does not interfere with each other because each feature has its own branch.
@@ -131,11 +137,11 @@ git push -u origin feature/user
 
 It connects:
 
-```text
-local feature/user
-        │
-        ▼
-origin/feature/user
+```mermaid
+flowchart TD
+    N0["local feature/user"]
+    N1["origin/feature/user"]
+    N0 --> N1
 ```
 
 After that, you can normally use:
@@ -160,12 +166,15 @@ Features and bug fixes first go into `develop`.
 
 For example:
 
-```text
-feature/user ──────┐
-feature/product ───┤
-bugfix/auth ───────┤
-                   ▼
-                develop
+```mermaid
+flowchart TD
+    N0["feature/user"]
+    N1["feature/product"]
+    N2["bugfix/auth"]
+    N3["develop"]
+    N0 --> N3
+    N1 --> N3
+    N2 --> N3
 ```
 
 At the end of the sprint, a release branch is created from `develop`.
@@ -178,37 +187,36 @@ release/v1.4.0
 
 The flow becomes:
 
-```text
-feature/*
-bugfix/*
-    │
-    ▼
- develop
-    │
-    ▼
-release/v1.4.0
-    │
-    ▼
-  main
+```mermaid
+flowchart TD
+    N0["feature/*"]
+    N1["bugfix/*"]
+    N2["develop"]
+    N3["release/v1.4.0"]
+    N4["main"]
+    N0 --> N2
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 A more complete history might look like:
 
-```text
-feature/user ───────┐
-                    │
-feature/product ────┼──▶ develop
-                    │
-bugfix/auth ────────┘
-                         │
-                         ▼
-                  release/v1.4.0
-                         │
-                         ▼
-                       main
-                         │
-                         ▼
-                      v1.4.0
+```mermaid
+flowchart TD
+    N0["feature/user"]
+    N1["feature/product"]
+    N2["bugfix/auth"]
+    N3["develop"]
+    N4["release/v1.4.0"]
+    N5["main"]
+    N6["v1.4.0"]
+    N0 --> N3
+    N1 --> N3
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --- N6
 ```
 
 ---
@@ -240,11 +248,11 @@ The release branch can be used for final:
 
 When everything is ready:
 
-```text
-release/v1.4.0
-      │
-      ▼
-     main
+```mermaid
+flowchart TD
+    N0["release/v1.4.0"]
+    N1["main"]
+    N0 --> N1
 ```
 
 The final release can then be tagged:
@@ -256,13 +264,13 @@ git push origin v1.4.0
 
 A tag gives an exact Git commit a meaningful version:
 
-```text
-main
-  │
-  ▼
-commit abc123
-  │
-  └── v1.4.0
+```mermaid
+flowchart TD
+    N0["main"]
+    N1["commit abc123"]
+    N2["Tag: v1.4.0"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 ---
@@ -285,24 +293,25 @@ depending on the Git hosting platform.
 
 The workflow is:
 
-```text
-Developer implements feature
-        ↓
-Push branch
-        ↓
-Create PR / MR
-        ↓
-Reviewer checks code
-        ↓
-Reviewer leaves comments
-        ↓
-Developer fixes the code
-        ↓
-Push new commits
-        ↓
-Review again
-        ↓
-Merge
+```mermaid
+flowchart TD
+    N0["Developer implements feature"]
+    N1["Push branch"]
+    N2["Create PR / MR"]
+    N3["Reviewer checks code"]
+    N4["Reviewer leaves comments"]
+    N5["Developer fixes the code"]
+    N6["Push new commits"]
+    N7["Review again"]
+    N8["Merge"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
 An important team rule is:
@@ -472,12 +481,13 @@ feature/product
 
 It sees:
 
-```text
-30 → 60
-
-and
-
-30 → 120
+```mermaid
+flowchart TD
+    N0["Original value: 30"]
+    N1["Branch A value: 60"]
+    N2["Branch B value: 120"]
+    N0 --> N1
+    N0 --> N2
 ```
 
 Git cannot know which one is logically correct.
@@ -515,12 +525,13 @@ A conflict is easier to understand when you realize Git is not simply comparing 
 
 Git usually considers:
 
-```text
-        Common Ancestor
-             │
-       ┌─────┴─────┐
-       ▼           ▼
-   Branch A     Branch B
+```mermaid
+flowchart TD
+    N0["Common Ancestor"]
+    N1["Branch A"]
+    N2["Branch B"]
+    N0 --> N1
+    N0 --> N2
 ```
 
 Example:
@@ -533,18 +544,20 @@ timeout = 30
 
 Then:
 
-```text
-feature/user:
-
-30 → 60
+```mermaid
+flowchart LR
+    N0["feature/user: 30"]
+    N1["feature/user: 60"]
+    N0 --> N1
 ```
 
 and:
 
-```text
-feature/product:
-
-30 → 120
+```mermaid
+flowchart LR
+    N0["feature/product: 30"]
+    N1["feature/product: 120"]
+    N0 --> N1
 ```
 
 Because both branches changed the same original content differently, Git needs a human decision.
@@ -610,20 +623,11 @@ represents your local knowledge of the remote `develop` branch.
 
 Conceptually:
 
-```text
-Your computer
-
-develop
-feature/user
-
-       │
-       │ fetch / pull / push
-       ▼
-
-Remote repository
-
-origin/develop
-origin/feature/user
+```mermaid
+flowchart LR
+    N0["Your computer: develop + feature/user"]
+    N1["Remote repository: origin/develop + origin/feature/user"]
+    N0 <-->|fetch / pull / push| N1
 ```
 
 ---
@@ -768,8 +772,15 @@ because it now has a different parent.
 
 The history stays linear:
 
-```text
-A → B → R → L'
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["R"]
+    N3["L'"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 instead of:
@@ -800,16 +811,17 @@ git pull --rebase
 
 Conceptually:
 
-```text
-fetch remote changes
-        ↓
-update your base
-        ↓
-temporarily remove your local commits
-        ↓
-apply remote commits
-        ↓
-replay your local commits on top
+```mermaid
+flowchart TD
+    N0["fetch remote changes"]
+    N1["update your base"]
+    N2["temporarily remove your local commits"]
+    N3["apply remote commits"]
+    N4["replay your local commits on top"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 Example:
@@ -923,9 +935,14 @@ A---B---C---D---E'---F'
 
 Notice:
 
-```text
-E  → E'
-F  → F'
+```mermaid
+flowchart LR
+    N0["E"]
+    N1["E: rewritten commit"]
+    N2["F"]
+    N3["F: rewritten commit"]
+    N0 --> N1
+    N2 --> N3
 ```
 
 These are new commits.
@@ -1061,29 +1078,34 @@ Because rebase recreates commits, commit hashes change.
 
 For example:
 
-```text
-E → E'
-F → F'
+```mermaid
+flowchart LR
+    N0["E"]
+    N1["E: rewritten commit"]
+    N2["F"]
+    N3["F: rewritten commit"]
+    N0 --> N1
+    N2 --> N3
 ```
 
 Therefore rebasing a branch that multiple developers are already using can cause unnecessary confusion.
 
 A useful rule is:
 
-```text
-Personal feature branch
-        ↓
-Rebase is usually fine
+```mermaid
+flowchart TD
+    N0["Personal feature branch"]
+    N1["Rebase is usually fine"]
+    N0 --> N1
 ```
 
 while:
 
-```text
-main
-develop
-shared branches
-        ↓
-Avoid rewriting published history
+```mermaid
+flowchart TD
+    N0["main / develop / shared branches"]
+    N1["Avoid rewriting published history"]
+    N0 --> N1
 ```
 
 For your own feature branch, this workflow is useful:
@@ -1176,10 +1198,11 @@ git push -u origin feature/user-auth
 
 Create a PR/MR:
 
-```text
-feature/user-auth
-        ↓
-     develop
+```mermaid
+flowchart TD
+    N0["feature/user-auth"]
+    N1["develop"]
+    N0 --> N1
 ```
 
 If `develop` changes while you are working:
@@ -1351,32 +1374,35 @@ It lets you actually see branches, merges, and rebases.
 
 # 🧠 Things to Remember
 
-```text
-One feature / bug
-       ↓
-One branch
+```mermaid
+flowchart TD
+    N0["One feature / bug"]
+    N1["One branch"]
+    N0 --> N1
 ```
 
-```text
-feature/*
-bugfix/*
-    ↓
- develop
-    ↓
-release/version
-    ↓
-   main
+```mermaid
+flowchart TD
+    N0["feature/*"]
+    N1["bugfix/*"]
+    N2["develop"]
+    N3["release/version"]
+    N4["main"]
+    N0 --> N2
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
 A merge conflict usually means:
 
-```text
-same original code
-      ↓
-changed differently
-on different branches
-      ↓
-Git cannot safely choose
+```mermaid
+flowchart TD
+    N0["same original code"]
+    N1["changed differently / on different branches"]
+    N2["Git cannot safely choose"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 Merge:
@@ -1542,16 +1568,18 @@ git rm --cached filename
 
 The important difference is:
 
-```text
-git rm filename
-        │
-        ├── Remove from Git
-        └── Delete from your disk
-
-git rm --cached filename
-        │
-        ├── Remove from Git
-        └── KEEP on your disk ✅
+```mermaid
+flowchart TD
+    N0["git rm filename"]
+    N1["Remove from Git"]
+    N2["Delete from your disk"]
+    N3["git rm --cached filename"]
+    N4["Remove from Git"]
+    N5["Keep on your disk"]
+    N0 --> N1
+    N0 --> N2
+    N3 --> N4
+    N3 --> N5
 ```
 
 ### 💡 Real-World Example
@@ -1665,28 +1693,17 @@ git stash
 
 Git temporarily stores your changes and returns your working directory close to the current `HEAD` state.
 
-```text
-Before:
-
-HEAD
- │
- ▼
-Last Commit
- │
- └── Working changes
-       ├── modified login.cpp
-       └── modified user.cpp
-
-
-git stash
-    │
-    ▼
-
-Last Commit
-     +
-   Stash
-     ├── login.cpp changes
-     └── user.cpp changes
+```mermaid
+flowchart TD
+    N0["HEAD / Last Commit"]
+    N1["Working changes: login.cpp + user.cpp"]
+    N2["git stash"]
+    N3["Last Commit: restored working state"]
+    N4["Stash: login.cpp + user.cpp changes"]
+    N0 --- N1
+    N1 --> N2
+    N2 --> N3
+    N2 --> N4
 ```
 
 Now you can safely switch branches:
@@ -1715,10 +1732,14 @@ git stash pop
 
 Suppose:
 
-```text
-Last Commit → application works
-
-You modify code → bug appears
+```mermaid
+flowchart LR
+    N0["Last Commit"]
+    N1["application works"]
+    N2["You modify code"]
+    N3["bug appears"]
+    N0 --> N1
+    N2 --> N3
 ```
 
 You can run:
@@ -1790,19 +1811,18 @@ git stash apply
 
 Difference:
 
-```text
-git stash pop
-    ↓
-Restore changes
-    +
-Remove stash
-
-
-git stash apply
-    ↓
-Restore changes
-    +
-Keep stash
+```mermaid
+flowchart TD
+    N0["git stash pop"]
+    N1["Restore changes"]
+    N2["Remove stash"]
+    N3["git stash apply"]
+    N4["Restore changes"]
+    N5["Keep stash"]
+    N0 --> N1
+    N1 --> N2
+    N3 --> N4
+    N4 --> N5
 ```
 
 ### Include untracked files
@@ -1893,10 +1913,17 @@ This makes branches and commits much easier to understand.
 
 Suppose your history is:
 
-```text
-A ── B ── C ── D
-               ↑
-              HEAD
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
 ```
 
 You want to inspect commit `B`.
@@ -1921,10 +1948,19 @@ git switch --detach 41bc983
 
 Now:
 
-```text
-A ── B ── C ── D
-     ↑         ↑
-    HEAD     develop
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N5["develop"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N1
+    N5 --> N3
 ```
 
 Your branch has **not moved**.
@@ -1959,12 +1995,19 @@ git switch -c old-version-fix 41bc983
 
 Now you have:
 
-```text
-A ── B ── C ── D
-     │         ↑
-     │       develop
-     │
-     └── old-version-fix
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["old-version-fix"]
+    N5["develop"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N1
+    N5 --> N3
 ```
 
 You can safely make new commits from that point.
@@ -1977,12 +2020,19 @@ You can safely make new commits from that point.
 
 Normally:
 
-```text
-A ── B ── C ── D
-               ↑
-            develop
-               ↑
-              HEAD
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["develop"]
+    N5["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
+    N5 --> N4
 ```
 
 So:
@@ -2011,14 +2061,23 @@ two commits before HEAD
 
 For example:
 
-```text
-A ── B ── C ── D
-               ↑
-              HEAD
-
-HEAD~1 = C
-HEAD~2 = B
-HEAD~3 = A
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N5["HEAD~1"]
+    N6["HEAD~2"]
+    N7["HEAD~3"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
+    N5 --> N2
+    N6 --> N1
+    N7 --> N0
 ```
 
 ---
@@ -2029,10 +2088,17 @@ HEAD~3 = A
 
 Suppose:
 
-```text
-A ── B ── C ── D
-               ↑
-              HEAD
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
 ```
 
 Run:
@@ -2043,12 +2109,16 @@ git reset --hard HEAD~1
 
 The branch moves back one commit:
 
-```text
-A ── B ── C
-          ↑
-         HEAD
-
-D is no longer part of the branch history.
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["HEAD"]
+    N4["D: removed from branch history"]
+    N0 --> N1
+    N1 --> N2
+    N3 --> N2
 ```
 
 Run:
@@ -2065,14 +2135,13 @@ and the branch moves three commits backward.
 
 Git conceptually has several areas:
 
-```text
-Commit / HEAD
-     │
-     ▼
-Git Index / Staging Area
-     │
-     ▼
-Working Directory
+```mermaid
+flowchart TD
+    N0["Commit / HEAD"]
+    N1["Git Index / Staging Area"]
+    N2["Working Directory"]
+    N0 --> N1
+    N1 --> N2
 ```
 
 `git reset --hard` changes all of them to match the target commit.
@@ -2117,10 +2186,18 @@ These are easy to confuse.
 
 Assume:
 
-```text
-A ── B ── C ── D
-               ↑
-            develop
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C"]
+    N3["D"]
+    N4["develop"]
+    N5["HEAD"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N4 --> N3
 ```
 
 If you run:
@@ -2182,15 +2259,15 @@ git revert <commit>
 
 Instead it creates a new commit that reverses its changes:
 
-```text
-A ── B ── C
-          │
-          C introduced bug
-          │
-          ▼
-A ── B ── C ── D
-               ↑
-        D reverses C
+```mermaid
+flowchart LR
+    N0["A"]
+    N1["B"]
+    N2["C: introduced bug"]
+    N3["D: reverses C"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
 ```
 
 This is safer for shared branches because the history remains intact.
@@ -2201,37 +2278,23 @@ This is safer for shared branches because the history remains intact.
 
 A realistic workflow might look like this:
 
-```text
-Working on feature/user
-        │
-        ├── unfinished changes
-        │
-        ▼
-    git stash
-        │
-        ▼
-git switch develop
-        │
-        ├── investigate problem
-        │
-        ▼
-     git log
-        │
-        ├── find older commit
-        │
-        ▼
-git switch --detach HASH
-        │
-        ├── test old version
-        │
-        ▼
-git switch develop
-        │
-        ▼
-git switch feature/user
-        │
-        ▼
-  git stash pop
+```mermaid
+flowchart TD
+    N0["Working on feature/user: unfinished changes"]
+    N1["git stash"]
+    N2["git switch develop: investigate problem"]
+    N3["git log: find older commit"]
+    N4["git switch --detach HASH: test old version"]
+    N5["git switch develop"]
+    N6["git switch feature/user"]
+    N7["git stash pop"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
 ```
 
 Notice that you can investigate old code without destroying your current branch history.
