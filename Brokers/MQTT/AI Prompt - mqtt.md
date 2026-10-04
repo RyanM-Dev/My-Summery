@@ -137,7 +137,7 @@ Build on concepts already taught and link to earlier notes instead of reteaching
 
 - **Go implementation:** map the concept to the chosen library's actual calls and observable results.
 
-Use ASCII for topic hierarchies or simple relationships and Mermaid sequence diagrams for packet exchanges. Draw publisher-to-broker and broker-to-subscriber flows accurately. Explain the main takeaway in one or two sentences.
+Prefer Mermaid flowcharts for topic hierarchies, packet layouts, layers, and simple relationships, and Mermaid sequence diagrams for packet exchanges. This is the user's preferred diagram style for MQTT notes. Keep commands, payload examples, and plain data lists in their original code formats. Draw publisher-to-broker and broker-to-subscriber flows accurately. Explain the main takeaway in one or two sentences.
 
 Use small tables for distinctions such as client vs broker, topic vs filter, retained message vs session queue, or MQTT acknowledgement vs application processing. Follow each table with a brief practical explanation.
 

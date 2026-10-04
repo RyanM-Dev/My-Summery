@@ -40,8 +40,8 @@
 | Go (fundamentals, idioms, gRPC, HTTP, testing, microservices, mistakes) | [[Go/AI Prompt - Go]] |
 | Linux — generic | [[Linux/AI Prompt - Linux]] |
 | Docker (containers, Compose, images) | [[DevOps/NaNa/Docker/AI Prompt - Docker]] |
-| MySQL (SQL, joins, indexes) | [[DB/Mysql/AI Prompt - MySQL]] |
-| PostgreSQL (SQL, indexing, performance) | [[DB/Postgresql/AI Prompt - PostgreSQL]] |
+| MySQL (SQL, joins, indexes) | [[AI Prompt - MySQL]] |
+| PostgreSQL (SQL, indexing, performance) | [[AI Prompt - PostgreSQL]] |
 | Kafka (streaming, producers, consumers) | [[Brokers/Kafka/AI Prompt - Kafka]] |
 | Git (version control, workflows) | [[Git/AI Prompt - Git]] |
 
