@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Git NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
-                "mode": "preview",
+                "file": "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "🌿 Git Branching, Merge, Rebase, and Team Workflow"
+              "title": "8. MQTT Retained messages"
             }
           }
         ],
@@ -268,9 +268,19 @@
   },
   "active": "f1a6a895a59d2bf6",
   "lastOpenFiles": [
+    "Brokers/MQTT/HiveMQ 3.1.1/10. Keep Alive & Client Takeover.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/10.OLD-guide - Keep Alive & Client Takeover.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/9.OLD-guide - MQTT Last Will and Testament.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/8.OLD-guide - MQTT Retained messages.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/10.Keep Alive & Client Takeover.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/9. MQTT Last Will and Testament.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/4. PUB SUB UNSUB.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/3. MQTT Client–Broker Setup and Connection Flow.md",
+    "Brokers/MQTT/HiveMQ 3.1.1/1. MQTT Fundamentals  Introduction.md",
+    "DevOps/NaNa/Git NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
     "DevOps/NaNa/Artifact Management/1. Artifact and Artifact Repo.md",
     "DevOps/NaNa/Artifact Management/4.OLD-notes - Cleanup Policy.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/8. MQTT Retained messages.md",
     "DevOps/NaNa/0. Nana DevOps Table of Contents.md",
     "DevOps/NaNa/Artifact Management/4. Cleanup Policy.md",
     "DevOps/NaNa/Artifact Management/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API.md",
@@ -283,17 +293,7 @@
     "Brokers/MQTT/HiveMQ 3.1.1/2. PUB SUB.md",
     "Go/gRPC Microservices in Go/2.OLD-notes - gRPC meets microservices.md",
     "Go/gRPC Microservices in Go/2. gRPC meets microservices - Study Guide.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/1. MQTT Fundamentals  Introduction.md",
     "Go/gRPC Microservices in Go/3. Getting up and running with gRPC and Golang - Study Guide.md",
-    "Go/Concurrency in Go/01 - Chapter One/Race Condition.md",
-    "Go/Concurrency in Go/01 - Chapter One/Atomicity.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/0. MQTT Table of Contents.md",
-    "Go/gRPC/1.محتوا نویسی.md",
-    "Go/gRPC/1.Generate command.md",
-    "Go/Concurrency in Go/03 - Chapter Three/2.Sync.md",
-    "Go/Concurrency in Go/02 - Chapter Two/Parallelism & Concurrency.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/4. PUB SUB UNSUB.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/3. MQTT Client–Broker Setup and Connection Flow.md",
     "Brokers/MQTT/HiveMQ 3.1.1",
     "Brokers/MQTT",
     "Brokers/Kafka",
