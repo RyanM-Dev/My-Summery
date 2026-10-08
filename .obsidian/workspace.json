@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Docker/7. Docker Volume.md",
-                "mode": "preview",
+                "file": "DevOps/NaNa/Docker/8..md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7. Docker Volume"
+              "title": "8."
             }
           }
         ],
@@ -268,13 +268,14 @@
   },
   "active": "f1a6a895a59d2bf6",
   "lastOpenFiles": [
+    "DevOps/NaNa/Artifact Management/Gitea/4 - Storage Cleanup and Troubleshooting.md",
+    "DevOps/NaNa/Docker/8..md",
+    "DevOps/NaNa/Artifact Management/Gitea/3 - Build and Publish Images with CI.md",
+    "DevOps/NaNa/Docker/7. Docker Volume.md",
     "DevOps/NaNa/Docker/6. Dockerfile.md",
     "DevOps/NaNa/Artifact Management/Gitea/1 - Packages and Artifact Management.md",
-    "DevOps/NaNa/Docker/7. Docker Volume.md",
     "DevOps/NaNa/Docker/7.OLD-notes - Docker Volume.md",
     "DevOps/NaNa/Docker/6.OLD-notes - Dockerfile.md",
-    "DevOps/NaNa/Artifact Management/Gitea/4 - Storage Cleanup and Troubleshooting.md",
-    "DevOps/NaNa/Artifact Management/Gitea/3 - Build and Publish Images with CI.md",
     "DevOps/NaNa/Artifact Management/Gitea/2 - Docker Container Registry.md",
     "DevOps/NaNa/Artifact Management/0. Artifact Management.md",
     "DevOps/NaNa/Artifact Management/Gitea",
@@ -295,7 +296,6 @@
     "DevOps/NaNa/Docker/4.OLD-notes - Docker Workflow in Real projects.md",
     "DevOps/NaNa/Docker/3. Basic Commands.md",
     "DevOps/NaNa/Docker/3.OLD-notes - Basic Commands.md",
-    "DevOps/NaNa/Docker/3.Basic Commands.md",
     "Brokers/MQTT/HiveMQ 3.1.1",
     "Brokers/MQTT",
     "Brokers/Kafka",
