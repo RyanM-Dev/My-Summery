@@ -11,8 +11,8 @@
 
 Use these existing notes as style references when available:
 
-- **Structure and voice:** [[DevOps/NaNa/Artifact Management/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API]]. Follow its direct explanations, practical examples, command breakdowns, and clear flows.
-- **Diagrams:** [[DevOps/NaNa/Artifact Management/3. Blob]]. Preserve its useful Mermaid relationships, while making the surrounding prose shorter.
+- **Structure and voice:** [[DevOps/NaNa/Artifact Management/Nexus/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API]]. Follow its direct explanations, practical examples, command breakdowns, and clear flows.
+- **Diagrams:** [[DevOps/NaNa/Artifact Management/Nexus/3. Blob]]. Preserve its useful Mermaid relationships, while making the surrounding prose shorter.
 
 Borrow the teaching pattern, not their length or every formatting choice. Do not copy repeated commands, excessive small headings, or unrelated technical content.
 
