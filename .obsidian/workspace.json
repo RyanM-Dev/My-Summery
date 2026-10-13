@@ -83,30 +83,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Artifact-Management/3. Blob.md",
-                "mode": "preview",
+                "file": "DevOps/NaNa/Git NANA/8. Git Release Branches, Versions, and Tags.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3. Blob"
-            }
-          },
-          {
-            "id": "f1a6a895a59d2bf6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DevOps/NaNa/Git NANA/🌿 From Feature Branch to Tagged Release.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "🌿 From Feature Branch to Tagged Release"
+              "title": "8. Git Release Branches, Versions, and Tags"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -266,37 +252,37 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5ae70b2711f667de",
+  "active": "384e2562d4446e01",
   "lastOpenFiles": [
-    "DevOps/NaNa/Git NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
-    "DevOps/NaNa/Git NANA/🌿 From Feature Branch to Tagged Release.md",
+    "DevOps/NaNa/Git NANA/5. Git Remote Branches and Syncing.md",
+    "DevOps/NaNa/Git NANA/6. Git Stash.md",
+    "DevOps/NaNa/Git NANA/4. Git Merge and Conflict Resolution.md",
+    "DevOps/NaNa/Git NANA/3. Git Branches and Team Workflow.md",
+    "DevOps/NaNa/Git NANA/2. Git File Tracking and Ignore Rules.md",
+    "DevOps/NaNa/Git NANA/1. Git History, Commits, and HEAD.md",
+    "DevOps/NaNa/Git NANA/0. Git Learning Path.md",
+    "DevOps/NaNa/0. Nana DevOps Table of Contents.md",
+    "DevOps/NaNa/Git NANA/4. Git Editing, Removing, and Reverting Commits.md",
+    "DevOps/NaNa/Git NANA/10. Git Reset, Revert, and Shared History.md",
+    "DevOps/NaNa/Git NANA/9. Git Amend and Local Reset.md",
+    "DevOps/NaNa/Git NANA/8. Git Release Branches, Versions, and Tags.md",
+    "DevOps/NaNa/Git NANA/7. Git Rebase.md",
+    "DevOps/NaNa/Git NANA/3. Git Tracking, Stash, History, and Reset.md",
+    "DevOps/NaNa/Git NANA/2. From Feature Branch to Tagged Release.md",
+    "DevOps/NaNa/Git NANA/1. Git Branching, Merge, Rebase, and Team Workflow.md",
     "DevOps/NaNa/Docker/8. Docker Best Practices.md",
+    "DevOps/NaNa/Git NANA/🌿 From Feature Branch to Tagged Release.md",
+    "DevOps/NaNa/Git NANA/4. From Feature Branch to Tagged Release.md",
+    "DevOps/NaNa/Git NANA/🌿 Git Branching, Merge, Rebase, and Team Workflow.md",
     "DevOps/NaNa/Docker/7. Docker Volume.md",
     "DevOps/NaNa/Docker/8.Docker Best Practises.md",
     "DevOps/NaNa/Docker/8.OLD-notes - Docker Best Practises.md",
     "DevOps/NaNa/Docker/7.OLD-notes - Docker Volume.md",
     "DevOps/NaNa/Artifact Management/Nexus/4.OLD-notes - Cleanup Policy.md",
     "DevOps/NaNa/Artifact Management/Nexus/4. Cleanup Policy.md",
-    "DevOps/NaNa/Integeration/1.Deploy Nexus As.md",
-    "DevOps/NaNa/Git NANA/🔄 Git Editing, Removing, and Reverting Commits.md",
     "DevOps/NaNa/Integeration",
-    "DevOps/NaNa/Git NANA/🌿 Git Tracking, Stash, History, and Reset.md",
-    "DevOps/NaNa/Artifact Management/Gitea/4 - Storage Cleanup and Troubleshooting.md",
-    "DevOps/NaNa/Artifact Management/Gitea/3 - Build and Publish Images with CI.md",
-    "DevOps/NaNa/Docker/6. Dockerfile.md",
-    "DevOps/NaNa/Artifact Management/Gitea/1 - Packages and Artifact Management.md",
-    "DevOps/NaNa/Docker/6.OLD-notes - Dockerfile.md",
-    "DevOps/NaNa/Artifact Management/Gitea/2 - Docker Container Registry.md",
-    "DevOps/NaNa/Artifact Management/0. Artifact Management.md",
     "DevOps/NaNa/Artifact Management/Gitea",
-    "DevOps/NaNa/Artifact Management/Nexus/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API.md",
-    "DevOps/NaNa/Artifact Management/Nexus/3. Blob.md",
-    "DevOps/NaNa/Artifact Management/Nexus/1. Artifact and Artifact Repo.md",
     "DevOps/NaNa/Artifact Management/Nexus",
-    "DevOps/NaNa/Docker/5. Docker Compose.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/0. MQTT Table of Contents.md",
-    "Linux/File & Directory/Upload File To Server.md",
-    "Linux/Scatterd Learning/SSH.md",
     "Brokers/MQTT/HiveMQ 3.1.1",
     "Brokers/MQTT",
     "Brokers/Kafka",
