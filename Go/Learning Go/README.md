@@ -25,11 +25,19 @@ See the project prompt for chapter mapping, inputs examples, and regenerate inst
 - [x] 1. Setting Up Your Go Environment - Study Guide.md
 - [x] 2. Predeclared Types and Declarations - Study Guide.md
 - [x] 3. Composite Types - Study Guide.md
-- [ ] 4. Blocks, Shadows, and Control Structures
-- [ ] ... (continue with the chapter map in the project prompt)
-- [ ] ...
-- [ ] 12. Concurrency in Go (cross-ref existing Concurrency-in-Go/ notes)
-- [ ] 15. Writing Tests (existing raw notes under 15-Writing-Tests/ can feed the guide)
+- [x] 4. Blocks, Shadows, and Control Structures
+- [x] 5. Functions
+- [x] 6. Pointers
+- [x] 7. Types, Methods, and Interfaces
+- [x] 8. Generics
+- [x] 9. Errors
+- [x] 10. Modules, Packages, and Imports
+- [x] 11. Go Tooling
+- [x] 12. Concurrency in Go (cross-reference existing Concurrency-in-Go notes)
+- [x] 13. The Standard Library
+- [ ] 14. No Chapter 14 in the second edition
+- [x] 15. Writing Tests (incorporates existing raw notes under 15-Writing-Tests/)
+- [x] 16. Here Be Dragons: Reflect, Unsafe, and Cgo
 
 ## Existing raw / partial notes
 
