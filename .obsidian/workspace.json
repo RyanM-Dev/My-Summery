@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Linux/0. Linux Learning Path.md",
+                "file": "Linux/Bash Scripting/0 - Bash Scripting Learning Path.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0. Linux Learning Path"
+              "title": "0 - Bash Scripting Learning Path"
             }
           }
         ],
@@ -196,10 +196,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5ae70b2711f667de",
+  "active": "73b1d46c5c62ae0a",
   "lastOpenFiles": [
-    "DevOps/NaNa/Linux/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "DevOps/NaNa/Linux/0. Linux Learning Path.md",
+    "Linux/Bash Scripting/2 - Variables, Quoting, and Expansion.md",
+    "Linux/Bash Scripting/1 - First Script: Shebang, Shell Choice, and Execution.md",
+    "Linux/Bash Scripting/0 - Bash Scripting Learning Path.md",
+    "Linux/Bash Scripting",
+    "DevOps/NaNa/Linux/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "DevOps/NaNa/Linux/7. Server Configuration.md",
     "DevOps/NaNa/Linux/6. Networking Fundamentals.md",
     "DevOps/NaNa/Linux/5. Ownership and Permissions.md",
@@ -223,17 +227,13 @@
     "DevOps/NaNa/Artifact Management/Gitea/2 - Docker Container Registry.md",
     "DevOps/NaNa/Ci-CD/Jenkins/1. Basics.md",
     "Resume/Technical Skills Inventory.md",
-    "Resume/AI Prompt - Update Resume from PDF.md",
-    "Database/Postgresql/Art of PostgreSQL/3 - Software Architecture.md",
     "Resume/Resume/Ryan Musazadeh Resume.docx",
     "Resume/Resume/Ryan Musazadeh Resume.txt",
     "Resume/Resume",
-    "Database/Postgresql/Art of PostgreSQL/5 - Business Logic.md",
     "Database/Postgresql/Art of PostgreSQL/lessons/index.html",
     "Database/Postgresql/Art of PostgreSQL/lessons/0052-interview-with-craig-kerstiens.html",
     "Database/Postgresql/Art of PostgreSQL/lessons/0051-vector-search-with-pgvector.html",
     "Database/Postgresql/Art of PostgreSQL/lessons/0050-counting-distinct-users-with-hyperloglog.html",
-    "Database/Postgresql/Art of PostgreSQL/lessons/0049-geolocation-with-postgresql-ip4r.html",
     "Search Engines/Meilisearch/photo/vogli3.png",
     "Search Engines/Meilisearch/photo/new road.png",
     "Search Engines/Meilisearch/photo/belgium.png",
