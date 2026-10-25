@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short, hands-on lesson on creating and launching a Bash script on Linux.">
+  <title>01 · Run your first Bash script</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Nana DevOps · Linux</span><span>Bash scripting · Lesson 01</span></div>
+
+    <header>
+      <div class="eyebrow">A small script, run two ways</div>
+      <h1>Run your first Bash script</h1>
+      <p class="dek">Create a host report you can run by hand or from a CI job, then explain how Linux chooses what reads the file.</p>
+      <p class="mission"><strong>Mission:</strong> Build toward small, repeatable scripts for real Linux and DevOps operations.</p>
+    </header>
+
+    <main>
+      <section aria-labelledby="win">
+        <p class="label">Your one skill</p>
+        <h2 id="win">Launch the same script in two different ways</h2>
+        <p class="lead">A Bash script is a text file of commands. The shebang at the top selects Bash when Linux launches the file directly; when you type <code>bash report.sh</code>, you already chose the interpreter.</p>
+        <p>The Bash manual confirms both behaviors: Bash can read a script as its input, or the executable file can name its interpreter in the first line. <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Scripts.html">Read: Shell Scripts</a>.</p>
+
+        <div class="route-grid" aria-label="Two ways to launch a script">
+          <article class="route">
+            <span class="label">You choose Bash</span>
+            <code>bash report.sh</code>
+            <p>Bash reads the file. The shebang and execute permission are not needed for this launch form.</p>
+          </article>
+          <article class="route">
+            <span class="label">Linux follows the file</span>
+            <code>./report.sh</code>
+            <p>The file needs execute permission. Linux reads its shebang to find the interpreter.</p>
+          </article>
+        </div>
+
+        <p>With <code>#!/usr/bin/env bash</code>, the system uses <code>env</code> to find Bash through <code>PATH</code>. The script still runs from your current working directory, so a relative path inside it starts there—not automatically beside the script.</p>
+        <p>Scripts run as non-interactive shells. Bash’s startup-file rules differ from an interactive terminal, which is one reason a command can work in your terminal but fail in CI. <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html">Read: Bash Startup Files</a>.</p>
+      </section>
+
+      <section aria-labelledby="build">
+        <p class="label">Three-minute practice</p>
+        <h2 id="build">Build a host report</h2>
+        <p>Use a new folder in your home directory. This script only prints information; it does not change system settings.</p>
+
+        <ol class="steps">
+          <li>Create and enter a practice folder.
+            <pre><code>mkdir -p "$HOME/bash-labs/lesson-1"
+cd "$HOME/bash-labs/lesson-1"</code></pre>
+          </li>
+          <li>Open <code>report.sh</code> in a text editor such as <code>nano</code> or <code>vim</code>, paste these lines, and save:
+            <pre><code>#!/usr/bin/env bash
+printf 'User: '
+id -un
+printf 'Host: '
+hostname
+printf 'Kernel: '
+uname -srm
+</code></pre>
+          </li>
+          <li>Ask Bash to check the syntax, then run it.
+            <pre><code>bash -n report.sh
+bash report.sh</code></pre>
+            <p class="caption">No output from <code>bash -n</code> means Bash found no syntax error; it does not prove the commands will succeed on every machine.</p>
+          </li>
+          <li>Now give yourself execute permission and launch the file directly.
+            <pre><code>chmod u+x report.sh
+./report.sh</code></pre>
+          </li>
+        </ol>
+
+        <p class="label">Illustrative output</p>
+        <pre class="output"><code>User: learner
+Host: devbox
+Kernel: Linux 6.8.0 x86_64</code></pre>
+        <p class="caption">Your username, hostname, and kernel version will differ.</p>
+      </section>
+
+      <section aria-labelledby="check">
+        <p class="label">Retrieve before you reveal</p>
+        <h2 id="check">Can you choose the launch path?</h2>
+
+        <div class="quiz" data-explanation="Calling Bash by name tells Bash to read the script. The shebang matters when Linux launches the file directly.">
+          <h3>1. What happens when you run <code>bash report.sh</code>?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button" data-correct="true">Bash reads the file as input.</button>
+            <button class="quiz-option" type="button" data-correct="false">Linux reads the shebang before Bash.</button>
+            <button class="quiz-option" type="button" data-correct="false">The execute bit starts the interpreter.</button>
+          </div>
+          <p class="quiz-feedback" aria-live="polite"></p>
+          <button class="quiz-reset" type="button">Try again</button>
+        </div>
+
+        <div class="quiz" data-explanation="Direct launch uses the shebang to select the interpreter, and the file must be executable.">
+          <h3>2. When does the shebang select the interpreter?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button" data-correct="false">When Bash reads the script as input.</button>
+            <button class="quiz-option" type="button" data-correct="true">When Linux directly launches the script file.</button>
+            <button class="quiz-option" type="button" data-correct="false">When execute permissions change on the script.</button>
+          </div>
+          <p class="quiz-feedback" aria-live="polite"></p>
+          <button class="quiz-reset" type="button">Try again</button>
+        </div>
+      </section>
+
+      <div class="recall"><strong>Tomorrow's 30-second recall:</strong> without reopening this page, write the two launch commands and say what the shebang and execute bit do. If either answer feels fuzzy, ask me to walk through it with your own command output.</div>
+
+      <section aria-labelledby="next">
+        <h2 id="next">Keep going</h2>
+        <p>Next, use a variable to pass a deployment name containing spaces without accidentally splitting it into several arguments.</p>
+        <nav class="resources" aria-label="Lesson links">
+          <a href="../reference/01-script-launch.html">Printable script-launch reference</a>
+          <a href="0002-variables-and-quoting.html">Next: variables and quoting →</a>
+          <a href="../RESOURCES.md">Course resources</a>
+        </nav>
+      </section>
+    </main>
+
+    <footer>Source focus: SDGL, Chapter 12 · Linux Bible, Chapter 7 · CompTIA Linux+, Chapter 7. Ask your teacher about anything unclear.</footer>
+  </div>
+</body>
+</html>

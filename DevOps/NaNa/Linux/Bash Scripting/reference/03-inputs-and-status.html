@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Script inputs and status · quick reference</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Bash scripting</span><span>Reference 03–04</span></div>
+    <header>
+      <div class="eyebrow">Quick reference</div>
+      <h1>Inputs, checks, and exit status</h1>
+      <p class="dek">Pass values into a script, check prerequisites, and report whether an operation succeeded.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Read command-line arguments</h2>
+        <pre><code>#!/usr/bin/env bash
+
+printf 'Script: %s\n' "$0"
+printf 'Argument count: %s\n' "$#"
+printf 'First argument: %s\n' "$1"
+printf 'Argument: %s\n' "$@"
+
+config_file=${1:-./release.env}</code></pre>
+        <ul class="steps">
+          <li><code>$0</code> is the invoked script name or path.</li>
+          <li><code>$1</code> is the first argument; <code>$#</code> is the number of arguments.</li>
+          <li>Quote <code>"$@"</code> to pass every argument as its own value, including values with spaces.</li>
+          <li><code>${NAME:-fallback}</code> uses a fallback when <code>NAME</code> is unset or empty.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Check a prerequisite and return status</h2>
+        <pre><code>if [[ -f "$config_file" &amp;&amp; -r "$config_file" ]]; then
+    printf 'Config is ready: %s\n' "$config_file"
+else
+    printf 'Config is missing or unreadable: %s\n' "$config_file" &gt;&amp;2
+    exit 1
+fi</code></pre>
+        <ul class="steps">
+          <li>Status <code>0</code> means success; a non-zero status signals failure.</li>
+          <li><code>[[ -f path ]]</code> checks for a regular file; <code>[[ -r path ]]</code> checks readability.</li>
+          <li>Use <code>command &amp;&amp; next_command</code> when the next command should run only after success.</li>
+          <li>Read <code>$?</code> immediately; a later command replaces the last status.</li>
+          <li>Send an error message to standard error with <code>&gt;&amp;2</code>.</li>
+        </ul>
+        <p>Primary sources: GNU Bash Manual on <a href="https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html">Positional Parameters</a>, <a href="https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html">Special Parameters</a>, <a href="https://www.gnu.org/software/bash/manual/html_node/Exit-Status.html">Exit Status</a>, and <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Conditional Expressions</a>.</p>
+      </section>
+    </main>
+    <footer><a href="../lessons/0003-script-inputs.html">Lesson 3 · Inputs</a> · <a href="../lessons/0004-exit-status-and-tests.html">Lesson 4 · Status and tests</a> · <a href="../RESOURCES.md">Course resources</a></footer>
+  </div>
+</body>
+</html>

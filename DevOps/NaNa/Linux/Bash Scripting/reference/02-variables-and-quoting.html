@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bash values and quoting · quick reference</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Bash scripting</span><span>Reference 02</span></div>
+    <header>
+      <div class="eyebrow">Quick reference</div>
+      <h1>Values, quoting, and configuration</h1>
+      <p class="dek">Keep each value intact as it crosses from a caller's environment into a command.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Assignment and expansion</h2>
+        <pre><code>app_name='billing api'   # no spaces around =
+printf '%s\n' "$app_name"
+printf '%s\n' "${app_name}_worker"</code></pre>
+        <ul class="steps">
+          <li>Use the bare name on the left side of an assignment; use <code>$name</code> to expand it.</li>
+          <li>Use <code>${name}</code> when braces clarify where the name ends.</li>
+          <li>Use <code>"$value"</code> for a command argument that may contain spaces or wildcard characters.</li>
+          <li>Single quotes preserve literal text; double quotes allow variable expansion.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Deployment configuration</h2>
+        <pre><code>app_name=${APP_NAME:?Set APP_NAME}
+deploy_env=${DEPLOY_ENV:-staging}
+DEPLOY_ENV=test bash report.sh
+export DEPLOY_ENV=test</code></pre>
+        <ul class="steps">
+          <li><code>${NAME:-fallback}</code> uses a fallback if unset or empty.</li>
+          <li><code>${NAME:?message}</code> stops with an error if unset or empty.</li>
+          <li><code>NAME=value command</code> sets the environment for one command.</li>
+          <li><code>export NAME=value</code> makes it available to child processes launched later by that shell.</li>
+        </ul>
+        <p>Primary sources: GNU Bash Manual on <a href="https://www.gnu.org/software/bash/manual/html_node/Quoting.html">Quoting</a>, <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">Parameter Expansion</a>, and <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html">Shell Expansions</a>. See also <a href="https://www.shellcheck.net/wiki/SC2086">ShellCheck SC2086</a>.</p>
+      </section>
+    </main>
+    <footer><a href="../lessons/0002-variables-and-quoting.html">Return to Lesson 2</a> · <a href="../RESOURCES.md">Course resources</a></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisions and loops · quick reference</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Bash scripting</span><span>Reference 05–06</span></div>
+    <header>
+      <div class="eyebrow">Quick reference</div>
+      <h1>Decisions and file batches</h1>
+      <p class="dek">Validate an input, choose one known action, and safely repeat a command across matching files.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Branch on status or a known value</h2>
+        <pre><code>if [[ -f "$manifest" &amp;&amp; -r "$manifest" ]]; then
+    printf 'Ready\n'
+else
+    printf 'Cannot read manifest\n' &gt;&amp;2
+    exit 1
+fi
+
+case "$environment" in
+    dev|test) printf 'Run checks\n' ;;
+    staging)  printf 'Prepare staging\n' ;;
+    production) printf 'Require approval\n' ;;
+    *) printf 'Unknown environment\n' &gt;&amp;2; exit 2 ;;
+esac</code></pre>
+        <ul class="steps">
+          <li>Use <code>if</code> to branch on a command or test's exit status.</li>
+          <li>Use <code>case</code> to match a value against known patterns.</li>
+          <li><code>dev|test</code> matches either value; <code>*)</code> is the fallback.</li>
+          <li>End each <code>case</code> branch with <code>;;</code>.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Loop over matching files</h2>
+        <pre><code>for log_file in "$log_dir"/*.log; do
+    [[ -f "$log_file" ]] || continue
+    wc -l -- "$log_file"
+done</code></pre>
+        <ul class="steps">
+          <li>Leave <code>*.log</code> unquoted so Bash expands it to matching paths.</li>
+          <li>Quote <code>"$log_file"</code> so spaces remain part of one filename.</li>
+          <li>If no files match, the literal pattern can remain; the <code>-f</code> guard skips it.</li>
+          <li><code>continue</code> skips to the next loop item; <code>done</code> closes the loop.</li>
+        </ul>
+        <p>Primary sources: GNU Bash Manual on <a href="https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html">Conditional Constructs</a>, <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Conditional Expressions</a>, and <a href="https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html">Looping Constructs</a>.</p>
+      </section>
+    </main>
+    <footer><a href="../lessons/0005-branching-with-if-and-case.html">Lesson 5 · Decisions</a> · <a href="../lessons/0006-loops-and-file-batches.html">Lesson 6 · Loops</a> · <a href="../RESOURCES.md">Course resources</a></footer>
+  </div>
+</body>
+</html>

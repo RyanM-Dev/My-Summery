@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Use a Bash for loop to count lines across log files while preserving paths with spaces and skipping unmatched globs.">
+  <title>06 · Loop over a batch of files</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Nana DevOps · Linux</span><span>Bash scripting · Lesson 06</span></div>
+    <header>
+      <div class="eyebrow">One operation, repeated safely</div>
+      <h1>Loop over a batch of files</h1>
+      <p class="dek">Count lines in every <code>.log</code> file in a practice folder, without breaking filenames that contain spaces.</p>
+      <p class="mission"><strong>Mission:</strong> Turn one useful Linux command into a repeatable batch operation.</p>
+    </header>
+
+    <main>
+      <section aria-labelledby="model">
+        <p class="label">One mental model</p>
+        <h2 id="model">A <code>for</code> loop gives one matching path at a time</h2>
+        <p class="lead">The glob <code>*.log</code> expands into matching paths. The loop assigns each result to <code>log_file</code>; quoting that variable keeps a path with spaces together when it reaches <code>wc</code>.</p>
+        <p>Bash runs the loop body once per word in its expanded list. The Bash manual describes the <a href="https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html">for, while, and until constructs</a>.</p>
+      </section>
+
+      <section aria-labelledby="practice">
+        <p class="label">Five-minute practice</p>
+        <h2 id="practice">Count lines in practice logs</h2>
+        <p>Create two sample logs in a dedicated practice directory. Re-running these commands replaces only these named practice files.</p>
+        <pre><code>mkdir -p "$HOME/bash-labs/lesson-6"
+printf 'WARN starting\nERROR 503\n' &gt; "$HOME/bash-labs/lesson-6/api one.log"
+printf 'Started\nReady\nListening\n' &gt; "$HOME/bash-labs/lesson-6/worker.log"</code></pre>
+
+        <p>Save this as <code>count-logs.sh</code>:</p>
+        <pre><code>#!/usr/bin/env bash
+
+log_dir="$HOME/bash-labs/lesson-6"
+
+for log_file in "$log_dir"/*.log; do
+    [[ -f "$log_file" ]] || continue
+    wc -l -- "$log_file"
+done</code></pre>
+
+        <p>The directory prefix is quoted, while <code>*.log</code> remains a glob so Bash can expand it. If nothing matches, Bash leaves the pattern unchanged; the file test fails and <code>continue</code> skips it. Run the loop with:</p>
+        <pre><code>bash count-logs.sh</code></pre>
+        <pre class="output"><code>2 /home/learner/bash-labs/lesson-6/api one.log
+3 /home/learner/bash-labs/lesson-6/worker.log</code></pre>
+        <p class="caption">Your home path will differ. Notice that <code>api one.log</code> is handled as one filename.</p>
+      </section>
+
+      <section aria-labelledby="check">
+        <p class="label">Retrieve before you reveal</p>
+        <h2 id="check">Can you keep the file batch safe?</h2>
+        <div class="quiz" data-explanation="Quoting the loop variable preserves each full pathname as one argument, including spaces in its filename.">
+          <h3>1. Why quote <code>"$log_file"</code>?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button" data-correct="true">Preserves spaces inside each matching filename.</button>
+            <button class="quiz-option" type="button" data-correct="false">Sorts files by name before processing.</button>
+            <button class="quiz-option" type="button" data-correct="false">Prevents unmatched globs from expanding normally.</button>
+          </div>
+          <p class="quiz-feedback" aria-live="polite"></p>
+          <button class="quiz-reset" type="button">Try again</button>
+        </div>
+        <div class="quiz" data-explanation="Without nullglob, an unmatched glob stays as literal text; the -f check fails and continue skips that non-file value.">
+          <h3>2. Why test the path and use <code>continue</code>?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button" data-correct="false">Stops script when no files match.</button>
+            <button class="quiz-option" type="button" data-correct="true">Skips the literal unmatched glob pattern.</button>
+            <button class="quiz-option" type="button" data-correct="false">Deletes files that fail the test.</button>
+          </div>
+          <p class="quiz-feedback" aria-live="polite"></p>
+          <button class="quiz-reset" type="button">Try again</button>
+        </div>
+      </section>
+
+      <div class="recall"><strong>Tomorrow's 30-second recall:</strong> write the three pieces of the loop header from memory, and explain which part must stay unquoted so the glob expands.</div>
+
+      <section aria-labelledby="next">
+        <h2 id="next">Keep going</h2>
+        <p>You can now combine inputs, checks, decisions, and loops. Next in the path: arithmetic, counters, and organizing repeated work into functions.</p>
+        <nav class="resources" aria-label="Lesson links">
+          <a href="../reference/05-decisions-and-loops.html">Printable decisions and loops reference</a>
+          <a href="0005-branching-with-if-and-case.html">← Review if and case</a>
+          <a href="../0.%20Bash%20Scripting%20Learning%20Path.md">Return to the learning path</a>
+        </nav>
+      </section>
+    </main>
+    <footer>Source focus: SDGL, Chapter 12 · Linux Bible, Chapter 7 · CompTIA Linux+, Chapter 7. Ask me about anything unclear.</footer>
+  </div>
+</body>
+</html>

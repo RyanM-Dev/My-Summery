@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bash script launch · quick reference</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Bash scripting</span><span>Reference 01</span></div>
+    <header>
+      <div class="eyebrow">Quick reference</div>
+      <h1>Run a Bash script</h1>
+      <p class="dek">Choose whether to name Bash yourself or let the executable file choose its interpreter.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Two launch forms</h2>
+        <pre><code># Invoke Bash to read the file
+bash report.sh
+
+# Let Linux launch the executable via its shebang
+chmod u+x report.sh
+./report.sh</code></pre>
+        <ul class="steps">
+          <li><code>bash report.sh</code> explicitly selects Bash; no execute bit is required.</li>
+          <li><code>./report.sh</code> requires execute permission and uses the first line to select an interpreter.</li>
+          <li><code>#!/usr/bin/env bash</code> finds Bash through <code>PATH</code>.</li>
+          <li><code>bash -n report.sh</code> checks syntax without executing the script.</li>
+          <li>Relative file paths are resolved from the process's current working directory.</li>
+        </ul>
+        <p>Primary source: <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Scripts.html">GNU Bash Manual · Shell Scripts</a>.</p>
+      </section>
+      <section>
+        <h2>Common checks</h2>
+        <pre><code>command -v bash
+head -n 1 report.sh
+ls -l report.sh
+bash -n report.sh</code></pre>
+        <p><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html">Bash Startup Files</a> documents the difference between interactive and non-interactive shells.</p>
+      </section>
+    </main>
+    <footer><a href="../lessons/0001-first-script.html">Return to Lesson 1</a> · <a href="../RESOURCES.md">Course resources</a></footer>
+  </div>
+</body>
+</html>

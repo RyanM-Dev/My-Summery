@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Ci-CD/Jenkins/1. Basics.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "1. Basics"
-            }
-          },
-          {
-            "id": "73b1d46c5c62ae0a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/Bash Scripting/0 - Bash Scripting Learning Path.md",
+                "file": "DevOps/NaNa/Linux/Bash Scripting/lessons/0002-variables-and-quoting.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0 - Bash Scripting Learning Path"
+              "title": "0002-variables-and-quoting"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,13 +181,34 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "73b1d46c5c62ae0a",
+  "active": "69c84256314e5905",
   "lastOpenFiles": [
-    "DevOps/NaNa/Linux/0. Linux Learning Path.md",
-    "Linux/Bash Scripting/2 - Variables, Quoting, and Expansion.md",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0001-first-script.md",
+    "DevOps/NaNa/Linux/Bash Scripting/RESOURCES.md",
+    "DevOps/NaNa/Linux/Bash Scripting/reference/05-decisions-and-loops.html",
+    "DevOps/NaNa/Linux/Bash Scripting/reference/03-inputs-and-status.html",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0006-loops-and-file-batches.html",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0005-branching-with-if-and-case.html",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0004-exit-status-and-tests.html",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0003-script-inputs.html",
+    "DevOps/NaNa/Linux/Bash Scripting/NOTES.md",
+    "DevOps/NaNa/Linux/Bash Scripting/MISSION.md",
+    "DevOps/NaNa/Linux/Bash Scripting/2.OLD-guide - Variables, Quoting, and Expansion.md",
+    "DevOps/NaNa/Linux/Bash Scripting/1.OLD-guide - First Script, Shebang, and Execution.md",
+    "DevOps/NaNa/Ci-CD/Jenkins/1. Basics.md",
+    "DevOps/NaNa/Linux/Bash Scripting/0. Bash Scripting Learning Path.md",
+    "DevOps/NaNa/Linux/Bash Scripting/reference/02-variables-and-quoting.html",
+    "DevOps/NaNa/Linux/Bash Scripting/reference/01-script-launch.html",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0002-variables-and-quoting.html",
+    "DevOps/NaNa/Linux/Bash Scripting/lessons/0001-first-script.html",
+    "DevOps/NaNa/Linux/Bash Scripting/2. Variables, Quoting, and Expansion.md",
+    "DevOps/NaNa/Linux/Bash Scripting/1. First Script, Shebang, and Execution.md",
+    "DevOps/NaNa/AI Prompt - NANA DevOps.md",
+    "DevOps/NaNa/Linux/1. Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "Linux/Bash Scripting/1 - First Script: Shebang, Shell Choice, and Execution.md",
     "Linux/Bash Scripting/0 - Bash Scripting Learning Path.md",
-    "Linux/Bash Scripting",
+    "DevOps/NaNa/Linux/0. Linux Learning Path.md",
+    "Linux/Bash Scripting/2 - Variables, Quoting, and Expansion.md",
     "DevOps/NaNa/Linux/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "DevOps/NaNa/Linux/7. Server Configuration.md",
     "DevOps/NaNa/Linux/6. Networking Fundamentals.md",
@@ -210,30 +216,9 @@
     "DevOps/NaNa/Linux/4. Users and Groups.md",
     "DevOps/NaNa/Linux/3. Environment Variables.md",
     "DevOps/NaNa/Linux/2. Vim Cheat Sheet.md",
-    "DevOps/NaNa/Linux/1. Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "Linux/Scatterd Learning/SSH.md",
     "DevOps/NaNa/Ci-CD/Jenkins/1. Workflow for AI Coding.md",
     "DevOps/NaNa/Ci-CD/Jenkins/2. Docker in Jenkins.md",
-    "Agentic Development/Matt Pocock",
-    "DevOps/NaNa/Ci-CD/Jenkins/Untitled.md",
-    "Agentic Development",
-    "DevOps/NaNa/Artifact Management/Nexus/2. Nexus Repository Manager — Raw Repositories, Users Roles, and REST API.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/2.OLD-notes - Docker in Jenkins.md",
-    "DevOps/NaNa/Artifact Management/Nexus/5. Pushing Docker Images to Nexus.md",
-    "DevOps/NaNa/Artifact Management/Nexus/1. Artifact and Artifact Repo.md",
-    "DevOps/NaNa/Artifact Management/0. Artifact Management.md",
-    "DevOps/NaNa/Linux/vim cheatsheet.md",
-    "DevOps/NaNa/Artifact Management/Gitea/3 - Build and Publish Images with CI.md",
-    "DevOps/NaNa/Artifact Management/Gitea/2 - Docker Container Registry.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/1. Basics.md",
-    "Resume/Technical Skills Inventory.md",
-    "Resume/Resume/Ryan Musazadeh Resume.docx",
-    "Resume/Resume/Ryan Musazadeh Resume.txt",
-    "Resume/Resume",
-    "Database/Postgresql/Art of PostgreSQL/lessons/index.html",
-    "Database/Postgresql/Art of PostgreSQL/lessons/0052-interview-with-craig-kerstiens.html",
-    "Database/Postgresql/Art of PostgreSQL/lessons/0051-vector-search-with-pgvector.html",
-    "Database/Postgresql/Art of PostgreSQL/lessons/0050-counting-distinct-users-with-hyperloglog.html",
     "Search Engines/Meilisearch/photo/vogli3.png",
     "Search Engines/Meilisearch/photo/new road.png",
     "Search Engines/Meilisearch/photo/belgium.png",

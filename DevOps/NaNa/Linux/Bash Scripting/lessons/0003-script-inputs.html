@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn to pass command-line arguments to Bash scripts without splitting values that contain spaces.">
+  <title>03 · Pass inputs to a Bash script</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <div class="topline"><span>Nana DevOps · Linux</span><span>Bash scripting · Lesson 03</span></div>
+    <header>
+      <div class="eyebrow">Arguments belong to the invocation</div>
+      <h1>Pass inputs to a Bash script</h1>
+      <p class="dek">Give a script a release name and an artifact path from the command line, even when either value contains spaces.</p>
+      <p class="mission"><strong>Mission:</strong> Make small automation reusable across runs without editing the script for every release.</p>
+    </header>
+
+    <main>
+      <section aria-labelledby="model">
+        <p class="label">One mental model</p>
+        <h2 id="model">Arguments are separate values after the script name</h2>
+        <p class="lead">When you invoke a script, values after its filename become positional parameters. Quote a multiword value when you call the script, and quote the parameters when the script uses them.</p>
+        <pre><code>bash show-inputs.sh 'billing api' 'release bundle.tar.gz'</code></pre>
+
+        <div class="route-grid">
+          <article class="route"><span class="label">Script identity</span><code>$0</code><p>The script name or path used to invoke it.</p></article>
+          <article class="route"><span class="label">First value</span><code>$1</code><p>The first argument after the script filename.</p></article>
+          <article class="route"><span class="label">Argument count</span><code>$#</code><p>How many values the caller supplied.</p></article>
+          <article class="route"><span class="label">All values</span><code>"$@"</code><p>Each original argument kept as its own value.</p></article>
+        </div>
+
+        <p>Bash assigns positional parameters from the command's arguments. Its manual distinguishes <code>"$@"</code>, which preserves the individual values, from a single joined string. <a href="https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html">Read: Positional Parameters</a> and <a href="https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html">Special Parameters</a>.</p>
+      </section>
+
+      <section aria-labelledby="practice">
+        <p class="label">Four-minute practice</p>
+        <h2 id="practice">Print each received value</h2>
+        <p>Save this as <code>show-inputs.sh</code>. <code>printf</code> repeats its format for each value supplied by the quoted <code>"$@"</code>.</p>
+        <pre><code>#!/usr/bin/env bash
+
+printf 'Script: %s\n' "$0"
+printf 'Argument count: %s\n' "$#"
+printf 'First value: &lt;%s&gt;\n' "$1"
+printf 'Received value: &lt;%s&gt;\n' "$@"</code></pre>
+
+        <p>Run it with two values, both containing spaces:</p>
+        <pre><code>bash show-inputs.sh 'billing api' 'release bundle.tar.gz'</code></pre>
+        <pre class="output"><code>Script: show-inputs.sh
+Argument count: 2
+First value: &lt;billing api&gt;
+Received value: &lt;billing api&gt;
+Received value: &lt;release bundle.tar.gz&gt;</code></pre>
+        <p>The environment value from Lesson 2 and a command-line argument are different input channels. CI jobs often use both: environment values for configuration, arguments for the particular file or operation being processed.</p>
+
+        <div class="callout"><p><strong>Interactive alternative:</strong> <code>read -r -p 'Environment: ' deploy_env</code> asks a person at a terminal. Use <code>-r</code> so backslashes stay literal. Automation should usually get its inputs from arguments or environment values so it does not wait for someone to answer a prompt.</p></div>
+      </section>
+
+      <section aria-labelledby="check">
+        <p class="label">Retrieve before you reveal</p>
+        <h2 id="check">Can the script keep two inputs separate?</h2>
+        <div class="quiz" data-explanation="The count is stored in $#; it does not name a value. $1 is the first value, and quoted $@ expands to each argument separately.">
+          <h3>1. What does <code>$#</code> contain?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button" data-correct="true">Counts all arguments passed to this script.</button>
+            <button class="quiz-option" type="button" data-correct="false">Names the first value supplied after script.</button>
+            <button class="quiz-option" type="button" data-correct="false">Joins every supplied argument into one string.</button>
+          </div>
+          <p class="quiz-feedback" aria-live="polite"></p>
+          <button class="quiz-reset" type="button">Try again</button>
+        </div>
+        <div class="quiz" data-explanation="Quoted $@ expands to one word per original argument, preserving boundaries including spaces inside an argument.">
+          <h3>2. What is the key behavior of <code>"$@"</code>?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button" data-correct="false">Combines every input into a single argument.</button>
+            <button class="quiz-option" type="button" data-correct="true">Preserves each input as its own argument.</button>
+            <button class="quiz-option" type="button" data-correct="false">Removes spaces from each provided input value.</button>
+          </div>
+          <p class="quiz-feedback" aria-live="polite"></p>
+          <button class="quiz-reset" type="button">Try again</button>
+        </div>
+      </section>
+
+      <div class="recall"><strong>Tomorrow's 30-second recall:</strong> explain the difference between <code>$1</code>, <code>$#</code>, and <code>"$@"</code>. Then try the command again with one argument containing a space.</div>
+
+      <section aria-labelledby="next">
+        <h2 id="next">Keep going</h2>
+        <p>Next, make a script check whether a required configuration file is available and return a clear success or failure status.</p>
+        <nav class="resources" aria-label="Lesson links">
+          <a href="../reference/03-inputs-and-status.html">Printable inputs reference</a>
+          <a href="0002-variables-and-quoting.html">← Review variables and quoting</a>
+          <a href="0004-exit-status-and-tests.html">Next: exit status and tests →</a>
+        </nav>
+      </section>
+    </main>
+    <footer>Source focus: SDGL, Chapter 12 · Linux Bible, Chapter 7 · CompTIA Linux+, Chapter 7. Ask me about anything unclear.</footer>
+  </div>
+</body>
+</html>
