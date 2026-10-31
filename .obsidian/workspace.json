@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Agentic Development/Matt Pocock/1.Complete Workflow - Reference.md",
+                "file": "Agentic Development/Matt Pocock/1.Complete Workflow - Detailed Reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.Complete Workflow - Reference"
+              "title": "1.Complete Workflow - Detailed Reference"
             }
           }
         ]
@@ -183,11 +183,13 @@
   },
   "active": "69c84256314e5905",
   "lastOpenFiles": [
-    "Agentic Development/Matt Pocock/1.Complete Workflow.md",
-    "Agentic Development/Matt Pocock/1.Complete Workflow - Reference.md",
-    "Agentic Development/Matt Pocock/[FULL WORKSHOP] AI Coding For Real Engineers - Matt Pocock, AI Hero (@mattpocockuk ).txt",
+    "DevOps/NaNa/Ci-CD/Jenkins/4.Jenkins Syntax.md",
     "DevOps/NaNa/Ci-CD/Jenkins/3. Jenkins pipeline.md",
     "DevOps/NaNa/Ci-CD/Jenkins/3.OLD-notes - Jenkins pipeline.md",
+    "Agentic Development/Matt Pocock/1.Complete Workflow - Reference.md",
+    "Agentic Development/Matt Pocock/1.Complete Workflow - Detailed Reference.md",
+    "Agentic Development/Matt Pocock/1.Complete Workflow.md",
+    "Agentic Development/Matt Pocock/[FULL WORKSHOP] AI Coding For Real Engineers - Matt Pocock, AI Hero (@mattpocockuk ).txt",
     "DevOps/NaNa/Artifact Management/Gitea/5 - Deploy a Registry Image Behind a Reverse Proxy.md",
     "DevOps/NaNa/Artifact Management/Gitea/2 - Docker Container Registry.md",
     "DevOps/NaNa/Artifact Management/Gitea/1 - Packages and Artifact Management.md",
@@ -217,8 +219,6 @@
     "DevOps/NaNa/Linux/Bash Scripting/1. First Script, Shebang, and Execution.md",
     "DevOps/NaNa/AI Prompt - NANA DevOps.md",
     "Linux/Bash Scripting/1 - First Script: Shebang, Shell Choice, and Execution.md",
-    "Linux/Bash Scripting/0 - Bash Scripting Learning Path.md",
-    "Linux/Bash Scripting/2 - Variables, Quoting, and Expansion.md",
     "Search Engines/Meilisearch/photo/vogli3.png",
     "Search Engines/Meilisearch/photo/new road.png",
     "Search Engines/Meilisearch/photo/belgium.png",
