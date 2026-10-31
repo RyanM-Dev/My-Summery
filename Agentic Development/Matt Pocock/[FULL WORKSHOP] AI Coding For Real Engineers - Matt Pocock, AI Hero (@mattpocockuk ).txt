@@ -1,0 +1,7423 @@
+00:15 Yeah, we good.
+00:17 
+
+00:17 >> Okay, folks, we're at capacity. Let's
+00:21 
+
+00:21 kick off. I don't want you waiting here
+00:23 
+
+00:23 for 25 more minutes before we some
+00:25 
+
+00:25 arbitrary deadline. So, welcome. My name
+00:29 
+
+00:29 is Matt. Uh I'm a teacher and I suppose
+00:32 
+
+00:32 now I teach AI. Um
+00:35 
+
+00:35 we have a link up here if you've not
+00:37 
+
+00:37 already been to this which is has the
+00:39 
+
+00:39 exercises for the um stuff we're going
+00:41 
+
+00:41 to do today. This is going to be around
+00:43 
+
+00:43 two hours. So we might just sort of kick
+00:45 
+
+00:45 off two hours from now. Is that right
+00:47 
+
+00:47 Mike?
+00:48 
+
+00:48 >> Yeah. Perfect. Um, and the theory behind
+00:52 
+
+00:52 this talk or at least the thesis under
+00:54 
+
+00:54 which I've been operating for the last
+00:55 
+
+00:55 kind of six months or so is that
+00:59 
+
+00:59 we all think that AI is a new paradigm,
+01:01 
+
+01:01 right? AI is obviously changing a lot of
+01:03 
+
+01:03 things. You guys are obviously
+01:04 
+
+01:04 interested in this and that's why you've
+01:06 
+
+01:06 come to this talk. And
+01:09 
+
+01:09 I feel that
+01:13 
+
+01:13 when we talk about AI being a new
+01:14 
+
+01:14 paradigm, we forget that actually
+01:17 
+
+01:17 software engineering fundamentals, the
+01:19 
+
+01:19 stuff that's really crucial to working
+01:22 
+
+01:22 with humans, also works super well with
+01:25 
+
+01:25 AI. And this is what my keynote is on
+01:27 
+
+01:27 tomorrow. Really, I'm going to sort of
+01:29 
+
+01:29 be fleshing that out a lot more. And in
+01:31 
+
+01:31 this workshop, I'm hopefully going to be
+01:32 
+
+01:32 able to direct your attention to those
+01:34 
+
+01:34 things and uh hopefully show you that
+01:38 
+
+01:38 I'm right, but we'll see. Um, can I get
+01:42 
+
+01:42 a quick heads up first? How many of you
+01:44 
+
+01:44 guys um are coding have ever coded with
+01:47 
+
+01:47 AI? Raise your hand if you've ever coded
+01:49 
+
+01:49 with AI. Perfect. Okay. Uh, keep your
+01:52 
+
+01:52 hand raised.
+01:54 
+
+01:54 Uh, let's all uh share those armpits
+01:56 
+
+01:56 with the world. Um,
+01:58 
+
+01:58 how many of you code every day with AI?
+02:02 
+
+02:02 Cool. Okay. Uh, ra keep your hand raised
+02:04 
+
+02:04 if you've ever been frustrated with AI.
+02:08 
+
+02:08 Okay. Very good. You can put your hands
+02:10 
+
+02:10 down. Thank you for that show of
+02:12 
+
+02:12 obedience. I really appreciate that. Um,
+02:14 
+
+02:14 we are also being live streamed to the
+02:15 
+
+02:15 Gilgood room as well. I've not uh did we
+02:19 
+
+02:19 send someone up to the Gilgood room to
+02:20 
+
+02:20 just check they're okay? Don't know. But
+02:23 
+
+02:23 I see you. Uh, and there is a way that
+02:25 
+
+02:25 you can participate which is we have the
+02:28 
+
+02:28 um a Q&A. We're going to be doing kind I
+02:30 
+
+02:30 have a sort of hatred of Q&As's because
+02:32 
+
+02:32 they're not very democratic. The mostly
+02:34 
+
+02:34 the sort of um most talkative people get
+02:37 
+
+02:37 to um get to participate and share. And
+02:40 
+
+02:40 so we're going to be going through this
+02:42 
+
+02:42 um QA here. So why do we have to wait
+02:44 
+
+02:44 till 3:45? The room is packed. The doors
+02:45 
+
+02:45 are closed. 100% agree. And so if you
+02:48 
+
+02:48 want to uh ask a question, we're going
+02:50 
+
+02:50 to be I would like you to pile into this
+02:52 
+
+02:52 async and then we can vote on each
+02:54 
+
+02:54 other's questions and hopefully get the
+02:55 
+
+02:55 best question surface so the for the
+02:58 
+
+02:58 entire room to enjoy.
+03:00 
+
+03:00 So I want to talk about first the kind
+03:03 
+
+03:03 of weird constraints that LLMs have and
+03:07 
+
+03:07 those weird constraints are sort of what
+03:09 
+
+03:09 we have to base a lot of our work
+03:11 
+
+03:11 around. Now,
+03:14 
+
+03:14 there's a guy called Dex Hy who runs a
+03:16 
+
+03:16 company called Human Layer, and he came
+03:18 
+
+03:18 up with this idea, which is that
+03:22 
+
+03:22 when you're working with LLMs, they have
+03:24 
+
+03:24 a smart zone and a dumb zone. When
+03:28 
+
+03:28 you're first kind of like working with
+03:31 
+
+03:31 an LM and it's like you just started a
+03:33 
+
+03:33 new conversation, you start from
+03:34 
+
+03:34 nothing. That's when the LLM is going to
+03:36 
+
+03:36 do its best work because in that
+03:38 
+
+03:38 situation, the attention relationships
+03:39 
+
+03:39 are the least strained. Every time you
+03:41 
+
+03:41 add a token to an LLM, it's kind of like
+03:44 
+
+03:44 you're adding a team to a football
+03:46 
+
+03:46 league. You think of the number of
+03:48 
+
+03:48 matches that get added every time you
+03:50 
+
+03:50 add a team to a football league. It just
+03:51 
+
+03:51 go scales quadratically. And that's
+03:54 
+
+03:54 because you have attention relationships
+03:56 
+
+03:56 going from essentially each token to the
+03:58 
+
+03:58 other that are positional and the sort
+04:00 
+
+04:00 of meaning of the individual token. And
+04:03 
+
+04:03 so this means that by around sort of 40%
+04:06 
+
+04:06 or around I would say around 100k is
+04:08 
+
+04:08 kind of my new marker for this because
+04:10 
+
+04:10 it doesn't matter whether you're using 1
+04:11 
+
+04:11 million uh context window or 200k. It's
+04:15 
+
+04:15 always going to be about this.
+04:18 
+
+04:18 It starts to just get dumber. So as you
+04:21 
+
+04:21 continually keep adding stuff to the
+04:23 
+
+04:23 same context window, it just gets dumber
+04:25 
+
+04:25 and dumber until it's making kind of
+04:27 
+
+04:27 stupid decisions. Raise your hand if
+04:28 
+
+04:28 that feels familiar to you. Yeah. Cool.
+04:32 
+
+04:32 So this means that we kind of want to
+04:34 
+
+04:34 size our tasks in a way that sticks
+04:37 
+
+04:37 within the smart zone, right? We don't
+04:40 
+
+04:40 want the AI to bite off more than it can
+04:42 
+
+04:42 chew. And this goes back to old advice
+04:44 
+
+04:44 like Martin Fowler in refactoring uh
+04:47 
+
+04:47 like uh the pragmatic programmer talks
+04:49 
+
+04:49 about this. Don't bite off more than you
+04:50 
+
+04:50 can chew. Keep your tasks small so that
+04:53 
+
+04:53 you as a developer, a human developer
+04:56 
+
+04:56 don't freak out and don't start acting
+04:58 
+
+04:58 and going into the dumb zone.
+05:01 
+
+05:01 But how do you tackle big tasks? How do
+05:05 
+
+05:05 you take a large task like I don't know
+05:07 
+
+05:07 cloning a company or something or just
+05:09 
+
+05:09 doing something crazy? And how do you
+05:12 
+
+05:12 break it into small tasks so they all
+05:14 
+
+05:14 fit into the dumb zone? One way of
+05:17 
+
+05:17 course you could do is I mean kind of
+05:18 
+
+05:18 what the AI companies maybe want you to
+05:20 
+
+05:20 do or the natural way of doing it is
+05:22 
+
+05:22 just keep going and going and going. You
+05:23 
+
+05:23 end up in the dumb zone charging you
+05:25 
+
+05:25 tons of tokens per request. You then
+05:27 
+
+05:27 compact back down. We'll talk about
+05:29 
+
+05:29 compacting properly in a minute. And you
+05:31 
+
+05:31 keep going, keep going, keep going,
+05:32 
+
+05:32 compact back down, keep going, keep
+05:34 
+
+05:34 going, keep going. And I think that's
+05:37 
+
+05:37 doesn't really work very well because
+05:38 
+
+05:38 the more sediment, we'll talk about that
+05:40 
+
+05:40 in a minute. So the theory here is then,
+05:43 
+
+05:43 and this is what I was doing for a
+05:45 
+
+05:45 while, is I would use these kind of
+05:48 
+
+05:48 multi-phase plans where I would say,
+05:51 
+
+05:51 okay, we have this sort of number four
+05:53 
+
+05:53 thing here, this large large task. Let's
+05:56 
+
+05:56 break it down into small sections so
+05:57 
+
+05:57 that we can then kind of chunk it up and
+05:59 
+
+05:59 do each little bit of work in the smart
+06:01 
+
+06:01 zone. Raise your hand if you've ever
+06:03 
+
+06:03 used a multi-phase plan before. Yeah,
+06:06 
+
+06:06 really common practice, right? This is
+06:08 
+
+06:08 kind of how we've been doing it.
+06:10 
+
+06:10 Certainly, this is how I was doing it up
+06:11 
+
+06:11 until December last year really.
+06:14 
+
+06:14 And any developer worth their salt will
+06:16 
+
+06:16 look at this and go, "This is a loop,
+06:20 
+
+06:20 right? This is a loop. We've just got
+06:22 
+
+06:22 phase one, phase two, phase three, phase
+06:23 
+
+06:23 four. Why don't we just have phase n,
+06:28 
+
+06:28 right?
+06:30 
+
+06:30 Phase n where we essentially just say,
+06:32 
+
+06:32 okay, we have, let's say, a plan
+06:34 
+
+06:34 operating in the background and then we
+06:35 
+
+06:35 just loop over the top of it and we go
+06:37 
+
+06:37 through until it's complete. And this is
+06:39 
+
+06:39 where um raise your hand if you've heard
+06:41 
+
+06:41 of Ralph Wiggum as a software practice.
+06:44 
+
+06:44 Okay, cool. Raise your hand if you've
+06:46 
+
+06:46 not heard of Ralph Wigum as a software
+06:47 
+
+06:47 practice. Actually, that's more like it.
+06:48 
+
+06:48 Okay. So there's this idea called Ralph
+06:50 
+
+06:50 Wigum uh which is kind of um sort of
+06:53 
+
+06:53 based on this which is essentially
+06:57 
+
+06:57 all you need to do is sort of specify
+06:58 
+
+06:58 the end of the journey where you just
+07:01 
+
+07:01 say okay we create a PRD a product
+07:03 
+
+07:03 requirements document to say okay let's
+07:05 
+
+07:05 describe where we're going and then we
+07:07 
+
+07:07 just say to the AI just make a small
+07:10 
+
+07:10 change make a small change that gets us
+07:11 
+
+07:11 closer and closer to there and Ralph
+07:15 
+
+07:15 works okay but I prefer a little bit
+07:16 
+
+07:16 more structure so that's kind where we
+07:19 
+
+07:19 got to in terms of thinking about the
+07:21 
+
+07:21 smart zone. And that's kind of where I
+07:24 
+
+07:24 want you to first start thinking about
+07:26 
+
+07:26 here. Another weird constraint of LLM is
+07:29 
+
+07:29 LLM are kind of like the guy from
+07:31 
+
+07:31 Momento, right? They just continually
+07:32 
+
+07:32 forget. They could just keep resetting
+07:34 
+
+07:34 back to the base state. Let me pull up
+07:37 
+
+07:37 this diagram.
+07:39 
+
+07:39 I sort of I I I really should use
+07:41 
+
+07:41 slides, but I just prefer just like
+07:43 
+
+07:43 randomly scrolling around a infinite uh
+07:46 
+
+07:46 TL draw canvas. Thank you, Steve.
+07:48 
+
+07:48 Um,
+07:50 
+
+07:50 so let's say another concept I want you
+07:52 
+
+07:52 to have is that every session with an
+07:54 
+
+07:54 LLM kind of goes through the same
+07:55 
+
+07:55 stages. You have first of all the system
+07:58 
+
+07:58 prompt here. This gray box here is
+08:00 
+
+08:00 essentially the stuff that's always in
+08:03 
+
+08:03 your context. You want this to be as
+08:05 
+
+08:05 small as possible because if you have a
+08:07 
+
+08:07 ton of stuff in here, if you have 250k
+08:10 
+
+08:10 tokens, like I have seen people put in
+08:12 
+
+08:12 there, then that you're just going to go
+08:14 
+
+08:14 straight into the dumb zone without even
+08:16 
+
+08:16 being able to do anything. So you want
+08:18 
+
+08:18 this to be tiny. You then go into a kind
+08:21 
+
+08:21 of exploratory phase. This blue is sort
+08:23 
+
+08:23 of where the coding agent is going out
+08:25 
+
+08:25 and exploring the codebase. Then you go
+08:27 
+
+08:27 into implementation and then you go into
+08:30 
+
+08:30 testing and kind of making sure that it
+08:32 
+
+08:32 works, running your feedback loops and
+08:34 
+
+08:34 things like this. Raise your hand if
+08:35 
+
+08:35 that feels familiar based on what you've
+08:37 
+
+08:37 done. Yep. Sort of the like the the main
+08:40 
+
+08:40 cornerstones of any session. And when
+08:43 
+
+08:43 you clear the context, you go right back
+08:45 
+
+08:45 to the system prompt. Bof, you go right
+08:48 
+
+08:48 back there. So you delete everything
+08:49 
+
+08:49 that's come before.
+08:52 
+
+08:52 And raise your hand if you've heard of
+08:54 
+
+08:54 compacting as well. Yeah. Okay. There
+08:57 
+
+08:57 are some people who've not heard of
+08:58 
+
+08:58 compacting. So let's just quickly show
+08:59 
+
+08:59 what that means. For instance, I've just
+09:03 
+
+09:03 been having a little chat with my LLM.
+09:07 
+
+09:07 Uh, I want to make sure we sort of, you
+09:09 
+
+09:09 know, just cover the basics so we're all
+09:11 
+
+09:11 sort of on the same wavelength here.
+09:12 
+
+09:12 I've just been having a chat with my
+09:13 
+
+09:13 LLM. I've been talking about a thing
+09:16 
+
+09:16 that I want to build. How's the font
+09:17 
+
+09:17 size? Should I bump it up? Folks in the
+09:20 
+
+09:20 back. Bump bump bump bump bump.
+09:24 
+
+09:24 I'm using claw code for this session,
+09:26 
+
+09:26 but you don't need to use claw code. Uh,
+09:28 
+
+09:28 in fact, it's often nice not to use claw
+09:30 
+
+09:30 code. Um, so I've been having a chat
+09:33 
+
+09:33 with the LM just sort of planning out
+09:35 
+
+09:35 what I'm going to do next. It's asking
+09:36 
+
+09:36 me a bunch of questions and I can I
+09:39 
+
+09:39 highly recommend you do this. There's
+09:41 
+
+09:41 this tiny little status line here that
+09:43 
+
+09:43 tells me how many tokens I'm using. The
+09:45 
+
+09:45 exact number of tokens I'm using. Um I
+09:48 
+
+09:48 have a article on my website AI Hero if
+09:51 
+
+09:51 you want to copy this. This is oh wow
+09:54 
+
+09:54 that is that shakes doesn't it? Um, this
+09:57 
+
+09:57 is essential information on every coding
+09:60 
+
+09:60 session because you need to know exactly
+10:01 
+
+10:01 how many tokens you're using so that you
+10:03 
+
+10:03 know how close you are to the dump zone.
+10:05 
+
+10:05 Absolutely essential. And so let's watch
+10:07 
+
+10:07 it. So I've got two options. I can
+10:09 
+
+10:09 either clear
+10:12 
+
+10:12 and go back to nothing or I can compact.
+10:16 
+
+10:16 And when I compact then it's going to
+10:18 
+
+10:18 squeeze all of that conversation which
+10:20 
+
+10:20 admittedly isn't very much into a much
+10:22 
+
+10:22 smaller space. And this in diagram terms
+10:26 
+
+10:26 kind of looks like this where you take
+10:28 
+
+10:28 all of the information from the session
+10:30 
+
+10:30 and you essentially create a history out
+10:32 
+
+10:32 of it, a written record of what
+10:33 
+
+10:33 happened.
+10:36 
+
+10:36 And devs love compacting for some
+10:38 
+
+10:38 reason, but I hate it. I much prefer my
+10:42 
+
+10:42 AI to behave like the guy from Momento
+10:45 
+
+10:45 because this state is always the same.
+10:48 
+
+10:48 Always the same. Every time you do it,
+10:50 
+
+10:50 you clear and you go back to the
+10:51 
+
+10:51 beginning. And so if you're able to do
+10:53 
+
+10:53 that and you're able to optimize for
+10:54 
+
+10:54 that, then you're in a great spot.
+10:57 
+
+10:57 So that's kind of the two things I want
+10:58 
+
+10:58 you to think about with LLM, the two
+10:60 
+
+10:60 constraints that we're working with.
+11:01 
+
+11:01 They have a smart zone and a dumb zone.
+11:04 
+
+11:04 And they're like the guy from Momento.
+11:07 
+
+11:07 So let's take a look at the first
+11:08 
+
+11:08 exercise. And I'm while I'm doing this,
+11:11 
+
+11:11 the way I want this to work is I'm going
+11:13 
+
+11:13 to sort of show you how um I'm going to
+11:15 
+
+11:15 be sort of walking through it up here.
+11:17 
+
+11:17 And I want you folks to be kind of like
+11:19 
+
+11:19 tapping away and doing things as well.
+11:21 
+
+11:21 So that was just a little lecture bit.
+11:23 
+
+11:23 Let's now actually get and do some
+11:24 
+
+11:24 coding. For anyone who arrived late or
+11:27 
+
+11:27 anyone in the Gilgood room, uh go to
+11:29 
+
+11:29 this link,
+11:32 
+
+11:32 this link up here
+11:35 
+
+11:35 to see the exercises and clone the repo.
+11:38 
+
+11:38 You absolutely do not have to. You can
+11:39 
+
+11:39 just watch me do it if you fancy it. But
+11:41 
+
+11:41 let's go there myself and let's see what
+11:43 
+
+11:43 exercises await us.
+11:45 
+
+11:45 So essentially, I've built a um this is
+11:48 
+
+11:48 from my course. This is a uh a course
+11:52 
+
+11:52 management platform essentially a kind
+11:54 
+
+11:54 of CMS for instructors for students and
+11:56 
+
+11:56 this is what we're going to be building
+11:58 
+
+11:58 a feature in. So I'm going to take you
+12:00 
+
+12:00 from essentially the idea for the
+12:03 
+
+12:03 feature all the way up to building a PRD
+12:05 
+
+12:05 for the feature all the way up to
+12:06 
+
+12:06 implementing the feature and hopefully
+12:09 
+
+12:09 you can take inspiration from this
+12:10 
+
+12:10 process and use it in your own work. So
+12:15 
+
+12:15 uh let's kick off. episode.
+12:18 
+
+12:18 We're going to start by using a skill
+12:20 
+
+12:20 which is very close to my heart. It's
+12:22 
+
+12:22 the grill me skill. And this grill me
+12:25 
+
+12:25 skill is wonderfully small, wonderfully
+12:29 
+
+12:29 tiny. And it helps prevent one of I
+12:31 
+
+12:31 think the main issues when you're
+12:33 
+
+12:33 working with an AI, which is
+12:34 
+
+12:34 misalignment.
+12:37 
+
+12:37 The uh the sort of silent idea that I'm
+12:41 
+
+12:41 talking against here, that I'm arguing
+12:43 
+
+12:43 against is the specs to code movement.
+12:45 
+
+12:45 Has anyone heard of the specs to code
+12:47 
+
+12:47 movement? Raise your hand. It's not
+12:49 
+
+12:49 really a movement. I suppose it's just
+12:50 
+
+12:50 sort of people saying specs to code. Um,
+12:53 
+
+12:53 what it is is people say, okay, you can
+12:55 
+
+12:55 write a program or you want to build an
+12:58 
+
+12:58 app. The best way to build that app is
+13:00 
+
+13:00 to take some specifications.
+13:02 
+
+13:02 So to write some sort of like document
+13:06 
+
+13:06 and then turn that document into code.
+13:09 
+
+13:09 So just turn it into code. How do you do
+13:11 
+
+13:11 that? You pass it to AI. if there's
+13:13 
+
+13:13 something wrong with the resulting code.
+13:15 
+
+13:15 You don't look at the code, you look
+13:17 
+
+13:17 back at the specs, you change the specs
+13:19 
+
+13:19 and you sort of just keep going like
+13:20 
+
+13:20 this. This is kind of like vibe coding
+13:22 
+
+13:22 by another name where you're essentially
+13:24 
+
+13:24 ignoring the code. You don't need to
+13:26 
+
+13:26 worry about the code. You just sort of
+13:28 
+
+13:28 keep editing the specs and eventually
+13:29 
+
+13:29 you just keep going. And I tried this. I
+13:31 
+
+13:31 really tried it and it sucks. It doesn't
+13:33 
+
+13:33 work because you need to keep a handle
+13:37 
+
+13:37 on the code. You need to understand
+13:38 
+
+13:38 what's in it. You need to shape it
+13:40 
+
+13:40 because the code is your battleground.
+13:42 
+
+13:42 And so
+13:44 
+
+13:44 this again is where we're going. Let's
+13:45 
+
+13:45 let's get some exercises. So what I'd
+13:48 
+
+13:48 like you to do is go to this page, the
+13:50 
+
+13:50 the grill me skill. And inside the repo
+13:53 
+
+13:53 here, we have a Slack message
+13:57 
+
+13:57 from our pal. Where is it? It's in the
+13:60 
+
+14:00 root of the repo. And it's under
+14:05 
+
+14:05 where is it?
+14:08 
+
+14:08 Clientbrief.mmd.
+14:10 
+
+14:10 It's a Slack message from Sarah Chin.
+14:11 
+
+14:11 For some reason, the Claude always
+14:12 
+
+14:12 chooses Sarah Chen as the name. I don't
+14:14 
+
+14:14 know why. Um, it's saying that in
+14:16 
+
+14:16 Cadence, our um course platform, our
+14:20 
+
+14:20 retention numbers are not great.
+14:21 
+
+14:21 Students sign up, do a few lessons, then
+14:23 
+
+14:23 they drop off. I'd love to add some
+14:25 
+
+14:25 gamification to the platform. And so,
+14:28 
+
+14:28 when you're presented with an idea like
+14:29 
+
+14:29 this, you need to find some way of
+14:31 
+
+14:31 turning it into reality. Let's say Sarah
+14:32 
+
+14:32 Chen is your client. You're on a tight
+14:34 
+
+14:34 budget. You need to get this done fast.
+14:36 
+
+14:36 How do you go and do it? Um, raise your
+14:39 
+
+14:39 hand if you would. um enter plan mode
+14:42 
+
+14:42 when you're doing this. Anyone a big
+14:44 
+
+14:44 user of plan mode? Yep. Um let's
+14:46 
+
+14:46 actually shout out quickly any other
+14:48 
+
+14:48 ideas about what you would do with this
+14:50 
+
+14:50 or raise your hand if you what would be
+14:52 
+
+14:52 your first port of call.
+14:54 
+
+14:54 >> Yeah,
+14:56 
+
+14:56 >> sorry.
+15:00 
+
+15:00 >> Yes, exactly. Let's imagine that Sarah
+15:02 
+
+15:02 Chen's gone on hold. You have no idea,
+15:03 
+
+15:03 right? Uh she's just posted this thing.
+15:05 
+
+15:05 You need to action it before you go.
+15:08 
+
+15:08 Well, my first protocol is I go for this
+15:11 
+
+15:11 particular skill. I'm going to clear my
+15:12 
+
+15:12 context.
+15:15 
+
+15:15 I'm going to uh get rid of you. You
+15:19 
+
+15:19 don't need to be there. And I'm going to
+15:21 
+
+15:21 say
+15:23 
+
+15:23 um I'm going to invoke a skill, which is
+15:26 
+
+15:26 the grill me skill. Let's quickly check.
+15:29 
+
+15:29 Raise your hands if you don't know what
+15:30 
+
+15:30 this is.
+15:32 
+
+15:32 Cool. Oh, sorry. Sorry. Let me be more
+15:34 
+
+15:34 specific. Raise your hands if you don't
+15:36 
+
+15:36 know what I'm doing here when I uh do a
+15:39 
+
+15:39 forward slash and then type something.
+15:42 
+
+15:42 Anyone everyone kind of understand what
+15:43 
+
+15:43 that is? I'm invoking a skill. I'm
+15:46 
+
+15:46 invoking the grill me skill. And what
+15:48 
+
+15:48 I'm going to do is I'm going to say
+15:50 
+
+15:50 grill me and I'm going to pass in the
+15:52 
+
+15:52 client brief.
+15:54 
+
+15:54 So now the LLM really has only a couple
+15:58 
+
+15:58 of things here. It just has the skill
+15:60 
+
+15:60 and it has the description of what I
+16:02 
+
+16:02 want to do.
+16:04 
+
+16:04 And this is virtually how I start every
+16:06 
+
+16:06 piece of work with AI. And while it's
+16:10 
+
+16:10 exploring the codebase,
+16:12 
+
+16:12 I'm just going to show you what the
+16:13 
+
+16:13 grill me skill does. So this is inside
+16:15 
+
+16:15 the repo so you can check it out. It's
+16:18 
+
+16:18 extremely short. Interview me
+16:20 
+
+16:20 relentlessly about every aspect of this
+16:22 
+
+16:22 plan until we reach a shared
+16:23 
+
+16:23 understanding. Walk down each branch of
+16:25 
+
+16:25 the design tree, resolving dependencies
+16:27 
+
+16:27 one by one. For each question, provide
+16:29 
+
+16:29 your recommended answer. Ask the
+16:31 
+
+16:31 questions one at a time. uh blah blah
+16:33 
+
+16:33 blah. What this does, and what I noticed
+16:36 
+
+16:36 when I was working with AI, especially
+16:38 
+
+16:38 in plan mode actually, is it would
+16:42 
+
+16:42 really eagerly try to produce a plan for
+16:45 
+
+16:45 me. It would say, "Okay, I think I've
+16:47 
+
+16:47 got enough. I'm just goof plan."
+16:50 
+
+16:50 And what I found was that
+16:54 
+
+16:54 I was really trying to find the words
+16:55 
+
+16:55 for this for for what I wanted instead
+16:58 
+
+16:58 of that. And Frederick P. Brooks in the
+17:01 
+
+17:01 design of design he has a great quote uh
+17:03 
+
+17:03 talking about the design concept when
+17:06 
+
+17:06 you're working on something new with
+17:08 
+
+17:08 someone when you're uh all trying to
+17:11 
+
+17:11 build something together
+17:13 
+
+17:13 then there's this shared idea that's
+17:15 
+
+17:15 shared between all participants and that
+17:16 
+
+17:16 is the design concept and that's what I
+17:19 
+
+17:19 realized I needed with Claude I needed
+17:22 
+
+17:22 I needed to reach a shared understanding
+17:25 
+
+17:25 I didn't need an asset I didn't need a
+17:27 
+
+17:27 plan I needed to be on the same
+17:29 
+
+17:29 wavelength as the AI as my agent. And
+17:32 
+
+17:32 this is an extremely effective way of
+17:33 
+
+17:33 doing it. So hopefully there we go.
+17:36 
+
+17:36 Nice. It has done its exploration. First
+17:38 
+
+17:38 of all, it's invoked a sub agent which
+17:42 
+
+17:42 spent uh 97 93.7K tokens on Opus.
+17:48 
+
+17:48 Um and it's asked me the first question.
+17:51 
+
+17:51 Cool. We can see that even though the
+17:53 
+
+17:53 sub agent burned a ton of tokens, I
+17:55 
+
+17:55 haven't actually um uh increased my
+17:58 
+
+17:58 token usage that much. Raise your hand
+18:00 
+
+18:00 if you don't know what sub aents are.
+18:03 
+
+18:03 It's an important question. Everyone
+18:05 
+
+18:05 kind of clear what sub aents are? Okay,
+18:06 
+
+18:06 I'll give a brief definition which is
+18:08 
+
+18:08 that this this sub aents thing here,
+18:11 
+
+18:11 this explore sub agents, it has
+18:13 
+
+18:13 essentially gone and called another LLM
+18:15 
+
+18:15 which has an isolated context window
+18:18 
+
+18:18 and then that LLM has reported a summary
+18:21 
+
+18:21 back. So a sub aent is kind of like a
+18:23 
+
+18:23 delegation. You're delegating a task to
+18:25 
+
+18:25 a sub agent. It goes eagerly does all
+18:27 
+
+18:27 the thing, explores a ton of stuff and
+18:29 
+
+18:29 then just drip feeds the important stuff
+18:31 
+
+18:31 back up to the orchestrator agent to the
+18:34 
+
+18:34 parent agent. So, okay. So, hopefully
+18:36 
+
+18:36 you guys have seen the same thing. It's
+18:37 
+
+18:37 done on explore. And we now have our
+18:40 
+
+18:40 first question. Points economy. What
+18:43 
+
+18:43 actions earn points and how much? Okay.
+18:46 
+
+18:46 At this point, you can ask it, by the
+18:47 
+
+18:47 way, questions to um deepen your
+18:50 
+
+18:50 understanding of the repo. I obviously
+18:51 
+
+18:51 know this repo really well because I
+18:52 
+
+18:52 wrote it, but you might not um know
+18:54 
+
+18:54 what's going on. So, let's say my
+18:57 
+
+18:57 recommendation, keep it simple, twopoint
+18:59 
+
+18:59 sources to start. What's so nice about
+19:01 
+
+19:01 this is that not only does it give us a
+19:04 
+
+19:04 question that kind of aligns us here, we
+19:06 
+
+19:06 get a recommendation, too. And often
+19:08 
+
+19:08 what I'll find is the AI's
+19:09 
+
+19:09 recommendations are really good. And so
+19:11 
+
+19:11 I'll just say skip video, watch events,
+19:14 
+
+19:14 they're noisy and gameable. I agree.
+19:16 
+
+19:16 Sarah's asked while keep lessons in the
+19:18 
+
+19:18 bread and butter.
+19:20 
+
+19:20 Yeah,
+19:22 
+
+19:22 looks good, pal.
+19:25 
+
+19:25 Now, what I usually do is I usually
+19:27 
+
+19:27 dictate to the AI. I'm usually actually
+19:29 
+
+19:29 chatting to the AI instead of uh typing
+19:32 
+
+19:32 here, but uh this is a relatively new
+19:34 
+
+19:34 laptop and I couldn't get my dictation
+19:35 
+
+19:35 software working on it um because
+19:38 
+
+19:38 Windows is crap. Um
+19:41 
+
+19:41 so should points be retroactive? There
+19:44 
+
+19:44 are existing lessons progress records.
+19:45 
+
+19:45 We're completing out timestamps. This is
+19:47 
+
+19:47 a really nasty question, right? Should
+19:49 
+
+19:49 we actually go back and backfill all of
+19:52 
+
+19:52 the lesson progress events? This is a
+19:53 
+
+19:53 kind of question that you need to be
+19:55 
+
+19:55 aligned on if you're going to fulfill
+19:57 
+
+19:57 the feature properly. This is not
+19:58 
+
+19:58 something I considered and Sarah Chen
+19:60 
+
+19:60 certainly didn't consider. Do I want it
+20:02 
+
+20:02 to be retroactive? H. Let's actually do
+20:05 
+
+20:05 a vote inside here. Should we go back
+20:08 
+
+20:08 and backfill all the records? Raise your
+20:10 
+
+20:10 hand if you think we should backfill all
+20:11 
+
+20:11 the records.
+20:14 
+
+20:14 Raise your hand if you think we
+20:15 
+
+20:15 shouldn't backfill all the records.
+20:17 
+
+20:17 There are a lot of uh fence sitters in
+20:19 
+
+20:19 the room. I'm going to say,
+20:22 
+
+20:22 you know, this is the kind of discussion
+20:23 
+
+20:23 you're sort of having with the AI.
+20:24 
+
+20:24 You're getting further aligned. Yes, I'm
+20:26 
+
+20:26 just going to go with this
+20:27 
+
+20:27 recommendation because I'm lazy.
+20:32 
+
+20:32 Notice, too, how I'm able to keep in the
+20:34 
+
+20:34 loop here with AI. I'm not, you know,
+20:35 
+
+20:35 it's it's pinging me these questions
+20:37 
+
+20:37 pretty quickly.
+20:39 
+
+20:39 I'm not having to go off and check
+20:41 
+
+20:41 Twitter or something. Levels. What's the
+20:44 
+
+20:44 progression curve? Yeah, that looks
+20:45 
+
+20:45 about right, for instance. Yes. Okay. So
+20:48 
+
+20:48 hopefully you should be able to go and
+20:50 
+
+20:50 um kind of work through this with the AI
+20:53 
+
+20:53 and essentially try to reach an
+20:56 
+
+20:56 alignment. And this grill me skill this
+20:58 
+
+20:58 can last a long time. This can I've had
+20:60 
+
+21:00 it ask me 40 questions. I've had it ask
+21:02 
+
+21:02 me 80 questions. I've had some people it
+21:04 
+
+21:04 asks a hundred questions to literally
+21:06 
+
+21:06 you're sat there for an hour chatting to
+21:09 
+
+21:09 the AI. And what you end up with is
+21:11 
+
+21:11 essentially this conversation history
+21:13 
+
+21:13 that works really nicely and works
+21:16 
+
+21:16 really nicely as an asset of the design
+21:18 
+
+21:18 concept that you're creating. This can
+21:20 
+
+21:20 also function like this. You can uh have
+21:22 
+
+21:22 a meeting with someone who's a maybe a
+21:25 
+
+21:25 domain expert. Maybe I have a meeting
+21:26 
+
+21:26 with Sarah. I feed that meeting
+21:28 
+
+21:28 transcript into uh I don't know Gemini
+21:32 
+
+21:32 meetings or whatever you guys are using.
+21:34 
+
+21:34 You take that, you feed it into a
+21:36 
+
+21:36 grilling session and you grill through
+21:37 
+
+21:37 the assumptions that you didn't have.
+21:39 
+
+21:39 So, this ends up being a really nice
+21:41 
+
+21:41 kind of um a really nice way of just
+21:44 
+
+21:44 taking inputs from the world and then
+21:47 
+
+21:47 just turning and validating them. So,
+21:50 
+
+21:50 okay,
+21:52 
+
+21:52 let's see. I really want to get to the
+21:53 
+
+21:53 end of this, but I also don't want to
+21:54 
+
+21:54 just like be sat here talking to the AI
+21:56 
+
+21:56 in front of you for uh a thousand days.
+21:59 
+
+21:59 So, I'm just going to say yes.
+22:04 
+
+22:04 Let's see what happens. So, I tell you
+22:06 
+
+22:06 what. Um, while you guys sort of have a
+22:08 
+
+22:08 little fiddle with this locally, let's
+22:10 
+
+22:10 start a little Q&A session now. And
+22:13 
+
+22:13 let's see how's this going to work. Can
+22:16 
+
+22:16 we keep the door closed? I'll turn up
+22:17 
+
+22:17 the microphone. It's quite noisy. Uh,
+22:20 
+
+22:20 let's see. Mike, can we uh Door closed?
+22:23 
+
+22:23 Oh, it has been closed. Mark has
+22:25 
+
+22:25 answered. Beautiful. So, what I'd like
+22:28 
+
+22:28 you to do is there any air con? Yeah,
+22:30 
+
+22:30 there is some air con. I think there is
+22:33 
+
+22:33 some air con you guys aren't being lit
+22:36 
+
+22:36 here. I'm being I'm being fried alive
+22:38 
+
+22:38 here. Uh so what I'd like you to do is
+22:40 
+
+22:40 go on to the slideo which you can join
+22:42 
+
+22:42 here. Have a if if you're not taking the
+22:45 
+
+22:45 exercise, go on to the slideo, have a
+22:46 
+
+22:46 little fiddle and vote on some good
+22:48 
+
+22:48 questions. I'm just going to chat to the
+22:50 
+
+22:50 AI for a second uh until we reach a
+22:53 
+
+22:53 stopping point. So do streaks earn
+22:55 
+
+22:55 points?
+22:56 
+
+22:56 Um, streaks are standalone.
+23:06 
+
+23:06 Let's see what else it comes up with.
+23:13 
+
+23:13 Where does gamification UI live? Let's
+23:16 
+
+23:16 have it in the dashboard.
+23:19 
+
+23:19 I'm just going to scan these and blast
+23:21 
+
+23:21 through them basically. So, how we doing
+23:22 
+
+23:22 with our slido?
+23:25 
+
+23:25 Okay.
+23:27 
+
+23:27 Have I tried specit open spec or
+23:29 
+
+23:29 taskmaster instead of the grill me
+23:30 
+
+23:30 skill? Do I find them more verbose or a
+23:32 
+
+23:32 structured alternative? This is a great
+23:34 
+
+23:34 question. So there are a ton of
+23:35 
+
+23:35 different frameworks out there that
+23:37 
+
+23:37 allow you to um sort of build up this
+23:40 
+
+23:40 planning process for you. I personally
+23:42 
+
+23:42 believe you at at this stage when
+23:45 
+
+23:45 there's no clear winner, when there's no
+23:47 
+
+23:47 kind of like one true way and when
+23:49 
+
+23:49 things are changing all the time, you
+23:50 
+
+23:50 need to own as much of your planning
+23:52 
+
+23:52 stack as you possibly can. What I've
+23:55 
+
+23:55 noticed and a lot of my students is
+23:59 
+
+23:59 they tend to overuse a certain stack.
+24:03 
+
+24:03 they get into trouble and they because
+24:06 
+
+24:06 they don't own the stack and they don't
+24:08 
+
+24:08 have observability over the whole thing,
+24:10 
+
+24:10 they just go, "This isn't working. This
+24:12 
+
+24:12 sucks." Whereas if um if you have
+24:15 
+
+24:15 control over the whole thing, then at
+24:17 
+
+24:17 least you know how to fix it or
+24:20 
+
+24:20 potentially know how to fix it. So I'm
+24:23 
+
+24:23 even though I'm sort of giving you uh a
+24:26 
+
+24:26 stack basically, I believe in inversion
+24:29 
+
+24:29 of control and you should be in control
+24:30 
+
+24:30 of the stack.
+24:33 
+
+24:33 So, can I press zero, please?
+24:38 
+
+24:38 >> Sorry.
+24:41 
+
+24:41 >> Sorry, that was a lot of sort of
+24:42 
+
+24:42 mumbling. Can I
+24:43 
+
+24:43 >> feedback? You have four options on the
+24:45 
+
+24:45 bottom of you to hit dismiss.
+24:48 
+
+24:48 >> Thank you.
+24:50 
+
+24:50 I'm so sorry. Well, you didn't want to
+24:53 
+
+24:53 give Claude good feedback. Why? What's
+24:54 
+
+24:54 wrong with you?
+24:58 
+
+24:58 Okay, cool.
+24:60 
+
+24:60 Uh many of the questions asked by the
+25:01 
+
+25:01 grill me skill are not necessarily
+25:03 
+
+25:03 appropriate for a developer rather a PO
+25:04 
+
+25:04 in larger teams who should use it. Yeah.
+25:07 
+
+25:07 Um raise your hand if um you've ever
+25:11 
+
+25:11 done pair programming. Anyone ever done
+25:13 
+
+25:13 pair programming? Right. Keep put your
+25:15 
+
+25:15 hands down and raise your hand again if
+25:17 
+
+25:17 you've ever done a pair programming
+25:18 
+
+25:18 session with an AI.
+25:21 
+
+25:21 Right. How did it go? Was it good? You
+25:23 
+
+25:23 enjoy it? I think pair programming
+25:25 
+
+25:25 sessions with AI is a great idea because
+25:27 
+
+25:27 you've got a third person in the room
+25:29 
+
+25:29 who will relentlessly quiz you and ask
+25:30 
+
+25:30 you questions. It should if you don't
+25:32 
+
+25:32 know the answer, it should be you, the
+25:34 
+
+25:34 domain expert and the AI in the same
+25:36 
+
+25:36 room. If you have a question about
+25:38 
+
+25:38 implementation, it should be you, a
+25:40 
+
+25:40 fellow developer and the AI in the same
+25:41 
+
+25:41 room. You know, you can be sort of
+25:43 
+
+25:43 working through these questions in your
+25:45 
+
+25:45 team. And I think actually we're going
+25:48 
+
+25:48 to look at implementation in a bit and
+25:49 
+
+25:49 we're going to see how you can make
+25:50 
+
+25:50 implementation so much faster. And but I
+25:54 
+
+25:54 think the really crucial decisions, the
+25:56 
+
+25:56 ones you need humans for, you actually
+25:58 
+
+25:58 need a lot of humans and it doesn't
+25:60 
+
+25:60 really matter how many humans are in
+26:01 
+
+26:01 there. You can actually throw a bunch
+26:03 
+
+26:03 like a kind of like mob programming with
+26:05 
+
+26:05 AI essentially.
+26:07 
+
+26:07 Uh what's my favorite metaprompting
+26:08 
+
+26:08 tool? I think I kind of answered that.
+26:11 
+
+26:11 Uh there's no air con. Let's just live
+26:13 
+
+26:13 with it. Uh, how do I use the
+26:15 
+
+26:15 conversation as an asset after the grill
+26:16 
+
+26:16 me session? Well, we're going to get
+26:19 
+
+26:19 there.
+26:20 
+
+26:20 Um, okay. So, I really want to
+26:24 
+
+26:24 I want to speed this up sort of
+26:26 
+
+26:26 artificially.
+26:28 
+
+26:28 >> Just what
+26:30 
+
+26:30 >> I This is the thing. So, someone just
+26:32 
+
+26:32 said, "Okay, Ralph loop this." But this
+26:34 
+
+26:34 is crucial because I can't loop over
+26:37 
+
+26:37 this, right? I can't um I think of there
+26:40 
+
+26:40 as being two types of tasks in the AI
+26:43 
+
+26:43 age where you have human in the loop
+26:46 
+
+26:46 tasks where a human needs to sit there
+26:48 
+
+26:48 and do it which is this we are the human
+26:51 
+
+26:51 in the loop with multiple humans in the
+26:53 
+
+26:53 loop and there are AFK tasks there are
+26:55 
+
+26:55 tasks where the human can be away from
+26:57 
+
+26:57 the keyboard and it doesn't matter
+26:59 
+
+26:59 implementation as we'll see can be
+27:01 
+
+27:01 turned into an AFK task but planning
+27:04 
+
+27:04 this alignment phase has to be human in
+27:06 
+
+27:06 the loop has to be.
+27:10 
+
+27:10 So, I've got to do it, unfortunately.
+27:12 
+
+27:12 Um, I don't know. Uh, give me a long
+27:16 
+
+27:16 list of all your recommendations.
+27:20 
+
+27:20 I'm running a workshop right now,
+27:24 
+
+27:24 so I artificially
+27:27 
+
+27:27 need you to
+27:29 
+
+27:29 pull more weight.
+27:32 
+
+27:32 So, let's see what it does. Uh, let's
+27:34 
+
+27:34 answer a couple more questions while
+27:35 
+
+27:35 it's doing its thing.
+27:38 
+
+27:38 What is my opinion on PMS or other
+27:40 
+
+27:40 non-dev rolls vibe coding task?
+27:46 
+
+27:46 Um, I'm going to return to this later. I
+27:48 
+
+27:48 think I'm going to leave this
+27:49 
+
+27:49 unanswered.
+27:51 
+
+27:51 A bit of mystery.
+27:54 
+
+27:54 I notice I'm not using the ask user
+27:56 
+
+27:56 questions UI for grill me. Why? Um,
+27:58 
+
+27:58 there's a specific uh UI that you can
+28:00 
+
+28:00 bring up in claude code which I'll
+28:02 
+
+28:02 answer this just quickly. uh ask me a
+28:05 
+
+28:05 question using the ask user question
+28:09 
+
+28:09 tool.
+28:11 
+
+28:11 And this UI um is just sort of broken in
+28:14 
+
+28:14 Claude and I really hate it.
+28:17 
+
+28:17 You notice I'm using Claude, but I don't
+28:19 
+
+28:19 like Claude very much. Like you you
+28:21 
+
+28:21 really are free with this method to
+28:22 
+
+28:22 choose any um system you like. And this
+28:25 
+
+28:25 is what the UI looks like. It's very
+28:27 
+
+28:27 pleasing when you first encounter it,
+28:28 
+
+28:28 but then you realize it is actually
+28:29 
+
+28:29 broken in a ton of different ways.
+28:32 
+
+28:32 All right, what did it come back with?
+28:33 
+
+28:33 Oh, blime me.
+28:36 
+
+28:36 Oh, no.
+28:38 
+
+28:38 So,
+28:40 
+
+28:40 while this is doing its thing, let me do
+28:42 
+
+28:42 some teaching in the meantime. The plan
+28:44 
+
+28:44 here is that we take our grill me skill
+28:47 
+
+28:47 and we need to essentially find some way
+28:50 
+
+28:50 of turning it into a destination.
+28:54 
+
+28:54 We need to go down to the uh we
+28:58 
+
+28:58 essentially need to we're figuring out
+28:60 
+
+28:60 the shape of this. That's what we're
+29:02 
+
+29:02 doing. figuring out the shape of the
+29:03 
+
+29:03 tasks during the grilling session. And
+29:06 
+
+29:06 in order to turn it into a bunch of
+29:10 
+
+29:10 actionable actions for the AI, we
+29:12 
+
+29:12 essentially need to figure out the
+29:14 
+
+29:14 destination. We need to know where we're
+29:16 
+
+29:16 going. We need to know the shape of this
+29:17 
+
+29:17 entire thing. So I think of there as
+29:19 
+
+29:19 being two essential documents that we
+29:22 
+
+29:22 need. We need a document that documents
+29:25 
+
+29:25 the destination.
+29:28 
+
+29:28 Oh no,
+29:30 
+
+29:30 it's so not bright enough. There we go.
+29:33 
+
+29:33 Still not bright enough. There we go. We
+29:36 
+
+29:36 need something to document the
+29:37 
+
+29:37 destination and we need something to
+29:39 
+
+29:39 document the journey. In other words, we
+29:42 
+
+29:42 need something a document that's going
+29:43 
+
+29:43 to figure out what this even looks like
+29:47 
+
+29:47 in all of its user stories and figure
+29:48 
+
+29:48 out a definition of done. And then we
+29:51 
+
+29:51 need to figure out what the split looks
+29:53 
+
+29:53 like. So that's where we're going to go
+29:54 
+
+29:54 to next. So once we finish with the
+29:57 
+
+29:57 grilling session.
+29:59 
+
+29:59 Yeah, it looks great. Fantastic. I love
+30:02 
+
+30:02 it. It answered it answered 22 of its
+30:04 
+
+30:04 own questions. There you go. That's
+30:06 
+
+30:06 quite representative of what a grilling
+30:07 
+
+30:07 session looks like.
+30:10 
+
+30:10 So at this point now I have used 25k
+30:14 
+
+30:14 tokens and all of that or loads of that
+30:17 
+
+30:17 stuff is gold. I want to keep that
+30:20 
+
+30:20 around. I've I've got 25k great tokens
+30:23 
+
+30:23 there. And what I want to do is kind of
+30:26 
+
+30:26 summarize it in some kind of destination
+30:28 
+
+30:28 document. So this is um the next
+30:30 
+
+30:30 exercise where we're going to
+30:35 
+
+30:35 uh we're going to write a product
+30:38 
+
+30:38 requirements document. And the product
+30:40 
+
+30:40 requirements document or the PRD is
+30:44 
+
+30:44 essentially that's its function. It's
+30:46 
+
+30:46 the destination document. And it sort of
+30:49 
+
+30:49 doesn't matter what shape it is. I've
+30:52 
+
+30:52 got a shape that I prefer and that I
+30:53 
+
+30:53 quite like, but you can just choose your
+30:56 
+
+30:56 own shape or whatever your company uses.
+31:00 
+
+31:00 And all we're really doing is too
+31:04 
+
+31:04 worried about that.
+31:06 
+
+31:06 All we're really doing is summarizing
+31:07 
+
+31:07 the design concept that we have so far.
+31:10 
+
+31:10 And
+31:12 
+
+31:12 the So let let's try this. So I'm going
+31:15 
+
+31:15 to initiate this. I'm going to say zoom
+31:18 
+
+31:18 all the way to the bottom. All I'm going
+31:20 
+
+31:20 to do is just say write a PRD.
+31:23 
+
+31:23 And we can take a look at that skill
+31:25 
+
+31:25 now.
+31:26 
+
+31:26 Write a PRD.
+31:29 
+
+31:29 So this skill,
+31:32 
+
+31:32 it does a few things. It first asks the
+31:35 
+
+31:35 user for a long detailed description of
+31:36 
+
+31:36 the problem. You can use write a PRD
+31:38 
+
+31:38 without grilling first, but I just like
+31:40 
+
+31:40 to grill first and then write the PRD
+31:42 
+
+31:42 afterwards. Then you can um get it to
+31:45 
+
+31:45 explore the repo, which we've kind of
+31:46 
+
+31:46 already done. Then we get it to
+31:49 
+
+31:49 interview the user relentlessly. So have
+31:51 
+
+31:51 a kind of grilling session again. And
+31:53 
+
+31:53 then we start um putting together a PRD
+31:56 
+
+31:56 template. So this is available in the
+31:57 
+
+31:57 repo if you want to check it out. And
+31:60 
+
+31:60 essentially this is what it looks like.
+32:01 
+
+32:01 We've got some problem statements, the
+32:03 
+
+32:03 problem the user is facing, the solution
+32:04 
+
+32:04 to the problem, and a set of user
+32:07 
+
+32:07 stories. And these user stories sort of
+32:09 
+
+32:09 define what this is. You know, as you
+32:11 
+
+32:11 you guys have probably seen things like
+32:13 
+
+32:13 this if you've been a developer at all.
+32:15 
+
+32:15 um you know there are cucumber is a
+32:16 
+
+32:16 language you can use to write these in
+32:18 
+
+32:18 or we just sort of um uh write them
+32:21 
+
+32:21 ourselves essentially. Then we have a
+32:23 
+
+32:23 list of implementation decisions that
+32:24 
+
+32:24 were made and a list of crucially
+32:27 
+
+32:27 testing decisions too. So
+32:31 
+
+32:31 I'm going to run this. Okay. And so it's
+32:34 
+
+32:34 finished its thing. Ah
+32:38 
+
+32:38 Windows let me close the thing. Thank
+32:39 
+
+32:39 you. I don't know why I bought a Windows
+32:42 
+
+32:42 laptop. I think I just I like the
+32:44 
+
+32:44 challenge. Um
+32:47 
+
+32:47 so the first thing that it's going to
+32:48 
+
+32:48 give me are a set of proposed modules it
+32:52 
+
+32:52 wants to modify.
+32:54 
+
+32:54 Now there's a deep reason why I'm
+32:56 
+
+32:56 thinking about this. So this is at this
+32:59 
+
+32:59 stage we have an idea. We have sort of
+33:02 
+
+33:02 speced out the idea. We've reached a
+33:05 
+
+33:05 sort of understanding of what we're
+33:06 
+
+33:06 trying to do. And then we need to start
+33:09 
+
+33:09 thinking about the code because at this
+33:12 
+
+33:12 point we need to this is not specs to
+33:15 
+
+33:15 code. This is not where we're ignoring
+33:16 
+
+33:16 the code. We actually keep the code in
+33:19 
+
+33:19 mind throughout the whole process. And
+33:22 
+
+33:22 the way I like to do this is I like to
+33:24 
+
+33:24 just sort of think about a set of
+33:25 
+
+33:25 proposed modules to modify. We're going
+33:27 
+
+33:27 to return to this this idea of
+33:29 
+
+33:29 continually designing your system and
+33:31 
+
+33:31 keeping your system in mind. So it's
+33:34 
+
+33:34 it's saying recommend test for the
+33:35 
+
+33:35 gamification service is the only deep
+33:37 
+
+33:37 module with meaningful logic. These
+33:39 
+
+33:39 modules look right. Yeah, that's good.
+33:44 
+
+33:44 And it's going to ping out a PRD.
+33:49 
+
+33:49 Now for ease of setup, I've got it so
+33:51 
+
+33:51 that it creates a set of issues locally.
+33:54 
+
+33:54 So it's just going to create essentially
+33:56 
+
+33:56 a PD inside this issues directory. But
+33:59 
+
+33:59 the way I usually do it, and you can
+34:02 
+
+34:02 check this out yourself, is you can go
+34:05 
+
+34:05 to my um essentially what I consider my
+34:07 
+
+34:07 work repo, which is
+34:08 
+
+34:08 github.com/mattpocco/course
+34:13 
+
+34:13 video manager up here. And in here, this
+34:16 
+
+34:16 is essentially a app that I create um
+34:19 
+
+34:19 that I use all the time to record my
+34:21 
+
+34:21 videos and things like this. I think
+34:23 
+
+34:23 I've recorded like I pulled down the
+34:25 
+
+34:25 sets. I think I've recorded like a
+34:26 
+
+34:26 thousand videos in here or something
+34:28 
+
+34:28 nuts. Um, and you can see here that it's
+34:30 
+
+34:30 got 744 closed issues. And this is
+34:34 
+
+34:34 essentially all of the uh PRDs and all
+34:36 
+
+34:36 of the implementation issues that I've
+34:38 
+
+34:38 put into here. So, this is how I usually
+34:40 
+
+34:40 like to do it.
+34:43 
+
+34:43 So, that's what I'm doing with the There
+34:45 
+
+34:45 we go. Yeah, I'm just going to say yes
+34:47 
+
+34:47 and uh
+34:49 
+
+34:49 and get that issue out. Let's see. It is
+34:52 
+
+34:52 inside here. So, we got the problem
+34:55 
+
+34:55 statement. people sign up for courses,
+34:58 
+
+34:58 uh the solution, the user stories, uh 18
+35:01 
+
+35:01 user stories, looks nice, some
+35:02 
+
+35:02 implementation decisions, level
+35:04 
+
+35:04 thresholds, etc. This is enough
+35:06 
+
+35:06 information. We've kind of clarified
+35:07 
+
+35:07 where we're going and what we're doing.
+35:10 
+
+35:10 So that's what we do. We essentially
+35:11 
+
+35:11 have a grilling session and we've
+35:13 
+
+35:13 created an asset out of it. Now, raise
+35:15 
+
+35:15 your hand. Should I be reviewing this
+35:18 
+
+35:18 document? Raise your hand if you think I
+35:20 
+
+35:20 should be reviewing the document.
+35:23 
+
+35:23 Yeah, I don't I don't look at these. I
+35:25 
+
+35:25 don't look at these. The reason I don't
+35:27 
+
+35:27 look at these is because what am I
+35:29 
+
+35:29 testing at this point? What am I like
+35:31 
+
+35:31 when I read it?
+35:33 
+
+35:33 What am I testing? What am I what are
+35:35 
+
+35:35 the failure modes I'm trying to test
+35:36 
+
+35:36 for? I know that LLMs are great at
+35:38 
+
+35:38 summarization because they are they're
+35:40 
+
+35:40 really good at summarization. I have
+35:43 
+
+35:43 reached the same wavelength as the LLM,
+35:45 
+
+35:45 right? Using the grill meme skill, we
+35:47 
+
+35:47 have a shared design concept. So if I
+35:49 
+
+35:49 have a shared design concept, all I'm
+35:51 
+
+35:51 doing is I'm just essentially checking
+35:54 
+
+35:54 the LLM's ability to summarize.
+35:57 
+
+35:57 So I don't tend to read these.
+36:01 
+
+36:01 Let's have let's have a Q&A because I
+36:02 
+
+36:02 can feel you guys are itching for it.
+36:04 
+
+36:04 And then I think we might have like I
+36:06 
+
+36:06 don't know just a five minute comfort
+36:07 
+
+36:07 break just to rest my voice and so you
+36:09 
+
+36:09 can catch up with the exercises for a
+36:10 
+
+36:10 minute if that's all right. So let's
+36:12 
+
+36:12 have a little Q&A sesh. Uh, if I don't
+36:16 
+
+36:16 like clawed code, which one do I
+36:17 
+
+36:17 actually like? Um,
+36:20 
+
+36:20 uh, have you ever heard the phrase, um,
+36:24 
+
+36:24 uh, democracy is the worst way to run a
+36:25 
+
+36:25 country apart from all the other ways?
+36:27 
+
+36:27 That's how I feel about claw code.
+36:30 
+
+36:30 Uh, we've answered that one.
+36:33 
+
+36:33 Uh,
+36:35 
+
+36:35 what's your thoughts on developers
+36:36 
+
+36:36 needing to very deeply understand
+36:38 
+
+36:38 Typescript now that fix the TS make no
+36:41 
+
+36:41 mistakes exist? I don't understand the
+36:42 
+
+36:42 phrasing of this but I think I
+36:45 
+
+36:45 understand the meaning which is that
+36:49 
+
+36:49 I believe that code is very important
+36:51 
+
+36:51 and this is kind of going to feed
+36:52 
+
+36:52 through the whole session and that bad
+36:55 
+
+36:55 code bases make bad agents. If you have
+36:57 
+
+36:57 a garbage codebase you're going to get
+36:59 
+
+36:59 garbage out of the agent that's working
+37:01 
+
+37:01 in that codebase. We'll talk more about
+37:03 
+
+37:03 that in a bit. And so I think
+37:05 
+
+37:05 understanding these tools very deeply,
+37:07 
+
+37:07 understanding code deeply is going to
+37:08 
+
+37:08 make you a much much better developer
+37:11 
+
+37:11 and get more out of AI.
+37:14 
+
+37:14 Uh, and that answers that question too.
+37:17 
+
+37:17 Sweet.
+37:19 
+
+37:19 Uh, get out of it. There you are.
+37:25 
+
+37:25 Now that we have 1 million tokens
+37:26 
+
+37:26 available, do we ever actually want to
+37:27 
+
+37:27 take advantage of that?
+37:30 
+
+37:30 I've noticed that the dumb zone has
+37:32 
+
+37:32 become less dumb lately. Okay, great
+37:34 
+
+37:34 question. This goes back to our kind of
+37:36 
+
+37:36 initial idea on the dumb zone.
+37:42 
+
+37:42 Uh
+37:44 
+
+37:44 I um I recorded my Claude Code course
+37:47 
+
+37:47 using a 200k context window and on the
+37:49 
+
+37:49 day that I launched the course, they
+37:50 
+
+37:50 announced the 1 million context window.
+37:53 
+
+37:53 My take on this is that what Claude code
+37:55 
+
+37:55 did is they essentially just did this.
+37:58 
+
+37:58 They shipped a lot more dumb zone to you
+38:02 
+
+38:02 essentially. Now, this is good for tasks
+38:04 
+
+38:04 where you want to retrieve things from a
+38:06 
+
+38:06 large context window. If you want to
+38:08 
+
+38:08 pass five copies of War and Peace or
+38:10 
+
+38:10 something to it, and you want to find
+38:11 
+
+38:11 out all the things that uh
+38:14 
+
+38:14 uh I can't remember a character from War
+38:16 
+
+38:16 and Peace. Uh why did I start with that?
+38:18 
+
+38:18 It's good for retrieval. It's less good
+38:20 
+
+38:20 for coding. So, I consider that it is
+38:25 
+
+38:25 about 100K at the moment is the smart
+38:28 
+
+38:28 zone. the smart zone will get bigger and
+38:30 
+
+38:30 that will be a really nice improvement.
+38:33 
+
+38:33 So folks, we're going to take like a
+38:35 
+
+38:35 five minute comfort break if that's all
+38:36 
+
+38:36 right just for my voice and so maybe you
+38:39 
+
+38:39 can have a little move around or
+38:40 
+
+38:40 something or grab a drink. I can just
+38:41 
+
+38:41 notice some sleepy eyes and I want to
+38:43 
+
+38:43 make sure that we're awake for the next
+38:45 
+
+38:45 bit if that's all right. So we'll take
+38:46 
+
+38:46 five minutes and I'll see you back here
+38:49 
+
+38:49 then. All right.
+38:52 
+
+38:52 So we have our PR which I'm not going to
+38:56 
+
+38:56 read a kind of destination document.
+38:58 
+
+38:58 Let's quickly scan for any good
+38:59 
+
+38:59 questions before we zoom ahead.
+39:03 
+
+39:03 And
+39:06 
+
+39:06 rediscovering the role of software
+39:07 
+
+39:07 engineer in today's world. Top three
+39:08 
+
+39:08 disciplines you recommend. Um, taekwondo
+39:12 
+
+39:12 is good. I've heard I' have no idea how
+39:14 
+
+39:14 to answer this question. Um, thank you
+39:16 
+
+39:16 for asking it though. Um, top three
+39:18 
+
+39:18 disciplines I recommend.
+39:21 
+
+39:21 >> I mean, sorry,
+39:22 
+
+39:22 >> plumbing.
+39:23 
+
+39:23 >> Plumbing is a good one. Yeah. Yeah.
+39:24 
+
+39:24 Yeah. I don't know if that's a
+39:26 
+
+39:26 discipline. The plumbers I've hired are
+39:27 
+
+39:27 not usually very disciplined. Um,
+39:31 
+
+39:31 right.
+39:33 
+
+39:33 So, okay, we now have our destination.
+39:35 
+
+39:35 Okay. Um,
+39:37 
+
+39:37 perfect.
+39:39 
+
+39:39 So, how do we actually get to our
+39:41 
+
+39:41 destination? How do we We have a sort of
+39:43 
+
+39:43 vague PRD. How do we split it so that we
+39:47 
+
+39:47 don't put things into the dump zone? In
+39:49 
+
+39:49 other words, we have our number four.
+39:51 
+
+39:51 How do we split it into this kind of
+39:53 
+
+39:53 multi-phase plan? Well, probably what
+39:55 
+
+39:55 you would do at this point is you would
+39:56 
+
+39:56 say, "Okay, Claude, give me a
+39:58 
+
+39:58 multi-phase plan that gets me to this
+39:59 
+
+39:59 destination." Right? That sort of makes
+40:01 
+
+40:01 sense. This is what we've been doing
+40:02 
+
+40:02 before, but I have um a sort of better
+40:05 
+
+40:05 way of doing it now, which is that
+40:09 
+
+40:09 I like creating a canban board out of
+40:13 
+
+40:13 this. Raise your hand if you don't know
+40:15 
+
+40:15 what a canban board is.
+40:18 
+
+40:18 Cool. Okay. A camon board is essentially
+40:20 
+
+40:20 just a set of tickets that you put on
+40:22 
+
+40:22 the wall that have blocking
+40:24 
+
+40:24 relationships to each other. So, we're
+40:25 
+
+40:25 going to see what it kind of looks like
+40:27 
+
+40:27 here. This is how we've worked um as
+40:30 
+
+40:30 developers for a long time, really since
+40:32 
+
+40:32 agile came around. And what it does, we
+40:35 
+
+40:35 can see it here. It has proposed that we
+40:38 
+
+40:38 split this setup into um five different
+40:42 
+
+40:42 tasks. Here we have the first one which
+40:45 
+
+40:45 is the schema and the gamification
+40:46 
+
+40:46 service. Yeah, that looks pretty good.
+40:49 
+
+40:49 This is blocked by nothing. And we can
+40:51 
+
+40:51 even see here that it's a it's given it
+40:53 
+
+40:53 a type of AFK, too. Remember I talked
+40:55 
+
+40:55 about human in the loop and AFK earlier.
+40:57 
+
+40:57 This is an AFK task. This is something
+40:59 
+
+40:59 we can just pass off to an agent to do
+41:00 
+
+41:00 its thing. Streak tracking. Okay, that
+41:03 
+
+41:03 looks good.
+41:05 
+
+41:05 Uh then wire points and streaks into
+41:07 
+
+41:07 lessons quiz completion. This is blocked
+41:09 
+
+41:09 by one and two. Retroactive backfill.
+41:11 
+
+41:11 This is blocked only by one. And then
+41:14 
+
+41:14 this one here is blocked by all of the
+41:16 
+
+41:16 tasks. Cool.
+41:20 
+
+41:20 H. Now I consider this, you could say,
+41:24 
+
+41:24 why don't we just make this sort of
+41:25 
+
+41:25 generation of the issues? Why don't we
+41:27 
+
+41:27 just hand that over to the AI? Why do I
+41:29 
+
+41:29 need to be involved here? Right? Because
+41:30 
+
+41:30 it's given us quite a good selection of
+41:32 
+
+41:32 tools here. Why do I need to review this
+41:34 
+
+41:34 and sort of figure out what's next? Now,
+41:38 
+
+41:38 my take here is that this is really
+41:40 
+
+41:40 cheap to do, like very quick to do once
+41:42 
+
+41:42 I've done the PR. And I can immediately
+41:44 
+
+41:44 see some issues here.
+41:47 
+
+41:47 There's a really, really important
+41:49 
+
+41:49 technique when you're kind of figuring
+41:51 
+
+41:51 out what the shape of this journey
+41:54 
+
+41:54 should look like. And
+41:58 
+
+41:58 it sort of comes to this very classic
+42:00 
+
+42:00 idea uh which comes from pragmatic
+42:02 
+
+42:02 programmer called tracer bullets or
+42:05 
+
+42:05 vertical slices.
+42:07 
+
+42:07 and traceable. It's really transformed
+42:09 
+
+42:09 the way I think about actually
+42:12 
+
+42:12 getting AI to pick its own tasks.
+42:15 
+
+42:15 Systems have layers, right? There are
+42:18 
+
+42:18 layers in your system. These might be
+42:20 
+
+42:20 different deployable units. You might
+42:21 
+
+42:21 have a database that lives somewhere.
+42:23 
+
+42:23 You might have an API that lives maybe
+42:25 
+
+42:25 close to the database but in a separate
+42:26 
+
+42:26 bit. You might have a front end that
+42:28 
+
+42:28 lives somewhere totally different like a
+42:29 
+
+42:29 CDN. Or within these deployable units,
+42:33 
+
+42:33 you might have different layers within
+42:34 
+
+42:34 those. In for instance the codebase that
+42:36 
+
+42:36 we're working in, we have a ton of
+42:39 
+
+42:39 different services servers. We have a
+42:42 
+
+42:42 quiz service, a team service, user
+42:44 
+
+42:44 service, coupon service, course service.
+42:46 
+
+42:46 And these services have dependencies on
+42:48 
+
+42:48 each other. So they're kind of like
+42:49 
+
+42:49 individual layers. Well, what I noticed
+42:53 
+
+42:53 is that AI loves to code horizontally.
+42:57 
+
+42:57 So it loves to code layer by layer. So
+43:00 
+
+43:00 in other words, in phase one, it will do
+43:02 
+
+43:02 all of the database stuff, all of the
+43:04 
+
+43:04 schema, all of the, you know, all the
+43:06 
+
+43:06 stuff related to that unit. Then it will
+43:09 
+
+43:09 go into phase two and do all of the API
+43:11 
+
+43:11 stuff. Then it will add the front end on
+43:13 
+
+43:13 top of that.
+43:15 
+
+43:15 Does can anyone tell me what's wrong
+43:16 
+
+43:16 with that picture? Why is that not a
+43:19 
+
+43:19 good thing to do? Raise your hand if you
+43:20 
+
+43:20 have an answer.
+43:21 
+
+43:21 >> Yeah.
+43:22 
+
+43:22 >> Have the whole feedback loop.
+43:24 
+
+43:24 >> Exactly. You don't get feedback on your
+43:27 
+
+43:27 work until you've really started or
+43:30 
+
+43:30 completed phase three.
+43:32 
+
+43:32 So what you really need to do is you're
+43:35 
+
+43:35 not until you get to phase three, you're
+43:37 
+
+43:37 not actually testing that all the layers
+43:38 
+
+43:38 work together.
+43:41 
+
+43:41 You haven't got an integrated system
+43:43 
+
+43:43 that you can test against. And so
+43:46 
+
+43:46 instead you need to think about vertical
+43:48 
+
+43:48 layers. You need to think about thin
+43:50 
+
+43:50 slices of functionality that cross all
+43:53 
+
+43:53 of the layers that you need to. And this
+43:56 
+
+43:56 is a much better way to work, much
+43:57 
+
+43:57 better way for the AI to work too
+43:59 
+
+43:59 because it means at the end of phase one
+44:01 
+
+44:01 or during phase one, it can get feedback
+44:03 
+
+44:03 on its entire flow. So what this means
+44:06 
+
+44:06 to me
+44:08 
+
+44:08 is inside the PRD to issues skill up
+44:12 
+
+44:12 here I have got break a PRD into
+44:16 
+
+44:16 independently grabbable issues using
+44:18 
+
+44:18 vertical slices traceable it's written
+44:19 
+
+44:19 as local markdown files we first locate
+44:22 
+
+44:22 the PRD
+44:24 
+
+44:24 uh again explore the codebase if this is
+44:25 
+
+44:25 a fresh session we draft vertical slices
+44:29 
+
+44:29 so we break the PRD into tracer bullet
+44:31 
+
+44:31 issues a traceable bullet by the way is
+44:34 
+
+44:34 Uh, essentially when you're like an
+44:36 
+
+44:36 anti-aircraft gunner, it's quite a
+44:37 
+
+44:37 violent idea actually, uh, and you're
+44:40 
+
+44:40 looking up in the sky and it's night, if
+44:42 
+
+44:42 you're just shooting normal bullets, you
+44:44 
+
+44:44 have no idea what you're firing at,
+44:45 
+
+44:45 right? You could just be, you know, you
+44:47 
+
+44:47 see the plane, but you don't see where
+44:48 
+
+44:48 your bullets are going. Tracer bullets
+44:50 
+
+44:50 is they attach a tiny bit of
+44:51 
+
+44:51 phosphoresence or phosphor or something
+44:53 
+
+44:53 to make it glow as it goes. So, this
+44:56 
+
+44:56 means that every sixth bullet or
+44:57 
+
+44:57 something, you actually see a line in
+44:59 
+
+44:59 the sky. So, you have feedback on where
+45:01 
+
+45:01 you're aiming. So this is what this is
+45:03 
+
+45:03 the idea here is that we increase our
+45:06 
+
+45:06 level of feedback and we get near
+45:07 
+
+45:07 instant feedback on what we're building
+45:10 
+
+45:10 because without that the AI is kind of
+45:11 
+
+45:11 coding blind until it reaches the later
+45:13 
+
+45:13 phases. We've got some vertical slice
+45:15 
+
+45:15 rules. We quiz the user and then we
+45:18 
+
+45:18 create the issue files. So what I see
+45:21 
+
+45:21 here is that even though I've I've told
+45:25 
+
+45:25 it to do vertical slices, it's proposing
+45:28 
+
+45:28 to
+45:30 
+
+45:30 create the gamification service
+45:32 
+
+45:32 first on its own. That's just one slice
+45:35 
+
+45:35 there. And that to me feels like a
+45:37 
+
+45:37 horizontal slice. What I want to see in
+45:39 
+
+45:39 the first vertical slice especially is I
+45:41 
+
+45:41 want to see the schema changes or some
+45:43 
+
+45:43 schema changes. I want to see some new
+45:45 
+
+45:45 service being created and I want a
+45:47 
+
+45:47 minimal representation of that on the
+45:49 
+
+45:49 front end. So I want it to go through
+45:51 
+
+45:51 the vertical slices, not just the
+45:52 
+
+45:52 horizontal. Does that make sense? Okay.
+45:55 
+
+45:55 So I'm going to give the AI a
+45:58 
+
+45:58 rollicking.
+45:59 
+
+45:59 Uh bad boy. No,
+46:02 
+
+46:02 I'm not going to waste tokens just being
+46:04 
+
+46:04 just memeing. Um so the first slice is
+46:08 
+
+46:08 too horizontal. I'll just start with
+46:11 
+
+46:11 that and see if it picks it up. Does
+46:13 
+
+46:13 that make sense as a concept? And I
+46:15 
+
+46:15 think having that um what I really like
+46:18 
+
+46:18 about going back to those old books is
+46:20 
+
+46:20 that we are really trying to in this day
+46:23 
+
+46:23 and age like get
+46:25 
+
+46:25 uh verbalize best software practices in
+46:28 
+
+46:28 English. And these books, 20-year-old
+46:31 
+
+46:31 books have already done that. And it's
+46:33 
+
+46:33 an absolute gold mine if you want to
+46:34 
+
+46:34 throw that into prompts. But even with
+46:36 
+
+46:36 that, it's not going to um not going to
+46:38 
+
+46:38 do a perfect job each time. So, award
+46:41 
+
+46:41 points for lesson completion visible on
+46:43 
+
+46:43 dashboard. Yes, that's a beautiful
+46:45 
+
+46:45 vertical slice because it's definitely a
+46:48 
+
+46:48 big chunk of stuff. It's doing a lot of
+46:50 
+
+46:50 stories there, but we're going to see
+46:52 
+
+46:52 something visible at the end and the AI
+46:54 
+
+46:54 will then just be able to add to that.
+46:56 
+
+46:56 You see why that's preferable to the
+46:57 
+
+46:57 first one. Cool. Uh, looks great.
+47:02 
+
+47:02 So, we're getting closer now. And anyone
+47:03 
+
+47:03 following at home as well, you're not at
+47:05 
+
+47:05 home, but you get the idea. um we'll
+47:08 
+
+47:08 hopefully see the same thing too and
+47:10 
+
+47:10 start developing the same instincts.
+47:12 
+
+47:12 Let's open up for questions just while
+47:13 
+
+47:13 I'm sort of creating these GitHub issues
+47:17 
+
+47:17 or not GitHub issues uh local issues.
+47:20 
+
+47:20 When will I stop using Windows? Never.
+47:23 
+
+47:23 What is your uh Okay, we'll get to that
+47:24 
+
+47:24 later.
+47:26 
+
+47:26 How does AI um decide when to stop
+47:28 
+
+47:28 grilling? Because AI can ask
+47:30 
+
+47:30 incessantly. Can we have a smarter way
+47:31 
+
+47:31 to decide the stop point? Yeah, it does
+47:33 
+
+47:33 tend to really um those grilling
+47:35 
+
+47:35 sessions can be super intense. And the
+47:37 
+
+47:37 thing about these skills is you can tune
+47:39 
+
+47:39 them if you want to. If you feel like
+47:40 
+
+47:40 the AI is just absolutely hammering you,
+47:42 
+
+47:42 hammering you, hammering you, then you
+47:44 
+
+47:44 can just tell it to just pull back a
+47:46 
+
+47:46 little bit or get it to do, you know,
+47:48 
+
+47:48 stop points and that kind of thing. So,
+47:49 
+
+47:49 if that's a failure mode that you run
+47:51 
+
+47:51 into a lot, then you just, you know,
+47:52 
+
+47:52 change the skill.
+47:55 
+
+47:55 Uh do I still use uh be extremely
+47:57 
+
+47:57 concise, sacrifice grammar for the sake
+47:59 
+
+47:59 of concision? Um there was a tip that I
+48:01 
+
+48:01 gave folks um five months ago which is
+48:05 
+
+48:05 that to basically increase the
+48:07 
+
+48:07 readability of your plans. So when
+48:09 
+
+48:09 you're using plan mode then you can put
+48:12 
+
+48:12 it in your claw.md
+48:14 
+
+48:14 and you can say okay yeah approve that.
+48:18 
+
+48:18 Let's open up claw.md.
+48:21 
+
+48:21 Do I have a claw.md? Maybe I don't. I I
+48:24 
+
+48:24 really don't use clawd very much. I'm
+48:26 
+
+48:26 just going to put a dummy inside here.
+48:28 
+
+48:28 Um when no when talking to me
+48:34 
+
+48:34 uh sacrifice grammar for the sake of
+48:35 
+
+48:35 concision
+48:41 
+
+48:41 and this um prompt was uh really useful
+48:43 
+
+48:43 to me when I was reading the plans
+48:45 
+
+48:45 because it meant that the plans would
+48:47 
+
+48:47 come out and they would be very concise,
+48:48 
+
+48:48 really nice, easy to read, often very uh
+48:51 
+
+48:51 concise. But I've since dropped this
+48:54 
+
+48:54 idea in preference to a grilling session
+48:57 
+
+48:57 because what I noticed was it just I
+48:60 
+
+48:60 didn't want to read the plans. I wanted
+49:01 
+
+49:01 to get on the same wavelength as the
+49:02 
+
+49:02 LLM. I wanted it to ask aggressive
+49:04 
+
+49:04 questions to me. And when I stopped
+49:06 
+
+49:06 reading the plans, I stopped needing
+49:07 
+
+49:07 them to be concise. So I think of the
+49:09 
+
+49:09 plans really in the destination document
+49:11 
+
+49:11 as uh the end state. And I don't need
+49:13 
+
+49:13 that end state to be concise. Hopefully
+49:16 
+
+49:16 that answers your question.
+49:20 
+
+49:20 Uh, what do I think will be the outcome
+49:22 
+
+49:22 of the Mexican standoff of future roles
+49:23 
+
+49:23 of PMS and other roles converging? Uh, I
+49:26 
+
+49:26 have no idea. I'm not a pundit. I have
+49:28 
+
+49:28 no idea.
+49:30 
+
+49:30 Uh, okay. So, we should uh after a
+49:34 
+
+49:34 couple of approvals
+49:37 
+
+49:37 uh end up with a set of issues. Now,
+49:41 
+
+49:41 these issues that we're creating,
+49:43 
+
+49:43 they're designed to be independently
+49:45 
+
+49:45 grabbable, which means that this canon
+49:48 
+
+49:48 board ends up looking kind of like this
+49:51 
+
+49:51 where you have
+49:54 
+
+49:54 essentially a set of tickets with a
+49:56 
+
+49:56 whole load of independent relationships.
+49:58 
+
+49:58 So, this one needs to be done before
+49:59 
+
+49:59 this one. This one needs to be done
+50:01 
+
+50:01 before this one. And this one, let's say
+50:03 
+
+50:03 we got another one over here. This one
+50:05 
+
+50:05 needs to be done before this one. This
+50:07 
+
+50:07 means that you can start to parallelize.
+50:11 
+
+50:11 You can start to get agents working at
+50:14 
+
+50:14 the same time on these tasks because
+50:16 
+
+50:16 yeah, this one needs to be done first
+50:18 
+
+50:18 and then these two
+50:22 
+
+50:22 can be grabbed at the same time by
+50:25 
+
+50:25 independent agents. Raise your hand if
+50:27 
+
+50:27 you've done any kind of parallelization
+50:29 
+
+50:29 work with agents. Okay, cool. So this
+50:32 
+
+50:32 allows you um to turn those plans into
+50:35 
+
+50:35 optimally kind of like into directed
+50:38 
+
+50:38 asyclic graphs essentially where you
+50:40 
+
+50:40 just are able to um essentially have
+50:44 
+
+50:44 three phases here where you have phase
+50:47 
+
+50:47 one.
+50:49 
+
+50:49 Let me grab move that
+50:52 
+
+50:52 uh above this line here you do this one.
+50:57 
+
+50:57 Then phase two you do the two below it.
+50:59 
+
+50:59 And then phase three you do this third
+51:00 
+
+51:00 one. and add it onto there. And when you
+51:04 
+
+51:04 think about there could be this could
+51:05 
+
+51:05 this is a relatively simple plan but you
+51:07 
+
+51:07 could have many different plans
+51:09 
+
+51:09 operating all at once. It means that you
+51:11 
+
+51:11 can do really nice parallelization and
+51:12 
+
+51:12 we'll talk more about that in a bit. But
+51:14 
+
+51:14 that's why I prefer a canon board set up
+51:17 
+
+51:17 like this to a sequential plan because a
+51:21 
+
+51:21 sequential plan can really only be
+51:22 
+
+51:22 picked up by one agent. So this where
+51:27 
+
+51:27 did it go? Over here.
+51:30 
+
+51:30 Yeah, this plan here, this is really
+51:32 
+
+51:32 only one loop, right? Only one agent can
+51:35 
+
+51:35 work on these because we have numbered
+51:37 
+
+51:37 phases and they're not parallelizable.
+51:39 
+
+51:39 Does that make sense? Cool.
+51:42 
+
+51:42 So, we've got our issues. Ah, come on.
+51:45 
+
+51:45 Stop asking me for Oh, no. It's creating
+51:46 
+
+51:46 them on GitHub. I really don't want
+51:48 
+
+51:48 that.
+51:50 
+
+51:50 Oh, no. You fool.
+51:53 
+
+51:53 Create them in issues instead.
+51:58 
+
+51:58 No, that's not precise enough. Uh, you
+52:01 
+
+52:01 fool. Create them in local markdown
+52:05 
+
+52:05 files instead referencing the local
+52:08 
+
+52:08 version.
+52:11 
+
+52:11 Sorry about this.
+52:15 
+
+52:15 So, once we get to this point, we have a
+52:18 
+
+52:18 bunch of issues locally that we can
+52:22 
+
+52:22 start um looping over and implementing.
+52:25 
+
+52:25 And it's at this point that the human
+52:28 
+
+52:28 leaves the loop. So, so far,
+52:31 
+
+52:31 let me pull up a a proper overview of
+52:34 
+
+52:34 this kind of flow that we're exploring
+52:35 
+
+52:35 here.
+52:37 
+
+52:37 So far,
+52:40 
+
+52:40 we have taken an idea,
+52:44 
+
+52:44 zoom this in a bit for the folks at the
+52:45 
+
+52:45 back,
+52:47 
+
+52:47 and we've grilled ourselves about the
+52:50 
+
+52:50 idea.
+52:51 
+
+52:51 We can skip over research and prototype,
+52:53 
+
+52:53 but we've turned that into a PRD into a
+52:55 
+
+52:55 destination document. We've then turned
+52:58 
+
+52:58 that PRD into a canon board and all of
+53:01 
+
+53:01 those steps are human reviewed. And now
+53:05 
+
+53:05 the implementation stage, we step back
+53:08 
+
+53:08 and we let an agent um work through that
+53:11 
+
+53:11 camp board or multiple agents work
+53:12 
+
+53:12 through the camp board.
+53:16 
+
+53:16 Now, what this means is that yeah, we've
+53:18 
+
+53:18 spent a lot of time planning here, but
+53:20 
+
+53:20 it means that we've queued up a lot of
+53:21 
+
+53:21 work for the agent. We can think of this
+53:23 
+
+53:23 as kind of like the day shift and the
+53:25 
+
+53:25 night shift. This is the day shift for
+53:27 
+
+53:27 the human, right? Planning everything,
+53:29 
+
+53:29 getting all the uh all the stuff ready
+53:31 
+
+53:31 and then once we kick it over to the
+53:33 
+
+53:33 night shift, the AI can just work AFK.
+53:35 
+
+53:35 But what does that look like?
+53:38 
+
+53:38 Well, so I'm just going to Oh, yeah.
+53:40 
+
+53:40 Just allow it. It's perfect.
+53:43 
+
+53:43 So this looks like if we head to the
+53:46 
+
+53:46 next exercise
+53:48 
+
+53:48 which is
+53:51 
+
+53:51 uh in fact the last exercise here
+53:53 
+
+53:53 running your AFK agent.
+53:56 
+
+53:56 Now
+53:58 
+
+53:58 I've called this uh Ralph really because
+53:60 
+
+53:60 it is a it is essentially a Ralph loop
+54:02 
+
+54:02 and this prompt here I want to walk
+54:04 
+
+54:04 through this really closely.
+54:07 
+
+54:07 The first thing it's doing here is we're
+54:09 
+
+54:09 essentially going to run Claude and
+54:11 
+
+54:11 we're going to basically try to
+54:12 
+
+54:12 encourage it to work um completely AFK.
+54:16 
+
+54:16 I'll show you what the sort of script
+54:18 
+
+54:18 for this looks like in a minute, but you
+54:20 
+
+54:20 say, okay, local issue files from issues
+54:22 
+
+54:22 are provided at the start of context.
+54:24 
+
+54:24 The way we do that is if you look inside
+54:26 
+
+54:26 once.sh SH here inside the repo
+54:30 
+
+54:30 we have
+54:32 
+
+54:32 uh it's essentially just a bash script
+54:34 
+
+54:34 where we grab all of the issues um which
+54:38 
+
+54:38 are inside markdown files and we cap
+54:40 
+
+54:40 them into a local variable. So that
+54:42 
+
+54:42 issues variable contains all of the
+54:44 
+
+54:44 issues that are in our entire backlog.
+54:48 
+
+54:48 Then we grab the last five commits. I'll
+54:50 
+
+54:50 explain why in a minute. And then we
+54:53 
+
+54:53 grab the prompt and we just run claude
+54:55 
+
+54:55 code with permission mode except edits
+54:58 
+
+54:58 and then just essentially just pass it
+55:01 
+
+55:01 all of the information. This is what the
+55:03 
+
+55:03 implement looks like. So that's what a
+55:05 
+
+55:05 very very simple version of this sort of
+55:07 
+
+55:07 loop looks like. And of course this is
+55:09 
+
+55:09 not a loop. This is just running it
+55:11 
+
+55:11 once.
+55:12 
+
+55:12 The loop is in the AFK version up here
+55:16 
+
+55:16 which is uh a fair bit more complicated.
+55:19 
+
+55:19 And the crucial part here is we're
+55:21 
+
+55:21 running it in Docker sandbox as well. So
+55:23 
+
+55:23 I I don't want you to install Docker on
+55:25 
+
+55:25 your laptops because we're just going to
+55:27 
+
+55:27 be like you need to download a special
+55:29 
+
+55:29 image and we're going to tank the
+55:30 
+
+55:30 conference Wi-Fi if we do that. So I I
+55:32 
+
+55:32 am going to demo this to you, but you um
+55:34 
+
+55:34 won't need to run this yourself. But
+55:36 
+
+55:36 I'll talk through this in a minute. But
+55:38 
+
+55:38 essentially this once loop here,
+55:45 
+
+55:45 we're just essentially running one
+55:47 
+
+55:47 version of the thing that we're going to
+55:49 
+
+55:49 loop again and again and again. So this
+55:51 
+
+55:51 is kind of like the human in the loop
+55:52 
+
+55:52 version. And this is essential. Running
+55:54 
+
+55:54 this again and again is essential
+55:56 
+
+55:56 because you're going to see what the
+55:57 
+
+55:57 agent does and see how it ends up
+55:59 
+
+55:59 working. And any tuning that you need to
+56:01 
+
+56:01 add to the prompt, then you can do that.
+56:04 
+
+56:04 Let's go to the prompt.
+56:06 
+
+56:06 Um,
+56:09 
+
+56:09 so local issue files are being passed
+56:12 
+
+56:12 in. You're going to work on the AFK
+56:14 
+
+56:14 issues only. That makes sense. If all
+56:16 
+
+56:16 AFK tasks are complete, output this no
+56:18 
+
+56:18 more tasks thing. And then the next
+56:21 
+
+56:21 thing, pick the next task. So
+56:26 
+
+56:26 what we're doing here is we're
+56:28 
+
+56:28 essentially running a backlog or
+56:30 
+
+56:30 curating a backlog that our AFK agent is
+56:33 
+
+56:33 going to pick up. That's the purpose of
+56:35 
+
+56:35 all of these um setups in the beginning
+56:38 
+
+56:38 in this uh all the way to this canon
+56:41 
+
+56:41 board here. We're just essentially
+56:43 
+
+56:43 creating a backlog of tasks for the
+56:45 
+
+56:45 night shift to pick up and the night
+56:48 
+
+56:48 shift this sort of Ralph prompt here.
+56:50 
+
+56:50 It's got its own idea about what a good
+56:53 
+
+56:53 task looks like. So next pick up I'm I
+56:57 
+
+56:57 did talk about parallelization. I will
+56:58 
+
+56:58 show you this later, but this is
+56:60 
+
+56:60 essentially a sequential loop here.
+57:02 
+
+57:02 we're just going to run one coding agent
+57:03 
+
+57:03 at a time. This is a good way to just
+57:05 
+
+57:05 sort of um get your feet wet
+57:07 
+
+57:07 essentially.
+57:09 
+
+57:09 So, it's prioritizing critical bug
+57:11 
+
+57:11 fixes, development infrastructure, then
+57:13 
+
+57:13 traceable bullets, then polishing quick
+57:15 
+
+57:15 wins and refactors. And then we just
+57:18 
+
+57:18 have a very simple kind of instruction
+57:20 
+
+57:20 on how to complete the task. So, we
+57:22 
+
+57:22 explore the repo, use TDD to complete
+57:25 
+
+57:25 the task. I'll get to that later.
+57:28 
+
+57:28 And we then run some feedback loops. So
+57:30 
+
+57:30 let's let's just try this and let's just
+57:32 
+
+57:32 see what happens. So good. It's created
+57:34 
+
+57:34 the issue files. We should be good to
+57:35 
+
+57:35 go. I'm going to cancel out of this. I
+57:38 
+
+57:38 clear and I'm going to run
+57:41 
+
+57:41 uh where is it? Ralph once.sh. And you
+57:45 
+
+57:45 can feel free if you're following along
+57:46 
+
+57:46 to do the same thing.
+57:48 
+
+57:48 So we can see it's just running Claude
+57:50 
+
+57:50 inside here with the prompt and with all
+57:54 
+
+57:54 of the issues that have been passed in.
+57:56 
+
+57:56 And while it's doing its thing,
+57:60 
+
+57:60 you probably have some questions about
+58:02 
+
+58:02 this setup and about the decisions that
+58:03 
+
+58:03 I've made to essentially delegate all of
+58:07 
+
+58:07 my coding to AI, right? So, let's let's
+58:10 
+
+58:10 do a quick Q&A while it's uh getting its
+58:12 
+
+58:12 feet under.
+58:14 
+
+58:14 Uh, okay.
+58:17 
+
+58:17 I'm going to just
+58:19 
+
+58:19 remove those.
+58:23 
+
+58:23 How do you retain negative decisions?
+58:25 
+
+58:25 things that you decided against and
+58:27 
+
+58:27 ration when persisting the results from
+58:28 
+
+58:28 the Grommy session. A great question.
+58:32 
+
+58:32 That's a very simple answer which is the
+58:34 
+
+58:34 in the PRD uh write a PRD section there
+58:38 
+
+58:38 is a stuff at the bottom a section of
+58:40 
+
+58:40 the things that are out of scope. So the
+58:42 
+
+58:42 things we're not going to tackle in this
+58:43 
+
+58:43 PRD which is very important for giving a
+58:45 
+
+58:45 definition of done.
+58:48 
+
+58:48 Feel free to ping on the slido if you've
+58:49 
+
+58:49 got any more questions.
+58:52 
+
+58:52 Uh what's my front end workflow? Okay,
+58:54 
+
+58:54 that's a great question. I'm gonna I'm
+58:55 
+
+58:55 gonna answer that in a minute, I think.
+58:59 
+
+58:59 How to deal with agents producing more
+59:01 
+
+59:01 code that we can review? How to properly
+59:03 
+
+59:03 parallelize and use multiple agents in a
+59:05 
+
+59:05 separate way? Okay, that's um there's
+59:06 
+
+59:06 two questions there. Um raise your hand
+59:11 
+
+59:11 if you feel like you're doing more code
+59:13 
+
+59:13 review now than you used to.
+59:16 
+
+59:16 Yeah, definitely. Um I don't think
+59:20 
+
+59:20 there's a way to avoid this.
+59:22 
+
+59:22 If we delegate all of our coding to
+59:26 
+
+59:26 agents,
+59:28 
+
+59:28 you notice that the implementation here
+59:30 
+
+59:30 is really the only AFK bit. We then also
+59:32 
+
+59:32 need to QA the work and code review the
+59:35 
+
+59:35 work, right? And if we are running these
+59:39 
+
+59:39 loops where it's essentially going to
+59:40 
+
+59:40 implement four issues in one, it's hard
+59:43 
+
+59:43 to pair that with the dictim that you
+59:46 
+
+59:46 should keep pull requests small and
+59:48 
+
+59:48 self-contained, right? like small
+59:50 
+
+59:50 self-contained pull requests means
+59:52 
+
+59:52 you're needing to do fewer loops or
+59:56 
+
+59:56 shorter loops or something. Or maybe you
+59:58 
+
+59:58 do like a big stack of PRs, but that
+59:59 
+
+59:59 seems horrible as well. That's still
+60:01 
+
+60:01 just more separated code to review. I
+60:03 
+
+60:03 don't honestly know what the answer to
+60:05 
+
+60:05 this yet. I think we just need to be
+60:08 
+
+60:08 ready to be doing more code review
+60:09 
+
+60:09 essentially, which is not fun. That's
+60:11 
+
+60:11 not a fun thing to say. That's not like
+60:13 
+
+60:13 I don't know. I don't feel good saying
+60:14 
+
+60:14 that, but I do think it's probably the
+60:17 
+
+60:17 the way things are going. It's a great
+60:19 
+
+60:19 question.
+60:22 
+
+60:22 Uh,
+60:24 
+
+60:24 can we grab a couple of questions from
+60:26 
+
+60:26 the room as well? Let's not we won't do
+60:27 
+
+60:27 the mic, but uh raise your hand if
+60:29 
+
+60:29 you've got a question for me
+60:30 
+
+60:30 immediately.
+60:31 
+
+60:31 >> Yeah.
+60:32 
+
+60:32 >> So, the approach looks very linear from
+60:35 
+
+60:35 an idea to QA.
+60:38 
+
+60:38 Of course, the real world is a lot more
+60:40 
+
+60:40 messy. So you have all these ideas that
+60:42 
+
+60:42 are in parallel and full picture and
+60:46 
+
+60:46 while you're working on something else
+60:48 
+
+60:48 comes in.
+60:50 
+
+60:50 >> Yeah.
+60:50 
+
+60:50 >> How do you deal with the messiness? How
+60:52 
+
+60:52 do you feedback?
+60:53 
+
+60:53 >> Great question. So the question was if
+60:56 
+
+60:56 this all looks great if you're a solo
+60:58 
+
+60:58 developer, but actually how do you
+60:59 
+
+60:59 implement this in a team? How do you
+61:01 
+
+61:01 gather team feedback on this? And my
+61:03 
+
+61:03 answer to that is that if you have an
+61:05 
+
+61:05 idea up there and essentially the sort
+61:09 
+
+61:09 of journey from the idea to the
+61:11 
+
+61:11 destination is something you need to
+61:13 
+
+61:13 figure out with the team, right? So all
+61:16 
+
+61:16 of this stuff up here, this is kind of
+61:17 
+
+61:17 like team stuff, you know what I mean?
+61:20 
+
+61:20 So if you have an idea and you do a
+61:22 
+
+61:22 grilling session on it and you have a
+61:24 
+
+61:24 question that you don't know how to
+61:25 
+
+61:25 answer, then you need to loop in your
+61:27 
+
+61:27 team as we described before. Then you
+61:29 
+
+61:29 might need to go, okay, we just need to
+61:31 
+
+61:31 build a prototype of this. We need to
+61:32 
+
+61:32 actually hash this out. We need
+61:34 
+
+61:34 something that the domain experts can
+61:35 
+
+61:35 fiddle with. Oh, okay. We might need to
+61:37 
+
+61:37 integrate a a third party library into
+61:39 
+
+61:39 this. We might need to do some research.
+61:41 
+
+61:41 We might need to actually kind of like
+61:43 
+
+61:43 um ping this back and forth and find a
+61:46 
+
+61:46 third party service that we can get the
+61:47 
+
+61:47 most out of. We might need to go back
+61:49 
+
+61:49 with the information that we gathered
+61:50 
+
+61:50 there to the idea phase. So all the way
+61:53 
+
+61:53 up to the sort of PRD and the journey,
+61:55 
+
+61:55 that's something you need to involve
+61:57 
+
+61:57 your team with. That's something where
+61:59 
+
+61:59 these assets are going to be shared and
+62:01 
+
+62:01 argued over and you're going to have
+62:03 
+
+62:03 requests for comment on them and that
+62:05 
+
+62:05 that loop is going to just keep grinding
+62:07 
+
+62:07 and grinding until you figure out where
+62:08 
+
+62:08 you're going. Once you figure out where
+62:10 
+
+62:10 you're going, then you can start doing
+62:12 
+
+62:12 the came on board the implementation.
+62:14 
+
+62:14 But this is essentially super arguable
+62:16 
+
+62:16 and the you'll be bouncing back and
+62:18 
+
+62:18 forth between the phases. Does that make
+62:19 
+
+62:19 sense? Yeah.
+62:20 
+
+62:20 >> Would you not need a PR for your
+62:22 
+
+62:22 prototype?
+62:23 
+
+62:23 >> Say it again. Sorry.
+62:24 
+
+62:24 >> Would you not want to have a PR for your
+62:26 
+
+62:26 prototype? The question was, do you want
+62:27 
+
+62:27 to go through this whole session just to
+62:29 
+
+62:29 sort of create a prototype? Do you not
+62:31 
+
+62:31 need a PRD for your prototype as well?
+62:33 
+
+62:33 Let's just quickly talk about prototypes
+62:34 
+
+62:34 for a second. Um, there was a question
+62:36 
+
+62:36 about how do you make this work for
+62:38 
+
+62:38 front end?
+62:40 
+
+62:40 Like how do you because front end is
+62:42 
+
+62:42 like really sensitive to human eyes. You
+62:44 
+
+62:44 need human eyes looking at the front end
+62:45 
+
+62:45 all the time to make sure that it looks
+62:47 
+
+62:47 good. AI doesn't really have any eyes.
+62:51 
+
+62:51 It can look at code, but it front end is
+62:54 
+
+62:54 multimodal. And so my experiences with
+62:58 
+
+62:58 trying to plug AI into um let's say
+63:02 
+
+63:02 agent browser or playright MCP to give
+63:04 
+
+63:04 it you can give it tools to allow it to
+63:06 
+
+63:06 look through a front end and sort of
+63:08 
+
+63:08 look at images but in my experience the
+63:11 
+
+63:11 um it's not very good at that yet and it
+63:13 
+
+63:13 can't create a nice front end in a
+63:15 
+
+63:15 mature codebase. It can sort of spit one
+63:18 
+
+63:18 out. But what it can do is you say okay
+63:21 
+
+63:21 uh I want some ideas on how uh this
+63:23 
+
+63:23 front end might look. give me three
+63:25 
+
+63:25 prototypes um that I can click between
+63:28 
+
+63:28 in a throwaway uh throwaway route that I
+63:31 
+
+63:31 can decide which one looks best and you
+63:33 
+
+63:33 take the asset of that prototype and you
+63:35 
+
+63:35 then feed it back into the grilling
+63:36 
+
+63:36 session or you get feedback on it blah
+63:38 
+
+63:38 blah blah blah blah answer your question
+63:40 
+
+63:40 kind of thing the prototype is just you
+63:43 
+
+63:43 know it's messy it's supposed to give
+63:44 
+
+63:44 you feedback early on in the process so
+63:46 
+
+63:46 that's a great way of working with front
+63:48 
+
+63:48 end code great way of looking at
+63:49 
+
+63:49 software architecture in general let's
+63:50 
+
+63:50 go one more question yeah
+63:52 
+
+63:52 >> yes in your system How do you integrate
+63:54 
+
+63:54 respecting an architecture a design with
+63:58 
+
+63:58 API contracts and fitting with a larger
+64:00 
+
+64:00 system
+64:02 
+
+64:02 security constraints? All kinds of
+64:04 
+
+64:04 conraints like that.
+64:05 
+
+64:05 >> Yeah, there's a lot in that question.
+64:07 
+
+64:07 The question was how do you conform with
+64:09 
+
+64:09 existing architecture? How do you do um
+64:12 
+
+64:12 how do you make it conform to the code
+64:14 
+
+64:14 standards like of your codebase or
+64:16 
+
+64:16 >> Yeah. architecture design API security
+64:20 
+
+64:20 rules that constraints your designs.
+64:22 
+
+64:22 >> Yeah.
+64:23 
+
+64:23 I'm going to answer that in a bit if
+64:25 
+
+64:25 that's okay. So hopefully we have
+64:28 
+
+64:28 started to get some stuff cooking.
+64:31 
+
+64:31 It's just pinging on the explore phase
+64:34 
+
+64:34 here.
+64:37 
+
+64:37 Tempted to just start running it AFK.
+64:41 
+
+64:41 Maybe I will, maybe I won't. Um, what
+64:45 
+
+64:45 it's essentially doing is it's exploring
+64:46 
+
+64:46 the repo. It's going to then start
+64:48 
+
+64:48 implementing based on what we wanted.
+64:50 
+
+64:50 Let's actually have one more question
+64:51 
+
+64:51 just while it's running. Yeah.
+64:59 
+
+64:59 Yeah. So the question was why do you not
+65:02 
+
+65:02 get AI to QA?
+65:06 
+
+65:06 AI to QA. I just got jargon overload for
+65:09 
+
+65:09 a second. Um why do you not get AI to uh
+65:12 
+
+65:12 test its own code? Now of course you
+65:14 
+
+65:14 absolutely can. And I think while it's
+65:16 
+
+65:16 doing while it's cooking here, okay,
+65:19 
+
+65:19 it's got a clear picture of the
+65:20 
+
+65:20 codebase. It's assessing the issues.
+65:22 
+
+65:22 It's doing issue O2 is the next task.
+65:25 
+
+65:25 I'm again going to show you that in a
+65:26 
+
+65:26 bit. I think the sort of uh because you
+65:29 
+
+65:29 definitely should do an automated review
+65:32 
+
+65:32 step as part of implementation. So you
+65:34 
+
+65:34 have your implementation. You should
+65:36 
+
+65:36 then because tokens are pretty cheap and
+65:38 
+
+65:38 AI is actually really good at reviewing
+65:39 
+
+65:39 stuff. You should get it to review its
+65:41 
+
+65:41 own code before you then QA it. I found
+65:44 
+
+65:44 that that catches a ton of different
+65:45 
+
+65:45 bugs. And
+65:48 
+
+65:48 the way that works is I will just do a
+65:51 
+
+65:51 little diagram is if you have let's say
+65:53 
+
+65:53 an implementation that's sort of like
+65:55 
+
+65:55 used up a bunch of tokens in the smart
+65:57 
+
+65:57 zone. If you get it to sort of try to do
+66:00 
+
+66:00 its reviewing, it's going to be doing
+66:02 
+
+66:02 the reviewing in the dumb zone. And so
+66:06 
+
+66:06 the reviewer will be dumber than the
+66:07 
+
+66:07 thing that actually implemented it. If
+66:09 
+
+66:09 we imagine this is the uh let's be
+66:12 
+
+66:12 consistent, that's the review. That's
+66:14 
+
+66:14 the implementation.
+66:16 
+
+66:16 Whereas, if you clear the context,
+66:20 
+
+66:20 then you're essentially going to be able
+66:22 
+
+66:22 to just review in the smart zone, which
+66:24 
+
+66:24 is where you want to be.
+66:28 
+
+66:28 Let's see how our implementation is
+66:29 
+
+66:29 doing. Okay, good. It's generating a
+66:31 
+
+66:31 migration. That looks pretty nice. We're
+66:33 
+
+66:33 getting some code spitting out.
+66:38 
+
+66:38 And while I'm sort of like, aha, here we
+66:41 
+
+66:41 go. TDD.
+66:44 
+
+66:44 Let's talk about TDD and then I think
+66:46 
+
+66:46 we'll have a little another little
+66:47 
+
+66:47 break. TDD I found is absolutely
+66:50 
+
+66:50 essential for getting the most out of
+66:52 
+
+66:52 agents. Uh raise your hand if uh you
+66:54 
+
+66:54 know what TDD is. Cool. Okay. TDD is
+66:58 
+
+66:58 testdriven development. What it's
+66:60 
+
+66:60 essentially doing is it's doing a
+67:02 
+
+67:02 something called red green refactor. And
+67:04 
+
+67:04 if you look in the codebase, you'll be
+67:06 
+
+67:06 able to find a um a skill which really
+67:10 
+
+67:10 describes how to do red green refactor.
+67:12 
+
+67:12 and teaches the AI how to do it. So what
+67:15 
+
+67:15 it's doing is it's writing a failing
+67:16 
+
+67:16 test first. So it's saying, okay, I've
+67:20 
+
+67:20 broken down the idea of what I'm doing
+67:21 
+
+67:21 and I'm just going to write a single
+67:23 
+
+67:23 test that fails and then I need to make
+67:26 
+
+67:26 the implementation pass. I have found
+67:29 
+
+67:29 that first of all, this adds tests to
+67:32 
+
+67:32 the codebase and this this tends to add
+67:34 
+
+67:34 good tests to the codebase. And so we've
+67:36 
+
+67:36 got this kind of gamification service.
+67:38 
+
+67:38 It looks like it's using some existing
+67:41 
+
+67:41 stuff to create a test database. Test
+67:43 
+
+67:43 fails because the module doesn't exist
+67:45 
+
+67:45 yet. Okay, we've confirmed red. And then
+67:47 
+
+67:47 it goes and hopefully runs it and it
+67:51 
+
+67:51 passes. I found that uh raise your hand
+67:54 
+
+67:54 if you've ever had AI write bad tests.
+67:58 
+
+67:58 Yeah, it tends to try to cheat at the
+68:01 
+
+68:01 tests because it's sort of doing it in
+68:03 
+
+68:03 layers. it will do the entire
+68:04 
+
+68:04 implementation and then it will do the
+68:06 
+
+68:06 entire test layer just below it. Uh I'm
+68:10 
+
+68:10 just going to say yes, you're allowed to
+68:11 
+
+68:11 use npxv text. And using this technique,
+68:15 
+
+68:15 it generally is a lot harder to cheat
+68:19 
+
+68:19 because it's sort of instrumenting the
+68:21 
+
+68:21 code before it's then writing the code.
+68:24 
+
+68:24 So I find that TDD is so so good for
+68:28 
+
+68:28 places where you can pull it off. And in
+68:30 
+
+68:30 fact, it's so good that I sort of warp
+68:31 
+
+68:31 my whole uh technique around getting TDD
+68:34 
+
+68:34 to work better. I can see some drooping
+68:37 
+
+68:37 eyes. It is so hot in here. You can
+68:39 
+
+68:39 imagine how hot it is up here. Let's
+68:40 
+
+68:40 take another five minute comfort break.
+68:42 
+
+68:42 Let's come back at quarter two. I think
+68:46 
+
+68:46 have a nice generous one. And we'll be
+68:49 
+
+68:49 back in about six, seven minutes and
+68:51 
+
+68:51 I'll talk about how uh I think about
+68:53 
+
+68:53 modules, think about constructing a
+68:55 
+
+68:55 codebase to make this possible. I've
+68:58 
+
+68:58 just been sort of fiddling with the AI
+68:59 
+
+68:59 here and we have end up with some with a
+69:01 
+
+69:01 commit. So we have something to test.
+69:04 
+
+69:04 Issue number two is complete. Here's
+69:06 
+
+69:06 what was done. This is kind of what it
+69:09 
+
+69:09 looks like when a Ralph loop completes
+69:10 
+
+69:10 is you end up with a little summary. Um
+69:13 
+
+69:13 and we have now something we can QA
+69:15 
+
+69:15 because we did the feedback loops or
+69:17 
+
+69:17 because we did the tracer bullets
+69:19 
+
+69:19 because we were uh said okay give us
+69:21 
+
+69:21 something reviewable at the end of this
+69:23 
+
+69:23 we can immediately go and QA it. Now,
+69:25 
+
+69:25 there's nothing uh less exciting than
+69:27 
+
+69:27 watching someone else QA something, but
+69:29 
+
+69:29 hopefully we can have a little play.
+69:32 
+
+69:32 Let's just check that it uh works at
+69:34 
+
+69:34 all. In fact, before I go there, I just
+69:36 
+
+69:36 want to sort of work through what just
+69:39 
+
+69:39 happened, which is we see that it's
+69:42 
+
+69:42 created some stuff on the dashboard
+69:45 
+
+69:45 and it then ran the feedback loops. So,
+69:48 
+
+69:48 it then ran the tests and the types.
+69:51 
+
+69:51 Now TDD is obviously really important
+69:54 
+
+69:54 and it's really important because these
+69:56 
+
+69:56 feedback loops are essential to AI
+69:59 
+
+69:59 essential to get AI to produce anything
+70:01 
+
+70:01 reasonable because without this AI is
+70:04 
+
+70:04 totally coding blind right you have to
+70:08 
+
+70:08 have to um if if your codebase doesn't
+70:11 
+
+70:11 have feedback loops you're never ever
+70:13 
+
+70:13 ever going to get decent AI decent
+70:16 
+
+70:16 output out of AI and often what you'll
+70:18 
+
+70:18 find is that the quality of your
+70:20 
+
+70:20 feedback back loops influences how good
+70:23 
+
+70:23 your AI can code. Essentially, that is
+70:25 
+
+70:25 the ceiling. So, if you're getting bad
+70:27 
+
+70:27 outputs from your AI, you often need to
+70:30 
+
+70:30 increase the quality of your feedback
+70:31 
+
+70:31 loops. We'll talk about how to do that
+70:34 
+
+70:34 in a minute.
+70:36 
+
+70:36 Now, so it ran uh npm run test, npm ran
+70:39 
+
+70:39 type check. It got one type error and it
+70:42 
+
+70:42 needed to fix it with a nice bit of
+70:44 
+
+70:44 TypeScript magic. Very good. Yeah. Typo
+70:46 
+
+70:46 level thresholds number. Okay.
+70:50 
+
+70:50 You see why I stopped teaching
+70:51 
+
+70:51 Typescript because just AI knows
+70:52 
+
+70:52 everything now. Um,
+70:55 
+
+70:55 so and it ran the tests and it passed
+70:57 
+
+70:57 and it's looking good. So we now end up
+70:59 
+
+70:59 with 284 tests in this repo. Pretty
+71:02 
+
+71:02 good.
+71:04 
+
+71:04 I I do find uh front end really hard to
+71:06 
+
+71:06 test here. We're essentially just
+71:07 
+
+71:07 testing the service. So we've created a
+71:10 
+
+71:10 gamification service if we look up here
+71:13 
+
+71:13 and then we have a test for that
+71:15 
+
+71:15 service. You can see the the service and
+71:16 
+
+71:16 the test itself. Now, if I was doing
+71:19 
+
+71:19 code review here, I would then go to re
+71:21 
+
+71:21 I would first go to review the tests,
+71:23 
+
+71:23 make sure the tests were testing
+71:24 
+
+71:24 reasonable things and then go and kind
+71:27 
+
+71:27 of review the code itself just to make
+71:29 
+
+71:29 sure that it's it's not doing anything
+71:31 
+
+71:31 too crazy, right? The essential thing is
+71:34 
+
+71:34 I need to actually um look at the
+71:36 
+
+71:36 dashboard. I'm going to log in as a
+71:39 
+
+71:39 student. Oh, if it'll let me. Maybe it
+71:42 
+
+71:42 won't let me. Come on, son. There we go.
+71:45 
+
+71:45 Let's log in as Emma Wilson. Head into
+71:48 
+
+71:48 courses.
+71:49 
+
+71:49 Uh, let's say I've got an introduction
+71:51 
+
+71:51 to TypeScript.
+71:53 
+
+71:53 Continue learning.
+71:55 
+
+71:55 Uh, yes, I completed this lesson.
+71:58 
+
+71:58 Something went wrong. I imagine it's
+71:60 
+
+71:60 because I don't have
+72:03 
+
+72:03 uh SQLite error. I don't have the right
+72:05 
+
+72:05 table. So, I need a table point events.
+72:08 
+
+72:08 Point events is a strange table name.
+72:10 
+
+72:10 I'm not sure quite what it was thinking
+72:11 
+
+72:11 there. Uh, let's suspend. Let's run uh
+72:14 
+
+72:14 npmdb migrate or push, I think.
+72:20 
+
+72:20 Can't remember which one it was, but you
+72:22 
+
+72:22 kind of get the idea, right? I I'm not
+72:24 
+
+72:24 going to subject you to uh watching me
+72:25 
+
+72:25 do QA because it's so dull. Um but at
+72:29 
+
+72:29 this point, I would essentially go back
+72:30 
+
+72:30 in. I would um let me open the project
+72:33 
+
+72:33 back up.
+72:35 
+
+72:35 Uh, and I would this this is a crucial
+72:38 
+
+72:38 moment. Um, and it's so important to um
+72:42 
+
+72:42 QA it manually here because QA Oh dear.
+72:45 
+
+72:45 Oh dear. What's going wrong? There we
+72:47 
+
+72:47 go. QA is how I then um impose my
+72:52 
+
+72:52 uh opinions back onto the codebase, how
+72:55 
+
+72:55 I impose my taste. What you'll often
+72:57 
+
+72:57 find is that um there are teams out
+72:59 
+
+72:59 there who are trying to automate
+73:00 
+
+73:00 everything like every part of this
+73:02 
+
+73:02 process and they will tend to
+73:07 
+
+73:07 uh if you try to like automate the sort
+73:09 
+
+73:09 of creation of the idea, automate uh the
+73:12 
+
+73:12 QA, automate the research, automate the
+73:13 
+
+73:13 prototype, you end up with uh apps that
+73:17 
+
+73:17 I feel just lack taste and are bad.
+73:22 
+
+73:22 maybe they just don't work or they they
+73:24 
+
+73:24 don't even work as intended or there's
+73:26 
+
+73:26 just no AI. You need a human touch when
+73:28 
+
+73:28 you're building this stuff because
+73:29 
+
+73:29 without that you just end up with slop
+73:32 
+
+73:32 and we are not producing slop here.
+73:34 
+
+73:34 We're trying to produce high quality
+73:35 
+
+73:35 stuff and so that's what the QA is for.
+73:39 
+
+73:39 So I'm going to do two things in this
+73:42 
+
+73:42 final section which is I'm going to
+73:44 
+
+73:44 first tell you how to
+73:47 
+
+73:47 there's probably a question in your mind
+73:48 
+
+73:48 here which is let's say I have a
+73:50 
+
+73:50 codebase that I'm working on and it's a
+73:53 
+
+73:53 bad codebase. It's a codebase that's
+73:56 
+
+73:56 like really complicated uh that AI just
+73:59 
+
+73:59 never does good work in and maybe
+74:00 
+
+74:00 actually most humans that go into that
+74:02 
+
+74:02 codebase don't do good work. How what
+74:05 
+
+74:05 how do I improve that codebase? And the
+74:07 
+
+74:07 second thing is I'll show you my setup
+74:08 
+
+74:08 for parallelization.
+74:10 
+
+74:10 So let's go with um bad code first.
+74:15 
+
+74:15 Now where is it? Where's the diagram?
+74:17 
+
+74:17 Here it is.
+74:20 
+
+74:20 In his book um the philosophy of
+74:22 
+
+74:22 software design, John Alistster talks
+74:24 
+
+74:24 about
+74:26 
+
+74:26 the ideal type of module.
+74:29 
+
+74:29 And let's imagine that you have a
+74:31 
+
+74:31 codebase that looks like this. Each of
+74:32 
+
+74:32 these uh blocks here are individual
+74:34 
+
+74:34 files. And these files export things
+74:38 
+
+74:38 from them. You know, they have um things
+74:40 
+
+74:40 that you pull from the files that you
+74:41 
+
+74:41 then use in other things. And so you
+74:43 
+
+74:43 might have these weird dependencies
+74:44 
+
+74:44 where this file over here might rely on
+74:47 
+
+74:47 this file or might rely on that file for
+74:49 
+
+74:49 instance. Now, if these files are small
+74:52 
+
+74:52 and they don't kind of ex like export
+74:55 
+
+74:55 many things, then John would call these
+74:57 
+
+74:57 shallow modules essentially where
+74:59 
+
+74:59 they're not very um they kind of look
+75:03 
+
+75:03 like uh this. If I actually no I can't
+75:06 
+
+75:06 can't make a good diagram of it. They're
+75:08 
+
+75:08 essentially lots and lots of small
+75:09 
+
+75:09 chunks. Now this is hard for the AI to
+75:12 
+
+75:12 navigate because it doesn't really
+75:14 
+
+75:14 understand the dependencies between
+75:15 
+
+75:15 everything. It can't work out where
+75:17 
+
+75:17 everything is. You know it has to sort
+75:19 
+
+75:19 of manually track through the entire
+75:20 
+
+75:20 graph and go okay this relies on this
+75:22 
+
+75:22 one relies on this one. This one relies
+75:24 
+
+75:24 on this one.
+75:26 
+
+75:26 And it's then also hard to test this as
+75:28 
+
+75:28 well because where do you draw your test
+75:30 
+
+75:30 boundaries here? Do you test each module
+75:32 
+
+75:32 individually?
+75:35 
+
+75:35 Like just literally draw a test
+75:37 
+
+75:37 boundary. No, don't do that. Around this
+75:39 
+
+75:39 one and then maybe another test boundary
+75:42 
+
+75:42 around the next one and then the next
+75:44 
+
+75:44 one
+75:46 
+
+75:46 or should you sort of do big groups of
+75:49 
+
+75:49 it? Should you say, okay, we're going to
+75:50 
+
+75:50 test all of these related modules
+75:52 
+
+75:52 together and just sort of, you know,
+75:54 
+
+75:54 hope and pray that they work.
+75:58 
+
+75:58 Now this means that if I think that bad
+76:01 
+
+76:01 tests mostly look like that where the AI
+76:05 
+
+76:05 essentially tries to sort of wrap every
+76:07 
+
+76:07 tiny function in its own test boundary
+76:09 
+
+76:09 and then just sort of test that those
+76:11 
+
+76:11 individually work. But what that does is
+76:14 
+
+76:14 it means that when let's say this module
+76:16 
+
+76:16 over here calls those two. So it depends
+76:20 
+
+76:20 on both of these. Then this module might
+76:22 
+
+76:22 misorder the functions or there might be
+76:24 
+
+76:24 sort of stuff inside that poor module
+76:27 
+
+76:27 that's worth testing on its own. And if
+76:29 
+
+76:29 you then wrap this in a test boundary,
+76:31 
+
+76:31 what do you do? Do you mock the other
+76:33 
+
+76:33 two modules? How does that work?
+76:37 
+
+76:37 So actually figuring out how to um build
+76:41 
+
+76:41 a codebase that is easy to test is
+76:44 
+
+76:44 essential here because if our codebase
+76:47 
+
+76:47 is easy to test then our code our
+76:49 
+
+76:49 feedback loops are going to be better
+76:50 
+
+76:50 and the AI is going to do better work in
+76:52 
+
+76:52 our codebase. Does that make sense? So
+76:54 
+
+76:54 what does a good codebase looks like?
+76:56 
+
+76:56 Look like well not like that. It looks
+77:01 
+
+77:01 like this
+77:03 
+
+77:03 where you have
+77:05 
+
+77:05 what John Asterhout calls deep modules.
+77:08 
+
+77:08 Modules that have a little interface on
+77:10 
+
+77:10 there that expose a small simple
+77:12 
+
+77:12 interface that have a lot of
+77:14 
+
+77:14 functionality inside them. Now
+77:18 
+
+77:18 what this means is that these are easy
+77:20 
+
+77:20 to test because you just let's say that
+77:22 
+
+77:22 there's a dependency between this one
+77:24 
+
+77:24 and this one. My arrow working? Yeah,
+77:27 
+
+77:27 there we go.
+77:29 
+
+77:29 Then
+77:31 
+
+77:31 what you do is you just wrap a big test
+77:33 
+
+77:33 boundary around that one module around
+77:35 
+
+77:35 this one up here. And you're going to
+77:37 
+
+77:37 catch a lot of good stuff
+77:40 
+
+77:40 because there's lots of functionality
+77:42 
+
+77:42 that you're testing and really the
+77:44 
+
+77:44 caller, the person calling the module is
+77:46 
+
+77:46 going to have a simple interface to work
+77:48 
+
+77:48 from. So it's not not too tricky. That
+77:50 
+
+77:50 makes sense. Deep modules versus shallow
+77:52 
+
+77:52 modules. This is good. This shallow
+77:55 
+
+77:55 version is bad. And what I find is that
+77:58 
+
+77:58 unaided
+77:60 
+
+78:00 um or if you don't
+78:03 
+
+78:03 uh if you don't watch AI carefully, it's
+78:06 
+
+78:06 going to produce a codebase that looks
+78:07 
+
+78:07 like this. So you need to be really
+78:09 
+
+78:09 really careful when you're directing it.
+78:12 
+
+78:12 And that's why too is that if we look
+78:14 
+
+78:14 inside the PD,
+78:16 
+
+78:16 uh where is the PR gone? It's inside the
+78:19 
+
+78:19 issues. It's inside the gamification
+78:20 
+
+78:20 system. Uh not found. Of course, it's
+78:23 
+
+78:23 not. Here it is.
+78:25 
+
+78:25 Then I have
+78:28 
+
+78:28 uh inside here data model the modules.
+78:32 
+
+78:32 So it's specifically saying okay this
+78:34 
+
+78:34 gamification service is a new deep
+78:37 
+
+78:37 module which we're going to test around.
+78:39 
+
+78:39 It's going to have this particular
+78:41 
+
+78:41 interface and it's going to have um okay
+78:45 
+
+78:45 we're modifying the progress service
+78:46 
+
+78:46 too. We're modifying the lesson route
+78:48 
+
+78:48 modifying the dashboard roots etc. So,
+78:50 
+
+78:50 it's I'm being really specific about the
+78:52 
+
+78:52 modules that I'm editing and I'm making
+78:54 
+
+78:54 sure that I keep that module map in my
+78:56 
+
+78:56 mind at all times throughout the
+78:58 
+
+78:58 planning and then throughout the
+78:59 
+
+78:59 implementation. That make sense? Very,
+79:02 
+
+79:02 very useful. It's useful for one other
+79:04 
+
+79:04 reason, too. Not only does it make your
+79:06 
+
+79:06 app more testable, but you get to do a
+79:08 
+
+79:08 little mental trick.
+79:11 
+
+79:11 And I'm going to refill my water while
+79:13 
+
+79:13 you wait for what that is.
+79:18 
+
+79:18 Uh, let me
+79:20 
+
+79:20 Let me get a question from you guys. So,
+79:22 
+
+79:22 raise your hands if you feel like.
+79:27 
+
+79:27 Uh, if you feel like you're working
+79:29 
+
+79:29 harder than ever before with AI.
+79:32 
+
+79:32 Yeah. Uh, raise your hands if you feel
+79:35 
+
+79:35 like you know your codebase less well
+79:38 
+
+79:38 than you used to.
+79:41 
+
+79:41 Yeah.
+79:43 
+
+79:43 This is a real thing. um because we're
+79:46 
+
+79:46 moving fast, because we're delegating
+79:47 
+
+79:47 more things, we end up losing a sense of
+79:50 
+
+79:50 our codebase. And if we lose the sense
+79:53 
+
+79:53 of our codebase, we're not going to be
+79:55 
+
+79:55 able to improve it. And we're
+79:56 
+
+79:56 essentially delegating the shape of it
+79:58 
+
+79:58 to AI. I don't think that's good. But
+80:01 
+
+80:01 then how do we
+80:03 
+
+80:03 how do we make it so that we can move
+80:05 
+
+80:05 fast while still keeping enough space in
+80:07 
+
+80:07 our brains? I think that this is a way
+80:09 
+
+80:09 to do it because what you're doing here
+80:12 
+
+80:12 is not only are you thinking about
+80:15 
+
+80:15 creating big shapes in your codebase,
+80:17 
+
+80:17 big services.
+80:19 
+
+80:19 What I think you should do is design the
+80:22 
+
+80:22 interface for these modules, but then
+80:25 
+
+80:25 delegate the implementation.
+80:27 
+
+80:27 In other words, these modules can become
+80:29 
+
+80:29 like gray boxes where you just need to
+80:32 
+
+80:32 know the shape of them. You need to know
+80:33 
+
+80:33 what they do and sort of how they
+80:35 
+
+80:35 behave, but you can delegate the
+80:36 
+
+80:36 implementation of those modules. I found
+80:39 
+
+80:39 this is really nice. I don't necessarily
+80:40 
+
+80:40 need to co-review everything inside that
+80:43 
+
+80:43 module. I don't necessarily need to know
+80:44 
+
+80:44 everything of what it's doing. I just
+80:46 
+
+80:46 need to know that it behaves a certain
+80:47 
+
+80:47 way under certain conditions and that it
+80:50 
+
+80:50 does its thing. So, it's kind of like,
+80:52 
+
+80:52 okay, I've got a big overview of my
+80:54 
+
+80:54 codebase and I understand kind of the
+80:56 
+
+80:56 shapes inside it, understand what the
+80:58 
+
+80:58 interfaces all do, but I can delegate
+81:01 
+
+81:01 what's inside. I found that has been a
+81:03 
+
+81:03 really nice way to retain my sense of
+81:05 
+
+81:05 the codebase while preserving my sanity.
+81:09 
+
+81:09 Make sense?
+81:12 
+
+81:12 And so you might ask, how do I take a
+81:15 
+
+81:15 codebase that looks like this and then
+81:18 
+
+81:18 turn it into a codebase that looks like
+81:20 
+
+81:20 this? How do I deepen the modules? Well,
+81:24 
+
+81:24 we have hopefully it's in here. Pretty
+81:26 
+
+81:26 sure it is. We have a skill and that
+81:29 
+
+81:29 skill is called improve codebase
+81:31 
+
+81:31 architecture.
+81:33 
+
+81:33 Nice and direct.
+81:35 
+
+81:35 Uh let's run it. What this skill is
+81:38 
+
+81:38 going to do is it's essentially just
+81:39 
+
+81:39 going to do a scan of our codebase and
+81:42 
+
+81:42 looking for what's available here. And
+81:43 
+
+81:43 feel free to run this yourself if you're
+81:45 
+
+81:45 um uh running the exercises. And it's
+81:49 
+
+81:49 exploring the architecture, exploring um
+81:52 
+
+81:52 essentially how to work within this
+81:54 
+
+81:54 codebase. and it's going to attempt to
+81:58 
+
+81:58 uh find places to deepen the modules.
+82:01 
+
+82:01 Pretty simple. One really cool um thing
+82:05 
+
+82:05 that it found here is part of my uh part
+82:08 
+
+82:08 of my course video manager app is a
+82:10 
+
+82:10 video editor. A video editor built in
+82:12 
+
+82:12 the browser, which is really hardcore.
+82:14 
+
+82:14 Uh it's a decent bit of engineering. And
+82:16 
+
+82:16 I wanted a way that I could wrap the
+82:18 
+
+82:18 entire front end all the way to the back
+82:21 
+
+82:21 end in like a single big module so that
+82:23 
+
+82:23 I could test the fact that I press
+82:25 
+
+82:25 something on the front end and it goes
+82:27 
+
+82:27 all the way to the back end. And so I
+82:29 
+
+82:29 found a way essentially by using a kind
+82:31 
+
+82:31 of discriminated union between the two
+82:33 
+
+82:33 types here by sort of I was able to use
+82:36 
+
+82:36 this uh skill to essentially have a huge
+82:40 
+
+82:40 great big module that just tested from
+82:42 
+
+82:42 the outside or was testable from the
+82:44 
+
+82:44 outside this video editor
+82:45 
+
+82:45 infrastructure. And it meant that AI
+82:47 
+
+82:47 could see the entire flow, could act on
+82:50 
+
+82:50 the entire flow and test on the entire
+82:51 
+
+82:51 flow. And honestly, it was just night
+82:53 
+
+82:53 and day in terms of the uh ability of AI
+82:56 
+
+82:56 to actually make changes because AI
+82:58 
+
+82:58 working on a video editor is pretty
+82:60 
+
+82:60 brutal if you don't give it good tests.
+83:02 
+
+83:02 So that is honestly I if you take one
+83:05 
+
+83:05 thing away from today, just try running
+83:06 
+
+83:06 this skill on your repo and see what
+83:09 
+
+83:09 happens. Let's go to slider. Let's ask a
+83:12 
+
+83:12 uh check a couple of questions just
+83:13 
+
+83:13 while this is running.
+83:16 
+
+83:16 So let's see. Have you tried claude's
+83:17 
+
+83:17 auto mode with claude enable auto mode?
+83:19 
+
+83:19 Uh that way you can avoid many of the
+83:20 
+
+83:20 obvious permission checks. We'll talk
+83:22 
+
+83:22 about permission checks in a second. Do
+83:24 
+
+83:24 I keep the markdown plans and issues for
+83:27 
+
+83:27 later reference?
+83:29 
+
+83:29 Okay, this is a great question. So
+83:35 
+
+83:35 let's say that you uh have a great idea,
+83:38 
+
+83:38 you turn it into a PR
+83:41 
+
+83:41 raise and you then implement that PRD
+83:43 
+
+83:43 and the PRD is essentially done. Raise
+83:46 
+
+83:46 your hand if you keep that information
+83:48 
+
+83:48 in the repo. So you turn it into a
+83:50 
+
+83:50 markdown file. Raise your hand if you
+83:51 
+
+83:51 want to keep that around.
+83:54 
+
+83:54 Cool. Okay. And raise your hand if you
+83:56 
+
+83:56 if you don't want to keep it around. If
+83:58 
+
+83:58 you want to get rid of it as soon as
+83:59 
+
+83:59 possible. Yeah. This is I think an
+84:02 
+
+84:02 a question that doesn't have a clear
+84:04 
+
+84:04 answer. What I'm really scared of
+84:08 
+
+84:08 with any documentation decision is that
+84:12 
+
+84:12 let's say that we have a PRD for this
+84:13 
+
+84:13 gamification system. We keep it in the
+84:15 
+
+84:15 repo. We go on, go on, go on. Let's say
+84:17 
+
+84:17 a month later, we want some edits to the
+84:20 
+
+84:20 gamification system. And we go in with
+84:23 
+
+84:23 Claude and it finds this old PR and
+84:24 
+
+84:24 says, "Yes, I found the original
+84:26 
+
+84:26 documentation for the PRD system." Well,
+84:28 
+
+84:28 it turns out that the actual code has
+84:30 
+
+84:30 changed so much from the original PRD
+84:32 
+
+84:32 that it's almost unrecognizable. The
+84:34 
+
+84:34 names of things have changed. The um
+84:36 
+
+84:36 file structure has changed. Even the
+84:37 
+
+84:37 requirements may have changed. We might
+84:38 
+
+84:38 have actually tested it with users. This
+84:41 
+
+84:41 is dock rot where the documentation for
+84:44 
+
+84:44 something is rotting away in your repo
+84:46 
+
+84:46 and influencing claude badly or claude
+84:49 
+
+84:49 agents badly. So I tend to not keep it
+84:53 
+
+84:53 around. I tend to get rid of it. And for
+84:55 
+
+84:55 me because my setup uses GitHub issues,
+84:58 
+
+84:58 I just mark it as closed. It can fetch
+85:00 
+
+85:00 it if it wants to, but it's got a visual
+85:02 
+
+85:02 indicator that it's done. So I tend to
+85:04 
+
+85:04 prefer ditching these.
+85:08 
+
+85:08 Thoughts on the beads framework from
+85:09 
+
+85:09 Steve? Uh I've not tested it, but it
+85:11 
+
+85:11 seems like sort of um another way to
+85:13 
+
+85:13 manage Canvan boards and issues. Seems
+85:16 
+
+85:16 uh very good, but I've not tried it.
+85:19 
+
+85:19 Um
+85:22 
+
+85:22 uh let me just quickly check the uh
+85:25 
+
+85:25 setup here. Let's take a couple of
+85:27 
+
+85:27 questions from the room. Anybody got any
+85:29 
+
+85:29 questions at this point about anything
+85:30 
+
+85:30 that we've covered so far, especially
+85:32 
+
+85:32 this last bit? Yes.
+85:40 
+
+85:40 like code. How about migrations? Like
+85:43 
+
+85:43 with migration files, we can also squash
+85:45 
+
+85:45 them off
+85:47 
+
+85:47 >> like database migrations.
+85:49 
+
+85:49 >> Yeah,
+85:51 
+
+85:51 >> I don't know.
+85:53 
+
+85:53 >> I hope that answers your question. I'm
+85:55 
+
+85:55 so sorry. No, no, I think database
+85:57 
+
+85:57 migrations are a different thing because
+85:58 
+
+85:58 you have a sort of running record of
+85:60 
+
+85:60 exactly what changed and it's more
+86:01 
+
+86:01 deterministic and I think
+86:05 
+
+86:05 yeah, it's an interesting analogy. I'm
+86:06 
+
+86:06 not sure. Let's talk about it
+86:07 
+
+86:07 afterwards.
+86:09 
+
+86:09 That's a good way of saying I have no
+86:10 
+
+86:10 idea.
+86:11 
+
+86:11 >> Yeah. Yeah.
+86:16 
+
+86:16 >> Sorry guys. Um I'm just trying to listen
+86:18 
+
+86:18 to this guy's question.
+86:31 
+
+86:31 >> Yeah. The question the question here is
+86:34 
+
+86:34 um should I um in the sort of early
+86:38 
+
+86:38 planning stage be trying to optimize the
+86:40 
+
+86:40 plan? This is something I actually see a
+86:42 
+
+86:42 lot of people doing and it's a really
+86:43 
+
+86:43 good um idea. So when you
+86:50 
+
+86:50 let's go back to the phases. So let's
+86:52 
+
+86:52 say that you have all of these phases
+86:53 
+
+86:53 here
+86:56 
+
+86:56 and you uh you get to the point where
+86:58 
+
+86:58 you've sort of figured out everything
+86:60 
+
+86:60 with the LLM. you understand where
+87:01 
+
+87:01 you're going. You've created this sort
+87:03 
+
+87:03 of journey destination document here.
+87:05 
+
+87:05 How do you then uh like should you then
+87:09 
+
+87:09 try to optimize and optimize and
+87:11 
+
+87:11 optimize that PRD until it's the perfect
+87:13 
+
+87:13 PR you can possibly imagine? I don't
+87:15 
+
+87:15 think there's a lot of value in that
+87:18 
+
+87:18 because I think the journey is really
+87:20 
+
+87:20 just sort of a hint of where you want to
+87:22 
+
+87:22 go and the place that you need to be
+87:24 
+
+87:24 putting the work is in QA and you can
+87:27 
+
+87:27 sort of do that AFK I suppose but in my
+87:30 
+
+87:30 experience you're not going to get a lot
+87:31 
+
+87:31 of juice out of it like it's the the
+87:33 
+
+87:33 thing that really matters is getting
+87:35 
+
+87:35 alignment with the AI which is you do in
+87:37 
+
+87:37 the grilling session initially.
+87:40 
+
+87:40 Let's have one more question. You got
+87:42 
+
+87:42 any more? Yeah. How do you get in your
+87:45 
+
+87:45 workflow to get it to code the way you
+87:47 
+
+87:47 want it to code? So by the time you get
+87:48 
+
+87:48 to code review, it's at least familiar,
+87:50 
+
+87:50 use the libraries you wanted to use.
+87:52 
+
+87:52 >> Yeah. Um, we had this question before
+87:54 
+
+87:54 actually, which was like uh how do you
+87:57 
+
+87:57 uh enforce your coding standards on the
+87:59 
+
+87:59 agent? Essentially, how do you get it to
+88:01 
+
+88:01 code how you want it to code? Now,
+88:03 
+
+88:03 there's essentially two different ways
+88:05 
+
+88:05 of doing it. Um, you've got
+88:09 
+
+88:09 Come on. Push
+88:12 
+
+88:12 and you've got pull.
+88:15 
+
+88:15 What do I mean by push and pull?
+88:18 
+
+88:18 Um, push is where you push instructions
+88:21 
+
+88:21 to the LLM. So you say, okay, if you put
+88:24 
+
+88:24 something in claw.md,
+88:26 
+
+88:26 uh, talk like a pirate, that instruction
+88:28 
+
+88:28 is always going to be sent to the agent,
+88:30 
+
+88:30 right? So that is a push action. You're
+88:32 
+
+88:32 pushing tokens to it. Pull is where you
+88:36 
+
+88:36 give the agent an opportunity to pull
+88:38 
+
+88:38 more information.
+88:40 
+
+88:40 And
+88:42 
+
+88:42 that's for instance like skills. So a
+88:45 
+
+88:45 skill is something that can sit in the
+88:46 
+
+88:46 repo and it has a little description
+88:48 
+
+88:48 header that says okay agent you may pull
+88:50 
+
+88:50 this when you want to.
+88:53 
+
+88:53 My thinking my current thinking about
+88:56 
+
+88:56 code review and about coding standards
+88:58 
+
+88:58 looks like this. when you have an
+89:00 
+
+89:00 implement.
+89:04 
+
+89:04 What's going on? There we go.
+89:05 
+
+89:05 Implementer.
+89:07 
+
+89:07 I'm going to make this less red in a
+89:08 
+
+89:08 second. Um, then you want the coding
+89:13 
+
+89:13 standards to be available via pull. If
+89:15 
+
+89:15 it has a question, you want it to be
+89:17 
+
+89:17 able to sort of answer it. But if you
+89:19 
+
+89:19 then have an automated reviewer
+89:21 
+
+89:21 afterwards, then you want it to push.
+89:24 
+
+89:24 You want to push that information to the
+89:26 
+
+89:26 reviewer. You want to say, "These are
+89:27 
+
+89:27 our coding standards." um make sure that
+89:30 
+
+89:30 this code um follows them. So if you
+89:32 
+
+89:32 have skills for instance, then you want
+89:34 
+
+89:34 to push that stuff to the reviewer so
+89:36 
+
+89:36 the reviewer has both the code that's
+89:39 
+
+89:39 written and the coding standards to
+89:40 
+
+89:40 compare to.
+89:42 
+
+89:42 Hopefully that answers your question. I
+89:43 
+
+89:43 can show you an automated version of
+89:45 
+
+89:45 this as well. Actually, um yeah, let's
+89:47 
+
+89:47 do that now just while it's fresh in my
+89:49 
+
+89:49 mind. I recently um spent
+89:54 
+
+89:54 uh maybe a week or so uh building this
+89:57 
+
+89:57 thing called Sand Castle. And Sand
+89:59 
+
+89:59 Castle is a I was sort of unhappy with
+90:02 
+
+90:02 the options out there for
+90:05 
+
+90:05 um running agents AFK. And what this
+90:08 
+
+90:08 does is it's essentially a TypeScript
+90:10 
+
+90:10 library for running these loops. So you
+90:13 
+
+90:13 have uh a run function that creates a
+90:17 
+
+90:17 work tree um sandboxes it in a docker
+90:20 
+
+90:20 container and then allows you to run a
+90:22 
+
+90:22 prompt inside there. And in that work
+90:25 
+
+90:25 tree then it's just a git branch and you
+90:27 
+
+90:27 have that code and you can then merge it
+90:28 
+
+90:28 later. If I open up
+90:33 
+
+90:33 um there are some really really nice
+90:35 
+
+90:35 ways of viewing this and it essentially
+90:37 
+
+90:37 allows you to run these kind of
+90:39 
+
+90:39 automated loops and allows you to
+90:42 
+
+90:42 parallelize across multiple different
+90:44 
+
+90:44 agents really simply. So I'll go into my
+90:46 
+
+90:46 sand castle file go into main.ts here
+90:49 
+
+90:49 and let's just walk through this.
+90:52 
+
+90:52 So this is kind of like I showed you um
+90:55 
+
+90:55 a sort of version of the Ralph loop
+90:57 
+
+90:57 earlier. This is where we take it from
+90:58 
+
+90:58 sequential into parallel.
+91:02 
+
+91:02 We have here first of all a planner that
+91:04 
+
+91:04 takes in it's has a plan prompt here
+91:07 
+
+91:07 that looks at the backlog and chooses a
+91:10 
+
+91:10 certain number of issues to work on in
+91:12 
+
+91:12 parallel. Remember I showed you that
+91:14 
+
+91:14 canon board where it had all the
+91:15 
+
+91:15 blocking relationships. It works out all
+91:17 
+
+91:17 of the phases. So this one will say okay
+91:20 
+
+91:20 uh let's say we have uh you can ignore
+91:22 
+
+91:22 all this glue code here. This is
+91:24 
+
+91:24 essentially just a set of issues, GitHub
+91:27 
+
+91:27 issues with a title and with a a branch
+91:30 
+
+91:30 for you to work on. And then for each
+91:34 
+
+91:34 issue, we create a sandbox
+91:38 
+
+91:38 and then we run an implement in that
+91:40 
+
+91:40 sandbox passing in the issue number,
+91:42 
+
+91:42 issue title and the branch. This is like
+91:44 
+
+91:44 the loop that we ran just before.
+91:46 
+
+91:46 Then if it created some commits, we then
+91:50 
+
+91:50 review those commits. This is
+91:52 
+
+91:52 essentially the loop. What do we do with
+91:54 
+
+91:54 those commits? We pass those into a
+91:59 
+
+91:59 merger agent
+92:01 
+
+92:01 which takes in a merge prompt, takes in
+92:03 
+
+92:03 the branches that were created, takes in
+92:05 
+
+92:05 the issues, and it just merges them in.
+92:07 
+
+92:07 If there are any issues with the merge,
+92:08 
+
+92:08 you know, with the types and tests and
+92:10 
+
+92:10 that kind of thing, it solves them. And
+92:12 
+
+92:12 this has been my uh flow for quite a
+92:14 
+
+92:14 while now for working on most projects.
+92:16 
+
+92:16 It works super super well. And uh yeah,
+92:19 
+
+92:19 I recommend you check out sand castle if
+92:21 
+
+92:21 you want to sort of learn more. And to
+92:24 
+
+92:24 answer your question properly is that in
+92:26 
+
+92:26 the reviewer
+92:28 
+
+92:28 uh I would push the coding standards in
+92:31 
+
+92:31 the implement I would allow it to pull.
+92:33 
+
+92:33 And I'm actually using uh sonet for
+92:35 
+
+92:35 implementation and opus for um reviewing
+92:39 
+
+92:39 because I consider reviewing sort of I
+92:41 
+
+92:41 need I need the smarts. Then
+92:44 
+
+92:44 any question? Actually, let let me uh
+92:47 
+
+92:47 before we do more questions, let's go
+92:48 
+
+92:48 back here. Okay, where are we at? Okay,
+92:54 
+
+92:54 we're sort of zooming everywhere in this
+92:55 
+
+92:55 uh talk because I'm kind of having to
+92:57 
+
+92:57 run things in parallel. So, let's go
+92:58 
+
+92:58 back to the improved codebase
+93:00 
+
+93:00 architecture. It has finally finished
+93:02 
+
+93:02 running and it's found a bunch of
+93:04 
+
+93:04 architectural improvement candidates. So
+93:07 
+
+93:07 it's got essentially a cluster of
+93:09 
+
+93:09 different modules that are all kind of
+93:11 
+
+93:11 related that could probably be tested as
+93:12 
+
+93:12 a unit. Got number one the quiz scoring
+93:15 
+
+93:15 service. There's some reordering logic
+93:17 
+
+93:17 extraction as well. It has arguments for
+93:20 
+
+93:20 why they're coupled and it has a
+93:22 
+
+93:22 dependency category as well. So local
+93:24 
+
+93:24 substitutable in SQLite within memory
+93:26 
+
+93:26 test DB
+93:29 
+
+93:29 quiz scoring service currently has zero
+93:30 
+
+93:30 test. This is the biggest gap. So this
+93:32 
+
+93:32 is what it looks like when we come back
+93:34 
+
+93:34 of uh improved codebase architecture.
+93:38 
+
+93:38 Okay.
+93:40 
+
+93:40 So we have nominally kind of 17 minutes
+93:43 
+
+93:43 left. I don't know about you, but I'm
+93:45 
+
+93:45 knackered.
+93:47 
+
+93:47 Um I want to
+93:51 
+
+93:51 let let me kind of sum up for you
+93:53 
+
+93:53 because I think we're sort of reaching
+93:55 
+
+93:55 the end of our stamina. I'm going to be
+93:56 
+
+93:56 available for the full time if you want
+93:57 
+
+93:57 to um come and ask me questions. Um, I
+93:59 
+
+93:59 might do one more check of the slider,
+94:01 
+
+94:01 but let's kind of sum up where we've got
+94:02 
+
+94:02 to.
+94:04 
+
+94:04 So,
+94:07 
+
+94:07 this is essentially the flow
+94:10 
+
+94:10 where throughout this whole process,
+94:12 
+
+94:12 we're bearing in mind the shape of our
+94:14 
+
+94:14 codebase. This is not a specttocode
+94:17 
+
+94:17 compiler. This is not an AI that's sort
+94:20 
+
+94:20 of just like churning out code. We are
+94:22 
+
+94:22 being very intentional with the kind of
+94:23 
+
+94:23 modules and the shape of the codebase
+94:25 
+
+94:25 that we want. We are making sure that we
+94:27 
+
+94:27 are as aligned as possible by using the
+94:29 
+
+94:29 grilling session by really hammering out
+94:31 
+
+94:31 our idea. We're not overindexing into
+94:34 
+
+94:34 the PRD. We're not trying to read every
+94:36 
+
+94:36 part of it. We're not thinking too much
+94:37 
+
+94:37 about it even. We're then just turning
+94:39 
+
+94:39 that into a set of parallelizable issues
+94:41 
+
+94:41 which can be worked on by agents in
+94:43 
+
+94:43 parallel. We implement it and we QA and
+94:46 
+
+94:46 code review the hell out of it and then
+94:48 
+
+94:48 keep going back to that implementation.
+94:50 
+
+94:50 One thing I didn't really mention is
+94:51 
+
+94:51 that in the QA phase, what the QA phase
+94:54 
+
+94:54 is for is creating more issues for that
+94:57 
+
+94:57 canon board. So while it's implementing
+94:59 
+
+94:59 even, you can be QAing the stuff and
+95:00 
+
+95:00 going back adding more issues. And the
+95:02 
+
+95:02 canon board just allows you to add
+95:04 
+
+95:04 blocking issues kind of um sort of
+95:06 
+
+95:06 infinitely really. And then once that's
+95:08 
+
+95:08 all done, once you've got code that
+95:10 
+
+95:10 you're happy with, once you've got work
+95:11 
+
+95:11 that you're happy with, then you can
+95:12 
+
+95:12 share it with your team and you can get
+95:14 
+
+95:14 a full review. So this is kind of like
+95:16 
+
+95:16 once you get here, this is kind of one
+95:18 
+
+95:18 developer or maybe a couple of
+95:19 
+
+95:19 developers sort of managing this and
+95:21 
+
+95:21 then it's kind of up to you to figure
+95:22 
+
+95:22 out how to merge it back in.
+95:28 
+
+95:28 Of course, all of this can be customized
+95:31 
+
+95:31 by you. This is just something that I
+95:32 
+
+95:32 have found works. I'm not trying to like
+95:35 
+
+95:35 sell you on a kind of approach here.
+95:37 
+
+95:37 What I recommend if you take one thing
+95:39 
+
+95:39 away from this session is that you
+95:41 
+
+95:41 should head back you should head to
+95:42 
+
+95:42 Amazon and just buy a ton of those old
+95:45 
+
+95:45 books because I mean I just found it so
+95:48 
+
+95:48 enlightening reading them. Uh you know
+95:51 
+
+95:51 preai writing is always like a really
+95:53 
+
+95:53 fun to read anyway and
+95:57 
+
+95:57 I just on every single page I found that
+95:59 
+
+95:59 there was something useful and something
+96:00 
+
+96:00 interesting to to read. So thank you so
+96:03 
+
+96:03 much. Thank you for putting up with the
+96:04 
+
+96:04 heat. Um hopefully your body
+96:06 
+
+96:06 temperatures will reset soon. Uh thank
+96:09 
+
+96:09 you very much.

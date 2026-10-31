@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/NaNa/Linux/0. Linux Learning Path.md",
-                "mode": "preview",
+                "file": "Agentic Development/Matt Pocock/1.Complete Workflow - Reference.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0. Linux Learning Path"
+              "title": "1.Complete Workflow - Reference"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "path:\"Agentic Development/Matt Pocock/\" ",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -181,8 +181,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5ae70b2711f667de",
+  "active": "69c84256314e5905",
   "lastOpenFiles": [
+    "Agentic Development/Matt Pocock/1.Complete Workflow.md",
+    "Agentic Development/Matt Pocock/1.Complete Workflow - Reference.md",
+    "Agentic Development/Matt Pocock/[FULL WORKSHOP] AI Coding For Real Engineers - Matt Pocock, AI Hero (@mattpocockuk ).txt",
+    "DevOps/NaNa/Ci-CD/Jenkins/3. Jenkins pipeline.md",
+    "DevOps/NaNa/Ci-CD/Jenkins/3.OLD-notes - Jenkins pipeline.md",
+    "DevOps/NaNa/Artifact Management/Gitea/5 - Deploy a Registry Image Behind a Reverse Proxy.md",
+    "DevOps/NaNa/Artifact Management/Gitea/2 - Docker Container Registry.md",
+    "DevOps/NaNa/Artifact Management/Gitea/1 - Packages and Artifact Management.md",
+    "DevOps/NaNa/Linux/3. Environment Variables.md",
+    "DevOps/NaNa/Linux/1. Linux Pipes, `grep`, `less`, and Output Redirection.md",
+    "Linux/The Software Developer’s Guide to Linux/2. Working with Processes - Study Guide.md",
+    "DevOps/NaNa/Linux/0. Linux Learning Path.md",
     "DevOps/NaNa/Linux/Bash Scripting/lessons/0002-variables-and-quoting.md",
     "DevOps/NaNa/Linux/Bash Scripting/lessons/0001-first-script.md",
     "DevOps/NaNa/Linux/Bash Scripting/lessons/0006.OLD-html - loops-and-file-batches.html",
@@ -195,7 +207,6 @@
     "DevOps/NaNa/Linux/Bash Scripting/reference/05-decisions-and-loops.html",
     "DevOps/NaNa/Linux/Bash Scripting/reference/03-inputs-and-status.html",
     "DevOps/NaNa/Linux/Bash Scripting/lessons/0006-loops-and-file-batches.html",
-    "DevOps/NaNa/Linux/Bash Scripting/lessons/0005-branching-with-if-and-case.html",
     "DevOps/NaNa/Linux/Bash Scripting/NOTES.md",
     "DevOps/NaNa/Linux/Bash Scripting/MISSION.md",
     "DevOps/NaNa/Linux/Bash Scripting/2.OLD-guide - Variables, Quoting, and Expansion.md",
@@ -205,20 +216,9 @@
     "DevOps/NaNa/Linux/Bash Scripting/2. Variables, Quoting, and Expansion.md",
     "DevOps/NaNa/Linux/Bash Scripting/1. First Script, Shebang, and Execution.md",
     "DevOps/NaNa/AI Prompt - NANA DevOps.md",
-    "DevOps/NaNa/Linux/1. Linux Pipes, `grep`, `less`, and Output Redirection.md",
     "Linux/Bash Scripting/1 - First Script: Shebang, Shell Choice, and Execution.md",
     "Linux/Bash Scripting/0 - Bash Scripting Learning Path.md",
-    "DevOps/NaNa/Linux/0. Linux Learning Path.md",
     "Linux/Bash Scripting/2 - Variables, Quoting, and Expansion.md",
-    "DevOps/NaNa/Linux/🔀 Linux Pipes, `grep`, `less`, and Output Redirection.md",
-    "DevOps/NaNa/Linux/7. Server Configuration.md",
-    "DevOps/NaNa/Linux/6. Networking Fundamentals.md",
-    "DevOps/NaNa/Linux/5. Ownership and Permissions.md",
-    "DevOps/NaNa/Linux/4. Users and Groups.md",
-    "DevOps/NaNa/Linux/3. Environment Variables.md",
-    "DevOps/NaNa/Linux/2. Vim Cheat Sheet.md",
-    "Linux/Scatterd Learning/SSH.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/1. Workflow for AI Coding.md",
     "Search Engines/Meilisearch/photo/vogli3.png",
     "Search Engines/Meilisearch/photo/new road.png",
     "Search Engines/Meilisearch/photo/belgium.png",
