@@ -1,0 +1,10 @@
+go 1.27.3
+
+use (
+	./e2e
+	./order
+	./payment
+	./proto
+	./shipping
+	./tools
+)

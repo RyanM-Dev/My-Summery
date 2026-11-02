@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package order.v1;
+
+// OrderService places orders and reads them back.
+service OrderService {
+  // Create saves a new order, charges the customer through the Payment
+  // service, and returns the new order's ID.
+  rpc Create(CreateRequest) returns (CreateResponse);
+  // Get returns an existing order by its ID.
+  rpc Get(GetRequest) returns (GetResponse);
+}
+
+// CreateRequest is the input of OrderService.Create.
+message CreateRequest {
+  // user_id is the customer placing the order. Must be 1 or greater.
+  int64 user_id = 1;
+  // order_items lists the products in the order. Must not be empty.
+  repeated OrderItem order_items = 2;
+}
+
+// CreateResponse is the output of OrderService.Create.
+message CreateResponse {
+  // order_id is the ID of the saved order.
+  int64 order_id = 1;
+}
+
+// GetRequest is the input of OrderService.Get.
+message GetRequest {
+  // order_id is the order to read.
+  int64 order_id = 1;
+}
+
+// GetResponse is the output of OrderService.Get.
+message GetResponse {
+  // user_id is the customer who placed the order.
+  int64 user_id = 1;
+  // order_items lists the products in the order.
+  repeated OrderItem order_items = 2;
+  // status is the order's state, such as "Pending".
+  string status = 3;
+}
+
+// OrderItem is one product line in an order.
+message OrderItem {
+  // product_code is the product's SKU, such as "CAM123".
+  string product_code = 1;
+  // unit_price is the price of one unit.
+  float unit_price = 2;
+  // quantity is how many units are ordered.
+  int32 quantity = 3;
+}

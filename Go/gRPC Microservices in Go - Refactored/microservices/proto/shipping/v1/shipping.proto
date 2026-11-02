@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package shipping.v1;
+
+// ShippingService answers questions about shipments. Shipments are created
+// asynchronously from OrderPaid events, not through this API.
+service ShippingService {
+  // Get returns the shipment for an order.
+  rpc Get(GetRequest) returns (GetResponse);
+}
+
+// GetRequest is the input of ShippingService.Get.
+message GetRequest {
+  // order_id is the order whose shipment to read.
+  int64 order_id = 1;
+}
+
+// GetResponse is the output of ShippingService.Get.
+message GetResponse {
+  // shipment_id is the shipment's ID.
+  int64 shipment_id = 1;
+  // order_id is the shipped order.
+  int64 order_id = 2;
+  // status is the shipment's state, such as "Created".
+  string status = 3;
+}

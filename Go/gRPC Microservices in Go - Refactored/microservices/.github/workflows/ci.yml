@@ -1,0 +1,58 @@
+# CI for this repository (works once `microservices/` is the repo root).
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  proto:
+    name: buf lint, format, breaking
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: bufbuild/buf-action@v1
+        with:
+          input: proto
+          lint: true
+          format: true
+          # On pull requests, fail on breaking changes against main.
+          breaking: ${{ github.event_name == 'pull_request' }}
+          breaking_against: "${{ github.event.repository.clone_url }}#branch=main,subdir=proto"
+          push: false
+
+  test:
+    name: test ${{ matrix.service }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [order, payment, shipping]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: ${{ matrix.service }}/go.mod
+          cache-dependency-path: ${{ matrix.service }}/go.sum
+      - name: Check generated code is up to date
+        run: make proto-generate && git diff --exit-code -- proto/gen
+      - name: Unit and integration tests (Testcontainers uses the runner's Docker)
+        working-directory: ${{ matrix.service }}
+        run: go test -race -count=1 ./...
+
+  e2e:
+    name: end-to-end
+    runs-on: ubuntu-latest
+    needs: [proto, test]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: e2e/go.mod
+          cache-dependency-path: e2e/go.sum
+      - run: make e2e

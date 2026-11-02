@@ -1,0 +1,13 @@
+# mockery v3: generates testify mocks for the ports. Run `make mocks`.
+all: false
+dir: "{{.InterfaceDir}}/mocks"
+filename: "{{.InterfaceName | snakecase}}.go"
+pkgname: mocks
+structname: "Mock{{.InterfaceName}}"
+template: testify
+packages:
+  github.com/huseyinbabal/microservices/order/internal/ports:
+    interfaces:
+      APIPort: {}
+      DBPort: {}
+      PaymentPort: {}

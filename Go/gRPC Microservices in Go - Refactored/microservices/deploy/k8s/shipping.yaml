@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: shipping-db
+type: Opaque
+stringData:
+  DATA_SOURCE_URL: "root:s3cr3t@tcp(mysql:3306)/shipments?charset=utf8mb4&parseTime=True&loc=Local"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping
+  labels:
+    app: shipping
+spec:
+  selector:
+    app: shipping
+  ports:
+    - name: grpc
+      port: 8082
+      protocol: TCP
+      targetPort: grpc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  labels:
+    app: shipping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping
+  template:
+    metadata:
+      labels:
+        app: shipping
+    spec:
+      containers:
+        - name: shipping
+          image: microservices/shipping
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: grpc
+              containerPort: 8082
+          env:
+            - name: APPLICATION_PORT
+              value: "8082"
+            - name: ENV
+              value: production
+            - name: KAFKA_BROKERS
+              value: "kafka:9092"
+            - name: DATA_SOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: shipping-db
+                  key: DATA_SOURCE_URL
+            # Uncomment after installing a collector or Jaeger (Chapter 9):
+            # - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            #   value: http://jaeger-collector.jaeger.svc.cluster.local:4317
+          # Kubernetes calls the standard gRPC health service directly.
+          startupProbe:
+            grpc:
+              port: 8082
+            periodSeconds: 5
+            failureThreshold: 30 # up to 150 s while MySQL starts
+          readinessProbe:
+            grpc:
+              port: 8082
+              service: shipping.v1.ShippingService
+            periodSeconds: 5
+          livenessProbe:
+            grpc:
+              port: 8082
+            periodSeconds: 10
+          resources:
+            requests: { cpu: 100m, memory: 64Mi }
+            limits: { memory: 256Mi }
+          securityContext:
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]

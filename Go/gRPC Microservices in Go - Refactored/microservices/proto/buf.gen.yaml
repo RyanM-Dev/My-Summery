@@ -1,0 +1,26 @@
+# buf.gen.yaml: how `buf generate` turns the .proto files into Go code.
+version: v2
+
+# Delete old generated files first, so removed messages don't linger.
+clean: true
+
+# Managed mode sets go_package for every file, so the .proto files stay
+# free of Go-specific options.
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/huseyinbabal/microservices-proto/gen/go
+
+plugins:
+  # Messages: *.pb.go (protoc-gen-go)
+  - remote: buf.build/protocolbuffers/go:v1.36.12
+    out: gen/go
+    opt: paths=source_relative
+  # Client and server stubs: *_grpc.pb.go (protoc-gen-go-grpc)
+  - remote: buf.build/grpc/go:v1.6.2
+    out: gen/go
+    opt: paths=source_relative
+
+inputs:
+  - directory: .

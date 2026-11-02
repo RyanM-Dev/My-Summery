@@ -1,0 +1,21 @@
+# kubectl apply -k deploy/k8s   (or: make k8s-deploy)
+# Prerequisites (Chapter 8): ingress-nginx and cert-manager installed in the cluster.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - mysql.yaml
+  - kafka.yaml
+  - payment.yaml
+  - order.yaml
+  - shipping.yaml
+  - cluster-issuer.yaml
+
+# Images built by `make docker-build` and copied in by `make k8s-load`.
+images:
+  - name: microservices/order
+    newTag: dev
+  - name: microservices/payment
+    newTag: dev
+  - name: microservices/shipping
+    newTag: dev

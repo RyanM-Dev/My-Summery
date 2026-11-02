@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package payment.v1;
+
+// PaymentService charges customers for orders.
+service PaymentService {
+  // Create charges the customer for an order and returns the payment ID.
+  rpc Create(CreateRequest) returns (CreateResponse);
+}
+
+// CreateRequest is the input of PaymentService.Create.
+message CreateRequest {
+  // user_id is the customer to charge. Must be 1 or greater.
+  int64 user_id = 1;
+  // order_id is the order being paid for. Must be 1 or greater.
+  int64 order_id = 2;
+  // total_price is the amount to charge. Must be greater than 0.
+  float total_price = 3;
+}
+
+// CreateResponse is the output of PaymentService.Create.
+message CreateResponse {
+  // payment_id is the ID of the saved payment.
+  int64 payment_id = 1;
+}

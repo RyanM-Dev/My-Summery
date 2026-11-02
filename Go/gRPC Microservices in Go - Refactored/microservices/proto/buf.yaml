@@ -1,0 +1,16 @@
+# buf.yaml: where the .proto files live and which lint and breaking rules apply.
+version: v2
+
+modules:
+  - path: .
+    excludes:
+      - gen
+
+lint:
+  use:
+    - STANDARD # versioned packages, *Service names, <Method>Request/<Method>Response
+    - COMMENTS # every service, RPC, message, and field has a doc comment
+
+breaking:
+  use:
+    - FILE # no removed fields, reused numbers, or changed types

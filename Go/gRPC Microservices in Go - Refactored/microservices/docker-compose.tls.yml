@@ -1,0 +1,14 @@
+# Overlay that turns on mTLS between Order and Payment (Chapter 6).
+#   make certs && make up-tls
+services:
+  payment:
+    environment:
+      TLS_CERT_DIR: /certs
+    volumes:
+      - ./certs:/certs:ro
+
+  order:
+    environment:
+      TLS_CERT_DIR: /certs
+    volumes:
+      - ./certs:/certs:ro

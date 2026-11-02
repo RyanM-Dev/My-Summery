@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package order.v1;
+
+import "google/protobuf/timestamp.proto";
+import "order/v1/order.proto";
+
+// OrderPaid is published to the "orders" topic, keyed by order_id, after
+// Payment charges the customer. Shipping consumes it.
+message OrderPaid {
+  // event_id is unique per event; consumers use it to drop duplicates.
+  string event_id = 1;
+  // order_id is the paid order. It is also the Kafka record key.
+  int64 order_id = 2;
+  // user_id is the customer who placed the order.
+  int64 user_id = 3;
+  // total_price is the amount charged.
+  float total_price = 4;
+  // order_items lists what to ship.
+  repeated OrderItem order_items = 5;
+  // paid_at is when the payment succeeded.
+  google.protobuf.Timestamp paid_at = 6;
+}

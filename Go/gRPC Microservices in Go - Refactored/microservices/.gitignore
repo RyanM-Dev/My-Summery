@@ -1,0 +1,5 @@
+# local TLS material from `make certs`
+certs/
+bin/
+coverage-*.out
+coverage-*.html

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package shipping.v1;
+
+import "google/protobuf/timestamp.proto";
+
+// ShipmentCreated is published to the "shipments" topic, keyed by order_id,
+// after Shipping creates a shipment for a paid order. Order consumes it.
+message ShipmentCreated {
+  // event_id is unique per event; consumers use it to drop duplicates.
+  string event_id = 1;
+  // shipment_id is the new shipment.
+  int64 shipment_id = 2;
+  // order_id is the order being shipped. It is also the Kafka record key.
+  int64 order_id = 3;
+  // created_at is when the shipment was created.
+  google.protobuf.Timestamp created_at = 4;
+}

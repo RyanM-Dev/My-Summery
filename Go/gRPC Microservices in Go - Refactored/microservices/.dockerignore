@@ -1,0 +1,10 @@
+**/.git
+**/*.md
+**/*_test.go
+**/mocks
+**/.mockery.yml
+certs/
+deploy/
+e2e/
+bin/
+coverage.out
