@@ -26,7 +26,7 @@ The previous note stopped after publication. This one finishes the job: the serv
 
 > 💡 **Real-World Example**
 >
-> A static browser game, `Hamed/vending-machine-game`, is tested and built on `git.my-rm.com`. Its image is pushed to the Gitea registry and started on the same server that hosts Gitea, the runner, and Nginx Proxy Manager (NPM).
+> A static browser game, `Hamed/vending-machine-game`, is tested and built on `git.example.com`. Its image is pushed to the Gitea registry and started on the same server that hosts Gitea, the runner, and Nginx Proxy Manager (NPM).
 >
 > The server never receives the source code. It only receives an image reference.
 
@@ -63,7 +63,7 @@ Docker needs two values to log in to the registry. They are two halves of one cr
 
 ```bash
 printf '%s' "$REGISTRY_TOKEN" |
-  docker login git.my-rm.com \
+  docker login git.example.com \
     --username "$REGISTRY_USERNAME" \
     --password-stdin
 ```
@@ -84,7 +84,7 @@ Create the token in **Profile → Settings → Applications → Generate New Tok
   | Image owner in the path | `hamed` | Lowercase |
   | Package name | `vending-machine-game` | Lowercase |
 
-  The final reference is `git.my-rm.com/hamed/vending-machine-game:build-...`. The login account may differ from the owner only if it has permission to publish under that owner.
+  The final reference is `git.example.com/hamed/vending-machine-game:build-...`. The login account may differ from the owner only if it has permission to publish under that owner.
 
 ## 📍 Where Secrets and Variables Live
 
@@ -227,7 +227,7 @@ The workflow is `.gitea/workflows/ci-cd.yml`. These are the important parts.
           trap 'rm -rf "$DOCKER_CONFIG"' EXIT
 
           printf '%s' "$REGISTRY_TOKEN" |
-            docker login git.my-rm.com --username "$REGISTRY_USERNAME" --password-stdin
+            docker login git.example.com --username "$REGISTRY_USERNAME" --password-stdin
           docker compose -p vending-machine-game -f deploy/docker-compose.yml pull
           docker compose -p vending-machine-game -f deploy/docker-compose.yml up -d --remove-orphans
           docker image prune -f
@@ -354,7 +354,7 @@ Variables are read **when a run starts**. After changing one, start a fresh run;
 
 1. 🔑 **Verify a credential pair.**
 
-   Run `docker login git.my-rm.com` with the username and token. Confirm `Login Succeeded`, then run `docker logout git.my-rm.com`.
+   Run `docker login git.example.com` with the username and token. Confirm `Login Succeeded`, then run `docker logout git.example.com`.
 
 2. 📍 **Find a scope mistake.**
 

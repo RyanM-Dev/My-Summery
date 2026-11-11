@@ -16,7 +16,7 @@ This document covers the full setup, configuration, and troubleshooting referenc
                     │                                │
           ┌─────────▼─────────┐          ┌───────────▼──────────┐
           │   gitea container  │          │   runner container    │
-          │  (git.my-rm.com)   │◄────────►│   (runner-01)          │
+          │  (git.example.com)   │◄────────►│   (runner-01)          │
           └─────────┬──────────┘  DNS via │                        │
                     │             shared  │  spawns job containers │
           gitea_internal network  network │  on gitea_proxy too    │
@@ -83,9 +83,9 @@ services:
       GITEA__database__USER: gitea
       GITEA__database__PASSWD: ${DB_PASSWORD}
 
-      GITEA__server__DOMAIN: git.my-rm.com
-      GITEA__server__ROOT_URL: https://git.my-rm.com
-      GITEA__server__SSH_DOMAIN: git.my-rm.com
+      GITEA__server__DOMAIN: git.example.com
+      GITEA__server__ROOT_URL: https://git.example.com
+      GITEA__server__SSH_DOMAIN: git.example.com
       GITEA__server__SSH_PORT: 2222
       GITEA__server__LFS_START_SERVER: "true"
       GITEA__server__HTTP_PORT: 3000
@@ -123,7 +123,7 @@ networks:
 ### Notes on this file
 
 - `GITEA__actions__ENABLED: "true"` is what turns on Actions instance-wide — required before any runner can register jobs.
-- HTTP (port 3000) is **not** published to the host — only reachable internally via `gitea_proxy`, and exposed publicly through Nginx Proxy Manager, which proxies `https://git.my-rm.com` → `gitea:3000` over that same network.
+- HTTP (port 3000) is **not** published to the host — only reachable internally via `gitea_proxy`, and exposed publicly through Nginx Proxy Manager, which proxies `https://git.example.com` → `gitea:3000` over that same network.
 - SSH (port 2222) is published directly since NPM doesn't proxy raw TCP/SSH traffic the same way as HTTP.
 - Least-privilege `cap_drop: ALL` + explicit `cap_add` is good practice — the container only gets the specific Linux capabilities it actually needs.
 

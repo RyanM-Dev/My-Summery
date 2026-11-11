@@ -167,7 +167,7 @@ Version patterns are matched as complete expressions; do not add `^` and `$` anc
 A registry connectivity check from the affected client:
 
 ```bash
-curl --include https://git.my-rm.com/v2/
+curl --include https://git.example.com/v2/
 ```
 
 `--include` displays response headers. HTTP **200** or an authentication challenge such as **401** can show the registry endpoint is reachable; **401** alone is not evidence of a failed deployment. An HTML login page suggests routing/proxy problems rather than a normal registry API response.

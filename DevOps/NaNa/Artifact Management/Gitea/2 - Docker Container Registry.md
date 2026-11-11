@@ -28,10 +28,10 @@ registry[:port]/owner/image:tag
 For our application:
 
 ```text
-git.my-rm.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
+git.example.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
 ```
 
-- 🌐 **Registry:** `git.my-rm.com`.
+- 🌐 **Registry:** `git.example.com`.
 
 - 👤 **Owner:** `robot-market`, the lowercase form of `Robot-Market`.
 
@@ -48,7 +48,7 @@ For a nonstandard port, include it consistently, such as `git.example.com:3000/t
 Run on the machine that will push or pull:
 
 ```bash
-docker login git.my-rm.com
+docker login git.example.com
 ```
 
 Enter the Gitea username and a personal access token with package **Read and Write** access for publishing. For private-image downloads, use package **Read** access. The account also needs access to the package owner.
@@ -66,7 +66,7 @@ Without a credential helper, credentials are encoded rather than encrypted. Use 
 Remove this account's saved registry login with:
 
 ```bash
-docker logout git.my-rm.com
+docker logout git.example.com
 ```
 
 This does not revoke the token or delete published images.
@@ -86,7 +86,7 @@ Add a registry-qualified name to the existing image:
 ```bash
 docker tag \
   robot-market:2026-09-29_07-35-56-0381c8b \
-  git.my-rm.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
+  git.example.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
 ```
 
 The first argument is the **existing source image**; the second is its **additional name**. Tagging does not rebuild the image, duplicate its layers, or affect running containers. [Docker image tag](https://docs.docker.com/reference/cli/docker/image/tag/)
@@ -103,14 +103,14 @@ flowchart LR
 Upload the registry-qualified image:
 
 ```bash
-docker push git.my-rm.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
+docker push git.example.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
 ```
 
 ✅ Look for a final `digest: sha256:...` line. `Layer already exists` means shared content does not need another upload.
 
 Open **Profile → Packages** for `Robot-Market`:
 
-[Open published packages](https://git.my-rm.com/Robot-Market/-/packages)
+[Open published packages](https://git.example.com/Robot-Market/-/packages)
 
 To show it under the source repository, select that repository in **package → Settings**. See [[DevOps/NaNa/Artifact Management/Gitea/1 - Packages and Artifact Management|Package Ownership and Linking]].
 
@@ -125,7 +125,7 @@ To show it under the source repository, select that repository in **package → 
 On a deployment server, authenticate if required, then download the selected version:
 
 ```bash
-docker pull git.my-rm.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
+docker pull git.example.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
 ```
 
 Pulling does not start an application or replace an existing container.
@@ -136,7 +136,7 @@ For an existing Compose deployment, edit the application's `image:` field in its
 # Fragment of the existing compose.yaml
 services:
   backend:
-    image: git.my-rm.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
+    image: git.example.com/robot-market/robot-market:2026-09-29_07-35-56-0381c8b
 ```
 
 Preserve its ports, environment, networks, and volumes. This fragment is not a complete application deployment.

@@ -33,7 +33,7 @@ flowchart LR
 For `Robot-Market/robot-market`, the published name becomes:
 
 ```text
-git.my-rm.com/robot-market/robot-market:build-20261008-120000-42-a1b2c3d
+git.example.com/robot-market/robot-market:build-20261008-120000-42-a1b2c3d
 ```
 
 The package appears in **Profile → Packages** and, after linking, in the source repository's **Packages** tab. Publishing does not deploy the application.
@@ -52,7 +52,7 @@ This example assumes:
 
 - 🐳 **Docker access:** the job can reach a Docker daemon capable of building Linux images for the deployment platform.
 
-- 🌐 **Connectivity:** the job and daemon can reach `git.my-rm.com`; the runner can fetch the checkout action and required build images.
+- 🌐 **Connectivity:** the job and daemon can reach `git.example.com`; the runner can fetch the checkout action and required build images.
 
 A label is only a match between job and runner configuration. Writing `runs-on: ubuntu-latest` does not install Docker or provision a GitHub-hosted machine.
 
@@ -139,7 +139,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          REGISTRY='git.my-rm.com'
+          REGISTRY='git.example.com'
           OWNER="${SOURCE_REPOSITORY%%/*}"
           REPO="${SOURCE_REPOSITORY#*/}"
           IMAGE_OWNER="${OWNER,,}"

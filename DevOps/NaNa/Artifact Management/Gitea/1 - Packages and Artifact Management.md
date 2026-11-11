@@ -22,7 +22,7 @@ Gitea hosts Git repositories and includes a **Package Registry**. Docker/OCI ima
 
 > 💡 **Real-World Example**
 >
-> Our source lives in `Robot-Market/robot-market` on `git.my-rm.com`.
+> Our source lives in `Robot-Market/robot-market` on `git.example.com`.
 >
 > CI builds an image, publishes it to Gitea, and a deployment server pulls that image later.
 
@@ -51,7 +51,7 @@ flowchart TD
 
 Find packages through **Profile → Packages**, or the organization's **Packages** page. For our example:
 
-[Robot-Market packages](https://git.my-rm.com/Robot-Market/-/packages)
+[Robot-Market packages](https://git.example.com/Robot-Market/-/packages)
 
 This is separate from general Gitea settings. A successful login alone does not create a package; an upload does.
 
@@ -95,7 +95,7 @@ GITEA_USER='Robot-Market'
 read -rsp 'Gitea publishing token: ' GITEA_TOKEN
 printf '\n'
 
-BASE='https://git.my-rm.com/api/packages/Robot-Market/generic/payment-iran/1.0.0'
+BASE='https://git.example.com/api/packages/Robot-Market/generic/payment-iran/1.0.0'
 
 curl --fail-with-body --show-error \
   --user "$GITEA_USER:$GITEA_TOKEN" \
