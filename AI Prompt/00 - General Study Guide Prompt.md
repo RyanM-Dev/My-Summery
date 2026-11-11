@@ -33,6 +33,7 @@
 | **Learning Go (Bodner) + 100 Mistakes (Harsanyi)** | [[Go/Learning Go/AI Prompt - learning go]] | `Go/Learning Go/` |
 | **Nana DevOps course** | [[DevOps/NaNa/AI Prompt - NANA DevOps]] | `DevOps/NaNa/` |
 | **MQTT / HiveMQ course with Mosquitto** | [[Brokers/MQTT/AI Prompt - mqtt]] | `Brokers/MQTT/` |
+| **Designing Data-Intensive Applications, 2nd Ed.** | [[System Design/Designing Data-Intensive Applications/AI Prompt - DDIA]] | `System Design/Designing Data-Intensive Applications/` |
 
 ---
 
