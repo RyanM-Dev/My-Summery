@@ -78,7 +78,7 @@ Be aware these exist. They are good follow-up exercises:
 | Security and performance mistakes | 17 findings, ranked, each with evidence, fix and check | ✅ Security is strong. Performance is a single snapshot (see above). |
 | Topics to learn, at his level | A 10-note path that builds on the Nana notes, plus "after this path" | ✅ Matches the course level; it doesn't jump to Kubernetes. |
 | Obsidian references | Notes in the vault style (emojis, Mermaid, `[!answer]-` Q&A), linked from the Nana table of contents | 🟡 The notes are **longer** than the Nana prompt prefers ("shorter prose, compact exercises"). The concept notes could be trimmed after Ryan reads them. |
-| Use and reference the books | Chapter and page references in every note, plus a book table | ✅ Verified as above. The CompTIA file can't be linked (newline in its filename). |
+| Use and reference the books | Chapter and page references in every note, plus a book table | ✅ Verified as above. The CompTIA file was renamed (its name had line breaks) and is now linked. |
 | Plan, progress, critical self-check | This folder | ✅ |
 
 ---

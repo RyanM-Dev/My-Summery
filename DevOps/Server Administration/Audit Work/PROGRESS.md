@@ -87,3 +87,9 @@ See [[DevOps/Server Administration/Audit Work/PLAN|PLAN]] for the steps.
     - All book page numbers come from the tables of contents. 15 of them were spot-checked against the page bodies.
     - The link checker passes. The one broken link is **pre-existing** in the Nana TOC: `DevOps/NaNa/Linux/Bash Scripting/0. Bash Scripting Learning Path` does not exist.
 - 🏁 **Done.** Ryan's next step: read the audit, then follow its Safe Fix Order, starting with SSH.
+
+## 🔁 Follow-up, 2026-11-11
+
+- 🔒 Replaced the server IP, hostname, real domains, provider name and key comments with placeholders (`SERVER_IP`, `example.com`, `example.net`), because the vault is public. The same domain replacement was done in the older Nana notes.
+- 📘 Renamed the CompTIA 6th-edition PDF to `CompTIA Linux+ and LPIC-1 Guide to Linux Certification 6th ed - Eckert.pdf` (its old name had line breaks). It is now linked from the learning path's book table.
+- 🚀 Reframed the audit and learning path: the server is dev/test, not production, and findings are graded against a production standard on purpose. Added `12. Production Readiness Checklist`.
