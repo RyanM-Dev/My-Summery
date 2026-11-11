@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/Server Administration/0. Server Administration Learning Path.md",
+                "file": "DevOps/Server Administration/2. SSH Hardening and Brute Force.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0. Server Administration Learning Path"
+              "title": "2. SSH Hardening and Brute Force"
             }
           }
         ]
@@ -184,6 +184,8 @@
   },
   "active": "69c84256314e5905",
   "lastOpenFiles": [
+    "DevOps/Server Administration/12. Production Readiness Checklist.md",
+    "DevOps/Server Administration/0. Server Administration Learning Path.md",
     "DevOps/NaNa/Linux/sedjDTXhj",
     "DevOps/NaNa/Artifact Management/Gitea/sedx06Gzk",
     "Brokers/MQTT/HiveMQ 3.1.1/10. Keep Alive & Client Takeover.md",
@@ -192,7 +194,6 @@
     "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.8fb9518216a7",
     "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.5351e3b5aa26",
     "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.bad11e931b21",
-    "DevOps/Server Administration/0. Server Administration Learning Path.md",
     "DevOps/Server Administration/0. Server Administration Learning Path.md.tmp.370589.1e8df57986ea",
     "DevOps/Server Administration/11. Monitoring and Health Checks.md",
     "DevOps/Server Administration/10. TLS HTTPS and Reverse Proxy Exposure.md",
@@ -211,7 +212,6 @@
     "DevOps/Server Administration/Audit Work/RAW EVIDENCE.md",
     "DevOps/Server Administration/Audit Work/PROGRESS.md",
     "DevOps/Server Administration/Audit Work/PLAN.md",
-    "DevOps/Server Administration/Audit Work",
     "Brokers/MQTT/HiveMQ 3.1.1/9. MQTT Last Will and Testament.md",
     "Brokers/MQTT/basics.md",
     "DevOps/NaNa/Ci-CD/Jenkins/8. Shared Library.md",
