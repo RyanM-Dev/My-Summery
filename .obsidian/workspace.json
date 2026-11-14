@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/Server Administration/2. SSH Hardening and Brute Force.md",
+                "file": "DevOps/Server Administration/3. Firewalls and Docker Port Publishing.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. SSH Hardening and Brute Force"
+              "title": "3. Firewalls and Docker Port Publishing"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 260.5,
-    "collapsed": true
+    "width": 260.5
   },
   "right": {
     "id": "84fc2847d2834f40",
@@ -167,7 +166,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,44 +182,44 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "69c84256314e5905",
+  "active": "5ae70b2711f667de",
   "lastOpenFiles": [
-    "DevOps/Server Administration/12. Production Readiness Checklist.md",
+    "DevOps/NaNa/0. Nana DevOps Table of Contents.md.tmp.70880.94f45eed7fb8",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.7292640f2899",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.5a6a8b6f4f3a",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.666754570d50",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.9881019c8885",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.3e91ce6ae135",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.3bffb4cea656",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.cd6639654069",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.eb1a438faaa7",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.145a33a5f8c8",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md.tmp.70880.c478b88aebe6",
+    "DevOps/NaNa/Docker/9. Docker Networking.md",
+    "DevOps/NaNa/Linux/8. systemd and Services.md",
     "DevOps/Server Administration/0. Server Administration Learning Path.md",
-    "DevOps/NaNa/Linux/sedjDTXhj",
-    "DevOps/NaNa/Artifact Management/Gitea/sedx06Gzk",
-    "Brokers/MQTT/HiveMQ 3.1.1/10. Keep Alive & Client Takeover.md",
-    "DevOps/Server Administration/Audit Work/REVIEW.md",
-    "DevOps/Server Administration/2. SSH Hardening and Brute Force.md.tmp.370589.e04abb9987f5",
-    "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.8fb9518216a7",
-    "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.5351e3b5aa26",
-    "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.bad11e931b21",
-    "DevOps/Server Administration/0. Server Administration Learning Path.md.tmp.370589.1e8df57986ea",
-    "DevOps/Server Administration/11. Monitoring and Health Checks.md",
-    "DevOps/Server Administration/10. TLS HTTPS and Reverse Proxy Exposure.md",
-    "DevOps/Server Administration/9. Secrets and File Permissions.md",
-    "DevOps/Server Administration/8. Backups and Restore.md",
-    "DevOps/Server Administration/7. Logs and Disk Space.md",
-    "DevOps/Server Administration/6. Memory Swap and Resource Limits.md",
-    "DevOps/Server Administration/5. Patching Reboots and Kernel Updates.md",
-    "DevOps/Server Administration/5. Patching Reboots and Kernel Updates.md.tmp.370589.78d02a51d9a5",
-    "DevOps/Server Administration/4. Docker Daemon and Container Hardening.md",
-    "DevOps/Server Administration/4. Docker Daemon and Container Hardening.md.tmp.370589.2c68621c9a6b",
-    "DevOps/Server Administration/3. Firewalls and Docker Port Publishing.md",
-    "DevOps/Server Administration/2. SSH Hardening and Brute Force.md",
     "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md",
-    "DevOps/Server Administration/1. Develop Server Audit 2026-11-11.md.tmp.370589.fc4aaab3014a",
+    "DevOps/Server Administration/Audit Work/REVIEW.md",
     "DevOps/Server Administration/Audit Work/RAW EVIDENCE.md",
     "DevOps/Server Administration/Audit Work/PROGRESS.md",
     "DevOps/Server Administration/Audit Work/PLAN.md",
-    "Brokers/MQTT/HiveMQ 3.1.1/9. MQTT Last Will and Testament.md",
-    "Brokers/MQTT/basics.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/8. Shared Library.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/8.OLD-notes - Shared Library.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/7. Credentials in Jenkins.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/7.OLD-notes - Credentials in Jenkins.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/6. Multibranch Pipeline.md",
-    "DevOps/NaNa/Ci-CD/Jenkins/6.Multibranch Pipeline.md",
+    "DevOps/Server Administration/2. SSH Hardening and Brute Force.md",
+    "DevOps/NaNa/Linux/4. Users and Groups.md",
+    "DevOps/NaNa/Linux/7.OLD-notes - Server Configuration.md",
+    "DevOps/NaNa/Linux/3.OLD-notes - Environment Variables.md",
+    "DevOps/NaNa/Linux/5. Ownership and Permissions.md",
+    "DevOps/NaNa/Linux/6. Networking Fundamentals.md",
+    "DevOps/NaNa/Linux/7. Server Configuration.md",
+    "DevOps/NaNa/Linux/2. Vim Cheat Sheet.md",
+    "DevOps/NaNa/Linux/1. Linux Pipes, `grep`, `less`, and Output Redirection.md",
+    "DevOps/NaNa/Linux/0. Linux Learning Path.md",
+    "DevOps/NaNa/AI Prompt - NANA DevOps.md",
+    "DevOps/NaNa/Ci-CD/Jenkins/1. Workflow for AI Coding.md",
+    "DevOps/NaNa/Ci-CD/Jenkins/5. Create Complete Pipeline.md",
+    "DevOps/NaNa/Ci-CD/Jenkins/5.OLD-notes - Create Complete Pipeline.md",
+    "DevOps/NaNa/Git NANA/3. Git Branches and Team Workflow.md",
+    "DevOps/Server Administration/3. Firewalls and Docker Port Publishing.md",
+    "DevOps/Server Administration/12. Production Readiness Checklist.md",
     "Search Engines/Meilisearch/photo/vogli3.png",
     "Search Engines/Meilisearch/photo/new road.png",
     "Search Engines/Meilisearch/photo/belgium.png",

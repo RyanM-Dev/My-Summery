@@ -93,3 +93,10 @@ See [[DevOps/Server Administration/Audit Work/PLAN|PLAN]] for the steps.
 - 🔒 Replaced the server IP, hostname, real domains, provider name and key comments with placeholders (`SERVER_IP`, `example.com`, `example.net`), because the vault is public. The same domain replacement was done in the older Nana notes.
 - 📘 Renamed the CompTIA 6th-edition PDF to `CompTIA Linux+ and LPIC-1 Guide to Linux Certification 6th ed - Eckert.pdf` (its old name had line breaks). It is now linked from the learning path's book table.
 - 🚀 Reframed the audit and learning path: the server is dev/test, not production, and findings are graded against a production standard on purpose. Added `12. Production Readiness Checklist`.
+
+## 📖 Ryan's reading and fix progress
+
+- **2026-11-12:**
+    - 📍 Reading: [[DevOps/Server Administration/3. Firewalls and Docker Port Publishing|3. Firewalls and Docker Port Publishing]]. Resume at fix 3, **🔗 `DOCKER-USER` chain (host-level rules for containers)**.
+    - ✅ Notes `1.` and `2.` are read.
+    - 🔧 Applied: the NPM admin port in Compose is now `127.0.0.1:81:81` (fix 2 in note `3.`). Applied with `docker compose up -d`, because `docker compose restart` keeps the old port binding.
