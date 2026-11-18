@@ -3,5 +3,6 @@
   "enabledCssSnippets": [
     "wider-width"
   ],
-  "baseFontSize": 19
+  "baseFontSize": 19,
+  "showRibbon": true
 }

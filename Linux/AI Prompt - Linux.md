@@ -5,7 +5,9 @@
 
 > **Purpose:** Generic Linux / shell / sysadmin study guides. Append AFTER [[00 - General Study Guide Prompt]].
 >
-> **Studying *The Software Developer's Guide to Linux*?** Use [[Linux/The Software Developer’s Guide to Linux/AI Prompt - linux beginner]] instead — SDGL primary, Linux Bible + CompTIA for comparison. Pair with [[AI Prompt/00 - General Study Guide Prompt]] first.
+> **Unified notes:** every studied Linux concept is merged into [[Linux/Linux Handbook/0. Linux Handbook|the Linux Handbook]]. After writing any Linux note, also follow [[Linux/Linux Handbook/AI Prompt - Linux Handbook|AI Prompt - Linux Handbook]].
+>
+> **Studying *The Software Developer's Guide to Linux*?** Use [[Linux/The Software Developer’s Guide to Linux/AI Prompt - SDGL]] (study process) and [[Linux/The Software Developer’s Guide to Linux/AI Prompt - linux beginner]] (Nana-style chapter notes) instead. They replace this prompt and the general prompt for that folder.
 
 ---
 
